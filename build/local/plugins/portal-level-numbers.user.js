@@ -2,11 +2,11 @@
 // @id             iitc-plugin-portal-level-numbers@rongou
 // @name           IITC plugin: Portal Level Numbers
 // @category       Layer
-// @version        0.1.5.20151008.110033
+// @version        0.1.5.20151008.134855
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
-// @updateURL      none
-// @downloadURL    none
-// @description    [local-2015-10-08-110033] Show portal level numbers on map.
+// @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/portal-level-numbers.meta.js
+// @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/portal-level-numbers.user.js
+// @description    [local-2015-10-08-134855] Show portal level numbers on map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'local';
-plugin_info.dateTimeVersion = '20151008.110033';
+plugin_info.dateTimeVersion = '20151008.134855';
 plugin_info.pluginId = 'portal-level-numbers';
 //END PLUGIN AUTHORS NOTE
 
@@ -38,7 +38,7 @@ plugin_info.pluginId = 'portal-level-numbers';
 window.plugin.portalLevelNumbers = function() {
 };
 
-window.plugin.portalLevelNumbers.ICON_SIZE = 12;
+window.plugin.portalLevelNumbers.ICON_SIZE = 18; //iF:Fix icon location
 window.plugin.portalLevelNumbers.MOBILE_SCALE = 1.5;
 
 window.plugin.portalLevelNumbers.levelLayers = {};
@@ -185,7 +185,7 @@ var setup = function() {
   window.plugin.portalLevelNumbers.setupCSS();
 
   window.plugin.portalLevelNumbers.levelLayerGroup = new L.LayerGroup();
-  window.addLayerGroup('Portal Levels', window.plugin.portalLevelNumbers.levelLayerGroup, true);
+  window.addLayerGroup('門泉等級', window.plugin.portalLevelNumbers.levelLayerGroup, true);
 
   window.addHook('requestFinished', function() { setTimeout(function(){window.plugin.portalLevelNumbers.delayedUpdatePortalLabels(3.0);},1); });
   window.addHook('mapDataRefreshEnd', function() { window.plugin.portalLevelNumbers.delayedUpdatePortalLabels(0.5); });

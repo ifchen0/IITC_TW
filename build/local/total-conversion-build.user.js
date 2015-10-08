@@ -1,11 +1,11 @@
 // ==UserScript==
 // @id             ingress-intel-total-conversion@jonatkins
 // @name           IITC: Ingress intel map total conversion
-// @version        0.25.2.20151008.110033
+// @version        0.25.2.20151008.134855
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
-// @updateURL      none
-// @downloadURL    none
-// @description    [local-2015-10-08-110033] Total conversion for the ingress intel map.
+// @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/total-conversion-build.meta.js
+// @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/total-conversion-build.user.js
+// @description    [local-2015-10-08-134855] Total conversion for the ingress intel map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -21,7 +21,7 @@
 // REPLACE ORIG SITE ///////////////////////////////////////////////////
 if(document.getElementsByTagName('html')[0].getAttribute('itemscope') != null)
   throw('Ingress Intel Website is down, not a userscript issue.');
-window.iitcBuildDate = '2015-10-08-110033';
+window.iitcBuildDate = '2015-10-08-134855';
 
 // disable vanilla JS
 window.onload = function() {};
@@ -1259,7 +1259,7 @@ function boot() {
   if(!isSmartphone()) // TODO remove completely?
     window.debug.console.overwriteNativeIfRequired();
 
-  console.log('loading done, booting. Built: 2015-10-08-110033');
+  console.log('loading done, booting. Built: 2015-10-08-134855');
   if(window.deviceID) console.log('Your device ID: ' + window.deviceID);
   window.runOnSmartphonesBeforeBoot();
 
@@ -17901,7 +17901,7 @@ L.Draggable.prototype._onDown = function(e) {
 
 // inject code into site context
 var script = document.createElement('script');
-var info = { buildName: 'local', dateTimeVersion: '20151008.110033' };
+var info = { buildName: 'local', dateTimeVersion: '20151008.134855' };
 if (this.GM_info && this.GM_info.script) info.script = { version: GM_info.script.version, name: GM_info.script.name, description: GM_info.script.description };
 script.appendChild(document.createTextNode('('+ wrapper +')('+JSON.stringify(info)+');'));
 (document.body || document.head || document.documentElement).appendChild(script);

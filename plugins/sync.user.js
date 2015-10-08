@@ -706,7 +706,7 @@ window.plugin.sync.toggleDialogLink = function() {
 }
 
 window.plugin.sync.showDialog = function() {
-  window.dialog({html: plugin.sync.dialogHTML, title: 'Sync', modal: true, id: 'sync-setting'});
+  window.dialog({html: plugin.sync.dialogHTML, title: '同步', modal: true, id: 'sync-setting'});
   plugin.sync.toggleAuthButton();
   plugin.sync.toggleDialogLink();
   plugin.sync.updateLog(plugin.sync.logger.getLogs());
@@ -719,7 +719,7 @@ window.plugin.sync.setupDialog = function() {
                          + 'disabled="disabled">Authorize</button>'
                          + '<div id="sync-log"></div>'
                          + '</div>';
-  $('#toolbox').append('<a id="sync-show-dialog" onclick="window.plugin.sync.showDialog();">Sync</a> ');
+  $('#toolbox').append('<a id="sync-show-dialog" onclick="window.plugin.sync.showDialog();">同步</a> ');
 }
 
 window.plugin.sync.setupCSS = function() {

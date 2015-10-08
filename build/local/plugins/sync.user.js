@@ -2,11 +2,11 @@
 // @id             iitc-plugin-sync@xelio
 // @name           IITC plugin: Sync
 // @category       Misc
-// @version        0.2.3.20151008.110033
+// @version        0.2.3.20151008.134855
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
-// @updateURL      none
-// @downloadURL    none
-// @description    [local-2015-10-08-110033] Sync data between clients via Google Realtime API. Only syncs data from specific plugins (currently: Keys, Bookmarks). Sign in via the 'Sync' link.
+// @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/sync.meta.js
+// @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/sync.user.js
+// @description    [local-2015-10-08-134855] Sync data between clients via Google Realtime API. Only syncs data from specific plugins (currently: Keys, Bookmarks). Sign in via the 'Sync' link.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'local';
-plugin_info.dateTimeVersion = '20151008.110033';
+plugin_info.dateTimeVersion = '20151008.134855';
 plugin_info.pluginId = 'sync';
 //END PLUGIN AUTHORS NOTE
 
@@ -718,7 +718,7 @@ window.plugin.sync.toggleDialogLink = function() {
 }
 
 window.plugin.sync.showDialog = function() {
-  window.dialog({html: plugin.sync.dialogHTML, title: 'Sync', modal: true, id: 'sync-setting'});
+  window.dialog({html: plugin.sync.dialogHTML, title: '同步', modal: true, id: 'sync-setting'});
   plugin.sync.toggleAuthButton();
   plugin.sync.toggleDialogLink();
   plugin.sync.updateLog(plugin.sync.logger.getLogs());
@@ -731,7 +731,7 @@ window.plugin.sync.setupDialog = function() {
                          + 'disabled="disabled">Authorize</button>'
                          + '<div id="sync-log"></div>'
                          + '</div>';
-  $('#toolbox').append('<a id="sync-show-dialog" onclick="window.plugin.sync.showDialog();">Sync</a> ');
+  $('#toolbox').append('<a id="sync-show-dialog" onclick="window.plugin.sync.showDialog();">同步</a> ');
 }
 
 window.plugin.sync.setupCSS = function() {

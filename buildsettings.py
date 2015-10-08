@@ -14,8 +14,8 @@ buildSettings = {
     # local: use this build if you're not modifying external resources
     # no external resources allowed - they're not needed any more
     'local': {
-        'resourceUrlBase': None,
-        'distUrlBase': None,
+        'resourceUrlBase': 'https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local',
+        'distUrlBase': 'https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local',
     },
 
     # local8000: if you need to modify external resources, this build will load them from
@@ -30,8 +30,8 @@ buildSettings = {
     # mobile: default entry that also builds the mobile .apk
     # you will need to have the android-sdk installed, and the file mobile/local.properties created as required
     'mobile': {
-        'resourceUrlBase': None,
-        'distUrlBase': None,
+        'resourceUrlBase': 'https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile',
+        'distUrlBase': 'https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile',
         'buildMobile': 'debug',
     },
 
@@ -39,10 +39,10 @@ buildSettings = {
     # if you want to publish your own fork of the project, and host it on your own web site
     # create a localbuildsettings.py file containing something similar to this
     # note: Firefox+Greasemonkey require the distUrlBase to be "https" - they won't check for updates on regular "http" URLs
-    #'example': {
-    #    'resourceBaseUrl': 'http://www.example.com/iitc/dist',
-    #    'distUrlBase': 'https://secure.example.com/iitc/dist',
-    #},
+    'Release': {
+        'resourceBaseUrl': 'https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release',
+        'distUrlBase': 'https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release',
+    },
 
 
 }

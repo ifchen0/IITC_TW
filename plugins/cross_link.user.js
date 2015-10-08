@@ -265,7 +265,7 @@ window.plugin.crossLinks.testForDeletedLinks = function () {
 window.plugin.crossLinks.createLayer = function() {
     window.plugin.crossLinks.linkLayer = new L.FeatureGroup();
     window.plugin.crossLinks.linkLayerGuids={};
-    window.addLayerGroup('Cross Links', window.plugin.crossLinks.linkLayer, true);
+    window.addLayerGroup('交叉連線', window.plugin.crossLinks.linkLayer, true);
 
     map.on('layeradd', function(obj) {
       if(obj.layer === window.plugin.crossLinks.linkLayer) {
@@ -289,7 +289,7 @@ window.plugin.crossLinks.createLayer = function() {
 
 var setup = function() {
     if (window.plugin.drawTools === undefined) {
-       alert("'Cross-Links' requires 'draw-tools'");
+       alert("'Cross-Links' 需安裝 'draw-tools'");
        return;
     }
 

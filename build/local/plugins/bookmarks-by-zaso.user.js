@@ -2,11 +2,11 @@
 // @id             iitc-plugin-bookmarks@ZasoGD
 // @name           IITC plugin: Bookmarks for maps and portals
 // @category       Controls
-// @version        0.2.12.20151008.110033
+// @version        0.2.12.20151008.134855
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
-// @updateURL      none
-// @downloadURL    none
-// @description    [local-2015-10-08-110033] Save your favorite Maps and Portals and move the intel map with a click. Works with sync.
+// @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/bookmarks-by-zaso.meta.js
+// @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/bookmarks-by-zaso.user.js
+// @description    [local-2015-10-08-134855] Save your favorite Maps and Portals and move the intel map with a click. Works with sync.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'local';
-plugin_info.dateTimeVersion = '20151008.110033';
+plugin_info.dateTimeVersion = '20151008.134855';
 plugin_info.pluginId = 'bookmarks-by-zaso';
 //END PLUGIN AUTHORS NOTE
 
@@ -234,7 +234,7 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
       var active = '';
 
       // Create a label and a anchor for the sortable
-      var folderDelete = '<span class="folderLabel"><a class="bookmarksRemoveFrom" onclick="window.plugin.bookmarks.removeElement(this, \'folder\');return false;" title="Remove this folder">X</a>';
+      var folderDelete = '<span class="folderLabel"><a class="bookmarksRemoveFrom" onclick="window.plugin.bookmarks.removeElement(this, \'folder\');return false;" title="刪除這個資料夾">X</a>';
       var folderName = '<a class="bookmarksAnchor" onclick="window.plugin.bookmarks.openFolder(this);return false"><span></span>'+folders['label']+'</a></span>';//<span><span></span></span>';
       var folderLabel = folderDelete+folderName;
 
@@ -413,7 +413,7 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
       window.plugin.bookmarks.bkmrksObj['maps'][plugin.bookmarks.KEY_OTHER_BKMRK]['bkmrk'][ID] = {"label":label,"latlng":latlng,"z":zoom};
     }
     else{
-      if(label === '') { label = 'Folder'; }
+      if(label === '') { label = '資料夾'; }
       var short_type = typeList.replace('bkmrk_', '');
       // Add new folder in the localStorage
       window.plugin.bookmarks.bkmrksObj[short_type][ID] = {"label":label,"state":1,"bkmrk":{}};
@@ -640,7 +640,7 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
     dialog({
       html: plugin.bookmarks.htmlSetbox,
       dialogClass: 'ui-dialog-bkmrksSet',
-      title: 'Bookmarks Options'
+      title: '書籤選項'
     });
 
     window.runHooks('pluginBkmrksOpenOpt');
@@ -656,9 +656,9 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
       return android.shareString(localStorage[window.plugin.bookmarks.KEY_STORAGE]);
     } else {
       dialog({
-        html: '<p><a onclick="$(\'.ui-dialog-bkmrksSet-copy textarea\').select();">Select all</a> and press CTRL+C to copy it.</p><textarea readonly>'+localStorage[window.plugin.bookmarks.KEY_STORAGE]+'</textarea>',
+        html: '<p><a onclick="$(\'.ui-dialog-bkmrksSet-copy textarea\').select();">全選</a>並按 CTRL+C 來複製.</p><textarea readonly>'+localStorage[window.plugin.bookmarks.KEY_STORAGE]+'</textarea>',
         dialogClass: 'ui-dialog-bkmrksSet-copy',
-        title: 'Bookmarks Export'
+        title: '匯出書籤'
       });
     }
   }
@@ -670,7 +670,7 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
   }
 
   window.plugin.bookmarks.optPaste = function() {
-    var promptAction = prompt('Press CTRL+V to paste it.', '');
+    var promptAction = prompt('按 CTRL+V 貼', '');
     if(promptAction !== null && promptAction !== '') {
       try {
         JSON.parse(promptAction); // try to parse JSON first
@@ -678,10 +678,10 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
         window.plugin.bookmarks.refreshBkmrks();
         window.runHooks('pluginBkmrksEdit', {"target": "all", "action": "import"});
         console.log('BOOKMARKS: reset and imported bookmarks');
-        window.plugin.bookmarks.optAlert('Successful. ');
+        window.plugin.bookmarks.optAlert('成功. ');
       } catch(e) {
         console.warn('BOOKMARKS: failed to import data: '+e);
-        window.plugin.bookmarks.optAlert('<span style="color: #f88">Import failed </span>');
+        window.plugin.bookmarks.optAlert('<span style="color: #f88">匯入失敗 </span>');
       }
     }
   }
@@ -695,16 +695,16 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
         window.plugin.bookmarks.refreshBkmrks();
         window.runHooks('pluginBkmrksEdit', {"target": "all", "action": "import"});
         console.log('BOOKMARKS: reset and imported bookmarks');
-        window.plugin.bookmarks.optAlert('Successful. ');
+        window.plugin.bookmarks.optAlert('成功. ');
       } catch(e) {
         console.warn('BOOKMARKS: failed to import data: '+e);
-        window.plugin.bookmarks.optAlert('<span style="color: #f88">Import failed </span>');
+        window.plugin.bookmarks.optAlert('<span style="color: #f88">匯入失敗 </span>');
       }
     });
   }
 
   window.plugin.bookmarks.optReset = function() {
-    var promptAction = confirm('All bookmarks will be deleted. Are you sure?', '');
+    var promptAction = confirm('所有書籤將會被移除. 你確定嗎?', '');
     if(promptAction) {
       delete localStorage[window.plugin.bookmarks.KEY_STORAGE];
       window.plugin.bookmarks.createStorage();
@@ -712,7 +712,7 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
       window.plugin.bookmarks.refreshBkmrks();
       window.runHooks('pluginBkmrksEdit', {"target": "all", "action": "reset"});
       console.log('BOOKMARKS: reset all bookmarks');
-      window.plugin.bookmarks.optAlert('Successful. ');
+      window.plugin.bookmarks.optAlert('成功. ');
     }
   }
 
@@ -724,7 +724,7 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
           var boxY = parseInt($('#bookmarksBox').css('left'));
           window.plugin.bookmarks.statusBox.pos = {x:boxX, y:boxY};
           window.plugin.bookmarks.saveStorageBox();
-          window.plugin.bookmarks.optAlert('Position acquired. ');
+          window.plugin.bookmarks.optAlert('已取得定位. ');
           break;
         case 'reset':
           $('#bookmarksBox').css({'top':100, 'left':100});
@@ -732,7 +732,7 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
           break;
       }
     } else {
-      window.plugin.bookmarks.optAlert('Only IITC desktop. ');
+      window.plugin.bookmarks.optAlert('僅供IITC桌面版使用. ');
     }
   }
 
@@ -778,7 +778,7 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
     var type = $(elem).data('type');
     var idFold = $(elem).data('id');
 
-    var promptAction = prompt('Insert a new name.', '');
+    var promptAction = prompt('輸入一個新的名稱.', '');
     if(promptAction !== null && promptAction !== '') {
       try {
         var newName = window.plugin.bookmarks.escapeHtml(promptAction);
@@ -790,10 +790,10 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
         window.runHooks('pluginBkmrksEdit', {"target": "all", "action": "import"});
 
         console.log('BOOKMARKS: renamed bookmarks folder');
-        window.plugin.bookmarks.optAlert('Successful. ');
+        window.plugin.bookmarks.optAlert('成功. ');
       } catch(e) {
         console.warn('BOOKMARKS: failed to rename folder: '+e);
-        window.plugin.bookmarks.optAlert('<span style="color: #f88">Rename failed </span>');
+        window.plugin.bookmarks.optAlert('<span style="color: #f88">重新命名失敗 </span>');
         return;
       }
     }
@@ -803,7 +803,7 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
     dialog({
       html: window.plugin.bookmarks.dialogLoadListFolders('bookmarksDialogRenameF', 'window.plugin.bookmarks.renameFolder', false, 0),
       dialogClass: 'ui-dialog-bkmrksSet-copy',
-      title: 'Bookmarks Rename Folder'
+      title: '重新命名資料夾'
     });
   }
 
@@ -814,12 +814,12 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
     dialog({
       html:window.plugin.bookmarks.dialogLoadList,
       dialogClass:'ui-dialog-autodrawer',
-      title:'Bookmarks - Auto Draw',
+      title:'書籤 - 自動繪圖',
       buttons:{
-        'DRAW': function() {
+        '繪製': function() {
           window.plugin.bookmarks.draw(0);
         },
-        'DRAW&VIEW': function() {
+        '繪製並顯示': function() {
           window.plugin.bookmarks.draw(1);
         }
       }
@@ -876,19 +876,19 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
       latlngs[i] = tt;
     });
 
-    var text = "You must select 2 or 3 portals!";
+    var text = "你必須選擇 2 或 3 個門泉書籤!";
     var color = "red";
 
     function formatDistance(distance) {
-      var text = digits(distance > 10000 ? (distance/1000).toFixed(2) + "km" : (Math.round(distance) + "m"));
+      var text = digits(distance > 10000 ? (distance/1000).toFixed(2) + "公里" : (Math.round(distance) + "公尺"));
       return distance >= 200000
-        ? '<em title="Long distance link" class="help longdistance">'+text+'</em>'
+        ? '<em title="遠距離連線" class="help longdistance">'+text+'</em>'
         : text;
     }
 
     if(latlngs.length == 2) {
       var distance = L.latLng(latlngs[0]).distanceTo(latlngs[1]);
-      text = 'Distance between portals: ' + formatDistance(distance);
+      text = '門泉之間的距離: ' + formatDistance(distance);
       color = "";
     } else if(latlngs.length == 3) {
       var longdistance = false;
@@ -896,7 +896,7 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
         var ll2 = latlngs[(i+1)%3];
         return formatDistance(L.latLng(ll1).distanceTo(ll2));
       });
-      text = 'Distances: ' + distances.join(", ");
+      text = '距離: ' + distances.join(", ");
       color = "";
     }
 
@@ -952,8 +952,8 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
       r = '<div id="bkmrksAutoDrawer">'
         + '<label style="margin-bottom: 9px; display: block;">'
         + '<input style="vertical-align: middle;" type="checkbox" id="bkmrkClearSelection" checked>'
-        + ' Clear selection after drawing</label>'
-        + '<p style="margin-bottom:9px;color:red">You must select 2 or 3 portals!</p>'
+        + ' 繪圖後清除選取的書籤</label>'
+        + '<p style="margin-bottom:9px;color:red">您必須選擇 2 或 3 個門泉書籤!</p>'
         + '<div onclick="window.plugin.bookmarks.autoDrawOnSelect();return false;">'
         + element
         + '</div>'
@@ -1058,12 +1058,14 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
   window.plugin.bookmarks.highlight = function(data) {
     var guid = data.portal.options.ent[0];
     if(window.plugin.bookmarks.findByGuid(guid)) {
-      data.portal.setStyle({fillColor:'red'});
+      // iF: change color to yellow and add opacity to 0.8
+      data.portal.setStyle({fillColor:'yellow'});
+      data.portal.setStyle({fillOpacity:0.8});
     }
   }
 
   window.plugin.bookmarks.highlightRefresh = function(data) {
-    if(_current_highlighter === 'Bookmarked Portals') {
+    if(_current_highlighter === '門泉書籤') {
       if(data.action === 'sync' || data.target === 'portal' || (data.target === 'folder' && data.action === 'remove') || (data.target === 'all' && data.action === 'import') || (data.target === 'all' && data.action === 'reset')) {
         window.resetHighlightedPortals();
       }
@@ -1099,9 +1101,9 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
     var star = L.marker(latlng, {
       title: lbl,
       icon: L.icon({
-        iconUrl: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAoCAMAAACo9wirAAAAzFBMVEXbuTR9YwDd0T+ulyry2VDt53/s5Jv34a+tmUbJtGRtVwAtJADg14j304viyIZeSwDXyH5IOQD07JLPvnhqVQBuWACmkjpgTQBxWwC4p1WchikRDQCPdxeBaAQTDwADAgAOCwAAAAAAAAAAAAALCQAAAAAAAAAAAAD9+Jb97IT+3VT9+WH+0i3993D+80793Yr/yXL+5Tr+6XL+zEP/z2X+vSX+zB/+52L/qw393SX89xr9+yv/siP/vUf9+Dv+20P+rgH+xQv+vgH+twNAe/b8AAAAKHRSTlPywvLj+vn4/OLrqFb0/PSS8Hb77meB4FGX5t1A2dUkEy8HDQoaAwEAoclaPQAAAo1JREFUeF5VkeeyozAMRrPphdwkdIxpBu7SSe/llvd/p5VxlMx+PxiMzhxJuPX3mc/PzzgIQwYJwyCGoyggwMuRav6BmKrLGgQBrBvUkuQkkSWLGh5DooX1UNWlXplDyp6kq5EXCqL1qlu9srpfIPeq7FmaIBCIA9WScyjznC/3XOZEEAsABIFBoH6GUrt9v5zPQEAXFoCiAWLPkUqon+8lIbl4kRwfmggABFZSXXh9PhbopUos1fWCBoAJnT4MCMMlZLHQE/Hed/wIFA3gkiSvqjLtK45tO/N+WlZVnhA7YgKAFZK83dGJM5v4rmFSonfaeWotoEcDhJqSVl06W0A5gviTGelWqTJzvZADcWjO11XVIzPbjzzGPFfT4bxWTD8SAANgtTrIQ8eF3QPmDOXDarWej/mUL+C0SgfU91gcR3TAj42BNQDMAMDpwBfzwjCi/cMJgNFMGGBIY5g+AACnrWl+NJay0+mRDhcAiDVdKsOnzJqZRFGoZo74SaYTXDPwzPnhUTw6dCSnaT2inUdRHD7GNgIxM/QUvrW6WfZ4ZFm3VRSiA4sFEEaOlBX7oij2EP4ssqlj413wHqq13uy/X9lvYAcbb5P3cGmd7b9/nvneZzWdNB0EAApN2RZvoNjCvfKb4IBQ+LTe7H5+RXabmjwFCISw6Xb3i8D2oxEgwMdkBgHF7xeEC/SF34yIAN90/LHdHb94QCB2REBsauj17cqB660eogAB8bOE4vgUsBiBt2J6ux6P19v0OQECb8V8y4G34D+AKwgoQEBQgMBLYSrL222pjHEFBN4KOl0up/wWUIAA/k5tNBg014gCBPB3+s5g0EwYYB2Bl8KyND9CAQJvgnmq6kYeXxHzDyATueNnvZcYAAAAAElFTkSuQmCC',
-        iconAnchor: [15,40],
-        iconSize: [30,40]
+        iconUrl: 'data:image/png;base64,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',
+        iconAnchor: [16,28],
+        iconSize: [32,32]
       })
     });
     window.registerMarkerForOMS(star);
@@ -1192,53 +1194,53 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
   }
 
   window.plugin.bookmarks.setupContent = function() {
-    plugin.bookmarks.htmlBoxTrigger = '<a id="bkmrksTrigger" class="open" onclick="window.plugin.bookmarks.switchStatusBkmrksBox(\'switch\');return false;" accesskey="v" title="[v]">[-] Bookmarks</a>';
+    plugin.bookmarks.htmlBoxTrigger = '<a id="bkmrksTrigger" class="open" onclick="window.plugin.bookmarks.switchStatusBkmrksBox(\'switch\');return false;" accesskey="v" title="顯示書籤視窗 [v]">[-] Bookmarks</a>';
     plugin.bookmarks.htmlBkmrksBox = '<div id="bookmarksBox">'
                           +'<div id="topBar">'
-                            +'<a id="bookmarksMin" class="btn" onclick="window.plugin.bookmarks.switchStatusBkmrksBox(0);return false;" title="Minimize">-</a>'
+                            +'<a id="bookmarksMin" class="btn" onclick="window.plugin.bookmarks.switchStatusBkmrksBox(0);return false;" title="最小化 [v]">-</a>'
                             +'<div class="handle">...</div>'
-                            +'<a id="bookmarksDel" class="btn" onclick="window.plugin.bookmarks.deleteMode();return false;" title="Show/Hide \'X\' button">Show/Hide "X" button</a>'
+                            +'<a id="bookmarksDel" class="btn" onclick="window.plugin.bookmarks.deleteMode();return false;" title="顯示/隱藏 \'X\' 按鈕">顯示/隱藏 "X" 按鈕</a>'
                           +'</div>'
                           +'<div id="bookmarksTypeBar">'
-                            +'<h5 class="bkmrk_maps current" onclick="window.plugin.bookmarks.switchPageBkmrksBox(this, 0);return false">Maps</h5>'
-                            +'<h5 class="bkmrk_portals" onclick="window.plugin.bookmarks.switchPageBkmrksBox(this, 1);return false">Portals</h5>'
+                            +'<h5 class="bkmrk_maps current" onclick="window.plugin.bookmarks.switchPageBkmrksBox(this, 0);return false">地圖</h5>'
+                            +'<h5 class="bkmrk_portals" onclick="window.plugin.bookmarks.switchPageBkmrksBox(this, 1);return false">門泉</h5>'
                             +'<div style="clear:both !important;"></div>'
                           +'</div>'
                           +'<div id="bkmrk_maps" class="bookmarkList current">'
                             +'<div class="addForm">'
-                              +'<input placeholder="Insert label" />'
-                              +'<a class="newMap" onclick="window.plugin.bookmarks.addElement(this, \'map\');return false;">+ Map</a>'
-                              +'<a class="newFolder" onclick="window.plugin.bookmarks.addElement(this, \'folder\');return false;">+ Folder</a>'
+                              +'<input placeholder="輸入標籤名稱" />'
+                              +'<a class="newMap" onclick="window.plugin.bookmarks.addElement(this, \'map\');return false;">+ 地圖</a>'
+                              +'<a class="newFolder" onclick="window.plugin.bookmarks.addElement(this, \'folder\');return false;">+ 資料夾</a>'
                             +'</div>'
                           +'</div>'
                           +'<div id="bkmrk_portals" class="bookmarkList">'
                             +'<div class="addForm">'
-                              +'<input placeholder="Insert label" />'
-                              +'<a class="newFolder" onclick="window.plugin.bookmarks.addElement(this, \'folder\');return false;">+ Folder</a>'
+                              +'<input placeholder="輸入標籤名稱" />'
+                              +'<a class="newFolder" onclick="window.plugin.bookmarks.addElement(this, \'folder\');return false;">+ 資料夾</a>'
                             +'</div>'
                           +'</div>'
                           +'<div style="border-bottom-width:1px;"></div>'
                         +'</div>';
 
     plugin.bookmarks.htmlDisabledMessage = '<div title="Your browser do not support localStorage">Plugin Bookmarks disabled*.</div>';
-    plugin.bookmarks.htmlStar = '<a class="bkmrksStar" accesskey="b" onclick="window.plugin.bookmarks.switchStarPortal();return false;" title="Save this portal in your bookmarks [b]"><span></span></a>';
-    plugin.bookmarks.htmlCalldrawBox = '<a onclick="window.plugin.bookmarks.dialogDrawer();return false;" accesskey="q" title="Draw lines/triangles between bookmarked portals [q]">Auto draw</a>';
-    plugin.bookmarks.htmlCallSetBox = '<a onclick="window.plugin.bookmarks.manualOpt();return false;">Bookmarks Opt</a>';
-    plugin.bookmarks.htmlMoveBtn = '<a id="bookmarksMove" class="btn" onclick="window.plugin.bookmarks.moveMode();return false;">Show/Hide "Move" button</a>'
+    plugin.bookmarks.htmlStar = '<a class="bkmrksStar" accesskey="b" onclick="window.plugin.bookmarks.switchStarPortal();return false;" title="將這個門泉加入書籤 [b]"><span></span></a>';
+    plugin.bookmarks.htmlCalldrawBox = '<a onclick="window.plugin.bookmarks.dialogDrawer();return false;" accesskey="q" title="在標記的門泉上自動產生 連線/三角形 [q]">自動繪圖</a>';
+    plugin.bookmarks.htmlCallSetBox = '<a onclick="window.plugin.bookmarks.manualOpt();return false;">書籤選項</a>';
+    plugin.bookmarks.htmlMoveBtn = '<a id="bookmarksMove" class="btn" onclick="window.plugin.bookmarks.moveMode();return false;">顯示/隱藏 "移動" 按鈕</a>'
 
     var actions = '';
-    actions += '<a onclick="window.plugin.bookmarks.optReset();return false;">Reset bookmarks</a>';
-    actions += '<a onclick="window.plugin.bookmarks.optCopy();return false;">Copy bookmarks</a>';
-    actions += '<a onclick="window.plugin.bookmarks.optPaste();return false;">Paste bookmarks</a>';
+    actions += '<a onclick="window.plugin.bookmarks.optReset();return false;">重置書籤</a>';
+    actions += '<a onclick="window.plugin.bookmarks.optCopy();return false;">複製書籤</a>';
+    actions += '<a onclick="window.plugin.bookmarks.optPaste();return false;">貼上書籤</a>';
 
     if(plugin.bookmarks.isAndroid()) {
-      actions += '<a onclick="window.plugin.bookmarks.optImport();return false;">Import bookmarks</a>';
-      actions += '<a onclick="window.plugin.bookmarks.optExport();return false;">Export bookmarks</a>';
+      actions += '<a onclick="window.plugin.bookmarks.optImport();return false;">匯入書籤</a>';
+      actions += '<a onclick="window.plugin.bookmarks.optExport();return false;">匯出書籤</a>';
     }
-    actions += '<a onclick="window.plugin.bookmarks.optRenameF();return false;">Rename Folder</a>'
+    actions += '<a onclick="window.plugin.bookmarks.optRenameF();return false;">重新命名資料夾</a>'
     if(!plugin.bookmarks.isAndroid()) {
-      actions += '<a onclick="window.plugin.bookmarks.optBox(\'save\');return false;">Save box position</a>';
-      actions += '<a onclick="window.plugin.bookmarks.optBox(\'reset\');return false;">Reset box position</a>';
+      actions += '<a onclick="window.plugin.bookmarks.optBox(\'save\');return false;">儲存小視窗位置</a>';
+      actions += '<a onclick="window.plugin.bookmarks.optBox(\'reset\');return false;">重置小視窗位置</a>';
     }
     plugin.bookmarks.htmlSetbox = '<div id="bkmrksSetbox">' + actions + '</div>';
   }
@@ -1302,11 +1304,11 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
     // Highlighter - bookmarked portals
     window.addHook('pluginBkmrksEdit', window.plugin.bookmarks.highlightRefresh);
     window.addHook('pluginBkmrksSyncEnd', window.plugin.bookmarks.highlightRefresh);
-    window.addPortalHighlighter('Bookmarked Portals', window.plugin.bookmarks.highlight);
+    window.addPortalHighlighter('門泉書籤', window.plugin.bookmarks.highlight);
 
     // Layer - Bookmarked portals
     window.plugin.bookmarks.starLayerGroup = new L.LayerGroup();
-    window.addLayerGroup('Bookmarked Portals', window.plugin.bookmarks.starLayerGroup, false);
+    window.addLayerGroup('門泉書籤', window.plugin.bookmarks.starLayerGroup, false);
     window.plugin.bookmarks.addAllStars();
     window.addHook('pluginBkmrksEdit', window.plugin.bookmarks.editStar);
     window.addHook('pluginBkmrksSyncEnd', window.plugin.bookmarks.resetAllStars);

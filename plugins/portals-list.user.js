@@ -54,7 +54,7 @@ window.plugin.portalslist.filter = 0;
 
 window.plugin.portalslist.fields = [
   {
-    title: "Portal Name",
+    title: "名稱",
     value: function(portal) { return portal.options.data.title; },
     sortValue: function(value, portal) { return value.toLowerCase(); },
     format: function(cell, portal, value) {
@@ -64,7 +64,7 @@ window.plugin.portalslist.fields = [
     }
   },
   {
-    title: "Level",
+    title: "等級",
     value: function(portal) { return portal.options.data.level; },
     format: function(cell, portal, value) {
       $(cell)
@@ -74,14 +74,14 @@ window.plugin.portalslist.fields = [
     defaultOrder: -1,
   },
   {
-    title: "Team",
+    title: "陣營",
     value: function(portal) { return portal.options.team; },
     format: function(cell, portal, value) {
-      $(cell).text(['NEU', 'RES', 'ENL'][value]);
+      $(cell).text(['中立', '藍軍', '綠軍'][value]);
     }
   },
   {
-    title: "Health",
+    title: "能量",
     value: function(portal) { return portal.options.data.health; },
     sortValue: function(value, portal) { return portal.options.team===TEAM_NONE ? -1 : value; },
     format: function(cell, portal, value) {
@@ -92,7 +92,7 @@ window.plugin.portalslist.fields = [
     defaultOrder: -1,
   },
   {
-    title: "Res",
+    title: "振盪器",
     value: function(portal) { return portal.options.data.resCount; },
     format: function(cell, portal, value) {
       $(cell)
@@ -102,20 +102,20 @@ window.plugin.portalslist.fields = [
     defaultOrder: -1,
   },
   {
-    title: "Links",
+    title: "連線",
     value: function(portal) { return window.getPortalLinks(portal.options.guid); },
     sortValue: function(value, portal) { return value.in.length + value.out.length; },
     format: function(cell, portal, value) {
       $(cell)
         .addClass("alignR")
         .addClass('help')
-        .attr('title', 'In:\t' + value.in.length + '\nOut:\t' + value.out.length)
+        .attr('title', '入:\t' + value.in.length + '\n出:\t' + value.out.length)
         .text(value.in.length+value.out.length);
     },
     defaultOrder: -1,
   },
   {
-    title: "Fields",
+    title: "控制場",
     value: function(portal) { return getPortalFieldsCount(portal.options.guid) },
     format: function(cell, portal, value) {
       $(cell)
@@ -135,13 +135,13 @@ window.plugin.portalslist.fields = [
     format: function(cell, portal, value) {
       var title = '';
       if (teamStringToId(PLAYER.team) == portal.options.team) {
-        title += 'Friendly AP:\t'+value.friendlyAp+'\n'
-               + '- deploy '+(8-portal.options.data.resCount)+' resonator(s)\n'
-               + '- upgrades/mods unknown\n';
+        title += '友軍 AP:\t'+value.friendlyAp+'\n'
+               + '- 佈署 '+(8-portal.options.data.resCount)+' 震盪器\n'
+               + '- 升級/模組 未知\n';
       }
-      title += 'Enemy AP:\t'+value.enemyAp+'\n'
-             + '- Destroy AP:\t'+value.destroyAp+'\n'
-             + '- Capture AP:\t'+value.captureAp;
+      title += '敵方 AP:\t'+value.enemyAp+'\n'
+             + '- 摧毀 AP:\t'+value.destroyAp+'\n'
+             + '- 佔領 AP:\t'+value.captureAp;
 
       $(cell)
         .addClass("alignR")
@@ -212,7 +212,7 @@ window.plugin.portalslist.getPortals = function() {
 window.plugin.portalslist.displayPL = function() {
   var list;
   // plugins (e.g. bookmarks) can insert fields before the standard ones - so we need to search for the 'level' column
-  window.plugin.portalslist.sortBy = window.plugin.portalslist.fields.map(function(f){return f.title;}).indexOf('Level');
+  window.plugin.portalslist.sortBy = window.plugin.portalslist.fields.map(function(f){return f.title;}).indexOf('等級');
   window.plugin.portalslist.sortOrder = -1;
   window.plugin.portalslist.enlP = 0;
   window.plugin.portalslist.resP = 0;
@@ -222,7 +222,7 @@ window.plugin.portalslist.displayPL = function() {
   if (window.plugin.portalslist.getPortals()) {
     list = window.plugin.portalslist.portalTable(window.plugin.portalslist.sortBy, window.plugin.portalslist.sortOrder,window.plugin.portalslist.filter);
   } else {
-    list = $('<table class="noPortals"><tr><td>Nothing to show!</td></tr></table>');
+    list = $('<table class="noPortals"><tr><td>沒有任何東西可以顯示!</td></tr></table>');
   };
 
   if(window.useAndroidPanes()) {
@@ -231,7 +231,7 @@ window.plugin.portalslist.displayPL = function() {
     dialog({
       html: $('<div id="portalslist">').append(list),
       dialogClass: 'ui-dialog-portalslist',
-      title: 'Portal list: ' + window.plugin.portalslist.listPortals.length + ' ' + (window.plugin.portalslist.listPortals.length == 1 ? 'portal' : 'portals'),
+      title: '門泉清單: ' + window.plugin.portalslist.listPortals.length + '個門泉',
       id: 'portal-list',
       width: 700
     });
@@ -283,11 +283,11 @@ window.plugin.portalslist.portalTable = function(sortBy, sortOrder, filter) {
 
   var length = window.plugin.portalslist.listPortals.length;
 
-  ["All", "Neutral", "Resistance", "Enlightened"].forEach(function(label, i) {
+  ["All 全部", "Neu 中立", "Res 藍軍", "Enl 綠軍"].forEach(function(label, i) {
     cell = row.appendChild(document.createElement('th'));
     cell.className = 'filter' + label.substr(0, 3);
     cell.textContent = label+':';
-    cell.title = 'Show only portals of this color';
+    cell.title = '只顯示這個顏色的門泉';
     $(cell).click(function() {
       $('#portalslist').empty().append(window.plugin.portalslist.portalTable(sortBy, sortOrder, i));
     });
@@ -295,7 +295,7 @@ window.plugin.portalslist.portalTable = function(sortBy, sortOrder, filter) {
 
     cell = row.insertCell(-1);
     cell.className = 'filter' + label.substr(0, 3);
-    if(i != 0) cell.title = 'Hide portals of this color';
+    if(i != 0) cell.title = '只隱藏這個顏色的門泉';
     $(cell).click(function() {
       $('#portalslist').empty().append(window.plugin.portalslist.portalTable(sortBy, sortOrder, -i));
     });
@@ -356,8 +356,8 @@ window.plugin.portalslist.portalTable = function(sortBy, sortOrder, filter) {
     table.appendChild(row);
   });
 
-  container.append('<div class="disclaimer">Click on portals table headers to sort by that column. '
-    + 'Click on <b>All, Neutral, Resistance, Enlightened</b> to only show portals owner by that faction or on the number behind the factions to show all but those portals.</div>');
+  container.append('<div class="disclaimer">點選表格上方將欄位分類. '
+    + '點選 <b>全部, 中立, 藍軍, 綠軍</b> 標籤來篩選這些分類，或者點選標籤右邊的數字來隱藏分類</div>');
 
   return container;
 }
@@ -398,7 +398,7 @@ var setup =  function() {
     android.addPane("plugin-portalslist", "Portals list", "ic_action_paste");
     addHook("paneChanged", window.plugin.portalslist.onPaneChanged);
   } else {
-    $('#toolbox').append('<a onclick="window.plugin.portalslist.displayPL()" title="Display a list of portals in the current view [t]" accesskey="t">Portals list</a>');
+    $('#toolbox').append('<a onclick="window.plugin.portalslist.displayPL()" title="顯示目前畫面中的門泉清單 [t]" accesskey="t">門泉清單</a>');
   }
 
   $("<style>")

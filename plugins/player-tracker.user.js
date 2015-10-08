@@ -21,7 +21,8 @@
 @@PLUGINSTART@@
 
 // PLUGIN START ////////////////////////////////////////////////////////
-window.PLAYER_TRACKER_MAX_TIME = 3*60*60*1000; // in milliseconds
+//iF: change 3 hour to 10 minute, no need to track such a long time.
+window.PLAYER_TRACKER_MAX_TIME = 30*60*1000; // in milliseconds
 window.PLAYER_TRACKER_MIN_ZOOM = 9;
 window.PLAYER_TRACKER_MIN_OPACITY = 0.3;
 window.PLAYER_TRACKER_LINE_COLOUR = '#FF00FD';
@@ -51,11 +52,11 @@ window.plugin.playerTracker.setup = function() {
   plugin.playerTracker.drawnTracesRes = new L.LayerGroup();
   // to avoid any favouritism, we'll put the player's own faction layer first
   if (PLAYER.team == 'RESISTANCE') {
-    window.addLayerGroup('Player Tracker Resistance', plugin.playerTracker.drawnTracesRes, true);
-    window.addLayerGroup('Player Tracker Enlightened', plugin.playerTracker.drawnTracesEnl, true);
+    window.addLayerGroup('藍軍探員', plugin.playerTracker.drawnTracesRes, true);
+    window.addLayerGroup('綠軍探員', plugin.playerTracker.drawnTracesEnl, true);
   } else {
-    window.addLayerGroup('Player Tracker Enlightened', plugin.playerTracker.drawnTracesEnl, true);
-    window.addLayerGroup('Player Tracker Resistance', plugin.playerTracker.drawnTracesRes, true);
+    window.addLayerGroup('綠軍探員', plugin.playerTracker.drawnTracesEnl, true);
+    window.addLayerGroup('藍軍探員', plugin.playerTracker.drawnTracesRes, true);
   }
   map.on('layeradd',function(obj) {
     if(obj.layer === plugin.playerTracker.drawnTracesEnl || obj.layer === plugin.playerTracker.drawnTracesRes) {
@@ -266,9 +267,9 @@ window.plugin.playerTracker.ago = function(time, now) {
   var s = (now-time) / 1000;
   var h = Math.floor(s / 3600);
   var m = Math.floor((s % 3600) / 60);
-  var returnVal = m + 'm';
+  var returnVal = m + '分鐘';
   if(h > 0) {
-    returnVal = h + 'h' + returnVal;
+    returnVal = h + '小時' + returnVal;
   }
   return returnVal;
 }
@@ -308,7 +309,8 @@ window.plugin.playerTracker.drawData = function() {
     var ago = plugin.playerTracker.ago;
 
     // tooltip for marker - no HTML - and not shown on touchscreen devices
-    var tooltip = isTouchDev ? '' : (playerData.nick+', '+ago(last.time, now)+' ago');
+	//iF:Remove 0min
+    var tooltip = (isTouchDev || ago(last.time, now)=='0分鐘') ? '' : (playerData.nick+', '+ago(last.time, now)+'前');
 
     // popup for marker
     var popup = $('<div>')
@@ -337,17 +339,20 @@ window.plugin.playerTracker.drawData = function() {
 
       var playerLevelDetails = window.plugin.guessPlayerLevels.fetchLevelDetailsByPlayer(plrname);
       level
-        .text('Min level ')
+        .text('最低等級 ')
         .append(getLevel(playerLevelDetails.min));
       if(playerLevelDetails.min != playerLevelDetails.guessed)
         level
-          .append(document.createTextNode(', guessed level: '))
+          .append(document.createTextNode(', 預測等級: '))
           .append(getLevel(playerLevelDetails.guessed));
     }
-
+    //iF: Hide 0min
+    if(ago(last.time, now)!='0分鐘'){
     popup
       .append('<br>')
       .append(document.createTextNode(ago(last.time, now)))
+    }
+    popup
       .append('<br>')
       .append(plugin.playerTracker.getPortalLink(last));
 
@@ -356,7 +361,7 @@ window.plugin.playerTracker.drawData = function() {
       popup
         .append('<br>')
         .append('<br>')
-        .append(document.createTextNode('previous locations:'))
+        .append(document.createTextNode('之前的位置:'))
         .append('<br>');
 
       var table = $('<table>')
@@ -366,7 +371,7 @@ window.plugin.playerTracker.drawData = function() {
         var ev = playerData.events[i];
         $('<tr>')
           .append($('<td>')
-            .text(ago(ev.time, now) + ' ago'))
+            .text(ago(ev.time, now) + '前'))
           .append($('<td>')
             .append(plugin.playerTracker.getPortalLink(ev)))
           .appendTo(table);
@@ -423,11 +428,11 @@ window.plugin.playerTracker.drawData = function() {
     if(polyLine.length === 0) return true;
 
     var opts = {
-      weight: 2-0.25*i,
-      color: PLAYER_TRACKER_LINE_COLOUR,
+      weight: 1.5,
+      color: '#FFDC03',
       clickable: false,
       opacity: 1-0.2*i,
-      dashArray: "5,8"
+      dashArray: "1,3"
     };
 
     $.each(polyLine,function(ind,poly) {
@@ -438,11 +443,11 @@ window.plugin.playerTracker.drawData = function() {
     if(polyLine.length === 0) return true;
 
     var opts = {
-      weight: 2-0.25*i,
-      color: PLAYER_TRACKER_LINE_COLOUR,
+      weight: 1.5,
+      color: '#FF88FF',
       clickable: false,
       opacity: 1-0.2*i,
-      dashArray: "5,8"
+      dashArray: "1,3"
     };
 
     $.each(polyLine, function(ind,poly) {

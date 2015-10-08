@@ -1,12 +1,12 @@
-﻿// ==UserScript==
+// ==UserScript==
 // @id             iitc-plugin-missions@jonatkins
 // @name           IITC plugin: Missions
 // @category       Info
-// @version        0.1.2.20151008.110033
+// @version        0.1.2.20151008.134855
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
-// @updateURL      none
-// @downloadURL    none
-// @description    [local-2015-10-08-110033] View missions. Marking progress on waypoints/missions basis. Showing mission paths on the map.
+// @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/missions.meta.js
+// @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/missions.user.js
+// @description    [local-2015-10-08-134855] View missions. Marking progress on waypoints/missions basis. Showing mission paths on the map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'local';
-plugin_info.dateTimeVersion = '20151008.110033';
+plugin_info.dateTimeVersion = '20151008.134855';
 plugin_info.pluginId = 'missions';
 //END PLUGIN AUTHORS NOTE
 
@@ -43,7 +43,7 @@ var decodeWaypoint = function(data) {
 		typeNum: data[3],
 		type: [null, 'Portal', 'Field Trip'][data[3]],
 		objectiveNum: data[4],
-		objective: [null, 'Hack this Portal', 'Capture or Upgrade Portal', 'Create Link from Portal', 'Create Field from Portal', 'Install a Mod on this Portal', 'Take a Photo', 'View this Field Trip Waypoint', 'Enter the Passphrase'][data[4]],
+		objective: [null, '入侵這個門泉', '佔領或升級這個門泉', '從這個門泉發射連線', '從這個門泉建立控制場', '安裝一個模組到這個門泉', '拍一張圖片', '查看該控制場的旅航點', '輸入密碼'][data[4]],
 	};
 	if (result.typeNum === 1 && data[5]) {
 		result.portal = window.decodeArray.portalSummary(data[5]);
@@ -64,7 +64,7 @@ var decodeMission = function(data) {
 		medianCompletionTimeMs: data[6],
 		numUniqueCompletedPlayers: data[7],
 		typeNum: data[8],
-		type: [null, 'Sequential', 'Non Sequential', 'Hidden'][data[8]],
+		type: [null, '依照順序', '不用依照順序', '隱藏'][data[8]],
 		waypoints: data[9].map(decodeWaypoint),
 		image: data[10]
 	};
@@ -160,7 +160,7 @@ window.plugin.missions = {
 			this.tabMarkers[id] = markers;
 			
 			var button = content.insertBefore(document.createElement('button'), content.lastChild);
-			button.textContent = 'Zoom to mission';
+			button.textContent = '顯示任務點';
 			button.addEventListener('click', function() {
 				me.zoomToMission(mission);
 				show('map');
@@ -212,7 +212,7 @@ window.plugin.missions = {
 					me.highlightMissionLayers(markers);
 				}
 			}).dialog('option', 'buttons', {
-				'Zoom to mission': function() {
+				'顯示任務點': function() {
 					me.zoomToMission(mission);
 				},
 				'確定': function() { $(this).dialog('close'); },
@@ -228,7 +228,7 @@ window.plugin.missions = {
 			collapseCallback: this.collapseFix,
 			expandCallback: this.collapseFix,
 		}).dialog('option', 'buttons', {
-			'Create new mission': function() { open('//mission-author-dot-betaspike.appspot.com'); },
+			'建立新的任務': function() { open('//mission-author-dot-betaspike.appspot.com'); },
 			'確定': function() { $(this).dialog('close'); },
 		});
 	},
@@ -408,7 +408,7 @@ window.plugin.missions = {
 				
 				var infoLength = container.appendChild(document.createElement('span'));
 				infoLength.className = 'plugin-mission-info length help';
-				infoLength.title = 'Length of this mission.\n\nNOTE: The actual distance required to cover may vary depending on several factors!';
+				infoLength.title = '任務路線距離.\n\n注意: 實際距離可能因現實環境而改變!';
 				infoLength.textContent = len;
 				img = infoLength.insertBefore(document.createElement('img'), infoLength.firstChild);
 				img.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASAQMAAABsABwUAAAABlBMVEUAAACy+/gnk9HpAAAAAXRSTlMAQObYZgAAABVJREFUCNdjYEADB9Dg//8QjA7RAAB2VBF9TkATUAAAAABJRU5ErkJggg==';
@@ -429,14 +429,14 @@ window.plugin.missions = {
 		
 		var infoTime = container.appendChild(document.createElement('span'));
 		infoTime.className = 'plugin-mission-info time help';
-		infoTime.title = 'Typical duration';
+		infoTime.title = '花費時間';
 		infoTime.textContent = timeToRemaining((mission.medianCompletionTimeMs / 1000) | 0) + ' ';
 		img = infoTime.insertBefore(document.createElement('img'), infoTime.firstChild);
 		img.src = 'https://commondatastorage.googleapis.com/ingress.com/img/tm_icons/time.png';
 		
 		var infoRating = container.appendChild(document.createElement('span'));
 		infoRating.className = 'plugin-mission-info rating help';
-		infoRating.title = 'Average rating';
+		infoRating.title = '評分';
 		infoRating.textContent = (((mission.ratingE6 / 100) | 0) / 100) + '%' + ' ';
 		img = infoRating.insertBefore(document.createElement('img'), infoRating.firstChild);
 		img.src = 'https://commondatastorage.googleapis.com/ingress.com/img/tm_icons/like.png';
@@ -444,15 +444,15 @@ window.plugin.missions = {
 		if (cachedMission) {
 			var infoPlayers = container.appendChild(document.createElement('span'));
 			infoPlayers.className = 'plugin-mission-info players help';
-			infoPlayers.title = 'Unique players who have completed this mission';
+			infoPlayers.title = '完成任務的探員';
 			infoPlayers.textContent = cachedMission.numUniqueCompletedPlayers + ' ';
 			img = infoPlayers.insertBefore(document.createElement('img'), infoPlayers.firstChild);
 			img.src = 'https://commondatastorage.googleapis.com/ingress.com/img/tm_icons/players.png';
 			
 			var infoWaypoints = container.appendChild(document.createElement('span'));
 			infoWaypoints.className = 'plugin-mission-info waypoints help';
-			infoWaypoints.title = (cachedMission.type ? cachedMission.type + ' mission' : 'Unknown mission type')
-			                    + ' with ' + cachedMission.waypoints.length + ' waypoints';
+			infoWaypoints.title = (cachedMission.type ? cachedMission.type + ' 的任務' : '未知任務類型')
+			                    + ' - ' + cachedMission.waypoints.length + ' 航點';
 			infoWaypoints.textContent = cachedMission.waypoints.length + ' ';
 			img = infoWaypoints.insertBefore(document.createElement('img'), infoWaypoints.firstChild);
 			img.src = this.missionTypeImages[cachedMission.typeNum] || this.missionTypeImages[0];
@@ -588,7 +588,7 @@ window.plugin.missions = {
 		var container = document.createElement('div');
 		container.className = 'plugin-mission-portal-indicator help ' + team;
 		container.textContent = level;
-		container.title = 'Level:\t'+level+'\nResonators:\t'+resCount+'\nHealth:\t'+portal.health+'%';
+		container.title = '等級:\t'+level+'\n共振器:\t'+resCount+'\n能量:\t'+portal.health+'%';
 		
 		for(var i = 0; i< resCount; i++) {
 			var resonator = container.appendChild(document.createElement('div'));
@@ -1018,7 +1018,7 @@ window.plugin.missions = {
 		this.loadData();
 
 		$('<style>').prop('type', 'text/css').html('.plugin-mission-pane {\n	background: transparent;\n	border: 0 none !important;\n	height: 100% !important;\n	width: 100% !important;\n	left: 0 !important;\n	top: 0 !important;\n	position: absolute;\n	overflow: auto;\n}\n.plugin-mission-pane > button {\n	padding: 0.3em 2em;\n}\n\n.plugin-mission-summary {\n	padding: 5px;\n	border-top: black solid 1px;\n	min-height: 50px;\n	position: relative;\n	clear: left;\n}\n.plugin-mission-summary.checked::after {\n	content: "✓";\n	display: block;\n	pointer-events: none;\n	position: absolute;\n	text-align: center;\n	color: rgba(255, 187, 0, 0.3);\n	left: 5px;\n	top: 5px;\n	font-size: 50px;\n	line-height: 50px;\n	width: 50px;\n}\n.plugin-mission-summary:first-child {\n	border-top-width: 0px;\n}\n\n.plugin-mission-summary.checked {\n	background-color: rgba(255, 187, 0, 0.3);\n}\n\n.plugin-mission-summary > img {\n	float: left;\n	cursor: pointer;\n	width: 50px;\n	margin-right: 10px;\n	margin-bottom: 5px;\n}\n\n.plugin-mission-summary > a {\n	display: block;\n	font-weight: bold;\n	font-size: 1.3em;\n	margin: 0 0 2px 60px;\n}\n\n.plugin-mission-summary > br {\n	margin-bottom: 2px;\n}\n\n.plugin-mission-summary > .nickname {\n	display: inline-block;\n	box-sizing: border-box;\n	min-width: 8em; /* to align with time */\n	padding-right: 0.2em;\n}\n\n.plugin-mission-info .portal-distance-bearing {\n	font-size: 14px;\n	margin-right: 8px;\n	color: #b2fbff;\n}\n\n.plugin-mission-info {\n	display: inline-block;\n}\n.plugin-mission-info.length   { min-width: 6em; }\n.plugin-mission-info.distance { min-width: 6em; }\n.plugin-mission-info.time     { min-width: 8em; }\n.plugin-mission-info.rating   { min-width: 6em; }\n.plugin-mission-info.players  { min-width: 4em; }\n.plugin-mission-info.type     { min-width: 4em; }\n\n.plugin-mission-info img {\n	height: 14px;\n	margin-right: 8px;\n	vertical-align: top;\n}\n.plugin-mission-info.players img {\n	padding: 0 3px; /* the icon is 12x18 */\n}\n\n.plugin-mission-details .plugin-mission-summary > a,\n.plugin-mission-details .plugin-mission-summary .description {\n	white-space: pre-line;\n	margin-left: 110px;\n}\n\n.plugin-mission-details .plugin-mission-summary.checked::after {\n	left: 0px;\n	top: 0px;\n	font-size: 100px;\n	line-height: 100px;\n	width: 100px;\n}\n\n.plugin-mission-details .plugin-mission-summary {\n	padding: 0;\n	background-color: transparent;\n}\n\n.plugin-mission-details .plugin-mission-summary > img {\n	width: 100px;\n}\n\n.plugin-mission-details ol {\n	clear: left;\n	list-style: none;\n	margin: 10px 0 0;\n	padding: 0;\n}\n\n.plugin-mission-portal-indicator {\n	position: relative;\n	text-align: center;\n	float: left;\n	line-height: 18px;\n	height: 18px;\n	width: 18px;\n	margin-right: 5px;\n}\n\n.plugin-mission-portal-indicator div {\n	border-color: currentcolor transparent transparent;\n	border-style: solid;\n	border-width: 2px 1px;\n	box-sizing: border-box;\n	height: 0;\n	left: 6px;\n	position: absolute;\n	top: 0;\n	/* Firefox supports transform* without vendor prefix, but Android does not yet */\n	transform-origin: 4px 9px 0;\n	-webkit-transform-origin: 4px 9px 0;\n	width: 8px;\n}\n\n.plugin-mission-waypoint.unavailable {\n	text-decoration: line-through;\n}\n.plugin-mission-waypoint .title {\n	font-size: 18px;\n	font-weight: bold;\n}\n.plugin-mission-waypoint label {\n	clear: left;\n	display: block;\n}\n.plugin-mission-waypoint input {\n	box-sizing: border-box;\n	margin: 3px 5px 8px 0;\n	width: 18px;\n}\n\n.plugin-mission-search-result-desc {\n	display: block;\n	max-height: 2em;\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n}\n\n').appendTo('head');
-		$('#toolbox').append('<a tabindex="0" onclick="plugin.missions.openTopMissions();">Missions in view</a>');
+		$('#toolbox').append('<a tabindex="0" onclick="plugin.missions.openTopMissions();">任務列表</a>');
 
 		if(window.useAndroidPanes()) {
 			this.mobilePane = document.createElement('div');
@@ -1086,8 +1086,8 @@ window.plugin.missions = {
 		this.missionStartLayer = new L.LayerGroup();
 		this.missionLayer = new L.LayerGroup();
 
-		window.addLayerGroup('Mission start portals', this.missionStartLayer, false);
-		window.addLayerGroup('Mission portals', this.missionLayer, true);
+		window.addLayerGroup('任務起點', this.missionStartLayer, false);
+		window.addLayerGroup('任務門泉', this.missionLayer, true);
 
 		window.pluginCreateHook('plugin-missions-loaded-mission');
 		window.pluginCreateHook('plugin-missions-on-portal-loaded');

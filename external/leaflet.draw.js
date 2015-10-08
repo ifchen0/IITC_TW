@@ -17,51 +17,51 @@ L.drawLocal = {
 	draw: {
 		toolbar: {
 			actions: {
-				title: 'Cancel drawing',
-				text: 'Cancel'
+				title: '取消繪圖',
+				text: '取消'
 			},
 			buttons: {
-				polyline: 'Draw a polyline',
-				polygon: 'Draw a polygon',
-				rectangle: 'Draw a rectangle',
-				circle: 'Draw a circle',
-				marker: 'Draw a marker'
+				polyline: '畫一條直線',
+				polygon: '畫一個多邊形',
+				rectangle: '畫一個矩形',
+				circle: '畫一個圓圈',
+				marker: '放置標記'
 			}
 		},
 		handlers: {
 			circle: {
 				tooltip: {
-					start: 'Click and drag to draw circle.'
+					start: '單擊並拖動繪製圓形.'
 				}
 			},
 			marker: {
 				tooltip: {
-					start: 'Click map to place marker.'
+					start: '點擊地圖上放置標記.'
 				}
 			},
 			polygon: {
 				tooltip: {
-					start: 'Click to start drawing shape.',
-					cont: 'Click to continue drawing shape.',
-					end: 'Click first point to close this shape.'
+					start: '點擊開始畫多邊形.',
+					cont: '點擊繼續畫多邊形.',
+					end: '點擊起點完成這個多邊形.'
 				}
 			},
 			polyline: {
-				error: '<strong>Error:</strong> shape edges cannot cross!',
+				error: '<strong>錯誤:</strong> 不能跨越多邊形的邊緣!',
 				tooltip: {
-					start: 'Click to start drawing line.',
-					cont: 'Click to continue drawing line.',
-					end: 'Click last point to finish line.'
+					start: '點擊開始畫線.',
+					cont: '點擊繼續畫線.',
+					end: '點擊最後一個點結束畫線.'
 				}
 			},
 			rectangle: {
 				tooltip: {
-					start: 'Click and drag to draw rectangle.'
+					start: '拖動繪製矩形.'
 				}
 			},
 			simpleshape: {
 				tooltip: {
-					end: 'Release mouse to finish drawing.'
+					end: '放開游標完成繪圖.'
 				}
 			}
 		}
@@ -70,29 +70,29 @@ L.drawLocal = {
 		toolbar: {
 			actions: {
 				save: {
-					title: 'Save changes.',
-					text: 'Save'
+					title: '保存變更.',
+					text: '保存'
 				},
 				cancel: {
-					title: 'Cancel editing, discards all changes.',
-					text: 'Cancel'
+					title: '取消編輯，放棄所有更改.',
+					text: '取消'
 				}
 			},
 			buttons: {
-				edit: 'Edit layers',
-				remove: 'Delete layers'
+				edit: '編輯圖層',
+				remove: '刪除圖層'
 			}
 		},
 		handlers: {
 			edit: {
 				tooltip: {
-					text: 'Drag handles, or marker to edit feature.',
-					subtext: 'Click cancel to undo changes.'
+					text: '拖動錨點或標記來編輯物件.',
+					subtext: '點擊取消放棄更改.'
 				}
 			},
 			remove: {
 				tooltip: {
-					text: 'Click on a feature to remove'
+					text: '點擊一個物件刪除.'
 				}
 			}
 		}

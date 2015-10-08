@@ -1,4 +1,4 @@
-﻿// ==UserScript==
+// ==UserScript==
 // @id             iitc-plugin-zaprange@zaso
 // @name           IITC plugin: Zaprange
 // @category       Layer
@@ -56,7 +56,13 @@
       var coo = d._latlng;
       var latlng = new L.LatLng(coo.lat,coo.lng);
       var portalLevel = d.options.level;
-      var optCircle = {color:'red',opacity:0.7,fillColor:'red',fillOpacity:0.1,weight:1,clickable:false, dashArray: [10,6]};
+      //iF: Add different color for each team
+      if(faction === TEAM_ENL) {
+        var optCircle = {color:'#03DC03',opacity:0.7,fillColor:'#03DC03',fillOpacity:0.1,weight:1,clickable:false, dashArray: [10,6]};
+      } else {
+        var optCircle = {color:'#0088FF',opacity:0.7,fillColor:'#0088FF',fillOpacity:0.1,weight:1,clickable:false, dashArray: [10,6]};
+      }
+      //iF:End
       var range = (5*portalLevel)+35;
 
       var circle = new L.Circle(latlng, range, optCircle);
@@ -75,21 +81,21 @@
       // show the layer
       if(!window.plugin.zaprange.zapLayerEnlHolderGroup.hasLayer(window.plugin.zaprange.zapCircleEnlHolderGroup)) {
         window.plugin.zaprange.zapLayerEnlHolderGroup.addLayer(window.plugin.zaprange.zapCircleEnlHolderGroup);
-        $('.leaflet-control-layers-list span:contains("Zaprange Enlightened")').parent('label').removeClass('disabled').attr('title', '');
+        $('.leaflet-control-layers-list span:contains("綠軍門泉射程")').parent('label').removeClass('disabled').attr('title', '');
       }
       if(!window.plugin.zaprange.zapLayerResHolderGroup.hasLayer(window.plugin.zaprange.zapCircleResHolderGroup)) {
         window.plugin.zaprange.zapLayerResHolderGroup.addLayer(window.plugin.zaprange.zapCircleResHolderGroup);
-        $('.leaflet-control-layers-list span:contains("Zaprange Resistance")').parent('label').removeClass('disabled').attr('title', '');
+        $('.leaflet-control-layers-list span:contains("藍軍門泉射程")').parent('label').removeClass('disabled').attr('title', '');
       }
     } else {
       // hide the layer
       if(window.plugin.zaprange.zapLayerEnlHolderGroup.hasLayer(window.plugin.zaprange.zapCircleEnlHolderGroup)) {
         window.plugin.zaprange.zapLayerEnlHolderGroup.removeLayer(window.plugin.zaprange.zapCircleEnlHolderGroup);
-        $('.leaflet-control-layers-list span:contains("Zaprange Enlightened")').parent('label').addClass('disabled').attr('title', '將地圖放大來顯示這個項目.');
+        $('.leaflet-control-layers-list span:contains("綠軍門泉射程")').parent('label').addClass('disabled').attr('title', '將地圖放大來顯示這個項目.');
       }
       if(window.plugin.zaprange.zapLayerResHolderGroup.hasLayer(window.plugin.zaprange.zapCircleResHolderGroup)) {
         window.plugin.zaprange.zapLayerResHolderGroup.removeLayer(window.plugin.zaprange.zapCircleResHolderGroup);
-        $('.leaflet-control-layers-list span:contains("Zaprange Resistance")').parent('label').addClass('disabled').attr('title', '將地圖放大來顯示這個項目.');
+        $('.leaflet-control-layers-list span:contains("藍軍門泉射程")').parent('label').addClass('disabled').attr('title', '將地圖放大來顯示這個項目.');
       }
     }
   }
@@ -108,11 +114,11 @@
 
     // to avoid any favouritism, we'll put the player's own faction layer first
     if (PLAYER.team == 'RESISTANCE') {
-      window.addLayerGroup('Zaprange Resistance', window.plugin.zaprange.zapLayerResHolderGroup, true);
-      window.addLayerGroup('Zaprange Enlightened', window.plugin.zaprange.zapLayerEnlHolderGroup, true);
+      window.addLayerGroup('藍軍門泉射程', window.plugin.zaprange.zapLayerResHolderGroup, true);
+      window.addLayerGroup('綠軍門泉射程', window.plugin.zaprange.zapLayerEnlHolderGroup, true);
     } else {
-      window.addLayerGroup('Zaprange Enlightened', window.plugin.zaprange.zapLayerEnlHolderGroup, true);
-      window.addLayerGroup('Zaprange Resistance', window.plugin.zaprange.zapLayerResHolderGroup, true);
+      window.addLayerGroup('綠軍門泉射程', window.plugin.zaprange.zapLayerEnlHolderGroup, true);
+      window.addLayerGroup('藍軍門泉射程', window.plugin.zaprange.zapLayerResHolderGroup, true);
     }
 
     window.addHook('portalAdded', window.plugin.zaprange.portalAdded);

@@ -60,22 +60,22 @@ window.plugin.compAPStats.requestFinished = function() {
 
 window.plugin.compAPStats.update = function(hasFinished) {
   var result = window.plugin.compAPStats.compAPStats();
-  var loading = hasFinished ? '' : 'Loading...';
+  var loading = hasFinished ? '' : '讀取中...';
 
   var formatRow = function(team,data) {
-    var title = 'Destroy and capture '+data.destroyPortals+' portals\n'
-              + 'Destroy '+data.destroyLinks+' links and '+data.destroyFields+' fields\n'
-              + 'Capture '+data.capturePortals+' neutral portals, complete '+data.finishPortals+' portals\n'
-              + '(unknown additional AP for links/fields)';
+    var title = '摧毀並佔領 '+data.destroyPortals+' portals\n'
+              + '摧毀 '+data.destroyLinks+' 連線 和 '+data.destroyFields+' 控制場\n'
+              + '佔領 '+data.capturePortals+' 中立門泉, 完成 '+data.finishPortals+' 門泉\n'
+              + '(其他未知的 連線/控制場)';
     return '<tr><td>'+team+'</td><td style="text-align:right" title="'+title+'">'+digits(data.AP)+'</td></tr>';
   }
 
 
-  $('#available_ap_display').html('Available AP in this area: '
+  $('#available_ap_display').html('該區域可取得的AP: '
     + loading
     + '<table>'
-    + formatRow('Enlightened',result.enl)
-    + formatRow('Resistance', result.res)
+    + formatRow('綠軍',result.enl)
+    + formatRow('藍軍', result.res)
     + '</table>');
 }
 

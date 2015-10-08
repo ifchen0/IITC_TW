@@ -222,7 +222,7 @@
       var active = '';
 
       // Create a label and a anchor for the sortable
-      var folderDelete = '<span class="folderLabel"><a class="bookmarksRemoveFrom" onclick="window.plugin.bookmarks.removeElement(this, \'folder\');return false;" title="Remove this folder">X</a>';
+      var folderDelete = '<span class="folderLabel"><a class="bookmarksRemoveFrom" onclick="window.plugin.bookmarks.removeElement(this, \'folder\');return false;" title="刪除這個資料夾">X</a>';
       var folderName = '<a class="bookmarksAnchor" onclick="window.plugin.bookmarks.openFolder(this);return false"><span></span>'+folders['label']+'</a></span>';//<span><span></span></span>';
       var folderLabel = folderDelete+folderName;
 
@@ -401,7 +401,7 @@
       window.plugin.bookmarks.bkmrksObj['maps'][plugin.bookmarks.KEY_OTHER_BKMRK]['bkmrk'][ID] = {"label":label,"latlng":latlng,"z":zoom};
     }
     else{
-      if(label === '') { label = 'Folder'; }
+      if(label === '') { label = '資料夾'; }
       var short_type = typeList.replace('bkmrk_', '');
       // Add new folder in the localStorage
       window.plugin.bookmarks.bkmrksObj[short_type][ID] = {"label":label,"state":1,"bkmrk":{}};
@@ -628,7 +628,7 @@
     dialog({
       html: plugin.bookmarks.htmlSetbox,
       dialogClass: 'ui-dialog-bkmrksSet',
-      title: 'Bookmarks Options'
+      title: '書籤選項'
     });
 
     window.runHooks('pluginBkmrksOpenOpt');
@@ -644,9 +644,9 @@
       return android.shareString(localStorage[window.plugin.bookmarks.KEY_STORAGE]);
     } else {
       dialog({
-        html: '<p><a onclick="$(\'.ui-dialog-bkmrksSet-copy textarea\').select();">Select all</a> and press CTRL+C to copy it.</p><textarea readonly>'+localStorage[window.plugin.bookmarks.KEY_STORAGE]+'</textarea>',
+        html: '<p><a onclick="$(\'.ui-dialog-bkmrksSet-copy textarea\').select();">全選</a>並按 CTRL+C 來複製.</p><textarea readonly>'+localStorage[window.plugin.bookmarks.KEY_STORAGE]+'</textarea>',
         dialogClass: 'ui-dialog-bkmrksSet-copy',
-        title: 'Bookmarks Export'
+        title: '匯出書籤'
       });
     }
   }
@@ -658,7 +658,7 @@
   }
 
   window.plugin.bookmarks.optPaste = function() {
-    var promptAction = prompt('Press CTRL+V to paste it.', '');
+    var promptAction = prompt('按 CTRL+V 貼', '');
     if(promptAction !== null && promptAction !== '') {
       try {
         JSON.parse(promptAction); // try to parse JSON first
@@ -666,10 +666,10 @@
         window.plugin.bookmarks.refreshBkmrks();
         window.runHooks('pluginBkmrksEdit', {"target": "all", "action": "import"});
         console.log('BOOKMARKS: reset and imported bookmarks');
-        window.plugin.bookmarks.optAlert('Successful. ');
+        window.plugin.bookmarks.optAlert('成功. ');
       } catch(e) {
         console.warn('BOOKMARKS: failed to import data: '+e);
-        window.plugin.bookmarks.optAlert('<span style="color: #f88">Import failed </span>');
+        window.plugin.bookmarks.optAlert('<span style="color: #f88">匯入失敗 </span>');
       }
     }
   }
@@ -683,16 +683,16 @@
         window.plugin.bookmarks.refreshBkmrks();
         window.runHooks('pluginBkmrksEdit', {"target": "all", "action": "import"});
         console.log('BOOKMARKS: reset and imported bookmarks');
-        window.plugin.bookmarks.optAlert('Successful. ');
+        window.plugin.bookmarks.optAlert('成功. ');
       } catch(e) {
         console.warn('BOOKMARKS: failed to import data: '+e);
-        window.plugin.bookmarks.optAlert('<span style="color: #f88">Import failed </span>');
+        window.plugin.bookmarks.optAlert('<span style="color: #f88">匯入失敗 </span>');
       }
     });
   }
 
   window.plugin.bookmarks.optReset = function() {
-    var promptAction = confirm('All bookmarks will be deleted. Are you sure?', '');
+    var promptAction = confirm('所有書籤將會被移除. 你確定嗎?', '');
     if(promptAction) {
       delete localStorage[window.plugin.bookmarks.KEY_STORAGE];
       window.plugin.bookmarks.createStorage();
@@ -700,7 +700,7 @@
       window.plugin.bookmarks.refreshBkmrks();
       window.runHooks('pluginBkmrksEdit', {"target": "all", "action": "reset"});
       console.log('BOOKMARKS: reset all bookmarks');
-      window.plugin.bookmarks.optAlert('Successful. ');
+      window.plugin.bookmarks.optAlert('成功. ');
     }
   }
 
@@ -712,7 +712,7 @@
           var boxY = parseInt($('#bookmarksBox').css('left'));
           window.plugin.bookmarks.statusBox.pos = {x:boxX, y:boxY};
           window.plugin.bookmarks.saveStorageBox();
-          window.plugin.bookmarks.optAlert('Position acquired. ');
+          window.plugin.bookmarks.optAlert('已取得定位. ');
           break;
         case 'reset':
           $('#bookmarksBox').css({'top':100, 'left':100});
@@ -720,7 +720,7 @@
           break;
       }
     } else {
-      window.plugin.bookmarks.optAlert('Only IITC desktop. ');
+      window.plugin.bookmarks.optAlert('僅供IITC桌面版使用. ');
     }
   }
 
@@ -766,7 +766,7 @@
     var type = $(elem).data('type');
     var idFold = $(elem).data('id');
 
-    var promptAction = prompt('Insert a new name.', '');
+    var promptAction = prompt('輸入一個新的名稱.', '');
     if(promptAction !== null && promptAction !== '') {
       try {
         var newName = window.plugin.bookmarks.escapeHtml(promptAction);
@@ -778,10 +778,10 @@
         window.runHooks('pluginBkmrksEdit', {"target": "all", "action": "import"});
 
         console.log('BOOKMARKS: renamed bookmarks folder');
-        window.plugin.bookmarks.optAlert('Successful. ');
+        window.plugin.bookmarks.optAlert('成功. ');
       } catch(e) {
         console.warn('BOOKMARKS: failed to rename folder: '+e);
-        window.plugin.bookmarks.optAlert('<span style="color: #f88">Rename failed </span>');
+        window.plugin.bookmarks.optAlert('<span style="color: #f88">重新命名失敗 </span>');
         return;
       }
     }
@@ -791,7 +791,7 @@
     dialog({
       html: window.plugin.bookmarks.dialogLoadListFolders('bookmarksDialogRenameF', 'window.plugin.bookmarks.renameFolder', false, 0),
       dialogClass: 'ui-dialog-bkmrksSet-copy',
-      title: 'Bookmarks Rename Folder'
+      title: '重新命名資料夾'
     });
   }
 
@@ -802,12 +802,12 @@
     dialog({
       html:window.plugin.bookmarks.dialogLoadList,
       dialogClass:'ui-dialog-autodrawer',
-      title:'Bookmarks - Auto Draw',
+      title:'書籤 - 自動繪圖',
       buttons:{
-        'DRAW': function() {
+        '繪製': function() {
           window.plugin.bookmarks.draw(0);
         },
-        'DRAW&VIEW': function() {
+        '繪製並顯示': function() {
           window.plugin.bookmarks.draw(1);
         }
       }
@@ -864,19 +864,19 @@
       latlngs[i] = tt;
     });
 
-    var text = "You must select 2 or 3 portals!";
+    var text = "你必須選擇 2 或 3 個門泉書籤!";
     var color = "red";
 
     function formatDistance(distance) {
-      var text = digits(distance > 10000 ? (distance/1000).toFixed(2) + "km" : (Math.round(distance) + "m"));
+      var text = digits(distance > 10000 ? (distance/1000).toFixed(2) + "公里" : (Math.round(distance) + "公尺"));
       return distance >= 200000
-        ? '<em title="Long distance link" class="help longdistance">'+text+'</em>'
+        ? '<em title="遠距離連線" class="help longdistance">'+text+'</em>'
         : text;
     }
 
     if(latlngs.length == 2) {
       var distance = L.latLng(latlngs[0]).distanceTo(latlngs[1]);
-      text = 'Distance between portals: ' + formatDistance(distance);
+      text = '門泉之間的距離: ' + formatDistance(distance);
       color = "";
     } else if(latlngs.length == 3) {
       var longdistance = false;
@@ -884,7 +884,7 @@
         var ll2 = latlngs[(i+1)%3];
         return formatDistance(L.latLng(ll1).distanceTo(ll2));
       });
-      text = 'Distances: ' + distances.join(", ");
+      text = '距離: ' + distances.join(", ");
       color = "";
     }
 
@@ -940,8 +940,8 @@
       r = '<div id="bkmrksAutoDrawer">'
         + '<label style="margin-bottom: 9px; display: block;">'
         + '<input style="vertical-align: middle;" type="checkbox" id="bkmrkClearSelection" checked>'
-        + ' Clear selection after drawing</label>'
-        + '<p style="margin-bottom:9px;color:red">You must select 2 or 3 portals!</p>'
+        + ' 繪圖後清除選取的書籤</label>'
+        + '<p style="margin-bottom:9px;color:red">您必須選擇 2 或 3 個門泉書籤!</p>'
         + '<div onclick="window.plugin.bookmarks.autoDrawOnSelect();return false;">'
         + element
         + '</div>'
@@ -1046,12 +1046,14 @@
   window.plugin.bookmarks.highlight = function(data) {
     var guid = data.portal.options.ent[0];
     if(window.plugin.bookmarks.findByGuid(guid)) {
-      data.portal.setStyle({fillColor:'red'});
+      // iF: change color to yellow and add opacity to 0.8
+      data.portal.setStyle({fillColor:'yellow'});
+      data.portal.setStyle({fillOpacity:0.8});
     }
   }
 
   window.plugin.bookmarks.highlightRefresh = function(data) {
-    if(_current_highlighter === 'Bookmarked Portals') {
+    if(_current_highlighter === '門泉書籤') {
       if(data.action === 'sync' || data.target === 'portal' || (data.target === 'folder' && data.action === 'remove') || (data.target === 'all' && data.action === 'import') || (data.target === 'all' && data.action === 'reset')) {
         window.resetHighlightedPortals();
       }
@@ -1087,9 +1089,9 @@
     var star = L.marker(latlng, {
       title: lbl,
       icon: L.icon({
-        iconUrl: '@@INCLUDEIMAGE:images/marker-star.png@@',
-        iconAnchor: [15,40],
-        iconSize: [30,40]
+        iconUrl: '@@INCLUDEIMAGE:images/pin-yellow.png@@',
+        iconAnchor: [16,28],
+        iconSize: [32,32]
       })
     });
     window.registerMarkerForOMS(star);
@@ -1180,53 +1182,53 @@
   }
 
   window.plugin.bookmarks.setupContent = function() {
-    plugin.bookmarks.htmlBoxTrigger = '<a id="bkmrksTrigger" class="open" onclick="window.plugin.bookmarks.switchStatusBkmrksBox(\'switch\');return false;" accesskey="v" title="[v]">[-] Bookmarks</a>';
+    plugin.bookmarks.htmlBoxTrigger = '<a id="bkmrksTrigger" class="open" onclick="window.plugin.bookmarks.switchStatusBkmrksBox(\'switch\');return false;" accesskey="v" title="顯示書籤視窗 [v]">[-] Bookmarks</a>';
     plugin.bookmarks.htmlBkmrksBox = '<div id="bookmarksBox">'
                           +'<div id="topBar">'
-                            +'<a id="bookmarksMin" class="btn" onclick="window.plugin.bookmarks.switchStatusBkmrksBox(0);return false;" title="Minimize">-</a>'
+                            +'<a id="bookmarksMin" class="btn" onclick="window.plugin.bookmarks.switchStatusBkmrksBox(0);return false;" title="最小化 [v]">-</a>'
                             +'<div class="handle">...</div>'
-                            +'<a id="bookmarksDel" class="btn" onclick="window.plugin.bookmarks.deleteMode();return false;" title="Show/Hide \'X\' button">Show/Hide "X" button</a>'
+                            +'<a id="bookmarksDel" class="btn" onclick="window.plugin.bookmarks.deleteMode();return false;" title="顯示/隱藏 \'X\' 按鈕">顯示/隱藏 "X" 按鈕</a>'
                           +'</div>'
                           +'<div id="bookmarksTypeBar">'
-                            +'<h5 class="bkmrk_maps current" onclick="window.plugin.bookmarks.switchPageBkmrksBox(this, 0);return false">Maps</h5>'
-                            +'<h5 class="bkmrk_portals" onclick="window.plugin.bookmarks.switchPageBkmrksBox(this, 1);return false">Portals</h5>'
+                            +'<h5 class="bkmrk_maps current" onclick="window.plugin.bookmarks.switchPageBkmrksBox(this, 0);return false">地圖</h5>'
+                            +'<h5 class="bkmrk_portals" onclick="window.plugin.bookmarks.switchPageBkmrksBox(this, 1);return false">門泉</h5>'
                             +'<div style="clear:both !important;"></div>'
                           +'</div>'
                           +'<div id="bkmrk_maps" class="bookmarkList current">'
                             +'<div class="addForm">'
-                              +'<input placeholder="Insert label" />'
-                              +'<a class="newMap" onclick="window.plugin.bookmarks.addElement(this, \'map\');return false;">+ Map</a>'
-                              +'<a class="newFolder" onclick="window.plugin.bookmarks.addElement(this, \'folder\');return false;">+ Folder</a>'
+                              +'<input placeholder="輸入標籤名稱" />'
+                              +'<a class="newMap" onclick="window.plugin.bookmarks.addElement(this, \'map\');return false;">+ 地圖</a>'
+                              +'<a class="newFolder" onclick="window.plugin.bookmarks.addElement(this, \'folder\');return false;">+ 資料夾</a>'
                             +'</div>'
                           +'</div>'
                           +'<div id="bkmrk_portals" class="bookmarkList">'
                             +'<div class="addForm">'
-                              +'<input placeholder="Insert label" />'
-                              +'<a class="newFolder" onclick="window.plugin.bookmarks.addElement(this, \'folder\');return false;">+ Folder</a>'
+                              +'<input placeholder="輸入標籤名稱" />'
+                              +'<a class="newFolder" onclick="window.plugin.bookmarks.addElement(this, \'folder\');return false;">+ 資料夾</a>'
                             +'</div>'
                           +'</div>'
                           +'<div style="border-bottom-width:1px;"></div>'
                         +'</div>';
 
     plugin.bookmarks.htmlDisabledMessage = '<div title="Your browser do not support localStorage">Plugin Bookmarks disabled*.</div>';
-    plugin.bookmarks.htmlStar = '<a class="bkmrksStar" accesskey="b" onclick="window.plugin.bookmarks.switchStarPortal();return false;" title="Save this portal in your bookmarks [b]"><span></span></a>';
-    plugin.bookmarks.htmlCalldrawBox = '<a onclick="window.plugin.bookmarks.dialogDrawer();return false;" accesskey="q" title="Draw lines/triangles between bookmarked portals [q]">Auto draw</a>';
-    plugin.bookmarks.htmlCallSetBox = '<a onclick="window.plugin.bookmarks.manualOpt();return false;">Bookmarks Opt</a>';
-    plugin.bookmarks.htmlMoveBtn = '<a id="bookmarksMove" class="btn" onclick="window.plugin.bookmarks.moveMode();return false;">Show/Hide "Move" button</a>'
+    plugin.bookmarks.htmlStar = '<a class="bkmrksStar" accesskey="b" onclick="window.plugin.bookmarks.switchStarPortal();return false;" title="將這個門泉加入書籤 [b]"><span></span></a>';
+    plugin.bookmarks.htmlCalldrawBox = '<a onclick="window.plugin.bookmarks.dialogDrawer();return false;" accesskey="q" title="在標記的門泉上自動產生 連線/三角形 [q]">自動繪圖</a>';
+    plugin.bookmarks.htmlCallSetBox = '<a onclick="window.plugin.bookmarks.manualOpt();return false;">書籤選項</a>';
+    plugin.bookmarks.htmlMoveBtn = '<a id="bookmarksMove" class="btn" onclick="window.plugin.bookmarks.moveMode();return false;">顯示/隱藏 "移動" 按鈕</a>'
 
     var actions = '';
-    actions += '<a onclick="window.plugin.bookmarks.optReset();return false;">Reset bookmarks</a>';
-    actions += '<a onclick="window.plugin.bookmarks.optCopy();return false;">Copy bookmarks</a>';
-    actions += '<a onclick="window.plugin.bookmarks.optPaste();return false;">Paste bookmarks</a>';
+    actions += '<a onclick="window.plugin.bookmarks.optReset();return false;">重置書籤</a>';
+    actions += '<a onclick="window.plugin.bookmarks.optCopy();return false;">複製書籤</a>';
+    actions += '<a onclick="window.plugin.bookmarks.optPaste();return false;">貼上書籤</a>';
 
     if(plugin.bookmarks.isAndroid()) {
-      actions += '<a onclick="window.plugin.bookmarks.optImport();return false;">Import bookmarks</a>';
-      actions += '<a onclick="window.plugin.bookmarks.optExport();return false;">Export bookmarks</a>';
+      actions += '<a onclick="window.plugin.bookmarks.optImport();return false;">匯入書籤</a>';
+      actions += '<a onclick="window.plugin.bookmarks.optExport();return false;">匯出書籤</a>';
     }
-    actions += '<a onclick="window.plugin.bookmarks.optRenameF();return false;">Rename Folder</a>'
+    actions += '<a onclick="window.plugin.bookmarks.optRenameF();return false;">重新命名資料夾</a>'
     if(!plugin.bookmarks.isAndroid()) {
-      actions += '<a onclick="window.plugin.bookmarks.optBox(\'save\');return false;">Save box position</a>';
-      actions += '<a onclick="window.plugin.bookmarks.optBox(\'reset\');return false;">Reset box position</a>';
+      actions += '<a onclick="window.plugin.bookmarks.optBox(\'save\');return false;">儲存小視窗位置</a>';
+      actions += '<a onclick="window.plugin.bookmarks.optBox(\'reset\');return false;">重置小視窗位置</a>';
     }
     plugin.bookmarks.htmlSetbox = '<div id="bkmrksSetbox">' + actions + '</div>';
   }
@@ -1290,11 +1292,11 @@
     // Highlighter - bookmarked portals
     window.addHook('pluginBkmrksEdit', window.plugin.bookmarks.highlightRefresh);
     window.addHook('pluginBkmrksSyncEnd', window.plugin.bookmarks.highlightRefresh);
-    window.addPortalHighlighter('Bookmarked Portals', window.plugin.bookmarks.highlight);
+    window.addPortalHighlighter('門泉書籤', window.plugin.bookmarks.highlight);
 
     // Layer - Bookmarked portals
     window.plugin.bookmarks.starLayerGroup = new L.LayerGroup();
-    window.addLayerGroup('Bookmarked Portals', window.plugin.bookmarks.starLayerGroup, false);
+    window.addLayerGroup('門泉書籤', window.plugin.bookmarks.starLayerGroup, false);
     window.plugin.bookmarks.addAllStars();
     window.addHook('pluginBkmrksEdit', window.plugin.bookmarks.editStar);
     window.addHook('pluginBkmrksSyncEnd', window.plugin.bookmarks.resetAllStars);

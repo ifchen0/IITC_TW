@@ -1,4 +1,4 @@
-﻿// ==UserScript==
+// ==UserScript==
 // @id             iitc-plugin-missions@jonatkins
 // @name           IITC plugin: Missions
 // @category       Info
@@ -31,7 +31,7 @@ var decodeWaypoint = function(data) {
 		typeNum: data[3],
 		type: [null, 'Portal', 'Field Trip'][data[3]],
 		objectiveNum: data[4],
-		objective: [null, 'Hack this Portal', 'Capture or Upgrade Portal', 'Create Link from Portal', 'Create Field from Portal', 'Install a Mod on this Portal', 'Take a Photo', 'View this Field Trip Waypoint', 'Enter the Passphrase'][data[4]],
+		objective: [null, '入侵這個門泉', '佔領或升級這個門泉', '從這個門泉發射連線', '從這個門泉建立控制場', '安裝一個模組到這個門泉', '拍一張圖片', '查看該控制場的旅航點', '輸入密碼'][data[4]],
 	};
 	if (result.typeNum === 1 && data[5]) {
 		result.portal = window.decodeArray.portalSummary(data[5]);
@@ -52,7 +52,7 @@ var decodeMission = function(data) {
 		medianCompletionTimeMs: data[6],
 		numUniqueCompletedPlayers: data[7],
 		typeNum: data[8],
-		type: [null, 'Sequential', 'Non Sequential', 'Hidden'][data[8]],
+		type: [null, '依照順序', '不用依照順序', '隱藏'][data[8]],
 		waypoints: data[9].map(decodeWaypoint),
 		image: data[10]
 	};
@@ -148,7 +148,7 @@ window.plugin.missions = {
 			this.tabMarkers[id] = markers;
 			
 			var button = content.insertBefore(document.createElement('button'), content.lastChild);
-			button.textContent = 'Zoom to mission';
+			button.textContent = '顯示任務點';
 			button.addEventListener('click', function() {
 				me.zoomToMission(mission);
 				show('map');
@@ -200,7 +200,7 @@ window.plugin.missions = {
 					me.highlightMissionLayers(markers);
 				}
 			}).dialog('option', 'buttons', {
-				'Zoom to mission': function() {
+				'顯示任務點': function() {
 					me.zoomToMission(mission);
 				},
 				'確定': function() { $(this).dialog('close'); },
@@ -216,7 +216,7 @@ window.plugin.missions = {
 			collapseCallback: this.collapseFix,
 			expandCallback: this.collapseFix,
 		}).dialog('option', 'buttons', {
-			'Create new mission': function() { open('//mission-author-dot-betaspike.appspot.com'); },
+			'建立新的任務': function() { open('//mission-author-dot-betaspike.appspot.com'); },
 			'確定': function() { $(this).dialog('close'); },
 		});
 	},
@@ -396,7 +396,7 @@ window.plugin.missions = {
 				
 				var infoLength = container.appendChild(document.createElement('span'));
 				infoLength.className = 'plugin-mission-info length help';
-				infoLength.title = 'Length of this mission.\n\nNOTE: The actual distance required to cover may vary depending on several factors!';
+				infoLength.title = '任務路線距離.\n\n注意: 實際距離可能因現實環境而改變!';
 				infoLength.textContent = len;
 				img = infoLength.insertBefore(document.createElement('img'), infoLength.firstChild);
 				img.src = '@@INCLUDEIMAGE:images/mission-length.png@@';
@@ -417,14 +417,14 @@ window.plugin.missions = {
 		
 		var infoTime = container.appendChild(document.createElement('span'));
 		infoTime.className = 'plugin-mission-info time help';
-		infoTime.title = 'Typical duration';
+		infoTime.title = '花費時間';
 		infoTime.textContent = timeToRemaining((mission.medianCompletionTimeMs / 1000) | 0) + ' ';
 		img = infoTime.insertBefore(document.createElement('img'), infoTime.firstChild);
 		img.src = 'https://commondatastorage.googleapis.com/ingress.com/img/tm_icons/time.png';
 		
 		var infoRating = container.appendChild(document.createElement('span'));
 		infoRating.className = 'plugin-mission-info rating help';
-		infoRating.title = 'Average rating';
+		infoRating.title = '評分';
 		infoRating.textContent = (((mission.ratingE6 / 100) | 0) / 100) + '%' + ' ';
 		img = infoRating.insertBefore(document.createElement('img'), infoRating.firstChild);
 		img.src = 'https://commondatastorage.googleapis.com/ingress.com/img/tm_icons/like.png';
@@ -432,15 +432,15 @@ window.plugin.missions = {
 		if (cachedMission) {
 			var infoPlayers = container.appendChild(document.createElement('span'));
 			infoPlayers.className = 'plugin-mission-info players help';
-			infoPlayers.title = 'Unique players who have completed this mission';
+			infoPlayers.title = '完成任務的探員';
 			infoPlayers.textContent = cachedMission.numUniqueCompletedPlayers + ' ';
 			img = infoPlayers.insertBefore(document.createElement('img'), infoPlayers.firstChild);
 			img.src = 'https://commondatastorage.googleapis.com/ingress.com/img/tm_icons/players.png';
 			
 			var infoWaypoints = container.appendChild(document.createElement('span'));
 			infoWaypoints.className = 'plugin-mission-info waypoints help';
-			infoWaypoints.title = (cachedMission.type ? cachedMission.type + ' mission' : 'Unknown mission type')
-			                    + ' with ' + cachedMission.waypoints.length + ' waypoints';
+			infoWaypoints.title = (cachedMission.type ? cachedMission.type + ' 的任務' : '未知任務類型')
+			                    + ' - ' + cachedMission.waypoints.length + ' 航點';
 			infoWaypoints.textContent = cachedMission.waypoints.length + ' ';
 			img = infoWaypoints.insertBefore(document.createElement('img'), infoWaypoints.firstChild);
 			img.src = this.missionTypeImages[cachedMission.typeNum] || this.missionTypeImages[0];
@@ -576,7 +576,7 @@ window.plugin.missions = {
 		var container = document.createElement('div');
 		container.className = 'plugin-mission-portal-indicator help ' + team;
 		container.textContent = level;
-		container.title = 'Level:\t'+level+'\nResonators:\t'+resCount+'\nHealth:\t'+portal.health+'%';
+		container.title = '等級:\t'+level+'\n共振器:\t'+resCount+'\n能量:\t'+portal.health+'%';
 		
 		for(var i = 0; i< resCount; i++) {
 			var resonator = container.appendChild(document.createElement('div'));
@@ -1006,7 +1006,7 @@ window.plugin.missions = {
 		this.loadData();
 
 		$('<style>').prop('type', 'text/css').html('@@INCLUDESTRING:plugins/missions.css@@').appendTo('head');
-		$('#toolbox').append('<a tabindex="0" onclick="plugin.missions.openTopMissions();">Missions in view</a>');
+		$('#toolbox').append('<a tabindex="0" onclick="plugin.missions.openTopMissions();">任務列表</a>');
 
 		if(window.useAndroidPanes()) {
 			this.mobilePane = document.createElement('div');
@@ -1074,8 +1074,8 @@ window.plugin.missions = {
 		this.missionStartLayer = new L.LayerGroup();
 		this.missionLayer = new L.LayerGroup();
 
-		window.addLayerGroup('Mission start portals', this.missionStartLayer, false);
-		window.addLayerGroup('Mission portals', this.missionLayer, true);
+		window.addLayerGroup('任務起點', this.missionStartLayer, false);
+		window.addLayerGroup('任務門泉', this.missionLayer, true);
 
 		window.pluginCreateHook('plugin-missions-loaded-mission');
 		window.pluginCreateHook('plugin-missions-on-portal-loaded');

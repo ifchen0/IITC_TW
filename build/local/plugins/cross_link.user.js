@@ -2,11 +2,11 @@
 // @id             iitc-plugin-cross-links@mcben
 // @name           IITC plugin: cross links
 // @category       Layer
-// @version        1.1.2.20151008.110033
+// @version        1.1.2.20151008.134855
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
-// @updateURL      none
-// @downloadURL    none
-// @description    [local-2015-10-08-110033] EXPERIMENTAL: Checks for existing links that cross planned links. Requires draw-tools plugin.
+// @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/cross_link.meta.js
+// @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/cross_link.user.js
+// @description    [local-2015-10-08-134855] EXPERIMENTAL: Checks for existing links that cross planned links. Requires draw-tools plugin.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'local';
-plugin_info.dateTimeVersion = '20151008.110033';
+plugin_info.dateTimeVersion = '20151008.134855';
 plugin_info.pluginId = 'cross_link';
 //END PLUGIN AUTHORS NOTE
 
@@ -277,7 +277,7 @@ window.plugin.crossLinks.testForDeletedLinks = function () {
 window.plugin.crossLinks.createLayer = function() {
     window.plugin.crossLinks.linkLayer = new L.FeatureGroup();
     window.plugin.crossLinks.linkLayerGuids={};
-    window.addLayerGroup('Cross Links', window.plugin.crossLinks.linkLayer, true);
+    window.addLayerGroup('交叉連線', window.plugin.crossLinks.linkLayer, true);
 
     map.on('layeradd', function(obj) {
       if(obj.layer === window.plugin.crossLinks.linkLayer) {
@@ -301,7 +301,7 @@ window.plugin.crossLinks.createLayer = function() {
 
 var setup = function() {
     if (window.plugin.drawTools === undefined) {
-       alert("'Cross-Links' requires 'draw-tools'");
+       alert("'Cross-Links' 需安裝 'draw-tools'");
        return;
     }
 

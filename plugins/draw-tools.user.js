@@ -330,21 +330,21 @@ window.plugin.drawTools.manualOpt = function() {
 //TODO: add line style choosers: thickness, maybe dash styles?
            + '</div>'
            + '<div class="drawtoolsSetbox">'
-           + '<a onclick="window.plugin.drawTools.optCopy();" tabindex="0">Copy Drawn Items</a>'
-           + '<a onclick="window.plugin.drawTools.optPaste();return false;" tabindex="0">Paste Drawn Items</a>'
+           + '<a onclick="window.plugin.drawTools.optCopy();" tabindex="0">複製物件</a>'
+           + '<a onclick="window.plugin.drawTools.optPaste();return false;" tabindex="0">貼上物件</a>'
            + (window.requestFile != undefined
-             ? '<a onclick="window.plugin.drawTools.optImport();return false;" tabindex="0">Import Drawn Items</a>' : '')
+             ? '<a onclick="window.plugin.drawTools.optImport();return false;" tabindex="0">匯入物件</a>' : '')
            + ((typeof android !== 'undefined' && android && android.saveFile)
-             ? '<a onclick="window.plugin.drawTools.optExport();return false;" tabindex="0">Export Drawn Items</a>' : '')
-           + '<a onclick="window.plugin.drawTools.optReset();return false;" tabindex="0">Reset Drawn Items</a>'
-           + '<a onclick="window.plugin.drawTools.snapToPortals();return false;" tabindex="0">Snap to portals</a>'
+             ? '<a onclick="window.plugin.drawTools.optExport();return false;" tabindex="0">匯出物件</a>' : '')
+           + '<a onclick="window.plugin.drawTools.optReset();return false;" tabindex="0">重置物件</a>'
+           + '<a onclick="window.plugin.drawTools.snapToPortals();return false;" tabindex="0">門泉標定</a>'
            + '</div>';
 
   dialog({
     html: html,
     id: 'plugin-drawtools-options',
     dialogClass: 'ui-dialog-drawtoolsSet',
-    title: 'Draw Tools Options'
+    title: '繪製工具選項'
   });
 
   // need to initialise the 'spectrum' colour picker
@@ -404,15 +404,15 @@ window.plugin.drawTools.optCopy = function() {
       });
       var stockUrl = 'https://www.ingress.com/intel?ll='+map.getCenter().lat+','+map.getCenter().lng+'&z='+map.getZoom()+'&pls='+stockLinks.map(function(link){return link.join(',');}).join('_');
       var stockWarnTexts = [];
-      if (stockWarnings.polyAsLine) stockWarnTexts.push('Note: polygons are exported as lines');
-      if (stockLinks.length>40) stockWarnTexts.push('Warning: Stock intel may not work with more than 40 line segments - there are '+stockLinks.length);
-      if (stockWarnings.noCircle) stockWarnTexts.push('Warning: Circles cannot be exported to stock intel');
-      if (stockWarnings.noMarker) stockWarnTexts.push('Warning: Markers cannot be exported to stock intel');
-      if (stockWarnings.unknown) stockWarnTexts.push('Warning: UNKNOWN ITEM TYPE');
+      if (stockWarnings.polyAsLine) stockWarnTexts.push('提示: 多邊形將輸出為直線');
+      if (stockLinks.length>40) stockWarnTexts.push('警告: 標準 intel 可能無法使用40條線以上 - 共有'+stockLinks.length);
+      if (stockWarnings.noCircle) stockWarnTexts.push('警告: 圓形無法匯出至標準 intel');
+      if (stockWarnings.noMarker) stockWarnTexts.push('警告: 標記無法匯出至標準 intel');
+      if (stockWarnings.unknown) stockWarnTexts.push('警告: 未知物件類型');
 
-      var html = '<p><a onclick="$(\'.ui-dialog-drawtoolsSet-copy textarea\').select();">Select all</a> and press CTRL+C to copy it.</p>'
+      var html = '<p><a onclick="$(\'.ui-dialog-drawtoolsSet-copy textarea\').select();">全選</a>並按下 CTRL+C 複製.</p>'
                 +'<textarea readonly onclick="$(\'.ui-dialog-drawtoolsSet-copy textarea\').select();">'+localStorage['plugin-draw-tools-layer']+'</textarea>'
-                +'<p>or, export as a link for the standard intel map (for non IITC users)</p>'
+                +'<p>或者, 匯出成標準intel連結 (為非 IITC 使用者)</p>'
                 +'<input onclick="event.target.select();" type="text" size="90" value="'+stockUrl+'"/>';
       if (stockWarnTexts.length>0) {
         html += '<ul><li>'+stockWarnTexts.join('</li><li>')+'</li></ul>';
@@ -434,7 +434,7 @@ window.plugin.drawTools.optExport = function() {
 }
 
 window.plugin.drawTools.optPaste = function() {
-  var promptAction = prompt('Press CTRL+V to paste (draw-tools data or stock intel URL).', '');
+  var promptAction = prompt('按下 CTRL+V 貼上 (繪製工具的資料或標準 intel URL).', '');
   if(promptAction !== null && promptAction !== '') {
     try {
       // first see if it looks like a URL-format stock intel link, and if so, try and parse out any stock drawn items
@@ -449,15 +449,15 @@ window.plugin.drawTools.optPaste = function() {
           }
         }
 
-        if (foundAt == -1) throw ("No drawn items found in intel URL");
+        if (foundAt == -1) throw ("在 intel URL 中找不到物件");
 
         var newLines = [];
         var linesStr = items[foundAt].substr(4).split('_');
         for (var i=0; i<linesStr.length; i++) {
           var floats = linesStr[i].split(',').map(Number);
-          if (floats.length != 4) throw("URL item not a set of four floats");
+          if (floats.length != 4) throw("URL 物件不是一組四位浮點數");
           for (var j=0; j<floats.length; j++) {
-            if (isNaN(floats[j])) throw("URL item had invalid number");
+            if (isNaN(floats[j])) throw("URL 物件包含無效代碼");
           }
           var layer = L.geodesicPolyline([[floats[0],floats[1]],[floats[2],floats[3]]], window.plugin.drawTools.lineOptions);
           newLines.push(layer);
@@ -471,7 +471,7 @@ window.plugin.drawTools.optPaste = function() {
         runHooks('pluginDrawTools', {event: 'import'});
 
         console.log('DRAWTOOLS: reset and imported drawn items from stock URL');
-        window.plugin.drawTools.optAlert('Import Successful.');
+        window.plugin.drawTools.optAlert('匯入成功.');
 
 
       } else {
@@ -479,14 +479,14 @@ window.plugin.drawTools.optPaste = function() {
         window.plugin.drawTools.drawnItems.clearLayers();
         window.plugin.drawTools.import(data);
         console.log('DRAWTOOLS: reset and imported drawn items');
-        window.plugin.drawTools.optAlert('Import Successful.');
+        window.plugin.drawTools.optAlert('匯入成功.');
       }
 
       // to write back the data to localStorage
       window.plugin.drawTools.save();
     } catch(e) {
       console.warn('DRAWTOOLS: failed to import data: '+e);
-      window.plugin.drawTools.optAlert('<span style="color: #f88">Import failed</span>');
+      window.plugin.drawTools.optAlert('<span style="color: #f88">匯入失敗</span>');
     }
   }
 }
@@ -499,25 +499,25 @@ window.plugin.drawTools.optImport = function() {
       window.plugin.drawTools.drawnItems.clearLayers();
       window.plugin.drawTools.import(data);
       console.log('DRAWTOOLS: reset and imported drawn tiems');
-      window.plugin.drawTools.optAlert('Import Successful.');
+      window.plugin.drawTools.optAlert('匯入成功.');
 
       // to write back the data to localStorage
       window.plugin.drawTools.save();
     } catch(e) {
       console.warn('DRAWTOOLS: failed to import data: '+e);
-      window.plugin.drawTools.optAlert('<span style="color: #f88">Import failed</span>');
+      window.plugin.drawTools.optAlert('<span style="color: #f88">匯入失敗</span>');
     }
   });
 }
 
 window.plugin.drawTools.optReset = function() {
-  var promptAction = confirm('All drawn items will be deleted. Are you sure?', '');
+  var promptAction = confirm('所有物件將會被清除. 你確定嗎?', '');
   if(promptAction) {
     delete localStorage['plugin-draw-tools-layer'];
     window.plugin.drawTools.drawnItems.clearLayers();
     window.plugin.drawTools.load();
     console.log('DRAWTOOLS: reset all drawn items');
-    window.plugin.drawTools.optAlert('Reset Successful. ');
+    window.plugin.drawTools.optAlert('重置成功. ');
     runHooks('pluginDrawTools', {event: 'clear'});
   }
 }
@@ -525,13 +525,13 @@ window.plugin.drawTools.optReset = function() {
 window.plugin.drawTools.snapToPortals = function() {
   var dataParams = getMapZoomTileParameters(getDataZoomForMapZoom(map.getZoom()));
   if (dataParams.level > 0) {
-    if (!confirm('Not all portals are visible on the map. Snap to portals may move valid points to the wrong place. Continue?')) {
+    if (!confirm('並不是所有的門泉都顯示在地圖上. 門泉標定可能會從有效的位置移動到錯誤的位置. 繼續?')) {
       return;
     }
   }
 
-  if (mapDataRequest.status.short != 'done') {
-    if (!confirm('Map data has not completely loaded, so some portals may be missing. Do you want to continue?')) {
+  if (mapDataRequest.status.short != '完成') {
+    if (!confirm('地圖數據尚未讀取完畢, 可能造成一些門泉無法定位. 你想繼續嗎?')) {
       return;
     }
   }
@@ -549,7 +549,7 @@ window.plugin.drawTools.snapToPortals = function() {
   });
 
   if (Object.keys(visiblePortals).length == 0) {
-    alert('Error: No portals visible in this view - nothing to snap points to!');
+    alert('錯誤: 畫面中沒有任何門泉 - 沒有定位點可定位!');
     return;
   }
 
@@ -609,7 +609,7 @@ window.plugin.drawTools.snapToPortals = function() {
     runHooks('pluginDrawTools',{event:'layersSnappedToPortals'}); //or should we send 'layersEdited'? as that's effectively what's happened...
   }
 
-  alert('Tested '+testCount+' points, and moved '+changedCount+' onto portal coordinates');
+  alert('嘗試 '+testCount+' 個端點, 並移動 '+changedCount+' 個端點到門泉座標');
 
   window.plugin.drawTools.save();
 }
@@ -648,7 +648,7 @@ window.plugin.drawTools.boot = function() {
   });
 
   //add the layer
-  window.addLayerGroup('Drawn Items', window.plugin.drawTools.drawnItems, true);
+  window.addLayerGroup('繪製工具', window.plugin.drawTools.drawnItems, true);
 
 
   //place created items into the specific layer
@@ -675,7 +675,7 @@ window.plugin.drawTools.boot = function() {
     runHooks('pluginDrawTools',{event:'layersEdited'});
   });
   //add options menu
-  $('#toolbox').append('<a onclick="window.plugin.drawTools.manualOpt();return false;" accesskey="x" title="[x]">DrawTools Opt</a>');
+  $('#toolbox').append('<a onclick="window.plugin.drawTools.manualOpt();return false;" accesskey="x" title="[x]">繪製工具選項</a>');
 
   $('head').append('<style>' +
         '.drawtoolsSetbox > a { display:block; color:#ffce00; border:1px solid #ffce00; padding:3px 0; margin:10px auto; width:80%; text-align:center; background:rgba(8,48,78,.9); }'+

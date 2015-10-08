@@ -65,7 +65,7 @@ window.plugin.portalNames.addLabel = function(guid, latLng) {
     var label = L.marker(latLng, {
       icon: L.divIcon({
         className: 'plugin-portal-names',
-        iconAnchor: [window.plugin.portalNames.NAME_WIDTH/2,0],
+        iconAnchor: [window.plugin.portalNames.NAME_WIDTH/2,-5],
         iconSize: [window.plugin.portalNames.NAME_WIDTH,window.plugin.portalNames.NAME_HEIGHT],
         html: portalName
       }),
@@ -177,7 +177,7 @@ var setup = function() {
   window.plugin.portalNames.setupCSS();
 
   window.plugin.portalNames.labelLayerGroup = new L.LayerGroup();
-  window.addLayerGroup('Portal Names', window.plugin.portalNames.labelLayerGroup, true);
+  window.addLayerGroup('門泉名稱', window.plugin.portalNames.labelLayerGroup, true);
 
   window.addHook('requestFinished', function() { setTimeout(function(){window.plugin.portalNames.delayedUpdatePortalLabels(3.0);},1); });
   window.addHook('mapDataRefreshEnd', function() { window.plugin.portalNames.delayedUpdatePortalLabels(0.5); });

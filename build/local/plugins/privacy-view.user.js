@@ -1,11 +1,11 @@
 // ==UserScript==
 // @id             iitc-plugin-privacy-view@Scrool
 // @name           IITC plugin: Privacy view on Intel
-// @version        1.0.1.20151008.110033
+// @version        1.0.1.20151008.134855
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
-// @description    [local-2015-10-08-110033] Hide info from intel which shouldn't leak to players of the other faction.
-// @updateURL      none
-// @downloadURL    none
+// @description    [local-2015-10-08-134855] Hide info from intel which shouldn't leak to players of the other faction.
+// @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/privacy-view.meta.js
+// @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/privacy-view.user.js
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -25,7 +25,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'local';
-plugin_info.dateTimeVersion = '20151008.110033';
+plugin_info.dateTimeVersion = '20151008.134855';
 plugin_info.pluginId = 'privacy-view';
 //END PLUGIN AUTHORS NOTE
 
@@ -47,10 +47,10 @@ window.plugin.privacyView.toggle = function() {
   var t = $('#privacycontrols .toggle');
   if(b.hasClass('privacy_active')) {
     b.removeClass('privacy_active').addClass('privacy_inactive');
-    t.text('Privacy inactive');
+    t.text('隱私模式停用');
   } else {
     b.removeClass('privacy_inactive').addClass('privacy_active');
-    t.text('Privacy active');
+    t.text('隱私模式啟用');
     if(window.plugin.privacyView.chatExpanded()) {
       window.plugin.privacyView.wrapChatToggle();
     }

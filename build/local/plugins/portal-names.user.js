@@ -2,11 +2,11 @@
 // @id             iitc-plugin-portal-names@zaso
 // @name           IITC plugin: Portal Names
 // @category       Layer
-// @version        0.1.6.20151008.110033
+// @version        0.1.6.20151008.134855
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
-// @updateURL      none
-// @downloadURL    none
-// @description    [local-2015-10-08-110033] Show portal names on the map.
+// @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/portal-names.meta.js
+// @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/portal-names.user.js
+// @description    [local-2015-10-08-134855] Show portal names on the map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'local';
-plugin_info.dateTimeVersion = '20151008.110033';
+plugin_info.dateTimeVersion = '20151008.134855';
 plugin_info.pluginId = 'portal-names';
 //END PLUGIN AUTHORS NOTE
 
@@ -77,7 +77,7 @@ window.plugin.portalNames.addLabel = function(guid, latLng) {
     var label = L.marker(latLng, {
       icon: L.divIcon({
         className: 'plugin-portal-names',
-        iconAnchor: [window.plugin.portalNames.NAME_WIDTH/2,0],
+        iconAnchor: [window.plugin.portalNames.NAME_WIDTH/2,-5],
         iconSize: [window.plugin.portalNames.NAME_WIDTH,window.plugin.portalNames.NAME_HEIGHT],
         html: portalName
       }),
@@ -189,7 +189,7 @@ var setup = function() {
   window.plugin.portalNames.setupCSS();
 
   window.plugin.portalNames.labelLayerGroup = new L.LayerGroup();
-  window.addLayerGroup('Portal Names', window.plugin.portalNames.labelLayerGroup, true);
+  window.addLayerGroup('門泉名稱', window.plugin.portalNames.labelLayerGroup, true);
 
   window.addHook('requestFinished', function() { setTimeout(function(){window.plugin.portalNames.delayedUpdatePortalLabels(3.0);},1); });
   window.addHook('mapDataRefreshEnd', function() { window.plugin.portalNames.delayedUpdatePortalLabels(0.5); });

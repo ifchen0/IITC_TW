@@ -1,12 +1,12 @@
-﻿// ==UserScript==
+// ==UserScript==
 // @id             iitc-plugin-zaprange@zaso
 // @name           IITC plugin: Zaprange
 // @category       Layer
-// @version        0.1.4.20151008.110033
+// @version        0.1.4.20151008.134855
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
-// @updateURL      none
-// @downloadURL    none
-// @description    [local-2015-10-08-110033] Shows the maximum range of attack by the portals.
+// @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/zaprange.meta.js
+// @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/zaprange.user.js
+// @description    [local-2015-10-08-134855] Shows the maximum range of attack by the portals.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'local';
-plugin_info.dateTimeVersion = '20151008.110033';
+plugin_info.dateTimeVersion = '20151008.134855';
 plugin_info.pluginId = 'zaprange';
 //END PLUGIN AUTHORS NOTE
 
@@ -68,7 +68,13 @@ plugin_info.pluginId = 'zaprange';
       var coo = d._latlng;
       var latlng = new L.LatLng(coo.lat,coo.lng);
       var portalLevel = d.options.level;
-      var optCircle = {color:'red',opacity:0.7,fillColor:'red',fillOpacity:0.1,weight:1,clickable:false, dashArray: [10,6]};
+      //iF: Add different color for each team
+      if(faction === TEAM_ENL) {
+        var optCircle = {color:'#03DC03',opacity:0.7,fillColor:'#03DC03',fillOpacity:0.1,weight:1,clickable:false, dashArray: [10,6]};
+      } else {
+        var optCircle = {color:'#0088FF',opacity:0.7,fillColor:'#0088FF',fillOpacity:0.1,weight:1,clickable:false, dashArray: [10,6]};
+      }
+      //iF:End
       var range = (5*portalLevel)+35;
 
       var circle = new L.Circle(latlng, range, optCircle);
@@ -87,21 +93,21 @@ plugin_info.pluginId = 'zaprange';
       // show the layer
       if(!window.plugin.zaprange.zapLayerEnlHolderGroup.hasLayer(window.plugin.zaprange.zapCircleEnlHolderGroup)) {
         window.plugin.zaprange.zapLayerEnlHolderGroup.addLayer(window.plugin.zaprange.zapCircleEnlHolderGroup);
-        $('.leaflet-control-layers-list span:contains("Zaprange Enlightened")').parent('label').removeClass('disabled').attr('title', '');
+        $('.leaflet-control-layers-list span:contains("綠軍門泉射程")').parent('label').removeClass('disabled').attr('title', '');
       }
       if(!window.plugin.zaprange.zapLayerResHolderGroup.hasLayer(window.plugin.zaprange.zapCircleResHolderGroup)) {
         window.plugin.zaprange.zapLayerResHolderGroup.addLayer(window.plugin.zaprange.zapCircleResHolderGroup);
-        $('.leaflet-control-layers-list span:contains("Zaprange Resistance")').parent('label').removeClass('disabled').attr('title', '');
+        $('.leaflet-control-layers-list span:contains("藍軍門泉射程")').parent('label').removeClass('disabled').attr('title', '');
       }
     } else {
       // hide the layer
       if(window.plugin.zaprange.zapLayerEnlHolderGroup.hasLayer(window.plugin.zaprange.zapCircleEnlHolderGroup)) {
         window.plugin.zaprange.zapLayerEnlHolderGroup.removeLayer(window.plugin.zaprange.zapCircleEnlHolderGroup);
-        $('.leaflet-control-layers-list span:contains("Zaprange Enlightened")').parent('label').addClass('disabled').attr('title', '將地圖放大來顯示這個項目.');
+        $('.leaflet-control-layers-list span:contains("綠軍門泉射程")').parent('label').addClass('disabled').attr('title', '將地圖放大來顯示這個項目.');
       }
       if(window.plugin.zaprange.zapLayerResHolderGroup.hasLayer(window.plugin.zaprange.zapCircleResHolderGroup)) {
         window.plugin.zaprange.zapLayerResHolderGroup.removeLayer(window.plugin.zaprange.zapCircleResHolderGroup);
-        $('.leaflet-control-layers-list span:contains("Zaprange Resistance")').parent('label').addClass('disabled').attr('title', '將地圖放大來顯示這個項目.');
+        $('.leaflet-control-layers-list span:contains("藍軍門泉射程")').parent('label').addClass('disabled').attr('title', '將地圖放大來顯示這個項目.');
       }
     }
   }
@@ -120,11 +126,11 @@ plugin_info.pluginId = 'zaprange';
 
     // to avoid any favouritism, we'll put the player's own faction layer first
     if (PLAYER.team == 'RESISTANCE') {
-      window.addLayerGroup('Zaprange Resistance', window.plugin.zaprange.zapLayerResHolderGroup, true);
-      window.addLayerGroup('Zaprange Enlightened', window.plugin.zaprange.zapLayerEnlHolderGroup, true);
+      window.addLayerGroup('藍軍門泉射程', window.plugin.zaprange.zapLayerResHolderGroup, true);
+      window.addLayerGroup('綠軍門泉射程', window.plugin.zaprange.zapLayerEnlHolderGroup, true);
     } else {
-      window.addLayerGroup('Zaprange Enlightened', window.plugin.zaprange.zapLayerEnlHolderGroup, true);
-      window.addLayerGroup('Zaprange Resistance', window.plugin.zaprange.zapLayerResHolderGroup, true);
+      window.addLayerGroup('綠軍門泉射程', window.plugin.zaprange.zapLayerEnlHolderGroup, true);
+      window.addLayerGroup('藍軍門泉射程', window.plugin.zaprange.zapLayerResHolderGroup, true);
     }
 
     window.addHook('portalAdded', window.plugin.zaprange.portalAdded);

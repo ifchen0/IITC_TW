@@ -16,7 +16,7 @@
 	background: #0e3d4e;
 }
 .showLinkedPortalLink.outgoing {
-	border-style: dashed;
+	border-style: solid;
 }
 .showLinkedPortalLink.incoming {
 	border-style: dotted;

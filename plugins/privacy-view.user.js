@@ -35,10 +35,10 @@ window.plugin.privacyView.toggle = function() {
   var t = $('#privacycontrols .toggle');
   if(b.hasClass('privacy_active')) {
     b.removeClass('privacy_active').addClass('privacy_inactive');
-    t.text('Privacy inactive');
+    t.text('隱私模式停用');
   } else {
     b.removeClass('privacy_inactive').addClass('privacy_active');
-    t.text('Privacy active');
+    t.text('隱私模式啟用');
     if(window.plugin.privacyView.chatExpanded()) {
       window.plugin.privacyView.wrapChatToggle();
     }

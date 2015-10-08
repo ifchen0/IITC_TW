@@ -31,13 +31,21 @@ window.plugin.portalWeakness.highlightWeakness = function(data) {
     var res_count = data.portal.options.data.resCount;
     var portal_health = data.portal.options.data.health;
 
-    var strength = (res_count/8) * (portal_health/100);
+    // Remove warning color for missing res.
+    //var strength = (res_count/8) * (portal_health/100);
    
-    if(strength < 1) {
-      var fill_opacity = (1-strength)*.85 + .15;
-      var color = 'red';
-      var params = {fillColor: color, fillOpacity: fill_opacity};
-
+    if(portal_health < 100 || res_count < 8) {
+      // Helth > 80%, reduce team color.
+      if(portal_health > 80) {
+        var fill_opacity = (portal_health-80)*0.025;
+        var params = {fillOpacity: fill_opacity};
+      }
+      // Health <= 80%, increase warning color.
+      else {
+        var fill_opacity = (100-(portal_health-20))*0.00625;
+        var params = {fillColor: 'red', fillOpacity: fill_opacity};
+      }
+	  
       // Hole per missing resonator
       if (res_count < 8) {
         var dash = new Array((8 - res_count) + 1).join("1,4,") + "100,0"
@@ -51,7 +59,7 @@ window.plugin.portalWeakness.highlightWeakness = function(data) {
 }
 
 var setup =  function() {
-  window.addPortalHighlighter('Portal Weakness', window.plugin.portalWeakness.highlightWeakness);
+  window.addPortalHighlighter('門泉強度', window.plugin.portalWeakness.highlightWeakness);
 }
 
 // PLUGIN END //////////////////////////////////////////////////////////
