@@ -1,0 +1,14 @@
+body {
+	padding-top: 10px;
+	background: url('../img/bg.jpg');
+}
+
+
+table tr.category_header {
+	background: #ddd;
+}
+
+table .description {
+	font-style: italic;
+}
+

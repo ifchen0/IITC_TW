@@ -1,0 +1,8 @@
+build
+localbuildsettings.py
+*.pyc
+*.swp
+*~
+*.bak
+*.project
+.pydevproject
