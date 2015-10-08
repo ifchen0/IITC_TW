@@ -201,7 +201,7 @@ window.setupMap = function() {
     portalsFactionLayers[i] = [L.layerGroup(), L.layerGroup(), L.layerGroup()];
     portalsLayers[i] = L.layerGroup(portalsFactionLayers[i]);
     map.addLayer(portalsLayers[i]);
-    var t = (i === 0 ? '顯示更多' : '等級 ' + i) + '門泉';
+    var t = (i === 0 ? '顯示更多' : '等級' + i) + '門泉';
     addLayers[t] = portalsLayers[i];
     // Store it in hiddenLayer to remove later
     if(!isLayerGroupDisplayed(t, true)) hiddenLayer.push(portalsLayers[i]);
