@@ -20,7 +20,7 @@
 
 // REPLACE ORIG SITE ///////////////////////////////////////////////////
 if(document.getElementsByTagName('html')[0].getAttribute('itemscope') != null)
-  throw('Ingress Intel Website is down, not a userscript issue.');
+  throw('Ingress Intel 網站關閉了, 不是 IITC userscript 的問題.');
 window.iitcBuildDate = '@@BUILDDATE@@';
 
 // disable vanilla JS
@@ -46,10 +46,10 @@ if(!d) {
     // however, this is no longer common. more common is users getting account suspended/banned - and this
     // currently shows the 'not enabled' message. so it's safer to not repeatedly reload in this case
 //    setTimeout('location.reload();', 3*1000);
-    throw("Page doesn't have player data, but you are logged in.");
+    throw("您已經登入, 但頁面找不到玩家資料.");
   }
   // FIXME: handle nia takedown in progress
-  throw("Couldn't retrieve player data. Are you logged in?");
+  throw("無法接收玩家資料. 您有登入了嗎?");
 }
 
 
@@ -65,7 +65,7 @@ for(var i = 0; i < d.length; i++) {
 // security context so we can access the API easily. Setup as much as
 // possible without requiring scripts.
 document.getElementsByTagName('head')[0].innerHTML = ''
-  + '<title>Ingress Intel Map</title>'
+  + '<title>Ingress Intel 地圖</title>'
   + '<style>@@INCLUDESTRING:style.css@@</style>'
   + '<style>@@INCLUDESTRING:external/leaflet.css@@</style>'
 //note: smartphone.css injection moved into code/smartphone.js
@@ -73,7 +73,7 @@ document.getElementsByTagName('head')[0].innerHTML = ''
 
 
 document.getElementsByTagName('body')[0].innerHTML = ''
-  + '<div id="map">Loading, please wait</div>'
+  + '<div id="map">讀取中, 請稍後</div>'
   + '<div id="chatcontrols" style="display:none">'
   + '<a accesskey="0" title="[0]"><span class="toggle expand"></span></a>'
   + '<a accesskey="1" title="[1]">all</a>'
