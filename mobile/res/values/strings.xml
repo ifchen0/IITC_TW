@@ -2,23 +2,23 @@
 <resources>
 
     <string name="app_name">IITC Mobile</string>
-    <string name="toggle_map">Toggle map visibility</string>
-    <string name="clear_log">Clear log</string>
-    <string name="debug_run">Run</string>
-    <string name="activity_settings">IITC Mobile Settings</string>
-    <string name="activity_plugins">IITC Plugins</string>
-    <string name="activity_share">Share using…</string>
-    <string name="activity_share_to_clipboard">Copy to clipboard</string>
-    <string name="activity_save_to_file">Save to file</string>
-    <string name="action_settings">Settings</string>
-    <string name="drawer_open">Show navigation menu</string>
-    <string name="drawer_close">Hide navigation menu</string>
-    <string name="version">Print Version</string>
-    <string name="local">local</string>
-    <string name="close">Close</string>
-    <string name="download_description">Downloading latest intel package…</string>
+    <string name="toggle_map">切換地圖可見度</string>
+    <string name="clear_log">清除記錄</string>
+    <string name="debug_run">執行</string>
+    <string name="activity_settings">IITC Mobile 設定</string>
+    <string name="activity_plugins">IITC 外掛</string>
+    <string name="activity_share">分享…</string>
+    <string name="activity_share_to_clipboard">複製到剪貼簿</string>
+    <string name="activity_save_to_file">儲存到檔案</string>
+    <string name="action_settings">設定</string>
+    <string name="drawer_open">顯示導覽選單</string>
+    <string name="drawer_close">隱藏導覽選單</string>
+    <string name="version">顯示版本</string>
+    <string name="local">本地</string>
+    <string name="close">關閉</string>
+    <string name="download_description">下載最新的intel包…</string>
 
-    <string name="pref_about_title">About IITC Mobile</string>
+    <string name="pref_about_title">關於 IITC Mobile</string>
     <!-- Use CDATA to prevent android from parsing html tags....we are doing this with Html.fromHtml() -->
     <string name="pref_about_text">
         <![CDATA[
@@ -60,92 +60,92 @@
         ]]>
     </string>
     <string name="notice_how_to">
-        <![CDATA[<b>How to use IITCm:</b><br><br>
-        • Navigation: swipe from the left edge of your screen (or click the app icon) to evoke the Navigation Drawer.
-        Click the app icon again to return to the map.<br><br>
-        • Layers/Highlights: swipe from the right edge of your screen (or click the layer-chooser icon in the ActionBar)
-        to evoke the Layer Drawer.<br><br>
-        • You can quickly send the current portal link/permalink to another device if both devices support NFC (hold
-        both devices back-to-back and tap the screen to beam the map to the other device).<br><br>
-        • You can add official plugins in the settings.<br><br>
-        • For external plugins please have a look at the <a href="http://iitc.jonatkins.com/?page=faq#mobile-plugins">FAQ.]]>
+        <![CDATA[<b>如何使用 IITCm:</b><br><br>
+        • 導覽: 從螢幕的左邊緣滑入 (或按一下應用程式圖示) 顯示導覽頁面.
+        按一下應用程式圖示，再次返回到地圖.<br><br>
+        • 圖層/螢光筆: 從螢幕右側邊緣滑入 (或者在工具列點選圖層選擇圖示)
+        來顯示圖層頁面.<br><br>
+        • 若裝置支援NFC，您可以快速地傳送目前的門泉/地圖連結到另一個裝置上 (
+        將兩個裝置背對背並點選傳送端的裝置).<br><br>
+        • 您可以在設置中增加官方外掛.<br><br>
+        • 對於外掛資訊，請參考 <a href="http://iitc.jonatkins.com/?page=faq#mobile-plugins">FAQ.]]>
     </string>
     <string name="notice_info">
-        <![CDATA[Hint: Alternative ways to open the info screen:<br><br>
-        • tap and hold a portal for a second<br>
-        • tap on the left half of the status bar]]>
+        <![CDATA[提示: 用替代方案開啟資訊視窗:<br><br>
+        • 點選一個門泉<br>
+        • 點選螢幕下方狀態列的左半邊]]>
     </string>
     <string name="notice_panes">
-        <![CDATA[Hint:<br><br>
-        Some plugins (e.g. portals list and bookmarks) now appear in the navigation drawer for quick access.<br>
-        They won\'t appear in the info pane any more.<br><br>
-        Swipe from the left edge of your screen (or click the app icon) to seem them.]]>
+        <![CDATA[提示:<br><br>
+        某些外掛 (e.g. 門泉清單 和 門泉書籤) 現在顯示在導覽頁面供快速檢視.<br>
+        他們不再顯示於資訊頁面內.<br><br>
+        從螢幕左邊滑入 (或按一下應用程式圖示) 可以看到它們.]]>
     </string>
     <string name="notice_extplugins">
-        <![CDATA[Hint:<br><br>
-        IITC Mobile is able to load external plugins too!<br><br>
-        Add them by clicking the (+) icon at the top right.
-        The plugin files have to end with \'.user.js\' and are copied to <b>%1$s</b><br>]]>
+        <![CDATA[提示:<br><br>
+        IITC Mobile 能夠讀取第三方外掛!<br><br>
+        要新增請點選右上角的圖示 (+).
+        外掛檔案必須為 \'.user.js\' 並存放於 <b>%1$s</b><br>]]>
     </string>
     <string name="notice_sharing">
-        <![CDATA[With <em>Share portal</em> you can:<br>
-        • send the portal link to other people<br>
-        • view the selected portal\'s position in another app<br>
-        • open the portal link in a webbrowser<br>
+        <![CDATA[使用 <em>分享門泉</em> 你能夠:<br>
+        • 傳送一個門泉連結給另一個人<br>
+        • 在另一個應用程式檢視您選擇的門泉<br>
+        • 在網頁開啟一個門泉連結<br>
         <br>
-        Hint: By selecting Google Maps (or any other installed navigation software), you can quickly navigate to the
-        selected portal.<br>
+        提示: 使用 Google 地圖 (或任何一個導航軟體), 您可以快速的導航到您
+        選擇的門泉.<br>
         <br>
-        These hints also apply for the <em>permalink</em>.]]>
+        這些提示也適用於 <em>地圖鏈接</em>.]]>
     </string>
 
-    <string name="pref_ui_cat">UI</string>
-    <string name="pref_misc_cat">Misc</string>
-    <string name="pref_tweaks_cat">Tweaks</string>
-    <string name="pref_plugins">IITC Plugins</string>
-    <string name="pref_plugins_sum">Plugins extend/modify the IITC experience. Most plugins known from desktop IITC can be found here.</string>
-    <string name="pref_plugins_title">Available plugins</string>
-    <string name="pref_user_location">Display user location on map</string>
-    <string name="pref_persistent_zoom">Persistent zoom level</string>
-    <string name="pref_persistent_zoom_sum">Don\'t change zoom level when locate button is pressed</string>
-    <string name="pref_user_zoom">Show zoom control</string>
-    <string name="pref_user_zoom_sum">Shows +/- buttons even on multitouch capable devices.</string>
-    <string name="pref_fullscreen">Configure fullscreen mode</string>
-    <string name="pref_fullscreen_sum">Which elements should be hidden in fullscreen mode.
-        Note: IITCm can still be controlled via the Navigation Drawers</string>
-    <string name="pref_force_desktop">Force desktop mode</string>
-    <string name="pref_force_desktop_sum">Nice for tablets, looks awful on smartphones</string>
-    <string name="pref_force_https">Force https</string>
-    <string name="pref_force_https_sum">Disabling may improve performance</string>
-    <string name="pref_external_storage">Move tiles cache to external storage</string>
-    <string name="pref_external_storage_sum">Restart required! Write cache to sdCard.
-        External storage has to be mounted.</string>
-    <string name="pref_press_twice_to_exit">Press back button twice to exit</string>
-    <string name="pref_press_twice_to_exit_sum">Avoids accidental exits</string>
-    <string name="pref_advanced_options">Advanced settings</string>
-    <string name="pref_advanced_options_sum">Developer options and advanced tweaks</string>
-    <string name="pref_enable_dev_mode">Enable developer mode</string>
-    <string name="pref_enable_dev_mode_sum">If enabled, all IITC sources will be loaded from external storage of the Android device.
-      Please copy all sources from $IITC_folder/build/mobile/ to /sdcard/IITC_Mobile/dev/.</string>
-    <string name="pref_disable_splash">Disable Splash Screen</string>
-    <string name="pref_fake_user_agent">Fake User Agent</string>
-    <string name="pref_fake_user_agent_sum">Let IITCm appear as a desktop browser for the intel site.
-        Note: If just want to use the desktop mode use the \'force desktop mode\' setting</string>
-    <string name="pref_android_menu">Configure IITCm menu</string>
-    <string name="pref_android_menu_sum">Toggle visibility of IITCm menu entries</string>
-    <string name="pref_update_plugins_cat">User plugin updates</string>
-    <string name="pref_update_plugins_interval">Configure plugin update interval</string>
-    <string name="pref_update_plugins_interval_sum">How often IITCm should search for new plugin versions</string>
-    <string name="pref_force_plugin_update">Force plugin update</string>
-    <string name="pref_force_plugin_update_sum">Update all enabled user plugins</string>
-    <string name="pref_secure_updates">Require secure updates</string>
-    <string name="pref_secure_updates_sum">If enabled, only https updates are handled</string>
+    <string name="pref_ui_cat">介面</string>
+    <string name="pref_misc_cat">雜項</string>
+    <string name="pref_tweaks_cat">調整</string>
+    <string name="pref_plugins">IITC 外掛</string>
+    <string name="pref_plugins_sum">外掛會增加/改變IITC的使用體驗. 大部分從IITC桌面板來的外掛從可以在這裡找到.</string>
+    <string name="pref_plugins_title">可用的外掛</string>
+    <string name="pref_user_location">在地圖上顯示用戶位置</string>
+    <string name="pref_persistent_zoom">保持縮放級別</string>
+    <string name="pref_persistent_zoom_sum">按下定位按鈕時不要改變縮放級別</string>
+    <string name="pref_user_zoom">顯示縮放控制</string>
+    <string name="pref_user_zoom_sum">顯示 +/- 按鈕.</string>
+    <string name="pref_fullscreen">自訂全螢幕模式</string>
+    <string name="pref_fullscreen_sum">在全螢幕模式下隱藏部分元件.
+        Note: IITCm 仍然可以經由導覽頁面控制</string>
+    <string name="pref_force_desktop">強制桌面模式</string>
+    <string name="pref_force_desktop_sum">適用於筆電, 在智慧型手機上看起來很糟</string>
+    <string name="pref_force_https">強制使用https</string>
+    <string name="pref_force_https_sum">禁用可能會提高性能</string>
+    <string name="pref_external_storage">將快取移動到外部儲存空間</string>
+    <string name="pref_external_storage_sum">需要重新啟動! 將快取移動到SD卡.
+        必須有外部儲存裝置.</string>
+    <string name="pref_press_twice_to_exit">按兩次返鍵回退出</string>
+    <string name="pref_press_twice_to_exit_sum">避免不小心按到返回鍵</string>
+    <string name="pref_advanced_options">進階設定</string>
+    <string name="pref_advanced_options_sum">開發者選項和進階調整</string>
+    <string name="pref_enable_dev_mode">啟用開發人員模式</string>
+    <string name="pref_enable_dev_mode_sum">若啟用, 所有IITC資源都會從Android設備的外部儲存裝置讀取.
+      請將所有資源從 $IITC_folder/build/mobile/ 複製到 /sdcard/IITC_Mobile/dev/.</string>
+    <string name="pref_disable_splash">停用程式開啟畫面</string>
+    <string name="pref_fake_user_agent">假的用戶代理</string>
+    <string name="pref_fake_user_agent_sum">讓IITCm顯示為桌面版的 intel 網站.
+        備註: 如果只是想使用桌面模式, 請用 \'強制桌面模式\' 設定</string>
+    <string name="pref_android_menu">自訂 IITCm 選單</string>
+    <string name="pref_android_menu_sum">調整IITCm選單內的項目</string>
+    <string name="pref_update_plugins_cat">用戶外掛更新</string>
+    <string name="pref_update_plugins_interval">自訂外掛更新間隔</string>
+    <string name="pref_update_plugins_interval_sum">隔多久掃描新的外掛版本</string>
+    <string name="pref_force_plugin_update">強制更新外掛</string>
+    <string name="pref_force_plugin_update_sum">更新所有啟用的外掛</string>
+    <string name="pref_secure_updates">安全更新</string>
+    <string name="pref_secure_updates_sum">若啟用, 將只在 https 下更新</string>
 
     <string-array name="pref_hide_fullscreen">
-        <item>System Notification Bar</item>
-        <item>IITC Action Bar</item>
-        <item>IITC Status Bar</item>
-        <item>System Navigation Bar</item>
+        <item>系統通知</item>
+        <item>IITC 操作欄</item>
+        <item>IITC 狀態列</item>
+        <item>系統導覽</item>
     </string-array>
     <string-array name="pref_hide_fullscreen_vals">
         <item>2</item>
@@ -178,9 +178,9 @@
     </string-array>
 
     <string-array name="pref_user_location_titles">
-        <item>Don\'t show user position</item>
-        <item>Show user position on map</item>
-        <item>Show user position and orientation on map</item>
+        <item>不顯示使用者位置</item>
+        <item>在地圖顯示使用者位置</item>
+        <item>在地圖上顯示用戶位置和方向</item>
     </string-array>
     <string-array name="pref_user_location_values">
         <item>0</item>
@@ -190,10 +190,10 @@
 
     <string-array name="pref_update_plugins_interval_titles">
         <item>Disable</item>
-        <item>1 day</item>
-        <item>2 days</item>
-        <item>1 week</item>
-        <item>2 weeks</item>
+        <item>1 天</item>
+        <item>2 天</item>
+        <item>1 星期</item>
+        <item>2 星期</item>
     </string-array>
 
     <string-array name="pref_update_plugins_interval_values">
@@ -204,42 +204,42 @@
         <item>14</item>
     </string-array>
 
-    <string name="menu_reload">Reload IITC</string>
-    <string name="menu_toggle_fullscreen">Fullscreen</string>
-    <string name="menu_layer_chooser">Layer Chooser</string>
-    <string name="menu_locate">Get Location</string>
-    <string name="menu_clear_cookies">Clear Cookies</string>
-    <string name="menu_search">Search</string>
-    <string name="menu_debug">Debug</string>
-    <string name="menu_send_screenshot">Send screenshot</string>
-    <string name="menu_plugins_add">Add external plugins</string>
-    <string name="menu_copy">Copy</string>
-    <string name="menu_delete">Delete</string>
-    <string name="choose_account_to_login">Choose account to login</string>
-    <string name="login_failed">Login failed.</string>
-    <string name="search_hint">Search Locations</string>
-    <string name="intent_error">Address could not be opened</string>
-    <string name="msg_copied">Copied to clipboard…</string>
-    <string name="notice_do_not_show_again">Do not show again</string>
+    <string name="menu_reload">重新載入 IITC</string>
+    <string name="menu_toggle_fullscreen">全螢幕</string>
+    <string name="menu_layer_chooser">圖層選擇</string>
+    <string name="menu_locate">現在位置</string>
+    <string name="menu_clear_cookies">清除Cookies</string>
+    <string name="menu_search">搜尋</string>
+    <string name="menu_debug">除錯</string>
+    <string name="menu_send_screenshot">發送截圖</string>
+    <string name="menu_plugins_add">增加外掛</string>
+    <string name="menu_copy">複製</string>
+    <string name="menu_delete">刪除</string>
+    <string name="choose_account_to_login">選擇一個帳戶登入</string>
+    <string name="login_failed">登入失敗.</string>
+    <string name="search_hint">搜尋地點</string>
+    <string name="intent_error">地址無法開啟</string>
+    <string name="msg_copied">複製到剪貼簿…</string>
+    <string name="notice_do_not_show_again">不再顯示</string>
 
-    <string name="sign_in_to">Sign in to %1$s %2$s"</string>
-    <string name="username">Username</string>
-    <string name="password">Password</string>
-    <string name="sign_in_action">Sign in</string>
+    <string name="sign_in_to">登錄到 %1$s %2$s"</string>
+    <string name="username">名稱</string>
+    <string name="password">密碼</string>
+    <string name="sign_in_action">登入</string>
 
-    <string name="tab_map">Locate</string>
-    <string name="tab_share">Share</string>
+    <string name="tab_map">定位</string>
+    <string name="tab_share">分享</string>
     <string name="tab_browser">Intel</string>
 
-    <string name="label_highlighter">Highlighter</string>
-    <string name="label_base_layer">Base Layer</string>
-    <string name="label_overlay_layers">Overlay Layers</string>
+    <string name="label_highlighter">螢光筆</string>
+    <string name="label_base_layer">基本圖層</string>
+    <string name="label_overlay_layers">覆蓋圖層</string>
 
-    <string name="install_dialog_top">Install external plugin?</string>
+    <string name="install_dialog_top">安裝外部外掛程式嗎?</string>
     <string name="install_dialog_msg">
-        <![CDATA[IITCm was requested to install the following javascript file:<br><br>%1$s<br><br>
-        <b>Be careful:</b> Javascript from external sources may contain harmful code (spyware etc.)!<br><br>
-        Are you sure you want to proceed?]]>
+        <![CDATA[IITCm 被要求安裝以下的 javascript 代碼 檔案:<br><br>%1$s<br><br>
+        <b>請注意:</b> 從外部來源的 JAVAscript 可能包含有害代碼 (例如間諜軟體 etc.)!<br><br>
+        你確定要繼續嗎??]]>
     </string>
 
 </resources>

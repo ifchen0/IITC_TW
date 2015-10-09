@@ -277,11 +277,11 @@ public class IITC_NavigationHelper extends ActionBarDrawerToggle implements OnIt
     }
 
     public static class Pane {
-        public static final Pane ALL = new Pane("all", "All", R.drawable.ic_action_view_as_list);
-        public static final Pane FACTION = new Pane("faction", "Faction", R.drawable.ic_action_cc_bcc);
-        public static final Pane ALERTS = new Pane("alerts", "Alerts", R.drawable.ic_action_warning);
-        public static final Pane INFO = new Pane("info", "Info", R.drawable.ic_action_about);
-        public static final Pane MAP = new Pane("map", "Map", R.drawable.ic_action_map);
+        public static final Pane ALL = new Pane("all", "全部", R.drawable.ic_action_view_as_list);
+    public static final Pane FACTION = new Pane("faction", "陣營", R.drawable.ic_action_cc_bcc);
+        public static final Pane ALERTS = new Pane("alerts", "快訊", R.drawable.ic_action_warning);
+        public static final Pane INFO = new Pane("info", "資訊", R.drawable.ic_action_about);
+        public static final Pane MAP = new Pane("map", "地圖", R.drawable.ic_action_map);
 
         private final int icon;
         public String label;

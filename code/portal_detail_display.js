@@ -17,7 +17,7 @@ window.renderPortalDetails = function(guid) {
     $('#portaldetails').html('');
     if(isSmartphone()) {
       $('.fullimg').remove();
-      $('#mobileinfo').html('<div style="text-align: center"><b>tap here for info screen</b></div>');
+      $('#mobileinfo').html('<div style="text-align: center"><b>按此處檢視資訊頁面</b></div>');
     }
     return;
   }

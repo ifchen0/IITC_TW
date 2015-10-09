@@ -1265,7 +1265,7 @@
       $('#bookmarksBox').css("display", "none").addClass("mobile");
 
       if(window.useAndroidPanes())
-        android.addPane("plugin-bookmarks", "Bookmarks", "ic_action_star");
+        android.addPane("plugin-bookmarks", "書籤", "ic_action_star");
       window.addHook('paneChanged', window.plugin.bookmarks.onPaneChanged);
     }
     $('#toolbox').append(window.plugin.bookmarks.htmlCallSetBox+window.plugin.bookmarks.htmlCalldrawBox);

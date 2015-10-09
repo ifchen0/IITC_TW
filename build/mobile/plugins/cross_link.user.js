@@ -2,11 +2,11 @@
 // @id             iitc-plugin-cross-links@mcben
 // @name           IITC plugin: cross links
 // @category       Layer
-// @version        1.1.2.20151009.65025
+// @version        1.1.2.20151009.104519
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/plugins/cross_link.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/plugins/cross_link.user.js
-// @description    [mobile-2015-10-09-065025] EXPERIMENTAL: Checks for existing links that cross planned links. Requires draw-tools plugin.
+// @description    [mobile-2015-10-09-104519] EXPERIMENTAL: Checks for existing links that cross planned links. Requires draw-tools plugin.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'mobile';
-plugin_info.dateTimeVersion = '20151009.65025';
+plugin_info.dateTimeVersion = '20151009.104519';
 plugin_info.pluginId = 'cross_link';
 //END PLUGIN AUTHORS NOTE
 

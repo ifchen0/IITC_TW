@@ -2,11 +2,11 @@
 // @id             iitc-plugin-missions@jonatkins
 // @name           IITC plugin: Missions
 // @category       Info
-// @version        0.1.2.20151009.65025
+// @version        0.1.2.20151009.104519
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/plugins/missions.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/plugins/missions.user.js
-// @description    [mobile-2015-10-09-065025] View missions. Marking progress on waypoints/missions basis. Showing mission paths on the map.
+// @description    [mobile-2015-10-09-104519] View missions. Marking progress on waypoints/missions basis. Showing mission paths on the map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'mobile';
-plugin_info.dateTimeVersion = '20151009.65025';
+plugin_info.dateTimeVersion = '20151009.104519';
 plugin_info.pluginId = 'missions';
 //END PLUGIN AUTHORS NOTE
 
@@ -1050,7 +1050,7 @@ window.plugin.missions = {
 					},
 				});
 			
-			android.addPane('plugin-missions', 'Missions', 'ic_missions');
+			android.addPane('plugin-missions', '任務', 'ic_missions');
 			addHook('paneChanged', this.onPaneChanged.bind(this));
 		}
 

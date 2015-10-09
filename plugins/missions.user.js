@@ -1038,7 +1038,7 @@ window.plugin.missions = {
 					},
 				});
 			
-			android.addPane('plugin-missions', 'Missions', 'ic_missions');
+			android.addPane('plugin-missions', '任務', 'ic_missions');
 			addHook('paneChanged', this.onPaneChanged.bind(this));
 		}
 

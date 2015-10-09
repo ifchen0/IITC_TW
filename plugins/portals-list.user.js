@@ -395,7 +395,7 @@ window.plugin.portalslist.onPaneChanged = function(pane) {
 
 var setup =  function() {
   if(window.useAndroidPanes()) {
-    android.addPane("plugin-portalslist", "Portals list", "ic_action_paste");
+    android.addPane("plugin-portalslist", "門泉清單", "ic_action_paste");
     addHook("paneChanged", window.plugin.portalslist.onPaneChanged);
   } else {
     $('#toolbox').append('<a onclick="window.plugin.portalslist.displayPL()" title="顯示目前畫面中的門泉清單 [t]" accesskey="t">門泉清單</a>');

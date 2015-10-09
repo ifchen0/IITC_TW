@@ -2,11 +2,11 @@
 // @id             iitc-plugin-portals-list@teo96
 // @name           IITC plugin: show list of portals
 // @category       Info
-// @version        0.2.1.20151009.65025
+// @version        0.2.1.20151009.104519
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/plugins/portals-list.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/plugins/portals-list.user.js
-// @description    [mobile-2015-10-09-065025] Display a sortable list of all visible portals with full details about the team, resonators, links, etc.
+// @description    [mobile-2015-10-09-104519] Display a sortable list of all visible portals with full details about the team, resonators, links, etc.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'mobile';
-plugin_info.dateTimeVersion = '20151009.65025';
+plugin_info.dateTimeVersion = '20151009.104519';
 plugin_info.pluginId = 'portals-list';
 //END PLUGIN AUTHORS NOTE
 
@@ -407,7 +407,7 @@ window.plugin.portalslist.onPaneChanged = function(pane) {
 
 var setup =  function() {
   if(window.useAndroidPanes()) {
-    android.addPane("plugin-portalslist", "Portals list", "ic_action_paste");
+    android.addPane("plugin-portalslist", "門泉清單", "ic_action_paste");
     addHook("paneChanged", window.plugin.portalslist.onPaneChanged);
   } else {
     $('#toolbox').append('<a onclick="window.plugin.portalslist.displayPL()" title="顯示目前畫面中的門泉清單 [t]" accesskey="t">門泉清單</a>');
