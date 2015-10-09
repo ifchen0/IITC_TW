@@ -70,16 +70,16 @@ public class CheckHttpResponse extends AsyncTask<String, Void, Boolean> {
             final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(mIitc);
 
             // set title
-            alertDialogBuilder.setTitle("LOGIN FAILED!");
+            alertDialogBuilder.setTitle("登入失敗!");
 
             // set dialog message
             alertDialogBuilder
-                    .setMessage("This is caused by Google and hopefully fixed soon. " +
-                            "To workaround this issue:\n" +
-                            "• Choose 'Cancel' when asked to choose an account " +
-                            "and manually enter your email address and password into the web page\n" +
-                            "• If you don't see the account chooser, delete apps cache/data " +
-                            "to force a new login session and handle it as described above")
+                    .setMessage("這個問題是由Google造成的，希望盡快解決. " +
+                            "要解決這個問題:\n" +
+                            "• 在選擇帳戶時選擇 '取消' " +
+                            "並手動輸入您的電子郵件地址和密碼進入網頁\n" +
+                            "• 如果您沒有看到帳戶選擇, 請清除應用程序快取和資料" +
+                            "強迫應用程式重新登入")
                     .setCancelable(true)
                     .setNeutralButton("Reload now", new DialogInterface.OnClickListener() {
                         @Override

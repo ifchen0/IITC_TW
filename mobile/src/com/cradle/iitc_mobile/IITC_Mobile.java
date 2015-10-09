@@ -868,7 +868,7 @@ public class IITC_Mobile extends Activity
     public void updateIitc(final String url) {
         final DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
         request.setDescription(getString(R.string.download_description));
-        request.setTitle("IITCm Update");
+        request.setTitle("IITCm 更新");
         request.allowScanningByMediaScanner();
         final Uri fileUri = Uri.parse("file://" + getExternalFilesDir(null).toString() + "/iitcUpdate.apk");
         request.setDestinationUri(fileUri);
