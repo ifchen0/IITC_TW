@@ -203,7 +203,7 @@ public class IITC_WebView extends WebView {
         // toggle notification bar
         if (isInFullscreen()) {
             // show a toast with instructions to exit the fullscreen mode again
-            Toast.makeText(mIitc, "Press back button to exit fullscreen", Toast.LENGTH_SHORT).show();
+            Toast.makeText(mIitc, "按返回按鈕退出全螢幕", Toast.LENGTH_SHORT).show();
             if ((mFullscreenStatus & FS_ACTIONBAR) != 0) {
                 mIitc.getNavigationHelper().hideActionBar();
             }

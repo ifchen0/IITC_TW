@@ -142,10 +142,10 @@ public class PluginPreferenceActivity extends PreferenceActivity {
                 target.addCategory(Intent.CATEGORY_OPENABLE);
 
                 try {
-                    startActivityForResult(Intent.createChooser(target, "Choose file"), COPY_PLUGIN_REQUEST);
+                    startActivityForResult(Intent.createChooser(target, "選取檔案"), COPY_PLUGIN_REQUEST);
                 } catch (final ActivityNotFoundException e) {
-                    Toast.makeText(this, "No activity to select a file found." +
-                            "Please install a file browser of your choice!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "沒有可用來選取檔案的軟體." +
+                            "請安裝一個檔案瀏覽器來選擇!", Toast.LENGTH_LONG).show();
                 }
             default:
                 return super.onOptionsItemSelected(item);

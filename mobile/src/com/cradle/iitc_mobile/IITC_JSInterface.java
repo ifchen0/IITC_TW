@@ -50,9 +50,9 @@ public class IITC_JSInterface {
     @JavascriptInterface
     public void copy(final String s) {
         final ClipboardManager clipboard = (ClipboardManager) mIitc.getSystemService(Context.CLIPBOARD_SERVICE);
-        final ClipData clip = ClipData.newPlainText("Copied Text ", s);
+        final ClipData clip = ClipData.newPlainText("複製的文字 ", s);
         clipboard.setPrimaryClip(clip);
-        Toast.makeText(mIitc, "copied to clipboard", Toast.LENGTH_SHORT).show();
+        Toast.makeText(mIitc, "複製到剪貼簿", Toast.LENGTH_SHORT).show();
     }
 
     @JavascriptInterface
@@ -245,7 +245,7 @@ public class IITC_JSInterface {
             final FileOutputStream outStream = new FileOutputStream(outFile);
             outStream.write(content.getBytes("UTF-8"));
             outStream.close();
-            Toast.makeText(mIitc, "File exported to " + outFile.getPath(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(mIitc, "檔案匯出至 " + outFile.getPath(), Toast.LENGTH_SHORT).show();
         } catch (final IOException e) {
             e.printStackTrace();
         }

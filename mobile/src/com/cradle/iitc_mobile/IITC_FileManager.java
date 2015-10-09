@@ -158,9 +158,9 @@ public class IITC_FileManager {
                 mActivity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(mActivity, "File " + mIitcPath +
-                                "dev/" + filename + " not found. " +
-                                "Disable developer mode or add iitc files to the dev folder.",
+                        Toast.makeText(mActivity, "找不到檔案 " + mIitcPath +
+                                "dev/" + filename + ". " +
+                                "請停用開發人員模式或添加IITC文件到開發文件夾.",
                                 Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -383,8 +383,8 @@ public class IITC_FileManager {
             try {
                 iitc.startActivityForResult(Intent.createChooser(target, "Choose file"), this);
             } catch (final ActivityNotFoundException e) {
-                Toast.makeText(mActivity, "No activity to select a file found." +
-                        "Please install a file browser of your choice!", Toast.LENGTH_LONG).show();
+                Toast.makeText(mActivity, "沒有可用來選取檔案的軟體." +
+                        "請安裝一個檔案瀏覽器來選擇!", Toast.LENGTH_LONG).show();
             }
         }
 
