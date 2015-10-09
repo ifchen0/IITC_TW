@@ -1,11 +1,11 @@
 // ==UserScript==
 // @id             ingress-intel-total-conversion@jonatkins
 // @name           IITC: Ingress intel map total conversion
-// @version        0.25.2.20151008.180801
+// @version        0.25.2.20151009.35142
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/total-conversion-build.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/total-conversion-build.user.js
-// @description    [local-2015-10-08-180801] Total conversion for the ingress intel map.
+// @description    [local-2015-10-09-035142] Total conversion for the ingress intel map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -21,24 +21,17 @@
 // REPLACE ORIG SITE ///////////////////////////////////////////////////
 if(document.getElementsByTagName('html')[0].getAttribute('itemscope') != null)
   throw('Ingress Intel 網站關閉了, 不是 IITC userscript 的問題.');
-window.iitcBuildDate = '2015-10-08-180801';
+window.iitcBuildDate = '2015-10-09-035142';
 
 // disable vanilla JS
 window.onload = function() {};
 document.body.onload = function() {};
 
-// rescue user data from original page
-var scr = document.getElementsByTagName('script');
-for(var x in scr) {
-  var s = scr[x];
-  if(s.src) continue;
-  if(s.type !== 'text/javascript') continue;
-  var d = s.innerHTML.split('\n');
-  break;
-}
 
+//originally code here parsed the <Script> tags from the page to find the one that defined the PLAYER object
+//however, that's already been executed, so we can just access PLAYER - no messing around needed!
 
-if(!d) {
+if (!window.PLAYER) {
   // page doesn’t have a script tag with player information.
   if(document.getElementById('header_email')) {
     // however, we are logged in.
@@ -53,11 +46,6 @@ if(!d) {
 }
 
 
-for(var i = 0; i < d.length; i++) {
-  if(!d[i].match('var PLAYER = ')) continue;
-  eval(d[i].match(/^var /, 'window.'));
-  break;
-}
 // player information is now available in a hash like this:
 // window.PLAYER = {"ap": "123", "energy": 123, "available_invites": 123, "nickname": "somenick", "team": "ENLIGHTENED||RESISTANCE"};
 
@@ -1259,7 +1247,7 @@ function boot() {
   if(!isSmartphone()) // TODO remove completely?
     window.debug.console.overwriteNativeIfRequired();
 
-  console.log('loading done, booting. Built: 2015-10-08-180801');
+  console.log('loading done, booting. Built: 2015-10-09-035142');
   if(window.deviceID) console.log('Your device ID: ' + window.deviceID);
   window.runOnSmartphonesBeforeBoot();
 
@@ -17901,7 +17889,7 @@ L.Draggable.prototype._onDown = function(e) {
 
 // inject code into site context
 var script = document.createElement('script');
-var info = { buildName: 'local', dateTimeVersion: '20151008.180801' };
+var info = { buildName: 'local', dateTimeVersion: '20151009.35142' };
 if (this.GM_info && this.GM_info.script) info.script = { version: GM_info.script.version, name: GM_info.script.name, description: GM_info.script.description };
 script.appendChild(document.createTextNode('('+ wrapper +')('+JSON.stringify(info)+');'));
 (document.body || document.head || document.documentElement).appendChild(script);
