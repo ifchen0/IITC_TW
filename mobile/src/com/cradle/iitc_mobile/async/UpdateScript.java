@@ -100,7 +100,7 @@ public class UpdateScript extends AsyncTask<String, Void, Boolean> {
         if (updated) {
             final String name = IITC_FileManager.getScriptInfo(mScript).get("name");
             new AlertDialog.Builder(mActivity)
-                    .setTitle("Plugin updated")
+                    .setTitle("外掛已更新")
                     .setMessage(name)
                     .setCancelable(true)
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -109,7 +109,7 @@ public class UpdateScript extends AsyncTask<String, Void, Boolean> {
                             dialog.cancel();
                         }
                     })
-                    .setNegativeButton("Reload", new DialogInterface.OnClickListener() {
+                    .setNegativeButton("重新載入", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(final DialogInterface dialog, final int which) {
                             dialog.cancel();

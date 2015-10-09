@@ -258,8 +258,8 @@ public class PluginPreferenceActivity extends PreferenceActivity {
         final String plugin_desc = info.get("description");
 
         // remove IITC plugin prefix from plugin_name
-        plugin_name = plugin_name.replace("IITC Plugin: ", "");
-        plugin_name = plugin_name.replace("IITC plugin: ", "");
+        plugin_name = plugin_name.replace("IITC 外掛: ", "");
+        plugin_name = plugin_name.replace("IITC 外掛: ", "");
 
         // do not add deleted or stock map plugins
         if (plugin_cat.equals("Deleted") || plugin_cat.equals("Stock")) {
@@ -296,7 +296,7 @@ public class PluginPreferenceActivity extends PreferenceActivity {
     void addHeaders() {
         if (sUserPlugins.size() > 0) {
             final Header category = new Header();
-            category.title = "User Plugins";
+            category.title = "使用者外掛";
             mHeaders.add(category);
             for (final Map.Entry<String, ArrayList<PluginPreference>> entry : sUserPlugins.entrySet()) {
                 addHeader(entry.getKey(), true);
@@ -304,7 +304,7 @@ public class PluginPreferenceActivity extends PreferenceActivity {
         }
         if (sAssetPlugins.size() > 0) {
             final Header category = new Header();
-            category.title = "Official Plugins";
+            category.title = "官方外掛";
             mHeaders.add(category);
             for (final Map.Entry<String, ArrayList<PluginPreference>> entry : sAssetPlugins.entrySet()) {
                 addHeader(entry.getKey(), false);
