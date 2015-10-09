@@ -2,11 +2,11 @@
 // @id             iitc-plugin-missions@jonatkins
 // @name           IITC plugin: Missions
 // @category       Info
-// @version        0.1.2.20151009.104519
+// @version        0.1.2.20151009.125525
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/plugins/missions.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/plugins/missions.user.js
-// @description    [mobile-2015-10-09-104519] View missions. Marking progress on waypoints/missions basis. Showing mission paths on the map.
+// @description    [mobile-2015-10-09-125525] View missions. Marking progress on waypoints/missions basis. Showing mission paths on the map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*

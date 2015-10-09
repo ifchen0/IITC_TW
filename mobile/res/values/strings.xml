@@ -189,7 +189,7 @@
     </string-array>
 
     <string-array name="pref_update_plugins_interval_titles">
-        <item>Disable</item>
+        <item>停用</item>
         <item>1 天</item>
         <item>2 天</item>
         <item>1 星期</item>

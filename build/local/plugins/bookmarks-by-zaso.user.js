@@ -2,11 +2,11 @@
 // @id             iitc-plugin-bookmarks@ZasoGD
 // @name           IITC plugin: Bookmarks for maps and portals
 // @category       Controls
-// @version        0.2.12.20151008.134855
+// @version        0.2.12.20151009.125421
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/bookmarks-by-zaso.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/bookmarks-by-zaso.user.js
-// @description    [local-2015-10-08-134855] Save your favorite Maps and Portals and move the intel map with a click. Works with sync.
+// @description    [local-2015-10-09-125421] Save your favorite Maps and Portals and move the intel map with a click. Works with sync.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'local';
-plugin_info.dateTimeVersion = '20151008.134855';
+plugin_info.dateTimeVersion = '20151009.125421';
 plugin_info.pluginId = 'bookmarks-by-zaso';
 //END PLUGIN AUTHORS NOTE
 
@@ -1277,7 +1277,7 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
       $('#bookmarksBox').css("display", "none").addClass("mobile");
 
       if(window.useAndroidPanes())
-        android.addPane("plugin-bookmarks", "Bookmarks", "ic_action_star");
+        android.addPane("plugin-bookmarks", "書籤", "ic_action_star");
       window.addHook('paneChanged', window.plugin.bookmarks.onPaneChanged);
     }
     $('#toolbox').append(window.plugin.bookmarks.htmlCallSetBox+window.plugin.bookmarks.htmlCalldrawBox);

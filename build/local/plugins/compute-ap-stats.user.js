@@ -2,11 +2,11 @@
 // @id             iitc-plugin-compute-ap-stats@Hollow011
 // @name           IITC plugin: Compute AP statistics
 // @category       Info
-// @version        0.4.1.20151008.134855
+// @version        0.4.1.20151009.125421
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/compute-ap-stats.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/compute-ap-stats.user.js
-// @description    [local-2015-10-08-134855] Displays the per-team AP gains available in the current view.
+// @description    [local-2015-10-09-125421] Displays the per-team AP gains available in the current view.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'local';
-plugin_info.dateTimeVersion = '20151008.134855';
+plugin_info.dateTimeVersion = '20151009.125421';
 plugin_info.pluginId = 'compute-ap-stats';
 //END PLUGIN AUTHORS NOTE
 

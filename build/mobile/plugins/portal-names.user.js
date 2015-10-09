@@ -2,11 +2,11 @@
 // @id             iitc-plugin-portal-names@zaso
 // @name           IITC plugin: Portal Names
 // @category       Layer
-// @version        0.1.6.20151009.104519
+// @version        0.1.6.20151009.125525
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/plugins/portal-names.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/plugins/portal-names.user.js
-// @description    [mobile-2015-10-09-104519] Show portal names on the map.
+// @description    [mobile-2015-10-09-125525] Show portal names on the map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'mobile';
-plugin_info.dateTimeVersion = '20151009.104519';
+plugin_info.dateTimeVersion = '20151009.125525';
 plugin_info.pluginId = 'portal-names';
 //END PLUGIN AUTHORS NOTE
 

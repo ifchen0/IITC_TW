@@ -2,11 +2,11 @@
 // @id             iitc-plugin-zaprange@zaso
 // @name           IITC plugin: Zaprange
 // @category       Layer
-// @version        0.1.4.20151008.134855
+// @version        0.1.4.20151009.125421
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/zaprange.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/zaprange.user.js
-// @description    [local-2015-10-08-134855] Shows the maximum range of attack by the portals.
+// @description    [local-2015-10-09-125421] Shows the maximum range of attack by the portals.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'local';
-plugin_info.dateTimeVersion = '20151008.134855';
+plugin_info.dateTimeVersion = '20151009.125421';
 plugin_info.pluginId = 'zaprange';
 //END PLUGIN AUTHORS NOTE
 

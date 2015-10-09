@@ -1,11 +1,11 @@
 // ==UserScript==
 // @id             ingress-intel-total-conversion@jonatkins
 // @name           IITC: Ingress intel map total conversion
-// @version        0.25.2.20151009.35142
+// @version        0.25.2.20151009.125421
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/total-conversion-build.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/total-conversion-build.user.js
-// @description    [local-2015-10-09-035142] Total conversion for the ingress intel map.
+// @description    [local-2015-10-09-125421] Total conversion for the ingress intel map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -21,7 +21,7 @@
 // REPLACE ORIG SITE ///////////////////////////////////////////////////
 if(document.getElementsByTagName('html')[0].getAttribute('itemscope') != null)
   throw('Ingress Intel 網站關閉了, 不是 IITC userscript 的問題.');
-window.iitcBuildDate = '2015-10-09-035142';
+window.iitcBuildDate = '2015-10-09-125421';
 
 // disable vanilla JS
 window.onload = function() {};
@@ -1247,7 +1247,7 @@ function boot() {
   if(!isSmartphone()) // TODO remove completely?
     window.debug.console.overwriteNativeIfRequired();
 
-  console.log('loading done, booting. Built: 2015-10-09-035142');
+  console.log('loading done, booting. Built: 2015-10-09-125421');
   if(window.deviceID) console.log('Your device ID: ' + window.deviceID);
   window.runOnSmartphonesBeforeBoot();
 
@@ -15017,7 +15017,7 @@ window.renderPortalDetails = function(guid) {
     $('#portaldetails').html('');
     if(isSmartphone()) {
       $('.fullimg').remove();
-      $('#mobileinfo').html('<div style="text-align: center"><b>tap here for info screen</b></div>');
+      $('#mobileinfo').html('<div style="text-align: center"><b>按此處檢視資訊頁面</b></div>');
     }
     return;
   }
@@ -17213,7 +17213,7 @@ window.runOnSmartphonesAfterBoot = function() {
   $('#updatestatus').prepend('<div id="mobileinfo" onclick="show(\'info\')"></div>');
   window.addHook('portalSelected', window.smartphoneInfo);
   // init msg of status bar. hint for the user that a tap leads to the info screen
-  $('#mobileinfo').html('<div style="text-align: center"><b>tap here for info screen</b></div>');
+  $('#mobileinfo').html('<div style="text-align: center"><b>按此處檢視資訊頁面</b></div>');
 
   // disable img full view
   $('#portaldetails').off('click', '**');
@@ -17889,7 +17889,7 @@ L.Draggable.prototype._onDown = function(e) {
 
 // inject code into site context
 var script = document.createElement('script');
-var info = { buildName: 'local', dateTimeVersion: '20151009.35142' };
+var info = { buildName: 'local', dateTimeVersion: '20151009.125421' };
 if (this.GM_info && this.GM_info.script) info.script = { version: GM_info.script.version, name: GM_info.script.name, description: GM_info.script.description };
 script.appendChild(document.createTextNode('('+ wrapper +')('+JSON.stringify(info)+');'));
 (document.body || document.head || document.documentElement).appendChild(script);
