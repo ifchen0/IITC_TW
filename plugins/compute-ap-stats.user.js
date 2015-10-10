@@ -65,7 +65,7 @@ window.plugin.compAPStats.update = function(hasFinished) {
   var formatRow = function(team,data) {
     var title = '摧毀並佔領 '+data.destroyPortals+' portals\n'
               + '摧毀 '+data.destroyLinks+' 連線 和 '+data.destroyFields+' 控制場\n'
-              + '佔領 '+data.capturePortals+' 中立門泉, 完成 '+data.finishPortals+' 門泉\n'
+              + '佔領 '+data.capturePortals+' 中立門泉, 完成 '+data.finishPortals+' Portal\n'
               + '(其他未知的 連線/控制場)';
     return '<tr><td>'+team+'</td><td style="text-align:right" title="'+title+'">'+digits(data.AP)+'</td></tr>';
   }

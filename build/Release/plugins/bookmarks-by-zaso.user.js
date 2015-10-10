@@ -2,11 +2,11 @@
 // @id             iitc-plugin-bookmarks@ZasoGD
 // @name           IITC plugin: Bookmarks for maps and portals
 // @category       Controls
-// @version        0.2.12.20151008.151115
+// @version        0.2.12.20151010.173452
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/bookmarks-by-zaso.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/bookmarks-by-zaso.user.js
-// @description    [Release-2015-10-08-151115] Save your favorite Maps and Portals and move the intel map with a click. Works with sync.
+// @description    [Release-2015-10-10-173452] Save your favorite Maps and Portals and move the intel map with a click. Works with sync.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'Release';
-plugin_info.dateTimeVersion = '20151008.151115';
+plugin_info.dateTimeVersion = '20151010.173452';
 plugin_info.pluginId = 'bookmarks-by-zaso';
 //END PLUGIN AUTHORS NOTE
 
@@ -1203,7 +1203,7 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
                           +'</div>'
                           +'<div id="bookmarksTypeBar">'
                             +'<h5 class="bkmrk_maps current" onclick="window.plugin.bookmarks.switchPageBkmrksBox(this, 0);return false">地圖</h5>'
-                            +'<h5 class="bkmrk_portals" onclick="window.plugin.bookmarks.switchPageBkmrksBox(this, 1);return false">門泉</h5>'
+                            +'<h5 class="bkmrk_portals" onclick="window.plugin.bookmarks.switchPageBkmrksBox(this, 1);return false">Portal</h5>'
                             +'<div style="clear:both !important;"></div>'
                           +'</div>'
                           +'<div id="bkmrk_maps" class="bookmarkList current">'
@@ -1277,7 +1277,7 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
       $('#bookmarksBox').css("display", "none").addClass("mobile");
 
       if(window.useAndroidPanes())
-        android.addPane("plugin-bookmarks", "Bookmarks", "ic_action_star");
+        android.addPane("plugin-bookmarks", "書籤", "ic_action_star");
       window.addHook('paneChanged', window.plugin.bookmarks.onPaneChanged);
     }
     $('#toolbox').append(window.plugin.bookmarks.htmlCallSetBox+window.plugin.bookmarks.htmlCalldrawBox);

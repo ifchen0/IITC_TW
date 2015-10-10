@@ -18,7 +18,7 @@ window.renderUpdateStatus = function() {
   if (tileParams.hasPortals) {
     // zoom level includes portals (and also all links/fields)
     if(!window.isSmartphone()) // space is valuable
-      t += '<b>門泉</b>: ';
+      t += '<b>Portal</b>: ';
     if(tileParams.level === 0)
       //iF:Adjust color to background color.
       t += '<span id="loadlevel" style="background: rgba(0, 0, 0, 0); color: #FFCE00;">全部</span>';

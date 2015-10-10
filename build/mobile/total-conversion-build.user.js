@@ -1,11 +1,11 @@
 // ==UserScript==
 // @id             ingress-intel-total-conversion@jonatkins
 // @name           IITC: Ingress intel map total conversion
-// @version        0.25.2.20151010.172538
+// @version        0.25.2.20151010.173437
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/total-conversion-build.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/total-conversion-build.user.js
-// @description    [mobile-2015-10-10-172538] Total conversion for the ingress intel map.
+// @description    [mobile-2015-10-10-173437] Total conversion for the ingress intel map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -21,7 +21,7 @@
 // REPLACE ORIG SITE ///////////////////////////////////////////////////
 if(document.getElementsByTagName('html')[0].getAttribute('itemscope') != null)
   throw('Ingress Intel 網站關閉了, 不是 IITC userscript 的問題.');
-window.iitcBuildDate = '2015-10-10-172538';
+window.iitcBuildDate = '2015-10-10-173437';
 
 // disable vanilla JS
 window.onload = function() {};
@@ -448,7 +448,7 @@ window.artifact.showArtifactList = function() {
     html += '<div><b>'+name+'</b></div>';
 
     html += '<table class="artifact artifact-'+type+'">';
-    html += '<tr><th>Portal</th><th>細節</th></tr>';
+    html += '<tr><th>Portal </th><th>細節</th></tr>';
 
     var tableRows = [];
 
@@ -729,7 +729,7 @@ window.setupMap = function() {
     portalsFactionLayers[i] = [L.layerGroup(), L.layerGroup(), L.layerGroup()];
     portalsLayers[i] = L.layerGroup(portalsFactionLayers[i]);
     map.addLayer(portalsLayers[i]);
-    var t = (i === 0 ? '顯示更多' : '等級' + i) + '門泉';
+    var t = (i === 0 ? '顯示更多' : 'Lv ' + i) + ' Portal';
     addLayers[t] = portalsLayers[i];
     // Store it in hiddenLayer to remove later
     if(!isLayerGroupDisplayed(t, true)) hiddenLayer.push(portalsLayers[i]);
@@ -812,7 +812,7 @@ window.setupMap = function() {
 
     // as users often become confused if they accidentally switch a standard layer off, display a warning in this case
     $('#portaldetails').html('<div class="layer_off_warning">'
-                            +'<p><b>警告</b>: 有些標準圖層被關閉。 部分 門泉/連線/控制場 將不會顯示.</p>'
+                            +'<p><b>警告</b>: 有些標準圖層被關閉。 部分 Portal/連線/控制場 將不會顯示.</p>'
                             +'<a id="enable_standard_layers">啟用標準圖層</a>'
                             +'</div>');
 
@@ -1247,7 +1247,7 @@ function boot() {
   if(!isSmartphone()) // TODO remove completely?
     window.debug.console.overwriteNativeIfRequired();
 
-  console.log('loading done, booting. Built: 2015-10-10-172538');
+  console.log('loading done, booting. Built: 2015-10-10-173437');
   if(window.deviceID) console.log('Your device ID: ' + window.deviceID);
   window.runOnSmartphonesBeforeBoot();
 
@@ -17322,7 +17322,7 @@ window.renderUpdateStatus = function() {
   if (tileParams.hasPortals) {
     // zoom level includes portals (and also all links/fields)
     if(!window.isSmartphone()) // space is valuable
-      t += '<b>門泉</b>: ';
+      t += '<b>Portal</b>: ';
     if(tileParams.level === 0)
       //iF:Adjust color to background color.
       t += '<span id="loadlevel" style="background: rgba(0, 0, 0, 0); color: #FFCE00;">全部</span>';
@@ -17889,7 +17889,7 @@ L.Draggable.prototype._onDown = function(e) {
 
 // inject code into site context
 var script = document.createElement('script');
-var info = { buildName: 'mobile', dateTimeVersion: '20151010.172538' };
+var info = { buildName: 'mobile', dateTimeVersion: '20151010.173437' };
 if (this.GM_info && this.GM_info.script) info.script = { version: GM_info.script.version, name: GM_info.script.name, description: GM_info.script.description };
 script.appendChild(document.createTextNode('('+ wrapper +')('+JSON.stringify(info)+');'));
 (document.body || document.head || document.documentElement).appendChild(script);

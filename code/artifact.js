@@ -229,7 +229,7 @@ window.artifact.showArtifactList = function() {
     html += '<div><b>'+name+'</b></div>';
 
     html += '<table class="artifact artifact-'+type+'">';
-    html += '<tr><th>Portal</th><th>細節</th></tr>';
+    html += '<tr><th>Portal </th><th>細節</th></tr>';
 
     var tableRows = [];
 

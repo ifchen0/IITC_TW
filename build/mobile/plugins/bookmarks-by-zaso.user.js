@@ -2,11 +2,11 @@
 // @id             iitc-plugin-bookmarks@ZasoGD
 // @name           IITC plugin: Bookmarks for maps and portals
 // @category       Controls
-// @version        0.2.12.20151009.125525
+// @version        0.2.12.20151010.173437
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/plugins/bookmarks-by-zaso.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/plugins/bookmarks-by-zaso.user.js
-// @description    [mobile-2015-10-09-125525] Save your favorite Maps and Portals and move the intel map with a click. Works with sync.
+// @description    [mobile-2015-10-10-173437] Save your favorite Maps and Portals and move the intel map with a click. Works with sync.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'mobile';
-plugin_info.dateTimeVersion = '20151009.125525';
+plugin_info.dateTimeVersion = '20151010.173437';
 plugin_info.pluginId = 'bookmarks-by-zaso';
 //END PLUGIN AUTHORS NOTE
 
@@ -1203,7 +1203,7 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
                           +'</div>'
                           +'<div id="bookmarksTypeBar">'
                             +'<h5 class="bkmrk_maps current" onclick="window.plugin.bookmarks.switchPageBkmrksBox(this, 0);return false">地圖</h5>'
-                            +'<h5 class="bkmrk_portals" onclick="window.plugin.bookmarks.switchPageBkmrksBox(this, 1);return false">門泉</h5>'
+                            +'<h5 class="bkmrk_portals" onclick="window.plugin.bookmarks.switchPageBkmrksBox(this, 1);return false">Portal</h5>'
                             +'<div style="clear:both !important;"></div>'
                           +'</div>'
                           +'<div id="bkmrk_maps" class="bookmarkList current">'

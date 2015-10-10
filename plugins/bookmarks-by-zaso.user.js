@@ -1191,7 +1191,7 @@
                           +'</div>'
                           +'<div id="bookmarksTypeBar">'
                             +'<h5 class="bkmrk_maps current" onclick="window.plugin.bookmarks.switchPageBkmrksBox(this, 0);return false">地圖</h5>'
-                            +'<h5 class="bkmrk_portals" onclick="window.plugin.bookmarks.switchPageBkmrksBox(this, 1);return false">門泉</h5>'
+                            +'<h5 class="bkmrk_portals" onclick="window.plugin.bookmarks.switchPageBkmrksBox(this, 1);return false">Portal</h5>'
                             +'<div style="clear:both !important;"></div>'
                           +'</div>'
                           +'<div id="bkmrk_maps" class="bookmarkList current">'

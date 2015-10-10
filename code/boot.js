@@ -201,7 +201,7 @@ window.setupMap = function() {
     portalsFactionLayers[i] = [L.layerGroup(), L.layerGroup(), L.layerGroup()];
     portalsLayers[i] = L.layerGroup(portalsFactionLayers[i]);
     map.addLayer(portalsLayers[i]);
-    var t = (i === 0 ? '顯示更多' : '等級' + i) + '門泉';
+    var t = (i === 0 ? '顯示更多' : 'Lv ' + i) + ' Portal';
     addLayers[t] = portalsLayers[i];
     // Store it in hiddenLayer to remove later
     if(!isLayerGroupDisplayed(t, true)) hiddenLayer.push(portalsLayers[i]);
@@ -284,7 +284,7 @@ window.setupMap = function() {
 
     // as users often become confused if they accidentally switch a standard layer off, display a warning in this case
     $('#portaldetails').html('<div class="layer_off_warning">'
-                            +'<p><b>警告</b>: 有些標準圖層被關閉。 部分 門泉/連線/控制場 將不會顯示.</p>'
+                            +'<p><b>警告</b>: 有些標準圖層被關閉。 部分 Portal/連線/控制場 將不會顯示.</p>'
                             +'<a id="enable_standard_layers">啟用標準圖層</a>'
                             +'</div>');
 
