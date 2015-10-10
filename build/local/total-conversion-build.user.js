@@ -1,11 +1,11 @@
 // ==UserScript==
 // @id             ingress-intel-total-conversion@jonatkins
 // @name           IITC: Ingress intel map total conversion
-// @version        0.25.2.20151010.174220
+// @version        0.25.2.20151010.174729
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/total-conversion-build.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/total-conversion-build.user.js
-// @description    [local-2015-10-10-174220] Total conversion for the ingress intel map.
+// @description    [local-2015-10-10-174729] Total conversion for the ingress intel map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -21,7 +21,7 @@
 // REPLACE ORIG SITE ///////////////////////////////////////////////////
 if(document.getElementsByTagName('html')[0].getAttribute('itemscope') != null)
   throw('Ingress Intel 網站關閉了, 不是 IITC userscript 的問題.');
-window.iitcBuildDate = '2015-10-10-174220';
+window.iitcBuildDate = '2015-10-10-174729';
 
 // disable vanilla JS
 window.onload = function() {};
@@ -509,7 +509,7 @@ window.artifact.showArtifactList = function() {
 
   html += "<hr />"
         + "<p>在2015年夏天, Niantic 更改了神器Portal的數據格式. 我們已無法得知:</p>"
-        + "<ul><li>標Portal是哪支陣營 - 只知道它是一個目標Portal</li>"
+        + "<ul><li>目標Portal是哪支陣營 - 只知道它是一個目標Portal</li>"
         + "<li>碎片是在哪個Portal, 只知道它具有一個或多個碎片</li></ul>"
         + "<p>您可以選擇一個門戶網站，詳細的數據中包含碎片號碼列表, 但還是沒有"
         + "該目標更詳細的資料.</p>";
@@ -1247,7 +1247,7 @@ function boot() {
   if(!isSmartphone()) // TODO remove completely?
     window.debug.console.overwriteNativeIfRequired();
 
-  console.log('loading done, booting. Built: 2015-10-10-174220');
+  console.log('loading done, booting. Built: 2015-10-10-174729');
   if(window.deviceID) console.log('Your device ID: ' + window.deviceID);
   window.runOnSmartphonesBeforeBoot();
 
@@ -17889,7 +17889,7 @@ L.Draggable.prototype._onDown = function(e) {
 
 // inject code into site context
 var script = document.createElement('script');
-var info = { buildName: 'local', dateTimeVersion: '20151010.174220' };
+var info = { buildName: 'local', dateTimeVersion: '20151010.174729' };
 if (this.GM_info && this.GM_info.script) info.script = { version: GM_info.script.version, name: GM_info.script.name, description: GM_info.script.description };
 script.appendChild(document.createTextNode('('+ wrapper +')('+JSON.stringify(info)+');'));
 (document.body || document.head || document.documentElement).appendChild(script);

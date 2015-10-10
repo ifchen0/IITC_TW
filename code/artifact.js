@@ -290,7 +290,7 @@ window.artifact.showArtifactList = function() {
 
   html += "<hr />"
         + "<p>在2015年夏天, Niantic 更改了神器Portal的數據格式. 我們已無法得知:</p>"
-        + "<ul><li>標Portal是哪支陣營 - 只知道它是一個目標Portal</li>"
+        + "<ul><li>目標Portal是哪支陣營 - 只知道它是一個目標Portal</li>"
         + "<li>碎片是在哪個Portal, 只知道它具有一個或多個碎片</li></ul>"
         + "<p>您可以選擇一個門戶網站，詳細的數據中包含碎片號碼列表, 但還是沒有"
         + "該目標更詳細的資料.</p>";
