@@ -81,21 +81,21 @@
       // show the layer
       if(!window.plugin.zaprange.zapLayerEnlHolderGroup.hasLayer(window.plugin.zaprange.zapCircleEnlHolderGroup)) {
         window.plugin.zaprange.zapLayerEnlHolderGroup.addLayer(window.plugin.zaprange.zapCircleEnlHolderGroup);
-        $('.leaflet-control-layers-list span:contains("綠軍門泉射程")').parent('label').removeClass('disabled').attr('title', '');
+        $('.leaflet-control-layers-list span:contains("綠軍Portal射程")').parent('label').removeClass('disabled').attr('title', '');
       }
       if(!window.plugin.zaprange.zapLayerResHolderGroup.hasLayer(window.plugin.zaprange.zapCircleResHolderGroup)) {
         window.plugin.zaprange.zapLayerResHolderGroup.addLayer(window.plugin.zaprange.zapCircleResHolderGroup);
-        $('.leaflet-control-layers-list span:contains("藍軍門泉射程")').parent('label').removeClass('disabled').attr('title', '');
+        $('.leaflet-control-layers-list span:contains("藍軍Portal射程")').parent('label').removeClass('disabled').attr('title', '');
       }
     } else {
       // hide the layer
       if(window.plugin.zaprange.zapLayerEnlHolderGroup.hasLayer(window.plugin.zaprange.zapCircleEnlHolderGroup)) {
         window.plugin.zaprange.zapLayerEnlHolderGroup.removeLayer(window.plugin.zaprange.zapCircleEnlHolderGroup);
-        $('.leaflet-control-layers-list span:contains("綠軍門泉射程")').parent('label').addClass('disabled').attr('title', '將地圖放大來顯示這個項目.');
+        $('.leaflet-control-layers-list span:contains("綠軍Portal射程")').parent('label').addClass('disabled').attr('title', '將地圖放大來顯示這個項目.');
       }
       if(window.plugin.zaprange.zapLayerResHolderGroup.hasLayer(window.plugin.zaprange.zapCircleResHolderGroup)) {
         window.plugin.zaprange.zapLayerResHolderGroup.removeLayer(window.plugin.zaprange.zapCircleResHolderGroup);
-        $('.leaflet-control-layers-list span:contains("藍軍門泉射程")').parent('label').addClass('disabled').attr('title', '將地圖放大來顯示這個項目.');
+        $('.leaflet-control-layers-list span:contains("藍軍Portal射程")').parent('label').addClass('disabled').attr('title', '將地圖放大來顯示這個項目.');
       }
     }
   }
@@ -114,11 +114,11 @@
 
     // to avoid any favouritism, we'll put the player's own faction layer first
     if (PLAYER.team == 'RESISTANCE') {
-      window.addLayerGroup('藍軍門泉射程', window.plugin.zaprange.zapLayerResHolderGroup, true);
-      window.addLayerGroup('綠軍門泉射程', window.plugin.zaprange.zapLayerEnlHolderGroup, true);
+      window.addLayerGroup('藍軍Portal射程', window.plugin.zaprange.zapLayerResHolderGroup, true);
+      window.addLayerGroup('綠軍Portal射程', window.plugin.zaprange.zapLayerEnlHolderGroup, true);
     } else {
-      window.addLayerGroup('綠軍門泉射程', window.plugin.zaprange.zapLayerEnlHolderGroup, true);
-      window.addLayerGroup('藍軍門泉射程', window.plugin.zaprange.zapLayerResHolderGroup, true);
+      window.addLayerGroup('綠軍Portal射程', window.plugin.zaprange.zapLayerEnlHolderGroup, true);
+      window.addLayerGroup('藍軍Portal射程', window.plugin.zaprange.zapLayerResHolderGroup, true);
     }
 
     window.addHook('portalAdded', window.plugin.zaprange.portalAdded);

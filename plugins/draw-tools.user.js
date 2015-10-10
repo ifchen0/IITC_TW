@@ -337,7 +337,7 @@ window.plugin.drawTools.manualOpt = function() {
            + ((typeof android !== 'undefined' && android && android.saveFile)
              ? '<a onclick="window.plugin.drawTools.optExport();return false;" tabindex="0">匯出物件</a>' : '')
            + '<a onclick="window.plugin.drawTools.optReset();return false;" tabindex="0">重置物件</a>'
-           + '<a onclick="window.plugin.drawTools.snapToPortals();return false;" tabindex="0">門泉標定</a>'
+           + '<a onclick="window.plugin.drawTools.snapToPortals();return false;" tabindex="0">Portal標定</a>'
            + '</div>';
 
   dialog({
@@ -525,13 +525,13 @@ window.plugin.drawTools.optReset = function() {
 window.plugin.drawTools.snapToPortals = function() {
   var dataParams = getMapZoomTileParameters(getDataZoomForMapZoom(map.getZoom()));
   if (dataParams.level > 0) {
-    if (!confirm('並不是所有的門泉都顯示在地圖上. 門泉標定可能會從有效的位置移動到錯誤的位置. 繼續?')) {
+    if (!confirm('並不是所有的Portal都顯示在地圖上. Portal標定可能會從有效的位置移動到錯誤的位置. 繼續?')) {
       return;
     }
   }
 
   if (mapDataRequest.status.short != '完成') {
-    if (!confirm('地圖數據尚未讀取完畢, 可能造成一些門泉無法定位. 你想繼續嗎?')) {
+    if (!confirm('地圖數據尚未讀取完畢, 可能造成一些Portal無法定位. 你想繼續嗎?')) {
       return;
     }
   }
@@ -549,7 +549,7 @@ window.plugin.drawTools.snapToPortals = function() {
   });
 
   if (Object.keys(visiblePortals).length == 0) {
-    alert('錯誤: 畫面中沒有任何門泉 - 沒有定位點可定位!');
+    alert('錯誤: 畫面中沒有任何Portal - 沒有定位點可定位!');
     return;
   }
 
@@ -609,7 +609,7 @@ window.plugin.drawTools.snapToPortals = function() {
     runHooks('pluginDrawTools',{event:'layersSnappedToPortals'}); //or should we send 'layersEdited'? as that's effectively what's happened...
   }
 
-  alert('嘗試 '+testCount+' 個端點, 並移動 '+changedCount+' 個端點到門泉座標');
+  alert('嘗試 '+testCount+' 個端點, 並移動 '+changedCount+' 個端點到Portal座標');
 
   window.plugin.drawTools.save();
 }

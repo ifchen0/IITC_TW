@@ -76,12 +76,12 @@ window.renderPortalDetails = function(guid) {
     // android devices. one share link option - and the android app provides an interface to share the URL,
     // share as a geo: intent (navigation via google maps), etc
 
-    var shareLink = $('<div>').html( $('<a>').attr({onclick:posOnClick}).text('分享門泉') ).html();
+    var shareLink = $('<div>').html( $('<a>').attr({onclick:posOnClick}).text('分享Portal') ).html();
     linkDetails.push('<aside>'+shareLink+'</aside>');
 
   } else {
     // non-android - a permalink for the portal
-    var permaHtml = $('<div>').html( $('<a>').attr({href:permalinkUrl, title:'產生一個連結到這個門泉'}).text('門泉連結') ).html();
+    var permaHtml = $('<div>').html( $('<a>').attr({href:permalinkUrl, title:'產生一個連結到這個Portal'}).text('Portal連結') ).html();
     linkDetails.push ( '<aside>'+permaHtml+'</aside>' );
 
     // and a map link popup dialog
@@ -194,7 +194,7 @@ window.getPortalMiscDetails = function(guid,d) {
     if (d.artifactBrief && d.artifactBrief.target && Object.keys(d.artifactBrief.target).length > 0) {
       var targets = Object.keys(d.artifactBrief.target);
 //currently (2015-07-10) we no longer know the team each target portal is for - so we'll just show the artifact type(s) 
-       randDetails += '<div id="artifact_target">目標門泉: '+targets.map(function(x) { return x.capitalize(); }).join(', ')+'</div>';
+       randDetails += '<div id="artifact_target">目標Portal: '+targets.map(function(x) { return x.capitalize(); }).join(', ')+'</div>';
     }
 
     // shards - taken directly from the portal details

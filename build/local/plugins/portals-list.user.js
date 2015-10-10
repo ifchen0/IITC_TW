@@ -2,11 +2,11 @@
 // @id             iitc-plugin-portals-list@teo96
 // @name           IITC plugin: show list of portals
 // @category       Info
-// @version        0.2.1.20151009.125421
+// @version        0.2.1.20151010.174220
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/portals-list.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/portals-list.user.js
-// @description    [local-2015-10-09-125421] Display a sortable list of all visible portals with full details about the team, resonators, links, etc.
+// @description    [local-2015-10-10-174220] Display a sortable list of all visible portals with full details about the team, resonators, links, etc.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'local';
-plugin_info.dateTimeVersion = '20151009.125421';
+plugin_info.dateTimeVersion = '20151010.174220';
 plugin_info.pluginId = 'portals-list';
 //END PLUGIN AUTHORS NOTE
 
@@ -243,7 +243,7 @@ window.plugin.portalslist.displayPL = function() {
     dialog({
       html: $('<div id="portalslist">').append(list),
       dialogClass: 'ui-dialog-portalslist',
-      title: '門泉清單: ' + window.plugin.portalslist.listPortals.length + '個門泉',
+      title: 'Portal清單: ' + window.plugin.portalslist.listPortals.length + '個Portal',
       id: 'portal-list',
       width: 700
     });
@@ -299,7 +299,7 @@ window.plugin.portalslist.portalTable = function(sortBy, sortOrder, filter) {
     cell = row.appendChild(document.createElement('th'));
     cell.className = 'filter' + label.substr(0, 3);
     cell.textContent = label+':';
-    cell.title = '只顯示這個顏色的門泉';
+    cell.title = '只顯示這個顏色的Portal';
     $(cell).click(function() {
       $('#portalslist').empty().append(window.plugin.portalslist.portalTable(sortBy, sortOrder, i));
     });
@@ -307,7 +307,7 @@ window.plugin.portalslist.portalTable = function(sortBy, sortOrder, filter) {
 
     cell = row.insertCell(-1);
     cell.className = 'filter' + label.substr(0, 3);
-    if(i != 0) cell.title = '只隱藏這個顏色的門泉';
+    if(i != 0) cell.title = '只隱藏這個顏色的Portal';
     $(cell).click(function() {
       $('#portalslist').empty().append(window.plugin.portalslist.portalTable(sortBy, sortOrder, -i));
     });
@@ -407,10 +407,10 @@ window.plugin.portalslist.onPaneChanged = function(pane) {
 
 var setup =  function() {
   if(window.useAndroidPanes()) {
-    android.addPane("plugin-portalslist", "門泉清單", "ic_action_paste");
+    android.addPane("plugin-portalslist", "Portal清單", "ic_action_paste");
     addHook("paneChanged", window.plugin.portalslist.onPaneChanged);
   } else {
-    $('#toolbox').append('<a onclick="window.plugin.portalslist.displayPL()" title="顯示目前畫面中的門泉清單 [t]" accesskey="t">門泉清單</a>');
+    $('#toolbox').append('<a onclick="window.plugin.portalslist.displayPL()" title="顯示目前畫面中的Portal清單 [t]" accesskey="t">Portal清單</a>');
   }
 
   $("<style>")

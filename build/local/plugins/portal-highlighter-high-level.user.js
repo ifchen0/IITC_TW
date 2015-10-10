@@ -2,11 +2,11 @@
 // @id             iitc-plugin-highlight-portals-high-level
 // @name           IITC plugin: highlight high level portals
 // @category       Highlighter
-// @version        0.1.0.20151009.125421
+// @version        0.1.0.20151010.174220
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/portal-highlighter-high-level.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/portal-highlighter-high-level.user.js
-// @description    [local-2015-10-09-125421] Use the portal fill color to denote high level portals: Purple L8, Red L7, Orange L6
+// @description    [local-2015-10-10-174220] Use the portal fill color to denote high level portals: Purple L8, Red L7, Orange L6
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'local';
-plugin_info.dateTimeVersion = '20151009.125421';
+plugin_info.dateTimeVersion = '20151010.174220';
 plugin_info.pluginId = 'portal-highlighter-high-level';
 //END PLUGIN AUTHORS NOTE
 
@@ -54,7 +54,7 @@ window.plugin.portalHighlighterPortalsHighLevel.colorLevel = function(data) {
 }
 
 var setup =  function() {
-  window.addPortalHighlighter('高等門泉', window.plugin.portalHighlighterPortalsHighLevel.colorLevel);
+  window.addPortalHighlighter('高等Portal', window.plugin.portalHighlighterPortalsHighLevel.colorLevel);
 }
 
 // PLUGIN END //////////////////////////////////////////////////////////

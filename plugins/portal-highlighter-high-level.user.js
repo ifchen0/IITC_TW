@@ -42,7 +42,7 @@ window.plugin.portalHighlighterPortalsHighLevel.colorLevel = function(data) {
 }
 
 var setup =  function() {
-  window.addPortalHighlighter('高等門泉', window.plugin.portalHighlighterPortalsHighLevel.colorLevel);
+  window.addPortalHighlighter('高等Portal', window.plugin.portalHighlighterPortalsHighLevel.colorLevel);
 }
 
 // PLUGIN END //////////////////////////////////////////////////////////

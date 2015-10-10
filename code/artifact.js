@@ -27,7 +27,7 @@ window.artifact.setup = function() {
   artifact._layer = new L.LayerGroup();
   addLayerGroup ('神器', artifact._layer, true);
 
-  $('#toolbox').append(' <a onclick="window.artifact.showArtifactList()" title="顯示神器門泉清單">神器</a>');
+  $('#toolbox').append(' <a onclick="window.artifact.showArtifactList()" title="顯示神器Portal清單">神器</a>');
 
 }
 
@@ -244,7 +244,7 @@ window.artifact.showArtifactList = function() {
 
         if (data[type].target !== undefined) {
           if (data[type].target == TEAM_NONE) {
-            row += '<span class="target">目標門泉</span> ';
+            row += '<span class="target">目標Portal</span> ';
           } else {
             row += '<span class="target '+TEAM_TO_CSS[data[type].target]+'">'+(data[type].target==TEAM_RES?'Resistance':'Enlightened')+' 目標</span> ';
           }
@@ -270,7 +270,7 @@ window.artifact.showArtifactList = function() {
 
     // check for no rows, and add a note to the table instead
     if (tableRows.length == 0) {
-      html += '<tr><td colspan="2"><i>這個時段沒有門泉</i></td></tr>';
+      html += '<tr><td colspan="2"><i>這個時段沒有Portal</i></td></tr>';
     }
 
     // sort the rows
@@ -289,9 +289,9 @@ window.artifact.showArtifactList = function() {
 
 
   html += "<hr />"
-        + "<p>在2015年夏天, Niantic 更改了神器門泉的數據格式. 我們已無法得知:</p>"
-        + "<ul><li>標門泉是哪支陣營 - 只知道它是一個目標門泉</li>"
-        + "<li>碎片是在哪個門泉, 只知道它具有一個或多個碎片</li></ul>"
+        + "<p>在2015年夏天, Niantic 更改了神器Portal的數據格式. 我們已無法得知:</p>"
+        + "<ul><li>標Portal是哪支陣營 - 只知道它是一個目標Portal</li>"
+        + "<li>碎片是在哪個Portal, 只知道它具有一個或多個碎片</li></ul>"
         + "<p>您可以選擇一個門戶網站，詳細的數據中包含碎片號碼列表, 但還是沒有"
         + "該目標更詳細的資料.</p>";
 
