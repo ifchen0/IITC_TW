@@ -222,14 +222,14 @@ window.artifact.showArtifactList = function() {
   $.each(artifact.artifactTypes, function(type,type2) {
     // no nice way to convert the Niantic internal name into the correct display name
     // (we do get the description string once a portal with that shard type is selected - could cache that somewhere?)
-    var name = type.capitalize() + ' shards';
+    var name = type.capitalize() + ' 碎片';
 
     if (!first) html += '<hr>';
     first = false;
     html += '<div><b>'+name+'</b></div>';
 
     html += '<table class="artifact artifact-'+type+'">';
-    html += '<tr><th>Portal</th><th>Details</th></tr>';
+    html += '<tr><th>Portal</th><th>細節</th></tr>';
 
     var tableRows = [];
 
@@ -244,9 +244,9 @@ window.artifact.showArtifactList = function() {
 
         if (data[type].target !== undefined) {
           if (data[type].target == TEAM_NONE) {
-            row += '<span class="target">Target Portal</span> ';
+            row += '<span class="target">目標門泉</span> ';
           } else {
-            row += '<span class="target '+TEAM_TO_CSS[data[type].target]+'">'+(data[type].target==TEAM_RES?'Resistance':'Enlightened')+' target</span> ';
+            row += '<span class="target '+TEAM_TO_CSS[data[type].target]+'">'+(data[type].target==TEAM_RES?'Resistance':'Enlightened')+' 目標</span> ';
           }
         }
 
@@ -254,9 +254,9 @@ window.artifact.showArtifactList = function() {
           if (data[type].target !== undefined) {
             row += '<br>';
           }
-          var fragmentName = 'shard';
+          var fragmentName = '碎片';
 //          row += '<span class="fragments'+(data[type].target?' '+TEAM_TO_CSS[data[type].target]:'')+'">'+fragmentName+': #'+data[type].fragments.join(', #')+'</span> ';
-          row += '<span class="fragments'+(data[type].target?' '+TEAM_TO_CSS[data[type].target]:'')+'">'+fragmentName+': yes</span> ';
+          row += '<span class="廢墟'+(data[type].target?' '+TEAM_TO_CSS[data[type].target]:'')+'">'+fragmentName+': 是</span> ';
         }
 
         row += '</td></tr>';
@@ -270,7 +270,7 @@ window.artifact.showArtifactList = function() {
 
     // check for no rows, and add a note to the table instead
     if (tableRows.length == 0) {
-      html += '<tr><td colspan="2"><i>No portals at this time</i></td></tr>';
+      html += '<tr><td colspan="2"><i>這個時段沒有門泉</i></td></tr>';
     }
 
     // sort the rows
@@ -289,11 +289,11 @@ window.artifact.showArtifactList = function() {
 
 
   html += "<hr />"
-        + "<p>In Summer 2015, Niantic changed the data format for artifact portals. We no longer know:</p>"
-        + "<ul><li>Which team each target portal is for - only that it is a target</li>"
-        + "<li>Which shards are at each portal, just that it has one or more shards</li></ul>"
-        + "<p>You can select a portal and the detailed data contains the list of shard numbers, but there's still no"
-        + " more information on targets.</p>";
+        + "<p>在2015年夏天, Niantic 更改了神器門泉的數據格式. 我們已無法得知:</p>"
+        + "<ul><li>標門泉是哪支陣營 - 只知道它是一個目標門泉</li>"
+        + "<li>碎片是在哪個門泉, 只知道它具有一個或多個碎片</li></ul>"
+        + "<p>您可以選擇一個門戶網站，詳細的數據中包含碎片號碼列表, 但還是沒有"
+        + "該目標更詳細的資料.</p>";
 
   dialog({
     title: '神器',

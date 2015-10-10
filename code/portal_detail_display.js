@@ -194,12 +194,12 @@ window.getPortalMiscDetails = function(guid,d) {
     if (d.artifactBrief && d.artifactBrief.target && Object.keys(d.artifactBrief.target).length > 0) {
       var targets = Object.keys(d.artifactBrief.target);
 //currently (2015-07-10) we no longer know the team each target portal is for - so we'll just show the artifact type(s) 
-       randDetails += '<div id="artifact_target">Target portal: '+targets.map(function(x) { return x.capitalize(); }).join(', ')+'</div>';
+       randDetails += '<div id="artifact_target">目標門泉: '+targets.map(function(x) { return x.capitalize(); }).join(', ')+'</div>';
     }
 
     // shards - taken directly from the portal details
     if (d.artifactDetail) {
-      randDetails += '<div id="artifact_fragments">Shards: '+d.artifactDetail.displayName+' #'+d.artifactDetail.fragments.join(', ')+'</div>';
+      randDetails += '<div id="artifact_fragments">碎片: '+d.artifactDetail.displayName+' #'+d.artifactDetail.fragments.join(', ')+'</div>';
     }
 
   }

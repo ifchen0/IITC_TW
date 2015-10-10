@@ -1,11 +1,11 @@
 // ==UserScript==
 // @id             ingress-intel-total-conversion@jonatkins
 // @name           IITC: Ingress intel map total conversion
-// @version        0.25.2.20151010.52022
+// @version        0.25.2.20151010.172538
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/total-conversion-build.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/total-conversion-build.user.js
-// @description    [mobile-2015-10-10-052022] Total conversion for the ingress intel map.
+// @description    [mobile-2015-10-10-172538] Total conversion for the ingress intel map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -21,7 +21,7 @@
 // REPLACE ORIG SITE ///////////////////////////////////////////////////
 if(document.getElementsByTagName('html')[0].getAttribute('itemscope') != null)
   throw('Ingress Intel 網站關閉了, 不是 IITC userscript 的問題.');
-window.iitcBuildDate = '2015-10-10-052022';
+window.iitcBuildDate = '2015-10-10-172538';
 
 // disable vanilla JS
 window.onload = function() {};
@@ -441,14 +441,14 @@ window.artifact.showArtifactList = function() {
   $.each(artifact.artifactTypes, function(type,type2) {
     // no nice way to convert the Niantic internal name into the correct display name
     // (we do get the description string once a portal with that shard type is selected - could cache that somewhere?)
-    var name = type.capitalize() + ' shards';
+    var name = type.capitalize() + ' 碎片';
 
     if (!first) html += '<hr>';
     first = false;
     html += '<div><b>'+name+'</b></div>';
 
     html += '<table class="artifact artifact-'+type+'">';
-    html += '<tr><th>Portal</th><th>Details</th></tr>';
+    html += '<tr><th>Portal</th><th>細節</th></tr>';
 
     var tableRows = [];
 
@@ -463,9 +463,9 @@ window.artifact.showArtifactList = function() {
 
         if (data[type].target !== undefined) {
           if (data[type].target == TEAM_NONE) {
-            row += '<span class="target">Target Portal</span> ';
+            row += '<span class="target">目標門泉</span> ';
           } else {
-            row += '<span class="target '+TEAM_TO_CSS[data[type].target]+'">'+(data[type].target==TEAM_RES?'Resistance':'Enlightened')+' target</span> ';
+            row += '<span class="target '+TEAM_TO_CSS[data[type].target]+'">'+(data[type].target==TEAM_RES?'Resistance':'Enlightened')+' 目標</span> ';
           }
         }
 
@@ -473,9 +473,9 @@ window.artifact.showArtifactList = function() {
           if (data[type].target !== undefined) {
             row += '<br>';
           }
-          var fragmentName = 'shard';
+          var fragmentName = '碎片';
 //          row += '<span class="fragments'+(data[type].target?' '+TEAM_TO_CSS[data[type].target]:'')+'">'+fragmentName+': #'+data[type].fragments.join(', #')+'</span> ';
-          row += '<span class="fragments'+(data[type].target?' '+TEAM_TO_CSS[data[type].target]:'')+'">'+fragmentName+': yes</span> ';
+          row += '<span class="廢墟'+(data[type].target?' '+TEAM_TO_CSS[data[type].target]:'')+'">'+fragmentName+': 是</span> ';
         }
 
         row += '</td></tr>';
@@ -489,7 +489,7 @@ window.artifact.showArtifactList = function() {
 
     // check for no rows, and add a note to the table instead
     if (tableRows.length == 0) {
-      html += '<tr><td colspan="2"><i>No portals at this time</i></td></tr>';
+      html += '<tr><td colspan="2"><i>這個時段沒有門泉</i></td></tr>';
     }
 
     // sort the rows
@@ -508,11 +508,11 @@ window.artifact.showArtifactList = function() {
 
 
   html += "<hr />"
-        + "<p>In Summer 2015, Niantic changed the data format for artifact portals. We no longer know:</p>"
-        + "<ul><li>Which team each target portal is for - only that it is a target</li>"
-        + "<li>Which shards are at each portal, just that it has one or more shards</li></ul>"
-        + "<p>You can select a portal and the detailed data contains the list of shard numbers, but there's still no"
-        + " more information on targets.</p>";
+        + "<p>在2015年夏天, Niantic 更改了神器門泉的數據格式. 我們已無法得知:</p>"
+        + "<ul><li>標門泉是哪支陣營 - 只知道它是一個目標門泉</li>"
+        + "<li>碎片是在哪個門泉, 只知道它具有一個或多個碎片</li></ul>"
+        + "<p>您可以選擇一個門戶網站，詳細的數據中包含碎片號碼列表, 但還是沒有"
+        + "該目標更詳細的資料.</p>";
 
   dialog({
     title: '神器',
@@ -1247,7 +1247,7 @@ function boot() {
   if(!isSmartphone()) // TODO remove completely?
     window.debug.console.overwriteNativeIfRequired();
 
-  console.log('loading done, booting. Built: 2015-10-10-052022');
+  console.log('loading done, booting. Built: 2015-10-10-172538');
   if(window.deviceID) console.log('Your device ID: ' + window.deviceID);
   window.runOnSmartphonesBeforeBoot();
 
@@ -15194,12 +15194,12 @@ window.getPortalMiscDetails = function(guid,d) {
     if (d.artifactBrief && d.artifactBrief.target && Object.keys(d.artifactBrief.target).length > 0) {
       var targets = Object.keys(d.artifactBrief.target);
 //currently (2015-07-10) we no longer know the team each target portal is for - so we'll just show the artifact type(s) 
-       randDetails += '<div id="artifact_target">Target portal: '+targets.map(function(x) { return x.capitalize(); }).join(', ')+'</div>';
+       randDetails += '<div id="artifact_target">目標門泉: '+targets.map(function(x) { return x.capitalize(); }).join(', ')+'</div>';
     }
 
     // shards - taken directly from the portal details
     if (d.artifactDetail) {
-      randDetails += '<div id="artifact_fragments">Shards: '+d.artifactDetail.displayName+' #'+d.artifactDetail.fragments.join(', ')+'</div>';
+      randDetails += '<div id="artifact_fragments">碎片: '+d.artifactDetail.displayName+' #'+d.artifactDetail.fragments.join(', ')+'</div>';
     }
 
   }
@@ -17889,7 +17889,7 @@ L.Draggable.prototype._onDown = function(e) {
 
 // inject code into site context
 var script = document.createElement('script');
-var info = { buildName: 'mobile', dateTimeVersion: '20151010.52022' };
+var info = { buildName: 'mobile', dateTimeVersion: '20151010.172538' };
 if (this.GM_info && this.GM_info.script) info.script = { version: GM_info.script.version, name: GM_info.script.name, description: GM_info.script.description };
 script.appendChild(document.createTextNode('('+ wrapper +')('+JSON.stringify(info)+');'));
 (document.body || document.head || document.documentElement).appendChild(script);
