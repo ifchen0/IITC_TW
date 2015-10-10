@@ -2,11 +2,11 @@
 // @id             iitc-plugin-portal-names@zaso
 // @name           IITC plugin: Portal Names
 // @category       Layer
-// @version        0.1.6.20151008.151115
+// @version        0.1.6.20151010.174746
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/portal-names.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/portal-names.user.js
-// @description    [Release-2015-10-08-151115] Show portal names on the map.
+// @description    [Release-2015-10-10-174746] Show portal names on the map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'Release';
-plugin_info.dateTimeVersion = '20151008.151115';
+plugin_info.dateTimeVersion = '20151010.174746';
 plugin_info.pluginId = 'portal-names';
 //END PLUGIN AUTHORS NOTE
 
@@ -189,7 +189,7 @@ var setup = function() {
   window.plugin.portalNames.setupCSS();
 
   window.plugin.portalNames.labelLayerGroup = new L.LayerGroup();
-  window.addLayerGroup('門泉名稱', window.plugin.portalNames.labelLayerGroup, true);
+  window.addLayerGroup('Portal名稱', window.plugin.portalNames.labelLayerGroup, true);
 
   window.addHook('requestFinished', function() { setTimeout(function(){window.plugin.portalNames.delayedUpdatePortalLabels(3.0);},1); });
   window.addHook('mapDataRefreshEnd', function() { window.plugin.portalNames.delayedUpdatePortalLabels(0.5); });
