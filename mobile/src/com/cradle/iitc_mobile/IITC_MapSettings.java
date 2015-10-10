@@ -38,7 +38,7 @@ public class IITC_MapSettings implements OnItemSelectedListener, OnItemClickList
         @Override
         public void clear() {
             super.clear();
-            add("No Highlights");// Probably must be the same as window._no_highlighter
+            add("無標記");// Probably must be the same as window._no_highlighter
         }
     }
 
@@ -46,9 +46,9 @@ public class IITC_MapSettings implements OnItemSelectedListener, OnItemClickList
         @Override
         public int compare(String lhs, String rhs) {
             // Move "No Highlights" on top. Sort the rest alphabetically
-            if (lhs.equals("No Highlights")) {
+            if (lhs.equals("無標記")) {
                 return -1000;
-            } else if (rhs.equals("No Highlights")) {
+            } else if (rhs.equals("無標記")) {
                 return 1000;
             } else {
                 return lhs.compareTo(rhs);

@@ -111,7 +111,7 @@ public class IITC_NavigationHelper extends ActionBarDrawerToggle implements OnIt
         }
 
         final boolean mapVisible = mDesktopMode || mPane == Pane.MAP;
-        if ("No Highlights".equals(mHighlighter) || isDrawerOpened() || mIitc.isLoading() || !mapVisible) {
+        if ("無標記".equals(mHighlighter) || isDrawerOpened() || mIitc.isLoading() || !mapVisible) {
             mActionBar.setSubtitle(null);
         } else {
             mActionBar.setSubtitle(mHighlighter);
