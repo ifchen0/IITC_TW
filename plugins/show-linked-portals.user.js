@@ -75,7 +75,7 @@ window.plugin.showLinkedPortal.portalDetail = function (data) {
       div
         .addClass('outOfRange')
         .append($('<span/>')
-          .html('Portal尚未載入.<br>' + lengthShort));
+          .html('未載入.<br>' + lengthShort));
     }
 
     div
