@@ -133,7 +133,7 @@ function createDefaultBaseMapLayers() {
   // we'll include google maps too - in the ingress default style, and a few other standard ones
   // as the stock intel map already uses the googme maps API, we just hijack their inclusion of the javascript and API key :)
   var ingressGMapOptions = {
-    backgroundColor: '#0e3d4e', //or #dddddd ? - that's the Google tile layer default
+    backgroundColor: '#000000', //or #dddddd ? - that's the Google tile layer default
     styles: [
         { featureType:"all", elementType:"all",
           stylers: [{visibility:"on"}, {hue:"#131c1c"}, {saturation:"-50"}, {invert_lightness:true}] },
