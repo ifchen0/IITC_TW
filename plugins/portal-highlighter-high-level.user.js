@@ -6,7 +6,7 @@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@
 // @downloadURL    @@DOWNLOADURL@@
-// @description    [@@BUILDNAME@@-@@BUILDDATE@@] Use the portal fill color to denote high level portals: Purple L8, Red L7, Orange L6
+// @description    [@@BUILDNAME@@-@@BUILDDATE@@] 使用Portal填充顏色來表示高級別的Portal: L8紫色, L7紅色, L6橘色
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*

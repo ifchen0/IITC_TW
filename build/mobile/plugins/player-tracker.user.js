@@ -2,11 +2,11 @@
 // @id             iitc-plugin-player-tracker@breunigs
 // @name           IITC Plugin: Player tracker
 // @category       Layer
-// @version        0.11.1.20151010.174224
+// @version        0.11.1.20151011.180632
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/plugins/player-tracker.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/plugins/player-tracker.user.js
-// @description    [mobile-2015-10-10-174224] Draw trails for the path a user took onto the map based on status messages in COMMs. Uses up to three hours of data. Does not request chat data on its own, even if that would be useful.
+// @description    [mobile-2015-10-11-180632] 運用通訊科廣播信息在地圖上繪製玩家的路徑. 使用顯示30分鐘.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'mobile';
-plugin_info.dateTimeVersion = '20151010.174224';
+plugin_info.dateTimeVersion = '20151011.180632';
 plugin_info.pluginId = 'player-tracker';
 //END PLUGIN AUTHORS NOTE
 

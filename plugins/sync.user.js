@@ -6,7 +6,7 @@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@
 // @downloadURL    @@DOWNLOADURL@@
-// @description    [@@BUILDNAME@@-@@BUILDDATE@@] Sync data between clients via Google Realtime API. Only syncs data from specific plugins (currently: Keys, Bookmarks). Sign in via the 'Sync' link.
+// @description    [@@BUILDNAME@@-@@BUILDDATE@@] 通過Google realtime API 在客戶端之間同步數據. 只有從同步特定的外掛資料 (目前有: Keys, Bookmarks). 用"同步"鏈接來登錄帳號.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
