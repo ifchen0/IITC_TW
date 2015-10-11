@@ -55,8 +55,8 @@ window.plugin.showLinkedPortal.portalDetail = function (data) {
     var lng = link[key + 'LngE6']/1E6;
 
     var length = L.latLng(link.oLatE6/1E6, link.oLngE6/1E6).distanceTo([link.dLatE6/1E6, link.dLngE6/1E6]);
-    var lengthFull = digits(Math.round(length)) + '公尺';
-    var lengthShort = length < 100000 ? lengthFull : digits(Math.round(length/1000)) + '公里'
+    var lengthFull = digits(Math.round(length)) + '<br>公尺';
+    var lengthShort = length < 100000 ? lengthFull : digits(Math.round(length/1000)) + '<br>公里'
 
     var div = $('<div>').addClass('showLinkedPortalLink showLinkedPortalLink' + c + (key=='d' ? ' outgoing' : ' incoming'));
 
@@ -71,11 +71,11 @@ window.plugin.showLinkedPortal.portalDetail = function (data) {
         'alt': title,
       }));
     } else {
-      title = 'Go to portal';
+      title = '前往Portal';
       div
         .addClass('outOfRange')
         .append($('<span/>')
-          .html('未載入.<br>' + lengthShort));
+          .html('未載入<br>' + lengthShort));
     }
 
     div
