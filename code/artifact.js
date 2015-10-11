@@ -169,8 +169,8 @@ window.artifact.updateLayer = function() {
       var iconUrl;
       if (data[type].target !== undefined) {
         // target portal
-        var iconUrl = '//commondatastorage.googleapis.com/ingress.com/img/map_icons/marker_images/'+type+'_shard_target.png'
-        var iconSize = 100/2;
+        var iconUrl = '@@INCLUDEIMAGE:images/artifact_80x80.png@@' //iF
+        var iconSize = 80;
         var opacity = 1.0;
 
         var icon = L.icon({
@@ -187,8 +187,8 @@ window.artifact.updateLayer = function() {
       } else if (data[type].fragments) {
         // fragment(s) at portal
 
-        var iconUrl = '//commondatastorage.googleapis.com/ingress.com/img/map_icons/marker_images/'+type+'_shard.png'
-        var iconSize = 60/2;
+        var iconUrl = '@@INCLUDEIMAGE:images/fragment_50x50.png@@' //iF
+        var iconSize = 50;
         var opacity = 0.6;
 
         var icon = L.icon({
