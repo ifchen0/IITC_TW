@@ -16,7 +16,7 @@ html, body, #map {
   height: 100%;
   width: 100%;
   overflow: hidden; /* workaround for #373 */
-  background: #0e3d4e;
+  background: #000000;
 }
 
 
@@ -1152,7 +1152,7 @@ table.artifact .portal {
   border-radius: 0px;
   -webkit-border-radius: 0px;
   border: 1px solid #20A8B1;
-  background: #0e3d4e;
+  background: #000000;
   pointer-events: auto;
 }
 
