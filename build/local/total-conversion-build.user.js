@@ -1,11 +1,11 @@
 // ==UserScript==
 // @id             ingress-intel-total-conversion@jonatkins
 // @name           IITC: Ingress intel map total conversion
-// @version        0.25.2.20151012.62202
+// @version        0.25.2.20151012.71955
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/total-conversion-build.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/total-conversion-build.user.js
-// @description    [local-2015-10-12-062202] Total conversion for the ingress intel map.
+// @description    [local-2015-10-12-071955] Total conversion for the ingress intel map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -21,7 +21,7 @@
 // REPLACE ORIG SITE ///////////////////////////////////////////////////
 if(document.getElementsByTagName('html')[0].getAttribute('itemscope') != null)
   throw('Ingress Intel 網站關閉了, 不是 IITC userscript 的問題.');
-window.iitcBuildDate = '2015-10-12-062202';
+window.iitcBuildDate = '2015-10-12-071955';
 
 // disable vanilla JS
 window.onload = function() {};
@@ -31,7 +31,7 @@ document.body.onload = function() {};
 //originally code here parsed the <Script> tags from the page to find the one that defined the PLAYER object
 //however, that's already been executed, so we can just access PLAYER - no messing around needed!
 
-if (!window.PLAYER) {
+if (typeof(window.PLAYER)!="object" || typeof(window.PLAYER.nickname) != "string") {
   // page doesn’t have a script tag with player information.
   if(document.getElementById('header_email')) {
     // however, we are logged in.
@@ -1247,7 +1247,7 @@ function boot() {
   if(!isSmartphone()) // TODO remove completely?
     window.debug.console.overwriteNativeIfRequired();
 
-  console.log('loading done, booting. Built: 2015-10-12-062202');
+  console.log('loading done, booting. Built: 2015-10-12-071955');
   if(window.deviceID) console.log('Your device ID: ' + window.deviceID);
   window.runOnSmartphonesBeforeBoot();
 
@@ -12834,6 +12834,19 @@ window.addHook = function(event, callback) {
     _hooks[event].push(callback);
 }
 
+// callback must the SAME function to be unregistered.
+window.removeHook = function(event, callback) {
+  if (typeof callback !== 'function') throw('Callback must be a function.');
+
+  if (_hooks[event]) {
+    var index = _hooks[event].indexOf(callback);
+    if(index == -1)
+      console.warn('Callback wasn\'t registered for this event.');
+    else
+      _hooks[event].splice(index, 1);
+  }
+}
+
 
 ;
 
@@ -17047,13 +17060,13 @@ window.outOfDateUserPrompt = function()
     window.blockOutOfDateRequests = true;
 
     dialog({
-      title: 'Reload IITC',
-      html: '<p>IITC is using an outdated version code. This will happen when Niantic update the standard intel site.</p>'
-           +'<p>You need to reload the page to get the updated changes.</p>'
-           +'<p>If you have just reloaded the page, then an old version of the standard site script is cached somewhere.'
-           +'In this case, try clearing your cache, or waiting 15-30 minutes for the stale data to expire.</p>',
+      title: '刷新IITC',
+      html: '<p>IITC正在使用過期的程式碼. 這可能在Niantic更新官方intel網站時發生.</p>'
+           +'<p>您需要重新讀取網頁來取得這些更新.</p>'
+           +'<p>若您已經刷新過網頁, 那可能是因為官方intel的腳本還被快取在某些地方.'
+           +'這種情況下, 試著清除您的快取, 或等待15-30分鐘, 直到舊的資料過期.</p>',
       buttons: {
-        'RELOAD': function() {
+        '刷新': function() {
           if (typeof android !== 'undefined' && android && android.reloadIITC) {
             android.reloadIITC();
           } else {
@@ -17819,6 +17832,16 @@ window.addLayerGroup = function(name, layerGroup, defaultDisplay) {
   layerChooser.addOverlay(layerGroup, name);
 }
 
+window.removeLayerGroup = function(layerGroup) {
+  if(!layerChooser._layers[layerGroup._leaflet_id]) throw('Layer was not found');
+  // removing the layer will set it's default visibility to false (store if layer gets added again)
+  var name = layerChooser._layers[layerGroup._leaflet_id].name;
+  var enabled = isLayerGroupDisplayed(name);
+  map.removeLayer(layerGroup);
+  layerChooser.removeLayer(layerGroup);
+  updateDisplayedLayerGroup(name, enabled);
+};
+
 window.clampLat = function(lat) {
   // the map projection used does not handle above approx +- 85 degrees north/south of the equator
   if (lat > 85.051128)
@@ -17889,7 +17912,7 @@ L.Draggable.prototype._onDown = function(e) {
 
 // inject code into site context
 var script = document.createElement('script');
-var info = { buildName: 'local', dateTimeVersion: '20151012.62202' };
+var info = { buildName: 'local', dateTimeVersion: '20151012.71955' };
 if (this.GM_info && this.GM_info.script) info.script = { version: GM_info.script.version, name: GM_info.script.name, description: GM_info.script.description };
 script.appendChild(document.createTextNode('('+ wrapper +')('+JSON.stringify(info)+');'));
 (document.body || document.head || document.documentElement).appendChild(script);
