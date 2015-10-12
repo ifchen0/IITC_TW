@@ -418,8 +418,8 @@ window.setupPlayerStat = function() {
 
 
   var t = '等級:\t' + level + '\n'
-        + 'XM:\t' + PLAYER.energy + ' / ' + xmMax + '\n'
-        + 'AP:\t' + digits(ap) + '\n'
+        + '能量:\t' + PLAYER.energy + ' / ' + xmMax + '\n'
+        + '經驗:\t' + digits(ap) + '\n'
         + (nextLvlAp > 0 ? '距離下次升級還差:\t' + lvlUpAp + ' AP' : '已達到最高等級(!)')
         + '\n\邀請函:\t'+PLAYER.available_invites
         + '\n\n提示: 您的玩家狀態只會在網頁刷新時更新 (F5)';
@@ -431,8 +431,8 @@ window.setupPlayerStat = function() {
     + '<a href="/_ah/logout?continue=https://www.google.com/accounts/Logout%3Fcontinue%3Dhttps://appengine.google.com/_ah/logout%253Fcontinue%253Dhttps://www.ingress.com/intel%26service%3Dah" id="signout">登出</a>'
     + '</div>'
     + '<div id="stats">'
-    + '<sup>XM: '+xmRatio+'%</sup>'
-    + '<sub>' + (nextLvlAp > 0 ? '等級: '+lvlApProg+'%' : '最高級別') + '</sub>'
+    + '<sup>能量:'+xmRatio+'%</sup>'
+    + '<sub>' + (nextLvlAp > 0 ? '經驗:'+lvlApProg+'%' : '最高級別') + '</sub>'
     + '</div>'
     + '</h2>'
   );

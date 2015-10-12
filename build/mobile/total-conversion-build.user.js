@@ -1,11 +1,11 @@
 // ==UserScript==
 // @id             ingress-intel-total-conversion@jonatkins
 // @name           IITC: Ingress intel map total conversion
-// @version        0.25.2.20151012.52152
+// @version        0.25.2.20151012.62208
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/total-conversion-build.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/total-conversion-build.user.js
-// @description    [mobile-2015-10-12-052152] Total conversion for the ingress intel map.
+// @description    [mobile-2015-10-12-062208] Total conversion for the ingress intel map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -21,7 +21,7 @@
 // REPLACE ORIG SITE ///////////////////////////////////////////////////
 if(document.getElementsByTagName('html')[0].getAttribute('itemscope') != null)
   throw('Ingress Intel 網站關閉了, 不是 IITC userscript 的問題.');
-window.iitcBuildDate = '2015-10-12-052152';
+window.iitcBuildDate = '2015-10-12-062208';
 
 // disable vanilla JS
 window.onload = function() {};
@@ -946,8 +946,8 @@ window.setupPlayerStat = function() {
 
 
   var t = '等級:\t' + level + '\n'
-        + 'XM:\t' + PLAYER.energy + ' / ' + xmMax + '\n'
-        + 'AP:\t' + digits(ap) + '\n'
+        + '能量:\t' + PLAYER.energy + ' / ' + xmMax + '\n'
+        + '經驗:\t' + digits(ap) + '\n'
         + (nextLvlAp > 0 ? '距離下次升級還差:\t' + lvlUpAp + ' AP' : '已達到最高等級(!)')
         + '\n\邀請函:\t'+PLAYER.available_invites
         + '\n\n提示: 您的玩家狀態只會在網頁刷新時更新 (F5)';
@@ -959,8 +959,8 @@ window.setupPlayerStat = function() {
     + '<a href="/_ah/logout?continue=https://www.google.com/accounts/Logout%3Fcontinue%3Dhttps://appengine.google.com/_ah/logout%253Fcontinue%253Dhttps://www.ingress.com/intel%26service%3Dah" id="signout">登出</a>'
     + '</div>'
     + '<div id="stats">'
-    + '<sup>XM: '+xmRatio+'%</sup>'
-    + '<sub>' + (nextLvlAp > 0 ? '等級: '+lvlApProg+'%' : '最高級別') + '</sub>'
+    + '<sup>能量:'+xmRatio+'%</sup>'
+    + '<sub>' + (nextLvlAp > 0 ? '經驗:'+lvlApProg+'%' : '最高級別') + '</sub>'
     + '</div>'
     + '</h2>'
   );
@@ -1247,7 +1247,7 @@ function boot() {
   if(!isSmartphone()) // TODO remove completely?
     window.debug.console.overwriteNativeIfRequired();
 
-  console.log('loading done, booting. Built: 2015-10-12-052152');
+  console.log('loading done, booting. Built: 2015-10-12-062208');
   if(window.deviceID) console.log('Your device ID: ' + window.deviceID);
   window.runOnSmartphonesBeforeBoot();
 
@@ -16127,7 +16127,7 @@ window.REDEEM_SHORT_NAMES = {
   'heatsink':'H',
   'multihack':'M',
   'turret':'T',
-  'unusual object':'',
+  'unusual object':'U',
   'resonator':'R',
   'xmp burster':'X',
   'power cube':'C',
@@ -17889,7 +17889,7 @@ L.Draggable.prototype._onDown = function(e) {
 
 // inject code into site context
 var script = document.createElement('script');
-var info = { buildName: 'mobile', dateTimeVersion: '20151012.52152' };
+var info = { buildName: 'mobile', dateTimeVersion: '20151012.62208' };
 if (this.GM_info && this.GM_info.script) info.script = { version: GM_info.script.version, name: GM_info.script.name, description: GM_info.script.description };
 script.appendChild(document.createTextNode('('+ wrapper +')('+JSON.stringify(info)+');'));
 (document.body || document.head || document.documentElement).appendChild(script);

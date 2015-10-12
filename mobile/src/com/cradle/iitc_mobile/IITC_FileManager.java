@@ -383,7 +383,7 @@ public class IITC_FileManager {
             try {
                 iitc.startActivityForResult(Intent.createChooser(target, "Choose file"), this);
             } catch (final ActivityNotFoundException e) {
-                Toast.makeText(mActivity, "沒有可用來選取檔案的軟體." +
+                Toast.makeText(mActivity, "找不到可用於檔案選取的動作." +
                         "請安裝一個檔案瀏覽器來選擇!", Toast.LENGTH_LONG).show();
             }
         }

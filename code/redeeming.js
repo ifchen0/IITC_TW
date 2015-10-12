@@ -8,7 +8,7 @@ window.REDEEM_SHORT_NAMES = {
   'heatsink':'H',
   'multihack':'M',
   'turret':'T',
-  'unusual object':'',
+  'unusual object':'U',
   'resonator':'R',
   'xmp burster':'X',
   'power cube':'C',

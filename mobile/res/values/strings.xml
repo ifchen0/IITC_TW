@@ -238,7 +238,7 @@
     <string name="install_dialog_top">安裝外部外掛程式嗎?</string>
     <string name="install_dialog_msg">
         <![CDATA[IITCm 被要求安裝以下的 javascript 代碼 檔案:<br><br>%1$s<br><br>
-        <b>請注意:</b> 從外部來源的 JAVAscript 可能包含有害代碼 (例如間諜軟體 etc.)!<br><br>
+        <b>請注意:</b> 從外部來源的 Javascript 可能包含有害代碼 (例如間諜軟體 etc.)!<br><br>
         你確定要繼續嗎??]]>
     </string>
 
