@@ -169,7 +169,10 @@ window.artifact.updateLayer = function() {
       var iconUrl;
       if (data[type].target !== undefined) {
         // target portal
-        var iconUrl = '@@INCLUDEIMAGE:images/artifact_80x80.png@@' //iF
+        if (type == 'abaddonenl')
+          var iconUrl = '@@INCLUDEIMAGE:images/abaddonenl.png@@' //iF
+        else
+          var iconUrl = '@@INCLUDEIMAGE:images/abaddonres.png@@' //iF
         var iconSize = 80;
         var opacity = 1.0;
 
@@ -256,7 +259,7 @@ window.artifact.showArtifactList = function() {
           }
           var fragmentName = '碎片';
 //          row += '<span class="fragments'+(data[type].target?' '+TEAM_TO_CSS[data[type].target]:'')+'">'+fragmentName+': #'+data[type].fragments.join(', #')+'</span> ';
-          row += '<span class="廢墟'+(data[type].target?' '+TEAM_TO_CSS[data[type].target]:'')+'">'+fragmentName+': 是</span> ';
+          row += '<span class="碎片'+(data[type].target?' '+TEAM_TO_CSS[data[type].target]:'')+'">'+fragmentName+': 是</span> ';
         }
 
         row += '</td></tr>';
