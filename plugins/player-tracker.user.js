@@ -52,11 +52,11 @@ window.plugin.playerTracker.setup = function() {
   plugin.playerTracker.drawnTracesRes = new L.LayerGroup();
   // to avoid any favouritism, we'll put the player's own faction layer first
   if (PLAYER.team == 'RESISTANCE') {
-    window.addLayerGroup('藍軍探員', plugin.playerTracker.drawnTracesRes, true);
-    window.addLayerGroup('綠軍探員', plugin.playerTracker.drawnTracesEnl, true);
+    window.addLayerGroup('反抗軍探員', plugin.playerTracker.drawnTracesRes, true);
+    window.addLayerGroup('啟蒙軍探員', plugin.playerTracker.drawnTracesEnl, true);
   } else {
-    window.addLayerGroup('綠軍探員', plugin.playerTracker.drawnTracesEnl, true);
-    window.addLayerGroup('藍軍探員', plugin.playerTracker.drawnTracesRes, true);
+    window.addLayerGroup('啟蒙軍探員', plugin.playerTracker.drawnTracesEnl, true);
+    window.addLayerGroup('反抗軍探員', plugin.playerTracker.drawnTracesRes, true);
   }
   map.on('layeradd',function(obj) {
     if(obj.layer === plugin.playerTracker.drawnTracesEnl || obj.layer === plugin.playerTracker.drawnTracesRes) {

@@ -2,11 +2,11 @@
 // @id             iitc-plugin-portals-list@teo96
 // @name           IITC plugin: show list of portals
 // @category       Info
-// @version        0.2.1.20151011.180632
+// @version        0.2.1.20151016.183453
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/plugins/portals-list.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/plugins/portals-list.user.js
-// @description    [mobile-2015-10-11-180632] 顯示所有可見的Portal與全部細節, 包含陣營, 震盪器, 連線等的排序列表.
+// @description    [mobile-2015-10-16-183453] 顯示所有可見的Portal與全部細節, 包含陣營, 震盪器, 連線等的排序列表.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*

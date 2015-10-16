@@ -1,11 +1,11 @@
 // ==UserScript==
 // @id             ingress-intel-total-conversion@jonatkins
 // @name           IITC: Ingress intel map total conversion
-// @version        0.25.2.20151015.124928
+// @version        0.25.2.20151016.183352
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/total-conversion-build.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/total-conversion-build.user.js
-// @description    [local-2015-10-15-124928] Total conversion for the ingress intel map.
+// @description    [local-2015-10-16-183352] Total conversion for the ingress intel map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -21,7 +21,7 @@
 // REPLACE ORIG SITE ///////////////////////////////////////////////////
 if(document.getElementsByTagName('html')[0].getAttribute('itemscope') != null)
   throw('Ingress Intel 網站關閉了, 不是 IITC userscript 的問題.');
-window.iitcBuildDate = '2015-10-15-124928';
+window.iitcBuildDate = '2015-10-16-183352';
 
 // disable vanilla JS
 window.onload = function() {};
@@ -91,7 +91,7 @@ document.getElementsByTagName('body')[0].innerHTML = ''
   + '    <input id="redeem" placeholder="兌換代碼…" type="text"/>'
   + '    <div id="toolbox">'
   + '      <a onmouseover="setPermaLink(this)" onclick="setPermaLink(this);return androidPermalink()" title="此地圖的連結">intel連結</a>'
-  + '      <a onclick="window.aboutIITC()" style="cursor: help">關於 IITC</a>'
+  + '      <a onclick="window.aboutIITC()" style="cursor: help">關於IITC</a>'
   + '      <a onclick="window.regionScoreboard()" title="查看該區域記分板">區域分數</a>'
   + '    </div>'
   + '  </div>'
@@ -779,27 +779,27 @@ window.setupMap = function() {
 
   // to avoid any favouritism, we'll put the player's own faction layer first
   if (PLAYER.team == 'RESISTANCE') {
-    addLayers['藍軍'] = factionLayers[TEAM_RES];
-    addLayers['綠軍'] = factionLayers[TEAM_ENL];
+    addLayers['反抗軍'] = factionLayers[TEAM_RES];
+    addLayers['啟蒙軍'] = factionLayers[TEAM_ENL];
   } else {
-    addLayers['綠軍'] = factionLayers[TEAM_ENL];
-    addLayers['藍軍'] = factionLayers[TEAM_RES];
+    addLayers['啟蒙軍'] = factionLayers[TEAM_ENL];
+    addLayers['反抗軍'] = factionLayers[TEAM_RES];
   }
-  if (!isLayerGroupDisplayed('藍軍', true)) hiddenLayer.push (factionLayers[TEAM_RES]);
-  if (!isLayerGroupDisplayed('綠軍', true)) hiddenLayer.push (factionLayers[TEAM_ENL]);
+  if (!isLayerGroupDisplayed('反抗軍', true)) hiddenLayer.push (factionLayers[TEAM_RES]);
+  if (!isLayerGroupDisplayed('啟蒙軍', true)) hiddenLayer.push (factionLayers[TEAM_ENL]);
 
   setFactionLayersState (TEAM_NONE, true);
-  setFactionLayersState (TEAM_RES, isLayerGroupDisplayed('藍軍', true));
-  setFactionLayersState (TEAM_ENL, isLayerGroupDisplayed('綠軍', true));
+  setFactionLayersState (TEAM_RES, isLayerGroupDisplayed('反抗軍', true));
+  setFactionLayersState (TEAM_ENL, isLayerGroupDisplayed('啟蒙軍', true));
 
   // NOTE: these events are fired by the layer chooser, so won't happen until that's created and added to the map
   window.map.on('overlayadd overlayremove', function(e) {
     var displayed = (e.type == 'overlayadd');
     switch (e.name) {
-      case '藍軍':
+      case '反抗軍':
         setFactionLayersState (TEAM_RES, displayed);
         break;
-      case '綠軍':
+      case '啟蒙軍':
         setFactionLayersState (TEAM_ENL, displayed);
         break;
     }
@@ -1250,7 +1250,7 @@ function boot() {
   if(!isSmartphone()) // TODO remove completely?
     window.debug.console.overwriteNativeIfRequired();
 
-  console.log('loading done, booting. Built: 2015-10-15-124928');
+  console.log('loading done, booting. Built: 2015-10-16-183352');
   if(window.deviceID) console.log('Your device ID: ' + window.deviceID);
   window.runOnSmartphonesBeforeBoot();
 
@@ -12728,7 +12728,7 @@ window.updateGameScore = function(data) {
     var es = '<span class="enl" style="width:'+ep+'%;">&nbsp;'+Math.round(ep)+'%</span>';
     $('#gamestat').html(rs+es).one('click', function() { window.updateGameScore() });
     // help cursor via “#gamestat span”
-    $('#gamestat').attr('title', '反抗軍(藍軍):\t'+r+' MindUnits\n啟蒙者(綠軍):\t'+e+' MindUnits');
+    $('#gamestat').attr('title', '反抗軍:\t'+r+' MindUnits\n啟蒙軍:\t'+e+' MindUnits');
   } else if (data && data.error) {
     console.warn('game score failed to load: '+data.error);
   } else {
@@ -16466,7 +16466,7 @@ function regionScoreboardScoreHistoryChart(result, logscale) {
 
 function regionScoreboardScoreHistoryTable(result) {
   var history = result.scoreHistory;
-  var table = '<table class="checkpoint_table"><thead><tr><th>檢查點</th><th>綠軍</th><th>藍軍</th></tr></thead>';
+  var table = '<table class="checkpoint_table"><thead><tr><th>檢查點</th><th>啟蒙軍</th><th>反抗軍</th></tr></thead>';
 
   for(var i=0; i<history.length; i++) {
     table += '<tr><td>' + history[i][0] + '</td><td>' + digits(history[i][1]) + '</td><td>' + digits(history[i][2]) + '</td></tr>';
@@ -16495,7 +16495,7 @@ function regionScoreboardSuccess(data,dlg,logscale) {
   var maxAverage = Math.max(data.result.gameScore[0], data.result.gameScore[1], 1);
   var teamRow = [];
   for (var t=0; t<2; t++) {
-    var team = t==0 ? '綠軍' : '藍軍';
+    var team = t==0 ? '啟蒙軍' : '反抗軍';
     var teamClass = t==0 ? 'enl' : 'res';
     var teamCol = t==0 ? COLORS[TEAM_ENL] : COLORS[TEAM_RES];
     var barSize = Math.round(data.result.gameScore[t]/maxAverage*200);
@@ -16510,7 +16510,7 @@ function regionScoreboardSuccess(data,dlg,logscale) {
          +'<b>區域 '+data.result.regionName+'</b>'
          +'<div><table>'+teamRow[first]+teamRow[1-first]+'</table>'
          +regionScoreboardScoreHistoryChart(data.result, logscale)+'</div>'
-         +'<b>檢查點概述</b>'
+         +'<b>歷史紀錄</b>'
          +'<div>'+regionScoreboardScoreHistoryTable(data.result)+'</div>'
          +'<b>頂級探員</b>'
          +'<div>'+agentTable+'</div>'
@@ -16519,9 +16519,9 @@ function regionScoreboardSuccess(data,dlg,logscale) {
   $('g.checkpoint', dlg).each(function(i, elem) {
     elem = $(elem);
 
-    var tooltip = 'CP:\t'+elem.attr('data-cp')
-      + '\nEnl:\t' + digits(elem.attr('data-enl'))
-      + '\nRes:\t' + digits(elem.attr('data-res'));
+    var tooltip = '檢查點:\t'+elem.attr('data-cp')
+      + '\n啟蒙軍:\t' + digits(elem.attr('data-enl'))
+      + '\n反抗軍:\t' + digits(elem.attr('data-res'));
     elem.tooltip({
       content: convertTextToTableMagic(tooltip),
       position: {my: "center bottom", at: "center top-10"}
@@ -17927,7 +17927,7 @@ L.Draggable.prototype._onDown = function(e) {
 
 // inject code into site context
 var script = document.createElement('script');
-var info = { buildName: 'local', dateTimeVersion: '20151015.124928' };
+var info = { buildName: 'local', dateTimeVersion: '20151016.183352' };
 if (this.GM_info && this.GM_info.script) info.script = { version: GM_info.script.version, name: GM_info.script.name, description: GM_info.script.description };
 script.appendChild(document.createTextNode('('+ wrapper +')('+JSON.stringify(info)+');'));
 (document.body || document.head || document.documentElement).appendChild(script);

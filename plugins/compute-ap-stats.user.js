@@ -74,8 +74,8 @@ window.plugin.compAPStats.update = function(hasFinished) {
   $('#available_ap_display').html('該區域可取得的AP: '
     + loading
     + '<table>'
-    + formatRow('綠軍',result.enl)
-    + formatRow('藍軍', result.res)
+    + formatRow('啟蒙軍',result.enl)
+    + formatRow('反抗軍', result.res)
     + '</table>');
 }
 

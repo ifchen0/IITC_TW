@@ -128,7 +128,7 @@ function regionScoreboardScoreHistoryChart(result, logscale) {
 
 function regionScoreboardScoreHistoryTable(result) {
   var history = result.scoreHistory;
-  var table = '<table class="checkpoint_table"><thead><tr><th>檢查點</th><th>綠軍</th><th>藍軍</th></tr></thead>';
+  var table = '<table class="checkpoint_table"><thead><tr><th>檢查點</th><th>啟蒙軍</th><th>反抗軍</th></tr></thead>';
 
   for(var i=0; i<history.length; i++) {
     table += '<tr><td>' + history[i][0] + '</td><td>' + digits(history[i][1]) + '</td><td>' + digits(history[i][2]) + '</td></tr>';
@@ -157,7 +157,7 @@ function regionScoreboardSuccess(data,dlg,logscale) {
   var maxAverage = Math.max(data.result.gameScore[0], data.result.gameScore[1], 1);
   var teamRow = [];
   for (var t=0; t<2; t++) {
-    var team = t==0 ? '綠軍' : '藍軍';
+    var team = t==0 ? '啟蒙軍' : '反抗軍';
     var teamClass = t==0 ? 'enl' : 'res';
     var teamCol = t==0 ? COLORS[TEAM_ENL] : COLORS[TEAM_RES];
     var barSize = Math.round(data.result.gameScore[t]/maxAverage*200);
@@ -172,7 +172,7 @@ function regionScoreboardSuccess(data,dlg,logscale) {
          +'<b>區域 '+data.result.regionName+'</b>'
          +'<div><table>'+teamRow[first]+teamRow[1-first]+'</table>'
          +regionScoreboardScoreHistoryChart(data.result, logscale)+'</div>'
-         +'<b>檢查點概述</b>'
+         +'<b>歷史紀錄</b>'
          +'<div>'+regionScoreboardScoreHistoryTable(data.result)+'</div>'
          +'<b>頂級探員</b>'
          +'<div>'+agentTable+'</div>'
@@ -181,9 +181,9 @@ function regionScoreboardSuccess(data,dlg,logscale) {
   $('g.checkpoint', dlg).each(function(i, elem) {
     elem = $(elem);
 
-    var tooltip = 'CP:\t'+elem.attr('data-cp')
-      + '\nEnl:\t' + digits(elem.attr('data-enl'))
-      + '\nRes:\t' + digits(elem.attr('data-res'));
+    var tooltip = '檢查點:\t'+elem.attr('data-cp')
+      + '\n啟蒙軍:\t' + digits(elem.attr('data-enl'))
+      + '\n反抗軍:\t' + digits(elem.attr('data-res'));
     elem.tooltip({
       content: convertTextToTableMagic(tooltip),
       position: {my: "center bottom", at: "center top-10"}

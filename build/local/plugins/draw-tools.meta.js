@@ -2,11 +2,11 @@
 // @id             iitc-plugin-draw-tools@breunigs
 // @name           IITC plugin: draw tools
 // @category       Layer
-// @version        0.7.0.20151010.174220
+// @version        0.7.0.20151016.183352
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/draw-tools.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/draw-tools.user.js
-// @description    [local-2015-10-10-174220] Allow drawing things onto the current map so you may plan your next move.
+// @description    [local-2015-10-16-183352] 允許在地圖上繪製圖案, 你可以用這個工具計劃你的下一步行動.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*

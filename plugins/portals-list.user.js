@@ -77,7 +77,7 @@ window.plugin.portalslist.fields = [
     title: "陣營",
     value: function(portal) { return portal.options.team; },
     format: function(cell, portal, value) {
-      $(cell).text(['中立', '藍軍', '綠軍'][value]);
+      $(cell).text(['中立', '反抗軍', '啟蒙軍'][value]);
     }
   },
   {
@@ -283,7 +283,7 @@ window.plugin.portalslist.portalTable = function(sortBy, sortOrder, filter) {
 
   var length = window.plugin.portalslist.listPortals.length;
 
-  ["All 全部", "Neu 中立", "Res 藍軍", "Enl 綠軍"].forEach(function(label, i) {
+  ["All 全部", "Neu 中立", "Res 反抗軍", "Enl 啟蒙軍"].forEach(function(label, i) {
     cell = row.appendChild(document.createElement('th'));
     cell.className = 'filter' + label.substr(0, 3);
     cell.textContent = label+':';
@@ -357,7 +357,7 @@ window.plugin.portalslist.portalTable = function(sortBy, sortOrder, filter) {
   });
 
   container.append('<div class="disclaimer">點選表格上方將欄位分類. '
-    + '點選 <b>全部, 中立, 藍軍, 綠軍</b> 標籤來篩選這些分類，或者點選標籤右邊的數字來隱藏分類</div>');
+    + '點選 <b>全部, 中立, 反抗軍, 啟蒙軍</b> 標籤來篩選這些分類，或者點選標籤右邊的數字來隱藏分類</div>');
 
   return container;
 }

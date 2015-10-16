@@ -2,11 +2,11 @@
 // @id             iitc-plugin-portal-level-numbers@rongou
 // @name           IITC plugin: Portal Level Numbers
 // @category       Layer
-// @version        0.1.5.20151011.180632
+// @version        0.1.5.20151016.183453
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/plugins/portal-level-numbers.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/plugins/portal-level-numbers.user.js
-// @description    [mobile-2015-10-11-180632] 在地圖上顯示Portal的等級.
+// @description    [mobile-2015-10-16-183453] 在地圖上顯示Portal的等級.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'mobile';
-plugin_info.dateTimeVersion = '20151011.180632';
+plugin_info.dateTimeVersion = '20151016.183453';
 plugin_info.pluginId = 'portal-level-numbers';
 //END PLUGIN AUTHORS NOTE
 

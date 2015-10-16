@@ -248,27 +248,27 @@ window.setupMap = function() {
 
   // to avoid any favouritism, we'll put the player's own faction layer first
   if (PLAYER.team == 'RESISTANCE') {
-    addLayers['藍軍'] = factionLayers[TEAM_RES];
-    addLayers['綠軍'] = factionLayers[TEAM_ENL];
+    addLayers['反抗軍'] = factionLayers[TEAM_RES];
+    addLayers['啟蒙軍'] = factionLayers[TEAM_ENL];
   } else {
-    addLayers['綠軍'] = factionLayers[TEAM_ENL];
-    addLayers['藍軍'] = factionLayers[TEAM_RES];
+    addLayers['啟蒙軍'] = factionLayers[TEAM_ENL];
+    addLayers['反抗軍'] = factionLayers[TEAM_RES];
   }
-  if (!isLayerGroupDisplayed('藍軍', true)) hiddenLayer.push (factionLayers[TEAM_RES]);
-  if (!isLayerGroupDisplayed('綠軍', true)) hiddenLayer.push (factionLayers[TEAM_ENL]);
+  if (!isLayerGroupDisplayed('反抗軍', true)) hiddenLayer.push (factionLayers[TEAM_RES]);
+  if (!isLayerGroupDisplayed('啟蒙軍', true)) hiddenLayer.push (factionLayers[TEAM_ENL]);
 
   setFactionLayersState (TEAM_NONE, true);
-  setFactionLayersState (TEAM_RES, isLayerGroupDisplayed('藍軍', true));
-  setFactionLayersState (TEAM_ENL, isLayerGroupDisplayed('綠軍', true));
+  setFactionLayersState (TEAM_RES, isLayerGroupDisplayed('反抗軍', true));
+  setFactionLayersState (TEAM_ENL, isLayerGroupDisplayed('啟蒙軍', true));
 
   // NOTE: these events are fired by the layer chooser, so won't happen until that's created and added to the map
   window.map.on('overlayadd overlayremove', function(e) {
     var displayed = (e.type == 'overlayadd');
     switch (e.name) {
-      case '藍軍':
+      case '反抗軍':
         setFactionLayersState (TEAM_RES, displayed);
         break;
-      case '綠軍':
+      case '啟蒙軍':
         setFactionLayersState (TEAM_ENL, displayed);
         break;
     }

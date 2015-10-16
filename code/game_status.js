@@ -21,7 +21,7 @@ window.updateGameScore = function(data) {
     var es = '<span class="enl" style="width:'+ep+'%;">&nbsp;'+Math.round(ep)+'%</span>';
     $('#gamestat').html(rs+es).one('click', function() { window.updateGameScore() });
     // help cursor via “#gamestat span”
-    $('#gamestat').attr('title', '反抗軍(藍軍):\t'+r+' MindUnits\n啟蒙者(綠軍):\t'+e+' MindUnits');
+    $('#gamestat').attr('title', '反抗軍:\t'+r+' MindUnits\n啟蒙軍:\t'+e+' MindUnits');
   } else if (data && data.error) {
     console.warn('game score failed to load: '+data.error);
   } else {
