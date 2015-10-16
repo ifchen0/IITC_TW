@@ -2,11 +2,11 @@
 // @id             iitc-plugin-player-tracker@breunigs
 // @name           IITC Plugin: Player tracker
 // @category       Layer
-// @version        0.11.1.20151010.174746
+// @version        0.11.1.20151016.185107
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/player-tracker.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/player-tracker.user.js
-// @description    [Release-2015-10-10-174746] Draw trails for the path a user took onto the map based on status messages in COMMs. Uses up to three hours of data. Does not request chat data on its own, even if that would be useful.
+// @description    [Release-2015-10-16-185107] 運用通訊科廣播信息在地圖上繪製玩家的路徑. 使用顯示30分鐘.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'Release';
-plugin_info.dateTimeVersion = '20151010.174746';
+plugin_info.dateTimeVersion = '20151016.185107';
 plugin_info.pluginId = 'player-tracker';
 //END PLUGIN AUTHORS NOTE
 
@@ -64,11 +64,11 @@ window.plugin.playerTracker.setup = function() {
   plugin.playerTracker.drawnTracesRes = new L.LayerGroup();
   // to avoid any favouritism, we'll put the player's own faction layer first
   if (PLAYER.team == 'RESISTANCE') {
-    window.addLayerGroup('藍軍探員', plugin.playerTracker.drawnTracesRes, true);
-    window.addLayerGroup('綠軍探員', plugin.playerTracker.drawnTracesEnl, true);
+    window.addLayerGroup('反抗軍探員', plugin.playerTracker.drawnTracesRes, true);
+    window.addLayerGroup('啟蒙軍探員', plugin.playerTracker.drawnTracesEnl, true);
   } else {
-    window.addLayerGroup('綠軍探員', plugin.playerTracker.drawnTracesEnl, true);
-    window.addLayerGroup('藍軍探員', plugin.playerTracker.drawnTracesRes, true);
+    window.addLayerGroup('啟蒙軍探員', plugin.playerTracker.drawnTracesEnl, true);
+    window.addLayerGroup('反抗軍探員', plugin.playerTracker.drawnTracesRes, true);
   }
   map.on('layeradd',function(obj) {
     if(obj.layer === plugin.playerTracker.drawnTracesEnl || obj.layer === plugin.playerTracker.drawnTracesRes) {

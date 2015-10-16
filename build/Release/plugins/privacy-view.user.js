@@ -1,9 +1,9 @@
 // ==UserScript==
 // @id             iitc-plugin-privacy-view@Scrool
 // @name           IITC plugin: Privacy view on Intel
-// @version        1.0.1.20151010.174746
+// @version        1.0.1.20151016.185107
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
-// @description    [Release-2015-10-10-174746] Hide info from intel which shouldn't leak to players of the other faction.
+// @description    [Release-2015-10-16-185107] 在IITC畫面上隱藏玩家資訊.
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/privacy-view.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/privacy-view.user.js
 // @include        https://www.ingress.com/intel*
@@ -25,7 +25,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'Release';
-plugin_info.dateTimeVersion = '20151010.174746';
+plugin_info.dateTimeVersion = '20151016.185107';
 plugin_info.pluginId = 'privacy-view';
 //END PLUGIN AUTHORS NOTE
 
