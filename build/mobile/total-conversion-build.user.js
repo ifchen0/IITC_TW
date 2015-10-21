@@ -1,11 +1,11 @@
 // ==UserScript==
 // @id             ingress-intel-total-conversion@jonatkins
 // @name           IITC: Ingress intel map total conversion
-// @version        0.25.2.20151016.183453
+// @version        0.25.2.20151021.150750
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/total-conversion-build.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/total-conversion-build.user.js
-// @description    [mobile-2015-10-16-183453] Total conversion for the ingress intel map.
+// @description    [mobile-2015-10-21-150750] Total conversion for the ingress intel map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -21,7 +21,7 @@
 // REPLACE ORIG SITE ///////////////////////////////////////////////////
 if(document.getElementsByTagName('html')[0].getAttribute('itemscope') != null)
   throw('Ingress Intel 網站關閉了, 不是 IITC userscript 的問題.');
-window.iitcBuildDate = '2015-10-16-183453';
+window.iitcBuildDate = '2015-10-21-150750';
 
 // disable vanilla JS
 window.onload = function() {};
@@ -217,7 +217,7 @@ window.overlayStatus = {};
 if(typeof window.plugin !== 'function') window.plugin = function() {};
 
 
-﻿// ARTIFACT ///////////////////////////////////////////////////////
+// ARTIFACT ///////////////////////////////////////////////////////
 
 // added as part of the ingress #13magnus in november 2013, artifacts
 // are additional game elements overlayed on the intel map
@@ -289,9 +289,11 @@ window.artifact.processData = function(data) {
     return;
   }
 
+  var oldArtifacts = artifact.entities;
   artifact.clearData();
 
   artifact.processResult(data.result);
+  runHooks('artifactsUpdated', {old: oldArtifacts, 'new': artifact.entities});
 
   // redraw the artifact layer
   artifact.updateLayer();
@@ -1250,7 +1252,7 @@ function boot() {
   if(!isSmartphone()) // TODO remove completely?
     window.debug.console.overwriteNativeIfRequired();
 
-  console.log('loading done, booting. Built: 2015-10-16-183453');
+  console.log('loading done, booting. Built: 2015-10-21-150750');
   if(window.deviceID) console.log('Your device ID: ' + window.deviceID);
   window.runOnSmartphonesBeforeBoot();
 
@@ -12796,10 +12798,12 @@ window.updateGameScore = function(data) {
 //              this only selects the current chat pane; on mobile, it
 //              also switches between map, info and other panes defined
 //              by plugins
+// artifactsUpdated: called when the set of artifacts (including targets)
+//              has changed. Parameters names are old, new.
 
 window._hooks = {}
 window.VALID_HOOKS = [
-  'portalSelected', 'portalDetailsUpdated',
+  'portalSelected', 'portalDetailsUpdated', 'artifactsUpdated',
   'mapDataRefreshStart', 'mapDataEntityInject', 'mapDataRefreshEnd',
   'portalAdded', 'linkAdded', 'fieldAdded',
   'publicChatDataAvailable', 'factionChatDataAvailable',
@@ -17927,7 +17931,7 @@ L.Draggable.prototype._onDown = function(e) {
 
 // inject code into site context
 var script = document.createElement('script');
-var info = { buildName: 'mobile', dateTimeVersion: '20151016.183453' };
+var info = { buildName: 'mobile', dateTimeVersion: '20151021.150750' };
 if (this.GM_info && this.GM_info.script) info.script = { version: GM_info.script.version, name: GM_info.script.name, description: GM_info.script.description };
 script.appendChild(document.createTextNode('('+ wrapper +')('+JSON.stringify(info)+');'));
 (document.body || document.head || document.documentElement).appendChild(script);

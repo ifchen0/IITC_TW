@@ -1,4 +1,4 @@
-﻿// ARTIFACT ///////////////////////////////////////////////////////
+// ARTIFACT ///////////////////////////////////////////////////////
 
 // added as part of the ingress #13magnus in november 2013, artifacts
 // are additional game elements overlayed on the intel map
@@ -70,9 +70,11 @@ window.artifact.processData = function(data) {
     return;
   }
 
+  var oldArtifacts = artifact.entities;
   artifact.clearData();
 
   artifact.processResult(data.result);
+  runHooks('artifactsUpdated', {old: oldArtifacts, 'new': artifact.entities});
 
   // redraw the artifact layer
   artifact.updateLayer();
