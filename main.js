@@ -116,7 +116,7 @@ window.script_info = info;
 // Disabled for now because it has several bugs: flickering, constant
 // CPU usage and it continuously fires the moveend event.
 
-L_PREFER_CANVAS = true; //iF
+//L_PREFER_CANVAS = false;
 
 // CONFIG OPTIONS ////////////////////////////////////////////////////
 window.REFRESH = 30; // refresh view every 30s (base time)
