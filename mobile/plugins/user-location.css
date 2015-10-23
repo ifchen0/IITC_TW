@@ -36,9 +36,9 @@
 
 .user-location .circle .inner,
 .user-location .circle .outer {
-  width: 32px;
-  height: 32px;
-  border-radius: 16px;
+  width: 0px;
+  height: 0px;
+  border-radius: 0px;
 }
 
 .user-location .circle .inner {

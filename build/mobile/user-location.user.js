@@ -2,11 +2,11 @@
 // @id             iitc-plugin-user-location@cradle
 // @name           IITC plugin: User Location
 // @category       Tweaks
-// @version        0.2.0.20151021.150750
+// @version        0.2.0.20151023.121944
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/user-location.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/user-location.user.js
-// @description    [mobile-2015-10-21-150750] Show user location marker on map
+// @description    [mobile-2015-10-23-121944] Show user location marker on map
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'mobile';
-plugin_info.dateTimeVersion = '20151021.150750';
+plugin_info.dateTimeVersion = '20151023.121944';
 plugin_info.pluginId = 'user-location';
 //END PLUGIN AUTHORS NOTE
 
@@ -39,7 +39,7 @@ window.plugin.userLocation = function() {};
 window.plugin.userLocation.follow = false;
 
 window.plugin.userLocation.setup = function() {
-  $('<style>').prop('type', 'text/css').html('.user-location {\n  pointer-events: none;\n}\n\n.user-location .container {\n  height: 32px;\n  width: 32px;\n          transform-origin: center;\n  -webkit-transform-origin: center;\n}\n\n.user-location .container .inner,\n.user-location .container .outer {\n  position: absolute;\n}\n\n.user-location .res .inner {\n  background-color: #03baf4;\n  border-color: #03baf4;\n}\n\n.user-location .res .outer {\n  background-color: #0088b3;\n  border-color: #0088b3;\n}\n\n.user-location .enl .inner {\n  background-color: #1ee681;\n  border-color: #1ee681;\n}\n\n.user-location .enl .outer {\n  background-color: #00aa4e;\n  border-color: #00aa4e;\n}\n\n.user-location .circle .inner,\n.user-location .circle .outer {\n  width: 32px;\n  height: 32px;\n  border-radius: 16px;\n}\n\n.user-location .circle .inner {\n  transform: scale(0.6);\n  -webkit-transform: scale(0.6);\n}\n\n.user-location .arrow .inner,\n.user-location .arrow .outer {\n  left: 4px;\n  width: 0px;\n  height: 0px;\n  border-style: solid;\n  border-width: 0px 12px 32px;\n  border-left-color: transparent;\n  border-right-color: transparent;\n  background: transparent;\n}\n\n.user-location .arrow .inner {\n  transform: scale(0.6) translateY(15%);\n  -webkit-transform: scale(0.6) translateY(15%);\n}\n\n').appendTo('head');
+  $('<style>').prop('type', 'text/css').html('.user-location {\n  pointer-events: none;\n}\n\n.user-location .container {\n  height: 32px;\n  width: 32px;\n          transform-origin: center;\n  -webkit-transform-origin: center;\n}\n\n.user-location .container .inner,\n.user-location .container .outer {\n  position: absolute;\n}\n\n.user-location .res .inner {\n  background-color: #03baf4;\n  border-color: #03baf4;\n}\n\n.user-location .res .outer {\n  background-color: #0088b3;\n  border-color: #0088b3;\n}\n\n.user-location .enl .inner {\n  background-color: #1ee681;\n  border-color: #1ee681;\n}\n\n.user-location .enl .outer {\n  background-color: #00aa4e;\n  border-color: #00aa4e;\n}\n\n.user-location .circle .inner,\n.user-location .circle .outer {\n  width: 0px;\n  height: 0px;\n  border-radius: 0px;\n}\n\n.user-location .circle .inner {\n  transform: scale(0.6);\n  -webkit-transform: scale(0.6);\n}\n\n.user-location .arrow .inner,\n.user-location .arrow .outer {\n  left: 4px;\n  width: 0px;\n  height: 0px;\n  border-style: solid;\n  border-width: 0px 12px 32px;\n  border-left-color: transparent;\n  border-right-color: transparent;\n  background: transparent;\n}\n\n.user-location .arrow .inner {\n  transform: scale(0.6) translateY(15%);\n  -webkit-transform: scale(0.6) translateY(15%);\n}\n\n').appendTo('head');
 
   $('<div style="position:absolute; left:-9999em; top:-9999em;">').html('<svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">\n	<radialGradient id="user-location-gradient">\n		<stop style="stop-color: #ffa500; stop-opacity: 0; " offset="0.875" />\n		<stop style="stop-color: #ffa500; stop-opacity: 1; " offset="1" />\n	</radialGradient>\n</svg>\n').prependTo('body');
 
