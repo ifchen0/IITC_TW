@@ -267,6 +267,7 @@ window.plugin.playerTracker.ago = function(time, now) {
   var s = (now-time) / 1000;
   var h = Math.floor(s / 3600);
   var m = Math.floor((s % 3600) / 60);
+  if(m < 0) m = 0;  //iF: Fix -1min
   var returnVal = m + '分鐘';
   if(h > 0) {
     returnVal = h + '小時' + returnVal;
