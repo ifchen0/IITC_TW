@@ -2,11 +2,11 @@
 // @id             iitc-plugin-user-location@cradle
 // @name           IITC plugin: User Location
 // @category       Tweaks
-// @version        0.2.0.20151023.121944
+// @version        0.2.0.20151025.54722
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/user-location.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/user-location.user.js
-// @description    [mobile-2015-10-23-121944] Show user location marker on map
+// @description    [mobile-2015-10-25-054722] Show user location marker on map
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'mobile';
-plugin_info.dateTimeVersion = '20151023.121944';
+plugin_info.dateTimeVersion = '20151025.54722';
 plugin_info.pluginId = 'user-location';
 //END PLUGIN AUTHORS NOTE
 
@@ -71,7 +71,7 @@ window.plugin.userLocation.setup = function() {
 
   marker.addTo(window.plugin.userLocation.locationLayer);
   window.plugin.userLocation.locationLayer.addTo(window.map);
-  window.addLayerGroup('User location', window.plugin.userLocation.locationLayer, true);
+  window.addLayerGroup('玩家位置', window.plugin.userLocation.locationLayer, true);
 
   window.plugin.userLocation.marker = marker;
   window.plugin.userLocation.circle = circle;

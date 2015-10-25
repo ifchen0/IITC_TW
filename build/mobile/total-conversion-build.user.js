@@ -1,11 +1,11 @@
 // ==UserScript==
 // @id             ingress-intel-total-conversion@jonatkins
 // @name           IITC: Ingress intel map total conversion
-// @version        0.25.2.20151021.150750
+// @version        0.25.2.20151025.54722
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/total-conversion-build.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/total-conversion-build.user.js
-// @description    [mobile-2015-10-21-150750] Total conversion for the ingress intel map.
+// @description    [mobile-2015-10-25-054722] Total conversion for the ingress intel map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -21,7 +21,7 @@
 // REPLACE ORIG SITE ///////////////////////////////////////////////////
 if(document.getElementsByTagName('html')[0].getAttribute('itemscope') != null)
   throw('Ingress Intel 網站關閉了, 不是 IITC userscript 的問題.');
-window.iitcBuildDate = '2015-10-21-150750';
+window.iitcBuildDate = '2015-10-25-054722';
 
 // disable vanilla JS
 window.onload = function() {};
@@ -1243,6 +1243,27 @@ window.setupLayerChooserApi = function() {
     }
 
     return true;
+  };
+
+  var _update = window.layerChooser._update;
+  window.layerChooser._update = function() {
+    // update layer menu in IITCm
+    try {
+      if(typeof android != 'undefined')
+        window.layerChooser.getLayers();
+    } catch(e) {
+      console.error(e);
+    }
+    // call through
+    return _update.apply(this, arguments);
+  }
+  // as this setupLayerChooserApi function is called after the layer menu is populated, we need to also get they layers once
+  // so they're passed through to the android app
+  try {
+    if(typeof android != 'undefined')
+      window.layerChooser.getLayers();
+  } catch(e) {
+    console.error(e);
   }
 }
 
@@ -1252,7 +1273,7 @@ function boot() {
   if(!isSmartphone()) // TODO remove completely?
     window.debug.console.overwriteNativeIfRequired();
 
-  console.log('loading done, booting. Built: 2015-10-21-150750');
+  console.log('loading done, booting. Built: 2015-10-25-054722');
   if(window.deviceID) console.log('Your device ID: ' + window.deviceID);
   window.runOnSmartphonesBeforeBoot();
 
@@ -17931,7 +17952,7 @@ L.Draggable.prototype._onDown = function(e) {
 
 // inject code into site context
 var script = document.createElement('script');
-var info = { buildName: 'mobile', dateTimeVersion: '20151021.150750' };
+var info = { buildName: 'mobile', dateTimeVersion: '20151025.54722' };
 if (this.GM_info && this.GM_info.script) info.script = { version: GM_info.script.version, name: GM_info.script.name, description: GM_info.script.description };
 script.appendChild(document.createTextNode('('+ wrapper +')('+JSON.stringify(info)+');'));
 (document.body || document.head || document.documentElement).appendChild(script);

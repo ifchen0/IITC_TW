@@ -59,7 +59,7 @@ window.plugin.userLocation.setup = function() {
 
   marker.addTo(window.plugin.userLocation.locationLayer);
   window.plugin.userLocation.locationLayer.addTo(window.map);
-  window.addLayerGroup('User location', window.plugin.userLocation.locationLayer, true);
+  window.addLayerGroup('玩家位置', window.plugin.userLocation.locationLayer, true);
 
   window.plugin.userLocation.marker = marker;
   window.plugin.userLocation.circle = circle;
