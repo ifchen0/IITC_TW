@@ -6,7 +6,7 @@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@
 // @downloadURL    @@DOWNLOADURL@@
-// @description    [@@BUILDNAME@@-@@BUILDDATE@@] Display a list of all localized portals by level and faction.
+// @description    [@@BUILDNAME@@-@@BUILDDATE@@] 依照該區域的Portal等級和陣營顯示圖表.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -89,21 +89,21 @@ window.plugin.portalcounts.getPortals = function (){
 
   var counts = '';
   if(total > 0) {
-    counts += '<table><tr><th></th><th class="enl">Enlightened</th><th class="res">Resistance</th></tr>';  //'+self.enlP+' Portal(s)</th></tr>';
+    counts += '<table><tr><th></th><th class="enl">啟蒙軍</th><th class="res">反抗軍</th></tr>';  //'+self.enlP+' Portal(s)</th></tr>';
     for(var level = window.MAX_PORTAL_LEVEL; level > 0; level--){
-      counts += '<tr><td class="L'+level+'">Level '+level+'</td>';
+      counts += '<tr><td class="L'+level+'">等級'+level+'</td>';
       if(minlvl > level)
-        counts += '<td colspan="2">zoom in to see portals in this level</td>';
+        counts += '<td colspan="2">放大來顯示這個級別的Portal</td>';
       else
         counts += '<td class="enl">'+self.PortalsEnl[level]+'</td><td class="res">'+self.PortalsRes[level]+'</td>';
       counts += '</tr>';
     }
 
-    counts += '<tr><th>Total:</th><td class="enl">'+self.enlP+'</td><td class="res">'+self.resP+'</td></tr>';
+    counts += '<tr><th>總計:</th><td class="enl">'+self.enlP+'</td><td class="res">'+self.resP+'</td></tr>';
 
-    counts += '<tr><td>Neutral:</td><td colspan="2">';
+    counts += '<tr><td>中立:</td><td colspan="2">';
     if(minlvl > 0)
-      counts += 'zoom in to see unclaimed portals';
+      counts += '放大來顯示中立Portal';
     else
       counts += self.neuP;
     counts += '</td></tr></table>';
@@ -183,17 +183,17 @@ window.plugin.portalcounts.getPortals = function (){
 
     counts += $('<div>').append(svg).html();
   } else {
-    counts += '<p>No Portals in range!</p>';
+    counts += '<p>畫面中沒有Portal!</p>';
   }
 
   // I've only seen the backend reduce the portals returned for L4+ or further out zoom levels - but this could change
   // UPDATE: now seen for L2+ in dense areas (map zoom level 14 or lower)
   if (getMinPortalLevel() >= 2) {
-   counts += '<p class="help" title="To reduce data usage and speed up map display, the backend servers only return some portals in dense areas."><b>Warning</b>: Portal counts can be inaccurate when zoomed out</p>';
+   counts += '<p class="help" title="為減少資料的使用量及加快地圖顯示, 後端伺服器在密集地區地區時只會回傳一部分的Portal資料."><b>警告</b>: Portal統計數據在地圖縮小時可能不準確</p>';
   }
 
   var total = self.enlP + self.resP + self.neuP;
-  var title = total + ' ' + (total == 1 ? 'portal' : 'portals');
+  var title = total + '個Portal';// + (total == 1 ? 'portal' : 'portals');
 
   if(window.useAndroidPanes()) {
     $('<div id="portalcounts" class="mobile">'
@@ -203,7 +203,7 @@ window.plugin.portalcounts.getPortals = function (){
   } else {
     dialog({
       html: '<div id="portalcounts">' + counts + '</div>',
-      title: 'Portal counts: ' + title,
+      title: 'Portal統計: ' + title,
       width: 'auto'
     });
   }
@@ -339,10 +339,10 @@ window.plugin.portalcounts.onPaneChanged = function(pane) {
 
 var setup =  function() {
   if(window.useAndroidPanes()) {
-    android.addPane('plugin-portalcounts', 'Portal counts', 'ic_action_data_usage');
+    android.addPane('plugin-portalcounts', 'Portal統計', 'ic_action_data_usage');
     addHook('paneChanged', window.plugin.portalcounts.onPaneChanged);
   } else {
-    $('#toolbox').append(' <a onclick="window.plugin.portalcounts.getPortals()" title="Display a summary of portals in the current view">Portal counts</a>');
+    $('#toolbox').append(' <a onclick="window.plugin.portalcounts.getPortals()" title="顯示目前畫面的Portal統計數據">Portal統計</a>');
   }
 
   $('head').append('<style>' +
