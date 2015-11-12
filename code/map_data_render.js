@@ -1,4 +1,4 @@
-﻿// MAP DATA RENDER ////////////////////////////////////////////////
+// MAP DATA RENDER ////////////////////////////////////////////////
 // class to handle rendering into leaflet the JSON data from the servers
 
 
@@ -266,6 +266,17 @@ window.Render.prototype.createPlaceholderPortalEntity = function(guid,latE6,lngE
       lngE6     //3 - lng
     ]
   ];
+
+  // placeholder portals don't have a useful timestamp value - so the standard code that checks for updated
+  // portal details doesn't apply
+  // so, check that the basic details are valid and delete the existing portal if out of date
+  if (guid in window.portals) {
+    var p = window.portals[guid];
+    if (team != p.options.data.team || latE6 != p.options.data.latE6 || lngE6 != p.options.data.lngE6) {
+      // team or location have changed - delete existing portal
+      this.deletePortalEntity(guid);
+    }
+  }
 
   this.createPortalEntity(ent);
 
