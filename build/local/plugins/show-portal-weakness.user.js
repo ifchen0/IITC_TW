@@ -2,11 +2,11 @@
 // @id             iitc-plugin-show-portal-weakness@vita10gy
 // @name           IITC plugin: show portal weakness
 // @category       Highlighter
-// @version        0.7.2.20151016.183352
+// @version        0.7.2.20151116.112319
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/show-portal-weakness.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/show-portal-weakness.user.js
-// @description    [local-2015-10-16-183352] 使用Portal的填充顏色來顯示，如果Portal能量低下則會漸漸變成紅色, Portal圓的空洞代表缺少的震盪器數目.
+// @description    [local-2015-11-16-112319] 使用Portal的填充顏色來顯示，如果Portal能量低下則會漸漸變成紅色, Portal圓的空洞代表缺少的震盪器數目.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'local';
-plugin_info.dateTimeVersion = '20151016.183352';
+plugin_info.dateTimeVersion = '20151116.112319';
 plugin_info.pluginId = 'show-portal-weakness';
 //END PLUGIN AUTHORS NOTE
 
@@ -71,7 +71,7 @@ window.plugin.portalWeakness.highlightWeakness = function(data) {
 }
 
 var setup =  function() {
-  window.addPortalHighlighter('Portal強度', window.plugin.portalWeakness.highlightWeakness);
+  window.addPortalHighlighter('能量塔強度', window.plugin.portalWeakness.highlightWeakness);
 }
 
 // PLUGIN END //////////////////////////////////////////////////////////

@@ -10,7 +10,7 @@ window.getRangeText = function(d) {
     + '\nLink amp 增益:\t×'+range.boost
     + '\n範圍:\t'+digits(Math.floor(range.range))+'公尺';
   
-  if(!range.isLinkable) title += '\nPortal缺少共震器，無法建立連線';
+  if(!range.isLinkable) title += '\n能量塔缺少共震器，無法建立連線';
   
   return ['範圍',
       '<a onclick="window.rangeLinkClick()"'
@@ -41,7 +41,7 @@ window.getModDetails = function(d) {
       modName = mod.name || '(未知模組)';
 
       // iF:mod name translate.
-      if      (modName === 'Portal Shield')      modName = 'Portal護盾';
+      if      (modName === 'Portal Shield')      modName = '能量塔護盾';
       else if (modName === 'AXA Shield')         modName = 'AXA護盾';
       else if (modName === 'Heat Sink')          modName = '散熱器';
       else if (modName === 'Multi-hack')         modName = '多重入侵';
@@ -111,9 +111,9 @@ window.getModDetails = function(d) {
     //iF: Add mod image
     var modImage = '';
     
-    if      (mods[i] == '常見 Portal護盾')     modImage = '@@INCLUDEIMAGE:images/mods/CS.png@@';
-    else if (mods[i] == '罕見 Portal護盾')     modImage = '@@INCLUDEIMAGE:images/mods/RS.png@@';
-    else if (mods[i] == '十分罕見 Portal護盾') modImage = '@@INCLUDEIMAGE:images/mods/VRS.png@@';
+    if      (mods[i] == '常見 能量塔護盾')     modImage = '@@INCLUDEIMAGE:images/mods/CS.png@@';
+    else if (mods[i] == '罕見 能量塔護盾')     modImage = '@@INCLUDEIMAGE:images/mods/RS.png@@';
+    else if (mods[i] == '十分罕見 能量塔護盾') modImage = '@@INCLUDEIMAGE:images/mods/VRS.png@@';
     else if (mods[i] == '十分罕見 AXA護盾')  modImage = '@@INCLUDEIMAGE:images/mods/AXAS.png@@';
     else if (mods[i] == '常見 多重入侵')     modImage = '@@INCLUDEIMAGE:images/mods/CMH.png@@';
     else if (mods[i] == '罕見 多重入侵')     modImage = '@@INCLUDEIMAGE:images/mods/RMH.png@@';

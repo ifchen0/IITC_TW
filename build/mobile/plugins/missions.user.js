@@ -2,11 +2,11 @@
 // @id             iitc-plugin-missions@jonatkins
 // @name           IITC plugin: Missions
 // @category       Info
-// @version        0.1.2.20151016.183453
+// @version        0.1.2.20151116.112327
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/plugins/missions.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/plugins/missions.user.js
-// @description    [mobile-2015-10-16-183453] 查看任務. 標識航點/任務, 顯示在地圖上的任務路徑.
+// @description    [mobile-2015-11-16-112327] 查看任務. 標識航點/任務, 顯示在地圖上的任務路徑.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'mobile';
-plugin_info.dateTimeVersion = '20151016.183453';
+plugin_info.dateTimeVersion = '20151116.112327';
 plugin_info.pluginId = 'missions';
 //END PLUGIN AUTHORS NOTE
 
@@ -43,7 +43,7 @@ var decodeWaypoint = function(data) {
 		typeNum: data[3],
 		type: [null, 'Portal', 'Field Trip'][data[3]],
 		objectiveNum: data[4],
-		objective: [null, '入侵這個Portal', '佔領或升級這個Portal', '從這個Portal發射連線', '從這個Portal建立控制場', '安裝一個模組到這個Portal', '拍一張圖片', '查看該控制場的旅航點', '輸入密碼'][data[4]],
+		objective: [null, '入侵這個能量塔', '佔領或升級這個能量塔', '從這個能量塔發射連線', '從這個能量塔建立控制場', '安裝一個模組到這個能量塔', '拍一張圖片', '查看該控制場的旅航點', '輸入密碼'][data[4]],
 	};
 	if (result.typeNum === 1 && data[5]) {
 		result.portal = window.decodeArray.portalSummary(data[5]);
@@ -1087,7 +1087,7 @@ window.plugin.missions = {
 		this.missionLayer = new L.LayerGroup();
 
 		window.addLayerGroup('任務起點', this.missionStartLayer, false);
-		window.addLayerGroup('任務Portal', this.missionLayer, true);
+		window.addLayerGroup('任務能量塔', this.missionLayer, true);
 
 		window.pluginCreateHook('plugin-missions-loaded-mission');
 		window.pluginCreateHook('plugin-missions-on-portal-loaded');

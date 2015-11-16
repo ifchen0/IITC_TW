@@ -13,12 +13,12 @@ window.renderUpdateStatus = function() {
   zoom = getDataZoomForMapZoom(zoom);
   var tileParams = getMapZoomTileParameters(zoom);
 
-  var t = '<span class="help portallevel" title="過濾Portal等級和連線長度. 放大來顯示更多.">';
+  var t = '<span class="help portallevel" title="過濾能量塔等級和連線長度. 放大來顯示更多.">';
 
   if (tileParams.hasPortals) {
     // zoom level includes portals (and also all links/fields)
     if(!window.isSmartphone()) // space is valuable
-      t += '<b>Portal</b>: ';
+      t += '<b>能量塔</b>: ';
     if(tileParams.level === 0)
       //iF:Adjust color to background color.
       t += '<span id="loadlevel" style="background: rgba(0, 0, 0, 0); color: #FFCE00;">全部</span>';

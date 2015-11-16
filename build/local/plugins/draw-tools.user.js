@@ -2,11 +2,11 @@
 // @id             iitc-plugin-draw-tools@breunigs
 // @name           IITC plugin: draw tools
 // @category       Layer
-// @version        0.7.0.20151016.183352
+// @version        0.7.0.20151116.112319
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/draw-tools.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/draw-tools.user.js
-// @description    [local-2015-10-16-183352] 允許在地圖上繪製圖案, 你可以用這個工具計劃你的下一步行動.
+// @description    [local-2015-11-16-112319] 允許在地圖上繪製圖案, 你可以用這個工具計劃你的下一步行動.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'local';
-plugin_info.dateTimeVersion = '20151016.183352';
+plugin_info.dateTimeVersion = '20151116.112319';
 plugin_info.pluginId = 'draw-tools';
 //END PLUGIN AUTHORS NOTE
 
@@ -5068,7 +5068,7 @@ window.plugin.drawTools.manualOpt = function() {
            + ((typeof android !== 'undefined' && android && android.saveFile)
              ? '<a onclick="window.plugin.drawTools.optExport();return false;" tabindex="0">匯出物件</a>' : '')
            + '<a onclick="window.plugin.drawTools.optReset();return false;" tabindex="0">重置物件</a>'
-           + '<a onclick="window.plugin.drawTools.snapToPortals();return false;" tabindex="0">Portal標定</a>'
+           + '<a onclick="window.plugin.drawTools.snapToPortals();return false;" tabindex="0">標定能量塔</a>'
            + '</div>';
 
   dialog({
@@ -5256,13 +5256,13 @@ window.plugin.drawTools.optReset = function() {
 window.plugin.drawTools.snapToPortals = function() {
   var dataParams = getMapZoomTileParameters(getDataZoomForMapZoom(map.getZoom()));
   if (dataParams.level > 0) {
-    if (!confirm('並不是所有的Portal都顯示在地圖上. Portal標定可能會從有效的位置移動到錯誤的位置. 繼續?')) {
+    if (!confirm('並非所有的能量塔都顯示在地圖上. 標定能量塔可能會從有效的位置移動到錯誤的位置. 繼續?')) {
       return;
     }
   }
 
   if (mapDataRequest.status.short != '完成') {
-    if (!confirm('地圖數據尚未讀取完畢, 可能造成一些Portal無法定位. 你想繼續嗎?')) {
+    if (!confirm('地圖數據尚未讀取完畢, 可能造成一些能量塔無法定位. 你想繼續嗎?')) {
       return;
     }
   }
@@ -5280,7 +5280,7 @@ window.plugin.drawTools.snapToPortals = function() {
   });
 
   if (Object.keys(visiblePortals).length == 0) {
-    alert('錯誤: 畫面中沒有任何Portal - 沒有定位點可定位!');
+    alert('錯誤: 畫面中沒有任何能量塔 - 沒有定位點可定位!');
     return;
   }
 
@@ -5340,7 +5340,7 @@ window.plugin.drawTools.snapToPortals = function() {
     runHooks('pluginDrawTools',{event:'layersSnappedToPortals'}); //or should we send 'layersEdited'? as that's effectively what's happened...
   }
 
-  alert('嘗試 '+testCount+' 個端點, 並移動 '+changedCount+' 個端點到Portal座標');
+  alert('嘗試 '+testCount+' 個端點, 並移動 '+changedCount+' 個端點到能量塔座標');
 
   window.plugin.drawTools.save();
 }

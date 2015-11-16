@@ -176,7 +176,7 @@ var setup = function() {
   window.plugin.portalLevelNumbers.setupCSS();
 
   window.plugin.portalLevelNumbers.levelLayerGroup = new L.LayerGroup();
-  window.addLayerGroup('Portal等級', window.plugin.portalLevelNumbers.levelLayerGroup, true);
+  window.addLayerGroup('能量塔等級', window.plugin.portalLevelNumbers.levelLayerGroup, true);
 
   window.addHook('requestFinished', function() { setTimeout(function(){window.plugin.portalLevelNumbers.delayedUpdatePortalLabels(3.0);},1); });
   window.addHook('mapDataRefreshEnd', function() { window.plugin.portalLevelNumbers.delayedUpdatePortalLabels(0.5); });

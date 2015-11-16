@@ -864,7 +864,7 @@
       latlngs[i] = tt;
     });
 
-    var text = "你必須選擇 2 或 3 個Portal書籤!";
+    var text = "你必須選擇 2 或 3 個能量塔書籤!";
     var color = "red";
 
     function formatDistance(distance) {
@@ -876,7 +876,7 @@
 
     if(latlngs.length == 2) {
       var distance = L.latLng(latlngs[0]).distanceTo(latlngs[1]);
-      text = 'Portal之間的距離: ' + formatDistance(distance);
+      text = '能量塔之間的距離: ' + formatDistance(distance);
       color = "";
     } else if(latlngs.length == 3) {
       var longdistance = false;
@@ -941,7 +941,7 @@
         + '<label style="margin-bottom: 9px; display: block;">'
         + '<input style="vertical-align: middle;" type="checkbox" id="bkmrkClearSelection" checked>'
         + ' 繪圖後清除選取的書籤</label>'
-        + '<p style="margin-bottom:9px;color:red">您必須選擇 2 或 3 個Portal書籤!</p>'
+        + '<p style="margin-bottom:9px;color:red">您必須選擇 2 或 3 個能量塔書籤!</p>'
         + '<div onclick="window.plugin.bookmarks.autoDrawOnSelect();return false;">'
         + element
         + '</div>'
@@ -1053,7 +1053,7 @@
   }
 
   window.plugin.bookmarks.highlightRefresh = function(data) {
-    if(_current_highlighter === 'Portal書籤') {
+    if(_current_highlighter === '能量塔書籤') {
       if(data.action === 'sync' || data.target === 'portal' || (data.target === 'folder' && data.action === 'remove') || (data.target === 'all' && data.action === 'import') || (data.target === 'all' && data.action === 'reset')) {
         window.resetHighlightedPortals();
       }
@@ -1191,7 +1191,7 @@
                           +'</div>'
                           +'<div id="bookmarksTypeBar">'
                             +'<h5 class="bkmrk_maps current" onclick="window.plugin.bookmarks.switchPageBkmrksBox(this, 0);return false">地圖</h5>'
-                            +'<h5 class="bkmrk_portals" onclick="window.plugin.bookmarks.switchPageBkmrksBox(this, 1);return false">Portal</h5>'
+                            +'<h5 class="bkmrk_portals" onclick="window.plugin.bookmarks.switchPageBkmrksBox(this, 1);return false">能量塔</h5>'
                             +'<div style="clear:both !important;"></div>'
                           +'</div>'
                           +'<div id="bkmrk_maps" class="bookmarkList current">'
@@ -1211,8 +1211,8 @@
                         +'</div>';
 
     plugin.bookmarks.htmlDisabledMessage = '<div title="Your browser do not support localStorage">Plugin Bookmarks disabled*.</div>';
-    plugin.bookmarks.htmlStar = '<a class="bkmrksStar" accesskey="b" onclick="window.plugin.bookmarks.switchStarPortal();return false;" title="將這個Portal加入書籤 [b]"><span></span></a>';
-    plugin.bookmarks.htmlCalldrawBox = '<a onclick="window.plugin.bookmarks.dialogDrawer();return false;" accesskey="q" title="在標記的Portal上自動產生 連線/三角形 [q]">自動繪圖</a>';
+    plugin.bookmarks.htmlStar = '<a class="bkmrksStar" accesskey="b" onclick="window.plugin.bookmarks.switchStarPortal();return false;" title="將這個能量塔加入書籤 [b]"><span></span></a>';
+    plugin.bookmarks.htmlCalldrawBox = '<a onclick="window.plugin.bookmarks.dialogDrawer();return false;" accesskey="q" title="在標記的能量塔上自動產生 連線/三角形 [q]">自動繪圖</a>';
     plugin.bookmarks.htmlCallSetBox = '<a onclick="window.plugin.bookmarks.manualOpt();return false;">書籤選項</a>';
     plugin.bookmarks.htmlMoveBtn = '<a id="bookmarksMove" class="btn" onclick="window.plugin.bookmarks.moveMode();return false;">顯示/隱藏 "移動" 按鈕</a>'
 
@@ -1292,11 +1292,11 @@
     // Highlighter - bookmarked portals
     window.addHook('pluginBkmrksEdit', window.plugin.bookmarks.highlightRefresh);
     window.addHook('pluginBkmrksSyncEnd', window.plugin.bookmarks.highlightRefresh);
-    window.addPortalHighlighter('Portal書籤', window.plugin.bookmarks.highlight);
+    window.addPortalHighlighter('能量塔書籤', window.plugin.bookmarks.highlight);
 
     // Layer - Bookmarked portals
     window.plugin.bookmarks.starLayerGroup = new L.LayerGroup();
-    window.addLayerGroup('Portal書籤', window.plugin.bookmarks.starLayerGroup, false);
+    window.addLayerGroup('能量塔書籤', window.plugin.bookmarks.starLayerGroup, false);
     window.plugin.bookmarks.addAllStars();
     window.addHook('pluginBkmrksEdit', window.plugin.bookmarks.editStar);
     window.addHook('pluginBkmrksSyncEnd', window.plugin.bookmarks.resetAllStars);

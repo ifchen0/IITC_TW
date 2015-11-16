@@ -59,7 +59,7 @@ window.plugin.portalWeakness.highlightWeakness = function(data) {
 }
 
 var setup =  function() {
-  window.addPortalHighlighter('Portal強度', window.plugin.portalWeakness.highlightWeakness);
+  window.addPortalHighlighter('能量塔強度', window.plugin.portalWeakness.highlightWeakness);
 }
 
 // PLUGIN END //////////////////////////////////////////////////////////

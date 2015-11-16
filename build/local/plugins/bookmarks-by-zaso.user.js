@@ -2,11 +2,11 @@
 // @id             iitc-plugin-bookmarks@ZasoGD
 // @name           IITC plugin: Bookmarks for maps and portals
 // @category       Controls
-// @version        0.2.12.20151016.183352
+// @version        0.2.12.20151116.112319
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/bookmarks-by-zaso.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/bookmarks-by-zaso.user.js
-// @description    [local-2015-10-16-183352] 您最喜歡的地圖和Portalh保存為書籤, 可和Sync一起使用.
+// @description    [local-2015-11-16-112319] 您最喜歡的地圖和Portalh保存為書籤, 可和Sync一起使用.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'local';
-plugin_info.dateTimeVersion = '20151016.183352';
+plugin_info.dateTimeVersion = '20151116.112319';
 plugin_info.pluginId = 'bookmarks-by-zaso';
 //END PLUGIN AUTHORS NOTE
 
@@ -876,7 +876,7 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
       latlngs[i] = tt;
     });
 
-    var text = "你必須選擇 2 或 3 個Portal書籤!";
+    var text = "你必須選擇 2 或 3 個能量塔書籤!";
     var color = "red";
 
     function formatDistance(distance) {
@@ -888,7 +888,7 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
 
     if(latlngs.length == 2) {
       var distance = L.latLng(latlngs[0]).distanceTo(latlngs[1]);
-      text = 'Portal之間的距離: ' + formatDistance(distance);
+      text = '能量塔之間的距離: ' + formatDistance(distance);
       color = "";
     } else if(latlngs.length == 3) {
       var longdistance = false;
@@ -953,7 +953,7 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
         + '<label style="margin-bottom: 9px; display: block;">'
         + '<input style="vertical-align: middle;" type="checkbox" id="bkmrkClearSelection" checked>'
         + ' 繪圖後清除選取的書籤</label>'
-        + '<p style="margin-bottom:9px;color:red">您必須選擇 2 或 3 個Portal書籤!</p>'
+        + '<p style="margin-bottom:9px;color:red">您必須選擇 2 或 3 個能量塔書籤!</p>'
         + '<div onclick="window.plugin.bookmarks.autoDrawOnSelect();return false;">'
         + element
         + '</div>'
@@ -1065,7 +1065,7 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
   }
 
   window.plugin.bookmarks.highlightRefresh = function(data) {
-    if(_current_highlighter === 'Portal書籤') {
+    if(_current_highlighter === '能量塔書籤') {
       if(data.action === 'sync' || data.target === 'portal' || (data.target === 'folder' && data.action === 'remove') || (data.target === 'all' && data.action === 'import') || (data.target === 'all' && data.action === 'reset')) {
         window.resetHighlightedPortals();
       }
@@ -1203,7 +1203,7 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
                           +'</div>'
                           +'<div id="bookmarksTypeBar">'
                             +'<h5 class="bkmrk_maps current" onclick="window.plugin.bookmarks.switchPageBkmrksBox(this, 0);return false">地圖</h5>'
-                            +'<h5 class="bkmrk_portals" onclick="window.plugin.bookmarks.switchPageBkmrksBox(this, 1);return false">Portal</h5>'
+                            +'<h5 class="bkmrk_portals" onclick="window.plugin.bookmarks.switchPageBkmrksBox(this, 1);return false">能量塔</h5>'
                             +'<div style="clear:both !important;"></div>'
                           +'</div>'
                           +'<div id="bkmrk_maps" class="bookmarkList current">'
@@ -1223,8 +1223,8 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
                         +'</div>';
 
     plugin.bookmarks.htmlDisabledMessage = '<div title="Your browser do not support localStorage">Plugin Bookmarks disabled*.</div>';
-    plugin.bookmarks.htmlStar = '<a class="bkmrksStar" accesskey="b" onclick="window.plugin.bookmarks.switchStarPortal();return false;" title="將這個Portal加入書籤 [b]"><span></span></a>';
-    plugin.bookmarks.htmlCalldrawBox = '<a onclick="window.plugin.bookmarks.dialogDrawer();return false;" accesskey="q" title="在標記的Portal上自動產生 連線/三角形 [q]">自動繪圖</a>';
+    plugin.bookmarks.htmlStar = '<a class="bkmrksStar" accesskey="b" onclick="window.plugin.bookmarks.switchStarPortal();return false;" title="將這個能量塔加入書籤 [b]"><span></span></a>';
+    plugin.bookmarks.htmlCalldrawBox = '<a onclick="window.plugin.bookmarks.dialogDrawer();return false;" accesskey="q" title="在標記的能量塔上自動產生 連線/三角形 [q]">自動繪圖</a>';
     plugin.bookmarks.htmlCallSetBox = '<a onclick="window.plugin.bookmarks.manualOpt();return false;">書籤選項</a>';
     plugin.bookmarks.htmlMoveBtn = '<a id="bookmarksMove" class="btn" onclick="window.plugin.bookmarks.moveMode();return false;">顯示/隱藏 "移動" 按鈕</a>'
 
@@ -1304,11 +1304,11 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
     // Highlighter - bookmarked portals
     window.addHook('pluginBkmrksEdit', window.plugin.bookmarks.highlightRefresh);
     window.addHook('pluginBkmrksSyncEnd', window.plugin.bookmarks.highlightRefresh);
-    window.addPortalHighlighter('Portal書籤', window.plugin.bookmarks.highlight);
+    window.addPortalHighlighter('能量塔書籤', window.plugin.bookmarks.highlight);
 
     // Layer - Bookmarked portals
     window.plugin.bookmarks.starLayerGroup = new L.LayerGroup();
-    window.addLayerGroup('Portal書籤', window.plugin.bookmarks.starLayerGroup, false);
+    window.addLayerGroup('能量塔書籤', window.plugin.bookmarks.starLayerGroup, false);
     window.plugin.bookmarks.addAllStars();
     window.addHook('pluginBkmrksEdit', window.plugin.bookmarks.editStar);
     window.addHook('pluginBkmrksSyncEnd', window.plugin.bookmarks.resetAllStars);

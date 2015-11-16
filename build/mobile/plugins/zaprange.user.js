@@ -2,11 +2,11 @@
 // @id             iitc-plugin-zaprange@zaso
 // @name           IITC plugin: Zaprange
 // @category       Layer
-// @version        0.1.4.20151016.183453
+// @version        0.1.4.20151116.112327
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/plugins/zaprange.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/plugins/zaprange.user.js
-// @description    [mobile-2015-10-16-183453] 顯示Portal的最大攻擊範圍.
+// @description    [mobile-2015-11-16-112327] Shows the maximum range of attack by the portals.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'mobile';
-plugin_info.dateTimeVersion = '20151016.183453';
+plugin_info.dateTimeVersion = '20151116.112327';
 plugin_info.pluginId = 'zaprange';
 //END PLUGIN AUTHORS NOTE
 
@@ -93,21 +93,21 @@ plugin_info.pluginId = 'zaprange';
       // show the layer
       if(!window.plugin.zaprange.zapLayerEnlHolderGroup.hasLayer(window.plugin.zaprange.zapCircleEnlHolderGroup)) {
         window.plugin.zaprange.zapLayerEnlHolderGroup.addLayer(window.plugin.zaprange.zapCircleEnlHolderGroup);
-        $('.leaflet-control-layers-list span:contains("啟蒙軍回擊範圍")').parent('label').removeClass('disabled').attr('title', '');
+        $('.leaflet-control-layers-list span:contains("綠軍能量塔射程")').parent('label').removeClass('disabled').attr('title', '');
       }
       if(!window.plugin.zaprange.zapLayerResHolderGroup.hasLayer(window.plugin.zaprange.zapCircleResHolderGroup)) {
         window.plugin.zaprange.zapLayerResHolderGroup.addLayer(window.plugin.zaprange.zapCircleResHolderGroup);
-        $('.leaflet-control-layers-list span:contains("反抗軍回擊範圍")').parent('label').removeClass('disabled').attr('title', '');
+        $('.leaflet-control-layers-list span:contains("藍軍能量塔射程")').parent('label').removeClass('disabled').attr('title', '');
       }
     } else {
       // hide the layer
       if(window.plugin.zaprange.zapLayerEnlHolderGroup.hasLayer(window.plugin.zaprange.zapCircleEnlHolderGroup)) {
         window.plugin.zaprange.zapLayerEnlHolderGroup.removeLayer(window.plugin.zaprange.zapCircleEnlHolderGroup);
-        $('.leaflet-control-layers-list span:contains("啟蒙軍回擊範圍")').parent('label').addClass('disabled').attr('title', '將地圖放大來顯示這個項目.');
+        $('.leaflet-control-layers-list span:contains("綠軍能量塔射程")').parent('label').addClass('disabled').attr('title', '將地圖放大來顯示這個項目.');
       }
       if(window.plugin.zaprange.zapLayerResHolderGroup.hasLayer(window.plugin.zaprange.zapCircleResHolderGroup)) {
         window.plugin.zaprange.zapLayerResHolderGroup.removeLayer(window.plugin.zaprange.zapCircleResHolderGroup);
-        $('.leaflet-control-layers-list span:contains("反抗軍回擊範圍")').parent('label').addClass('disabled').attr('title', '將地圖放大來顯示這個項目.');
+        $('.leaflet-control-layers-list span:contains("藍軍能量塔射程")').parent('label').addClass('disabled').attr('title', '將地圖放大來顯示這個項目.');
       }
     }
   }
@@ -126,11 +126,11 @@ plugin_info.pluginId = 'zaprange';
 
     // to avoid any favouritism, we'll put the player's own faction layer first
     if (PLAYER.team == 'RESISTANCE') {
-      window.addLayerGroup('反抗軍回擊範圍', window.plugin.zaprange.zapLayerResHolderGroup, true);
-      window.addLayerGroup('啟蒙軍回擊範圍', window.plugin.zaprange.zapLayerEnlHolderGroup, true);
+      window.addLayerGroup('反抗軍能量塔回擊範圍', window.plugin.zaprange.zapLayerResHolderGroup, true);
+      window.addLayerGroup('啟蒙軍能量塔回擊範圍', window.plugin.zaprange.zapLayerEnlHolderGroup, true);
     } else {
-      window.addLayerGroup('啟蒙軍回擊範圍', window.plugin.zaprange.zapLayerEnlHolderGroup, true);
-      window.addLayerGroup('反抗軍回擊範圍', window.plugin.zaprange.zapLayerResHolderGroup, true);
+      window.addLayerGroup('啟蒙軍能量塔回擊範圍', window.plugin.zaprange.zapLayerEnlHolderGroup, true);
+      window.addLayerGroup('反抗軍能量塔回擊範圍', window.plugin.zaprange.zapLayerResHolderGroup, true);
     }
 
     window.addHook('portalAdded', window.plugin.zaprange.portalAdded);

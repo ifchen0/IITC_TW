@@ -231,7 +231,7 @@ window.plugin.portalslist.displayPL = function() {
     dialog({
       html: $('<div id="portalslist">').append(list),
       dialogClass: 'ui-dialog-portalslist',
-      title: 'Portal清單: ' + window.plugin.portalslist.listPortals.length + '個Portal',
+      title: '能量塔清單: ' + window.plugin.portalslist.listPortals.length + '個能量塔',
       id: 'portal-list',
       width: 700
     });
@@ -287,7 +287,7 @@ window.plugin.portalslist.portalTable = function(sortBy, sortOrder, filter) {
     cell = row.appendChild(document.createElement('th'));
     cell.className = 'filter' + label.substr(0, 3);
     cell.textContent = label+':';
-    cell.title = '只顯示這個顏色的Portal';
+    cell.title = '只顯示這個顏色的能量塔';
     $(cell).click(function() {
       $('#portalslist').empty().append(window.plugin.portalslist.portalTable(sortBy, sortOrder, i));
     });
@@ -295,7 +295,7 @@ window.plugin.portalslist.portalTable = function(sortBy, sortOrder, filter) {
 
     cell = row.insertCell(-1);
     cell.className = 'filter' + label.substr(0, 3);
-    if(i != 0) cell.title = '只隱藏這個顏色的Portal';
+    if(i != 0) cell.title = '只隱藏這個顏色的能量塔';
     $(cell).click(function() {
       $('#portalslist').empty().append(window.plugin.portalslist.portalTable(sortBy, sortOrder, -i));
     });
@@ -395,10 +395,10 @@ window.plugin.portalslist.onPaneChanged = function(pane) {
 
 var setup =  function() {
   if(window.useAndroidPanes()) {
-    android.addPane("plugin-portalslist", "Portal清單", "ic_action_paste");
+    android.addPane("plugin-portalslist", "能量塔清單", "ic_action_paste");
     addHook("paneChanged", window.plugin.portalslist.onPaneChanged);
   } else {
-    $('#toolbox').append('<a onclick="window.plugin.portalslist.displayPL()" title="顯示目前畫面中的Portal清單 [t]" accesskey="t">Portal清單</a>');
+    $('#toolbox').append('<a onclick="window.plugin.portalslist.displayPL()" title="顯示目前畫面中的能量塔清單 [t]" accesskey="t">能量塔清單</a>');
   }
 
   $("<style>")

@@ -2,11 +2,11 @@
 // @id             iitc-plugin-compute-ap-stats@Hollow011
 // @name           IITC plugin: Compute AP statistics
 // @category       Info
-// @version        0.4.1.20151016.183352
+// @version        0.4.1.20151116.112319
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/compute-ap-stats.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/compute-ap-stats.user.js
-// @description    [local-2015-10-16-183352] 顯示地圖中每個團隊可用的AP收益.
+// @description    [local-2015-11-16-112319] 顯示地圖中每個團隊可用的AP收益.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'local';
-plugin_info.dateTimeVersion = '20151016.183352';
+plugin_info.dateTimeVersion = '20151116.112319';
 plugin_info.pluginId = 'compute-ap-stats';
 //END PLUGIN AUTHORS NOTE
 
@@ -77,7 +77,7 @@ window.plugin.compAPStats.update = function(hasFinished) {
   var formatRow = function(team,data) {
     var title = '摧毀並佔領 '+data.destroyPortals+' portals\n'
               + '摧毀 '+data.destroyLinks+' 連線 和 '+data.destroyFields+' 控制場\n'
-              + '佔領 '+data.capturePortals+' 中立Portal, 完成 '+data.finishPortals+' Portal\n'
+              + '佔領 '+data.capturePortals+' 中立能量塔, 完成 '+data.finishPortals+' 能量塔\n'
               + '(其他未知的 連線/控制場)';
     return '<tr><td>'+team+'</td><td style="text-align:right" title="'+title+'">'+digits(data.AP)+'</td></tr>';
   }

@@ -65,19 +65,19 @@
         按一下應用程式圖示，再次返回到地圖.<br><br>
         • 圖層/螢光筆: 從螢幕右側邊緣滑入 (或者在工具列點選圖層選擇圖示)
         來顯示圖層頁面.<br><br>
-        • 若裝置支援NFC，您可以快速地傳送目前的Portal/地圖連結到另一個裝置上 (
+        • 若裝置支援NFC，您可以快速地傳送目前的能量塔/地圖連結到另一個裝置上 (
         將兩個裝置背對背並點選傳送端的裝置).<br><br>
         • 您可以在設置中增加官方外掛.<br><br>
         • 對於外掛資訊，請參考 <a href="http://iitc.jonatkins.com/?page=faq#mobile-plugins">FAQ.]]>
     </string>
     <string name="notice_info">
         <![CDATA[提示: 用替代方案開啟資訊視窗:<br><br>
-        • 點選一個Portal<br>
+        • 點選一個能量塔<br>
         • 點選螢幕下方狀態列的左半邊]]>
     </string>
     <string name="notice_panes">
         <![CDATA[提示:<br><br>
-        某些外掛 (e.g. Portal清單 和 Portal書籤) 現在顯示在導覽頁面供快速檢視.<br>
+        某些外掛 (e.g. 能量塔清單 和 能量塔書籤) 現在顯示在導覽頁面供快速檢視.<br>
         他們不再顯示於資訊頁面內.<br><br>
         從螢幕左邊滑入 (或按一下應用程式圖示) 可以看到它們.]]>
     </string>
@@ -88,13 +88,13 @@
         外掛檔案必須為 \'.user.js\' 並存放於 <b>%1$s</b><br>]]>
     </string>
     <string name="notice_sharing">
-        <![CDATA[使用 <em>分享Portal</em> 你能夠:<br>
-        • 傳送一個Portal連結給另一個人<br>
-        • 在另一個應用程式檢視您選擇的Portal<br>
-        • 在網頁開啟一個Portal連結<br>
+        <![CDATA[使用 <em>分享能量塔</em> 你能夠:<br>
+        • 傳送一個能量塔連結給另一個人<br>
+        • 在另一個應用程式檢視您選擇的能量塔<br>
+        • 在網頁開啟一個能量塔連結<br>
         <br>
         提示: 使用 Google 地圖 (或任何一個導航軟體), 您可以快速的導航到您
-        選擇的Portal.<br>
+        選擇的能量塔.<br>
         <br>
         這些提示也適用於 <em>地圖鏈接</em>.]]>
     </string>

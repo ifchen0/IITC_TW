@@ -177,7 +177,7 @@ var setup = function() {
   window.plugin.portalNames.setupCSS();
 
   window.plugin.portalNames.labelLayerGroup = new L.LayerGroup();
-  window.addLayerGroup('Portal名稱', window.plugin.portalNames.labelLayerGroup, true);
+  window.addLayerGroup('能量塔名稱', window.plugin.portalNames.labelLayerGroup, true);
 
   window.addHook('requestFinished', function() { setTimeout(function(){window.plugin.portalNames.delayedUpdatePortalLabels(3.0);},1); });
   window.addHook('mapDataRefreshEnd', function() { window.plugin.portalNames.delayedUpdatePortalLabels(0.5); });

@@ -2,11 +2,11 @@
 // @id             iitc-plugin-portals-list@teo96
 // @name           IITC plugin: show list of portals
 // @category       Info
-// @version        0.2.1.20151016.183352
+// @version        0.2.1.20151116.112319
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/portals-list.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/portals-list.user.js
-// @description    [local-2015-10-16-183352] 顯示所有可見的Portal與全部細節, 包含陣營, 震盪器, 連線等的排序列表.
+// @description    [local-2015-11-16-112319] 顯示所有可見的Portal與全部細節, 包含陣營, 震盪器, 連線等的排序列表.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'local';
-plugin_info.dateTimeVersion = '20151016.183352';
+plugin_info.dateTimeVersion = '20151116.112319';
 plugin_info.pluginId = 'portals-list';
 //END PLUGIN AUTHORS NOTE
 
@@ -243,7 +243,7 @@ window.plugin.portalslist.displayPL = function() {
     dialog({
       html: $('<div id="portalslist">').append(list),
       dialogClass: 'ui-dialog-portalslist',
-      title: 'Portal清單: ' + window.plugin.portalslist.listPortals.length + '個Portal',
+      title: '能量塔清單: ' + window.plugin.portalslist.listPortals.length + '個能量塔',
       id: 'portal-list',
       width: 700
     });
@@ -299,7 +299,7 @@ window.plugin.portalslist.portalTable = function(sortBy, sortOrder, filter) {
     cell = row.appendChild(document.createElement('th'));
     cell.className = 'filter' + label.substr(0, 3);
     cell.textContent = label+':';
-    cell.title = '只顯示這個顏色的Portal';
+    cell.title = '只顯示這個顏色的能量塔';
     $(cell).click(function() {
       $('#portalslist').empty().append(window.plugin.portalslist.portalTable(sortBy, sortOrder, i));
     });
@@ -307,7 +307,7 @@ window.plugin.portalslist.portalTable = function(sortBy, sortOrder, filter) {
 
     cell = row.insertCell(-1);
     cell.className = 'filter' + label.substr(0, 3);
-    if(i != 0) cell.title = '只隱藏這個顏色的Portal';
+    if(i != 0) cell.title = '只隱藏這個顏色的能量塔';
     $(cell).click(function() {
       $('#portalslist').empty().append(window.plugin.portalslist.portalTable(sortBy, sortOrder, -i));
     });
@@ -407,10 +407,10 @@ window.plugin.portalslist.onPaneChanged = function(pane) {
 
 var setup =  function() {
   if(window.useAndroidPanes()) {
-    android.addPane("plugin-portalslist", "Portal清單", "ic_action_paste");
+    android.addPane("plugin-portalslist", "能量塔清單", "ic_action_paste");
     addHook("paneChanged", window.plugin.portalslist.onPaneChanged);
   } else {
-    $('#toolbox').append('<a onclick="window.plugin.portalslist.displayPL()" title="顯示目前畫面中的Portal清單 [t]" accesskey="t">Portal清單</a>');
+    $('#toolbox').append('<a onclick="window.plugin.portalslist.displayPL()" title="顯示目前畫面中的能量塔清單 [t]" accesskey="t">能量塔清單</a>');
   }
 
   $("<style>")

@@ -31,7 +31,7 @@ var decodeWaypoint = function(data) {
 		typeNum: data[3],
 		type: [null, 'Portal', 'Field Trip'][data[3]],
 		objectiveNum: data[4],
-		objective: [null, '入侵這個Portal', '佔領或升級這個Portal', '從這個Portal發射連線', '從這個Portal建立控制場', '安裝一個模組到這個Portal', '拍一張圖片', '查看該控制場的旅航點', '輸入密碼'][data[4]],
+		objective: [null, '入侵這個能量塔', '佔領或升級這個能量塔', '從這個能量塔發射連線', '從這個能量塔建立控制場', '安裝一個模組到這個能量塔', '拍一張圖片', '查看該控制場的旅航點', '輸入密碼'][data[4]],
 	};
 	if (result.typeNum === 1 && data[5]) {
 		result.portal = window.decodeArray.portalSummary(data[5]);
@@ -1075,7 +1075,7 @@ window.plugin.missions = {
 		this.missionLayer = new L.LayerGroup();
 
 		window.addLayerGroup('任務起點', this.missionStartLayer, false);
-		window.addLayerGroup('任務Portal', this.missionLayer, true);
+		window.addLayerGroup('任務能量塔', this.missionLayer, true);
 
 		window.pluginCreateHook('plugin-missions-loaded-mission');
 		window.pluginCreateHook('plugin-missions-on-portal-loaded');
