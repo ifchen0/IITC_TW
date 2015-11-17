@@ -2,11 +2,11 @@
 // @id             iitc-plugin-portals-count@yenky
 // @name           IITC plugin: Show total counts of portals
 // @category       Info
-// @version        0.1.2.20151116.112319
+// @version        0.1.2.20151117.4017
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/portal-counts.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/portal-counts.user.js
-// @description    [local-2015-11-16-112319] 依照該區域的Portal等級和陣營顯示圖表.
+// @description    [local-2015-11-17-004017] 依照該區域的能量塔等級和陣營顯示圖表.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'local';
-plugin_info.dateTimeVersion = '20151116.112319';
+plugin_info.dateTimeVersion = '20151117.4017';
 plugin_info.pluginId = 'portal-counts';
 //END PLUGIN AUTHORS NOTE
 
@@ -105,7 +105,7 @@ window.plugin.portalcounts.getPortals = function (){
     for(var level = window.MAX_PORTAL_LEVEL; level > 0; level--){
       counts += '<tr><td class="L'+level+'">等級'+level+'</td>';
       if(minlvl > level)
-        counts += '<td colspan="2">放大來顯示這個級別的Portal</td>';
+        counts += '<td colspan="2">放大來顯示這個級別的能量塔</td>';
       else
         counts += '<td class="enl">'+self.PortalsEnl[level]+'</td><td class="res">'+self.PortalsRes[level]+'</td>';
       counts += '</tr>';
@@ -115,7 +115,7 @@ window.plugin.portalcounts.getPortals = function (){
 
     counts += '<tr><td>中立:</td><td colspan="2">';
     if(minlvl > 0)
-      counts += '放大來顯示中立Portal';
+      counts += '放大來顯示中立能量塔';
     else
       counts += self.neuP;
     counts += '</td></tr></table>';
@@ -195,17 +195,17 @@ window.plugin.portalcounts.getPortals = function (){
 
     counts += $('<div>').append(svg).html();
   } else {
-    counts += '<p>畫面中沒有Portal!</p>';
+    counts += '<p>畫面中沒有能量塔!</p>';
   }
 
   // I've only seen the backend reduce the portals returned for L4+ or further out zoom levels - but this could change
   // UPDATE: now seen for L2+ in dense areas (map zoom level 14 or lower)
   if (getMinPortalLevel() >= 2) {
-   counts += '<p class="help" title="為減少資料的使用量及加快地圖顯示, 後端伺服器在密集地區地區時只會回傳一部分的Portal資料."><b>警告</b>: Portal統計數據在地圖縮小時可能不準確</p>';
+   counts += '<p class="help" title="為減少資料的使用量及加快地圖顯示, 後端伺服器在密集地區地區時只會回傳一部分的能量塔資料."><b>警告</b>: 能量塔統計數據在地圖縮小時可能不準確</p>';
   }
 
   var total = self.enlP + self.resP + self.neuP;
-  var title = total + '個Portal';// + (total == 1 ? 'portal' : 'portals');
+  var title = total + '個能量塔';// + (total == 1 ? 'portal' : 'portals');
 
   if(window.useAndroidPanes()) {
     $('<div id="portalcounts" class="mobile">'
@@ -215,7 +215,7 @@ window.plugin.portalcounts.getPortals = function (){
   } else {
     dialog({
       html: '<div id="portalcounts">' + counts + '</div>',
-      title: 'Portal統計: ' + title,
+      title: '能量塔統計: ' + title,
       width: 'auto'
     });
   }
@@ -351,10 +351,10 @@ window.plugin.portalcounts.onPaneChanged = function(pane) {
 
 var setup =  function() {
   if(window.useAndroidPanes()) {
-    android.addPane('plugin-portalcounts', 'Portal統計', 'ic_action_data_usage');
+    android.addPane('plugin-portalcounts', '能量塔統計', 'ic_action_data_usage');
     addHook('paneChanged', window.plugin.portalcounts.onPaneChanged);
   } else {
-    $('#toolbox').append(' <a onclick="window.plugin.portalcounts.getPortals()" title="顯示目前畫面的Portal統計數據">Portal統計</a>');
+    $('#toolbox').append(' <a onclick="window.plugin.portalcounts.getPortals()" title="顯示目前畫面的能量塔統計數據">能量塔統計</a>');
   }
 
   $('head').append('<style>' +
