@@ -2,11 +2,11 @@
 // @id             iitc-plugin-portals-list@teo96
 // @name           IITC plugin: show list of portals
 // @category       Info
-// @version        0.2.1.20151117.4022
+// @version        0.2.1.20151119.131410
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/plugins/portals-list.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/plugins/portals-list.user.js
-// @description    [mobile-2015-11-17-004022] 顯示所有可見的Portal與全部細節, 包含陣營, 震盪器, 連線等的排序列表.
+// @description    [mobile-2015-11-19-131410] 顯示所有可見的Portal與全部細節, 包含陣營, 震盪器, 連線等的排序列表.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'mobile';
-plugin_info.dateTimeVersion = '20151117.4022';
+plugin_info.dateTimeVersion = '20151119.131410';
 plugin_info.pluginId = 'portals-list';
 //END PLUGIN AUTHORS NOTE
 

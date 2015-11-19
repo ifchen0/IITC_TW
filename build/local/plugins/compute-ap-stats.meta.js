@@ -2,11 +2,11 @@
 // @id             iitc-plugin-compute-ap-stats@Hollow011
 // @name           IITC plugin: Compute AP statistics
 // @category       Info
-// @version        0.4.1.20151117.4017
+// @version        0.4.1.20151119.131358
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/compute-ap-stats.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/compute-ap-stats.user.js
-// @description    [local-2015-11-17-004017] 顯示地圖中每個團隊可用的AP收益.
+// @description    [local-2015-11-19-131358] 顯示地圖中每個團隊可用的AP收益.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*

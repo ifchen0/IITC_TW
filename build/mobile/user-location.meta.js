@@ -2,11 +2,11 @@
 // @id             iitc-plugin-user-location@cradle
 // @name           IITC plugin: User Location
 // @category       Tweaks
-// @version        0.2.0.20151117.4022
+// @version        0.2.0.20151119.131410
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/user-location.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/user-location.user.js
-// @description    [mobile-2015-11-17-004022] Show user location marker on map
+// @description    [mobile-2015-11-19-131410] Show user location marker on map
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*

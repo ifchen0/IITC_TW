@@ -1,11 +1,11 @@
 // ==UserScript==
 // @id             ingress-intel-total-conversion@jonatkins
 // @name           IITC: Ingress intel map total conversion
-// @version        0.25.2.20151117.4017
+// @version        0.25.2.20151119.131358
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/total-conversion-build.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/total-conversion-build.user.js
-// @description    [local-2015-11-17-004017] Total conversion for the ingress intel map.
+// @description    [local-2015-11-19-131358] Total conversion for the ingress intel map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -21,7 +21,7 @@
 // REPLACE ORIG SITE ///////////////////////////////////////////////////
 if(document.getElementsByTagName('html')[0].getAttribute('itemscope') != null)
   throw('Ingress Intel 網站關閉了, 不是 IITC userscript 的問題.');
-window.iitcBuildDate = '2015-11-17-004017';
+window.iitcBuildDate = '2015-11-19-131358';
 
 // disable vanilla JS
 window.onload = function() {};
@@ -1277,7 +1277,7 @@ function boot() {
   if(!isSmartphone()) // TODO remove completely?
     window.debug.console.overwriteNativeIfRequired();
 
-  console.log('loading done, booting. Built: 2015-11-17-004017');
+  console.log('loading done, booting. Built: 2015-11-19-131358');
   if(window.deviceID) console.log('Your device ID: ' + window.deviceID);
   window.runOnSmartphonesBeforeBoot();
 
@@ -14672,7 +14672,7 @@ window.ornaments.OVERLAY_OPACITY = 0.6;
 window.ornaments.setup = function() {
   window.ornaments._portals = {};
   window.ornaments._layer = L.layerGroup();
-  window.addLayerGroup('碎片', window.ornaments._layer, true);
+  window.addLayerGroup('特殊標記', window.ornaments._layer, true);
 }
 
 // quick test for portal having ornaments
@@ -17963,7 +17963,7 @@ L.Draggable.prototype._onDown = function(e) {
 
 // inject code into site context
 var script = document.createElement('script');
-var info = { buildName: 'local', dateTimeVersion: '20151117.4017' };
+var info = { buildName: 'local', dateTimeVersion: '20151119.131358' };
 if (this.GM_info && this.GM_info.script) info.script = { version: GM_info.script.version, name: GM_info.script.name, description: GM_info.script.description };
 script.appendChild(document.createTextNode('('+ wrapper +')('+JSON.stringify(info)+');'));
 (document.body || document.head || document.documentElement).appendChild(script);
