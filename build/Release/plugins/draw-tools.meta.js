@@ -2,11 +2,11 @@
 // @id             iitc-plugin-draw-tools@breunigs
 // @name           IITC plugin: draw tools
 // @category       Layer
-// @version        0.7.0.20151025.55359
+// @version        0.7.0.20151120.51752
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/draw-tools.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/draw-tools.user.js
-// @description    [Release-2015-10-25-055359] 允許在地圖上繪製圖案, 你可以用這個工具計劃你的下一步行動.
+// @description    [Release-2015-11-20-051752] 允許在地圖上繪製圖案, 你可以用這個工具計劃你的下一步行動.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*

@@ -2,11 +2,11 @@
 // @id             iitc-plugin-zaprange@zaso
 // @name           IITC plugin: Zaprange
 // @category       Layer
-// @version        0.1.4.20151025.55359
+// @version        0.1.4.20151120.51752
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/zaprange.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/zaprange.user.js
-// @description    [Release-2015-10-25-055359] 顯示Portal的最大攻擊範圍.
+// @description    [Release-2015-11-20-051752] Shows the maximum range of attack by the portals.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
