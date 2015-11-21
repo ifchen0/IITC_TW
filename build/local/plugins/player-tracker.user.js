@@ -441,11 +441,11 @@ window.plugin.playerTracker.drawData = function() {
     if(polyLine.length === 0) return true;
 
     var opts = {
-      weight: 1.5,
-      color: '#FFDC03',
+      weight: 2-0.25*i,
+      color: PLAYER_TRACKER_LINE_COLOUR,
       clickable: false,
       opacity: 1-0.2*i,
-      dashArray: "1,3"
+      dashArray: "5,8"
     };
 
     $.each(polyLine,function(ind,poly) {
@@ -456,11 +456,11 @@ window.plugin.playerTracker.drawData = function() {
     if(polyLine.length === 0) return true;
 
     var opts = {
-      weight: 1.5,
-      color: '#FF88FF',
+      weight: 2-0.25*i,
+      color: PLAYER_TRACKER_LINE_COLOUR,
       clickable: false,
       opacity: 1-0.2*i,
-      dashArray: "1,3"
+      dashArray: "5,8"
     };
 
     $.each(polyLine, function(ind,poly) {
