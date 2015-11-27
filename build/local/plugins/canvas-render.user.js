@@ -1,12 +1,12 @@
 // ==UserScript==
-// @id             iitc-plugin-highlight-portals-high-level
-// @name           IITC plugin: highlight high level portals
-// @category       Highlighter
+// @id             iitc-plugin-canvas-render@jonatkins
+// @name           IITC plugin: Use Canvas rendering
+// @category       Tweaks
 // @version        0.1.0.20151127.151435
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
-// @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/portal-highlighter-high-level.meta.js
-// @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/portal-highlighter-high-level.user.js
-// @description    [local-2015-11-27-151435] 使用Portal填充顏色來表示高級別的Portal: L8紫色, L7紅色, L6橘色
+// @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/canvas-render.meta.js
+// @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/canvas-render.user.js
+// @description    [local-2015-11-27-151435] 實驗性質: 犧牲畫質來大幅增加密集能量塔的顯示速度
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -15,8 +15,14 @@
 // @include        http://www.ingress.com/mission/*
 // @match          https://www.ingress.com/mission/*
 // @match          http://www.ingress.com/mission/*
-// @grant          none
+// @grant          unsafeWindow
 // ==/UserScript==
+
+// NON-STANDARD plugin - try and set the variable early, as
+// we need this global variable set before leaflet initialises
+window.L_PREFER_CANVAS = true;
+if (typeof unsafeWindow !== 'undefined') unsafeWindow.L_PREFER_CANVAS = true;  //doesn't actually work... :/
+
 
 
 function wrapper(plugin_info) {
@@ -27,35 +33,33 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'local';
 plugin_info.dateTimeVersion = '20151127.151435';
-plugin_info.pluginId = 'portal-highlighter-high-level';
+plugin_info.pluginId = 'canvas-render';
 //END PLUGIN AUTHORS NOTE
 
 
 
 // PLUGIN START ////////////////////////////////////////////////////////
 
+// we need this global variable set before leaflet initialises
+window.L_PREFER_CANVAS = true;
+
 // use own namespace for plugin
-window.plugin.portalHighlighterPortalsHighLevel = function() {};
+window.plugin.canvasRendering = function() {};
 
-window.plugin.portalHighlighterPortalsHighLevel.colorLevel = function(data) {
-  var portal_level = data.portal.options.data.level;
-  var opacity = 0.7;
-  var color = undefined;
+window.plugin.canvasRendering.setup  = function() {
 
-  switch (portal_level) {
-    case 6: color='orange'; break;
-    case 7: color='red'; break;
-    case 8: color='magenta'; break;
+  // nothing we can do here - other than check that canvas rendering was enabled
+  if (!L.Path.CANVAS) {
+    dialog({
+      title:'畫布渲染警告',
+    text:'畫布渲染外掛未能啟用單張畫布渲染. 可能是因為腳本太晚初始化.\n'
+        +'試著把腳本移動到IITC主要腳本之前.'
+    });
   }
 
-  if (color) {
-    data.portal.setStyle({fillColor: color, fillOpacity: opacity});
-  }
-}
+};
 
-var setup =  function() {
-  window.addPortalHighlighter('高等能量塔', window.plugin.portalHighlighterPortalsHighLevel.colorLevel);
-}
+var setup =  window.plugin.canvasRendering.setup;
 
 // PLUGIN END //////////////////////////////////////////////////////////
 
