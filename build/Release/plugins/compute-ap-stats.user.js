@@ -2,11 +2,11 @@
 // @id             iitc-plugin-compute-ap-stats@Hollow011
 // @name           IITC plugin: Compute AP statistics
 // @category       Info
-// @version        0.4.1.20151120.51752
+// @version        0.4.1.20151127.151725
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/compute-ap-stats.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/compute-ap-stats.user.js
-// @description    [Release-2015-11-20-051752] 顯示地圖中每個團隊可用的AP收益.
+// @description    [Release-2015-11-27-151725] 顯示地圖中每個團隊可用的AP收益.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'Release';
-plugin_info.dateTimeVersion = '20151120.51752';
+plugin_info.dateTimeVersion = '20151127.151725';
 plugin_info.pluginId = 'compute-ap-stats';
 //END PLUGIN AUTHORS NOTE
 
