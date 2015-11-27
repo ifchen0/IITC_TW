@@ -6,7 +6,7 @@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@
 // @downloadURL    @@DOWNLOADURL@@
-// @description    [@@BUILDNAME@@-@@BUILDDATE@@] Try to determine player levels from the data available in the current view.
+// @description    [@@BUILDNAME@@-@@BUILDDATE@@] 嘗試從目前畫面中的數據猜測玩家的等級.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -30,7 +30,7 @@ window.plugin.guessPlayerLevels.BURSTER_RANGES = [0, 42, 48, 58, 72, 90, 112, 13
 // (like constructor, __defineGetter__, etc.
 
 window.plugin.guessPlayerLevels.setupCallback = function() {
-  $('#toolbox').append(' <a onclick="window.plugin.guessPlayerLevels.guess()" title="基於能量塔的振盪器猜測玩家等級">預測玩家等級</a>');
+  $('#toolbox').append(' <a onclick="window.plugin.guessPlayerLevels.guess()" title="基於能量塔的振盪器猜測玩家等級">猜測玩家等級</a>');
   addHook('portalDetailLoaded', window.plugin.guessPlayerLevels.extractPortalData);
   addHook('publicChatDataAvailable', window.plugin.guessPlayerLevels.extractChatData);
 }
@@ -460,8 +460,8 @@ window.plugin.guessPlayerLevels.guess = function() {
     }
   });
 
-  var s = 'Players have at least the following level:\n\n';
-  s += 'Resistance:\t&nbsp;&nbsp;&nbsp;\tEnlightened:\t\n';
+  var s = '玩家至少有以下等級:\n\n';
+  s += '反抗軍:\t&nbsp;&nbsp;&nbsp;\t啟蒙軍:\t\n';
 
   var namesR = plugin.guessPlayerLevels.sort(playersRes);
   var namesE = plugin.guessPlayerLevels.sort(playersEnl);
@@ -495,17 +495,17 @@ window.plugin.guessPlayerLevels.guess = function() {
 
     s += '\n'+lineR + '\t' + lineE + '\n';
   }
-  s += '\nTotal level :\t'+totallvlR+'\tTotal level :\t'+totallvlE;
-  s += '\nTotal player:\t'+namesR.length+'\tTotal player:\t'+namesE.length;
+  s += '\n等級統計:\t'+totallvlR+'\t等級統計:\t'+totallvlE;
+  s += '\n玩家統計:\t'+namesR.length+'\t玩家統計:\t'+namesE.length;
   var averageR = 0, averageE = 0;
   if (namesR.length > 0)  averageR = (totallvlR/namesR.length);
   if (namesE.length > 0)  averageE = (totallvlE/namesE.length);
-  s += '\nAverage level:\t'+averageR.toFixed(2)+'\tAverage level:\t'+averageE.toFixed(2);
-  s += '\n\nOnly players from recently viewed portal details are listed.'
+  s += '\n平均等級:\t'+averageR.toFixed(2)+'\t平均等級:\t'+averageE.toFixed(2);
+  s += '\n\n只有最近看過的能量塔所包含的玩家會被列出.'
 
   dialog({
     text: s,
-    title: 'Player levels: R' + averageR.toFixed(2) + ', E' + averageE.toFixed(2),
+    title: '玩家等級: R' + averageR.toFixed(2) + ', E' + averageE.toFixed(2),
     id: 'guess-player-levels',
     width: 350,
     buttons: {
