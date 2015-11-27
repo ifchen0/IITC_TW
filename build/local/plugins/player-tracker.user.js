@@ -2,11 +2,11 @@
 // @id             iitc-plugin-player-tracker@breunigs
 // @name           IITC Plugin: Player tracker
 // @category       Layer
-// @version        0.11.1.20151119.131358
+// @version        0.11.1.20151127.20547
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/player-tracker.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/player-tracker.user.js
-// @description    [local-2015-11-19-131358] 運用通訊科廣播信息在地圖上繪製玩家的路徑. 使用顯示30分鐘.
+// @description    [local-2015-11-27-020547] 運用通訊科廣播信息在地圖上繪製玩家的路徑. 使用顯示30分鐘.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'local';
-plugin_info.dateTimeVersion = '20151119.131358';
+plugin_info.dateTimeVersion = '20151127.20547';
 plugin_info.pluginId = 'player-tracker';
 //END PLUGIN AUTHORS NOTE
 
@@ -441,11 +441,11 @@ window.plugin.playerTracker.drawData = function() {
     if(polyLine.length === 0) return true;
 
     var opts = {
-      weight: 2-0.25*i,
-      color: PLAYER_TRACKER_LINE_COLOUR,
+      weight: 1.5,
+      color: '#FFDC03',
       clickable: false,
       opacity: 1-0.2*i,
-      dashArray: "5,8"
+      dashArray: "1,3"
     };
 
     $.each(polyLine,function(ind,poly) {
@@ -456,11 +456,11 @@ window.plugin.playerTracker.drawData = function() {
     if(polyLine.length === 0) return true;
 
     var opts = {
-      weight: 2-0.25*i,
-      color: PLAYER_TRACKER_LINE_COLOUR,
+      weight: 1.5,
+      color: '#FF88FF',
       clickable: false,
       opacity: 1-0.2*i,
-      dashArray: "5,8"
+      dashArray: "1,3"
     };
 
     $.each(polyLine, function(ind,poly) {

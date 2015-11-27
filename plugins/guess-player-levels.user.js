@@ -509,7 +509,7 @@ window.plugin.guessPlayerLevels.guess = function() {
     id: 'guess-player-levels',
     width: 350,
     buttons: {
-      'RESET GUESSES': function() {
+      '重置猜測': function() {
         // clear all guessed levels from local storage
         localStorage.removeItem('plugin-guess-player-levels')
         window.plugin.guessPlayerLevels._nameToLevelCache = {}

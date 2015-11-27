@@ -2,11 +2,11 @@
 // @id             iitc-plugin-guess-player-levels@breunigs
 // @name           IITC plugin: guess player level
 // @category       Info
-// @version        0.5.7.20151127.20128
+// @version        0.5.7.20151127.20547
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/guess-player-levels.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/guess-player-levels.user.js
-// @description    [local-2015-11-27-020128] 嘗試從目前畫面中的數據猜測玩家的等級.
+// @description    [local-2015-11-27-020547] 嘗試從目前畫面中的數據猜測玩家的等級.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'local';
-plugin_info.dateTimeVersion = '20151127.20128';
+plugin_info.dateTimeVersion = '20151127.20547';
 plugin_info.pluginId = 'guess-player-levels';
 //END PLUGIN AUTHORS NOTE
 
@@ -521,7 +521,7 @@ window.plugin.guessPlayerLevels.guess = function() {
     id: 'guess-player-levels',
     width: 350,
     buttons: {
-      'RESET GUESSES': function() {
+      '重置猜測': function() {
         // clear all guessed levels from local storage
         localStorage.removeItem('plugin-guess-player-levels')
         window.plugin.guessPlayerLevels._nameToLevelCache = {}
