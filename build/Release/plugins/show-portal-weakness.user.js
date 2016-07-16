@@ -2,11 +2,11 @@
 // @id             iitc-plugin-show-portal-weakness@vita10gy
 // @name           IITC plugin: show portal weakness
 // @category       Highlighter
-// @version        0.7.2.20160716.173900
+// @version        0.7.2.20160716.174716
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/show-portal-weakness.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/show-portal-weakness.user.js
-// @description    [Release-2016-07-16-173900] 使用Portal的填充顏色來顯示，如果Portal能量低下則會漸漸變成紅色, Portal圓的空洞代表缺少的震盪器數目.
+// @description    [Release-2016-07-16-174716] 使用Portal的填充顏色來顯示，如果Portal能量低下則會漸漸變成紅色, Portal圓的空洞代表缺少的震盪器數目.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'Release';
-plugin_info.dateTimeVersion = '20160716.173900';
+plugin_info.dateTimeVersion = '20160716.174716';
 plugin_info.pluginId = 'show-portal-weakness';
 //END PLUGIN AUTHORS NOTE
 
@@ -42,33 +42,27 @@ window.plugin.portalWeakness.highlightWeakness = function(data) {
   if(data.portal.options.data.resCount !== undefined && data.portal.options.data.health !== undefined && data.portal.options.team != TEAM_NONE) {
     var res_count = data.portal.options.data.resCount;
     var portal_health = data.portal.options.data.health;
-
-    // Remove warning color for missing res.
-    //var strength = (res_count/8) * (portal_health/100);
-   
     if(portal_health < 100 || res_count < 8) {
-      // Helth > 80%, reduce team color.
-      if(portal_health > 80) {
-        var fill_opacity = (portal_health-80)*0.025;
-        var params = {fillOpacity: fill_opacity};
-      }
-      // Health <= 80%, increase warning color.
-      else {
-        var fill_opacity = (100-(portal_health-20))*0.00625;
-        var params = {fillColor: 'red', fillOpacity: fill_opacity};
-      }
-	  
+      var params;
+      if(portal_health > 90) {params = {fillOpacity: 0.4}; } else
+      if(portal_health > 80) {params = {fillOpacity: 0.2}; } else
+      if(portal_health > 70) {params = {fillColor: 'red', fillOpacity: 0.1}; } else
+      if(portal_health > 60) {params = {fillColor: 'red', fillOpacity: 0.2}; } else
+      if(portal_health > 50) {params = {fillColor: 'red', fillOpacity: 0.3}; } else
+      if(portal_health > 40) {params = {fillColor: 'red', fillOpacity: 0.4}; } else
+      if(portal_health > 30) {params = {fillColor: 'red', fillOpacity: 0.5}; } else
+      if(portal_health > 20) {params = {fillColor: 'red', fillOpacity: 0.6}; } else
+      if(portal_health > 10) {params = {fillColor: 'red', fillOpacity: 0.7}; } else
+                             {params = {fillColor: 'red', fillOpacity: 0.8}; }
       // Hole per missing resonator
       if (res_count < 8) {
-        var dash = new Array((8 - res_count) + 1).join("1,4,") + "100,0"
+        var dash = new Array((8 - res_count) + 1).join("1,4,") + "100,0";
         params.dashArray = dash;
       }
-
       data.portal.setStyle(params);
-    } 
+    }
   }
-
-}
+};
 
 var setup =  function() {
   window.addPortalHighlighter('能量塔強度', window.plugin.portalWeakness.highlightWeakness);

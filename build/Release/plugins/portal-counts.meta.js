@@ -2,11 +2,11 @@
 // @id             iitc-plugin-portals-count@yenky
 // @name           IITC plugin: Show total counts of portals
 // @category       Info
-// @version        0.1.2.20160716.173900
+// @version        0.1.2.20160716.174716
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/portal-counts.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/portal-counts.user.js
-// @description    [Release-2016-07-16-173900] 依照該區域的能量塔等級和陣營顯示圖表.
+// @description    [Release-2016-07-16-174716] 依照該區域的能量塔等級和陣營顯示圖表.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
