@@ -60,19 +60,18 @@ window.plugin.portalWeakness.highlightWeakness = function(data) {
 	  
       // Hole per missing resonator
       if (res_count < 8) {
-        var dash = new Array((8 - res_count) + 1).join("1,4,") + "100,0"
+        var dash = new Array((8 - res_count) + 1).join("1,4,") + "100,0";
         params.dashArray = dash;
       }
 
       data.portal.setStyle(params);
     } 
   }
-
-}
+};
 
 var setup =  function() {
   window.addPortalHighlighter('能量塔強度', window.plugin.portalWeakness.highlightWeakness);
-}
+};
 
 // PLUGIN END //////////////////////////////////////////////////////////
 
