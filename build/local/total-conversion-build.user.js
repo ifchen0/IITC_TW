@@ -1,11 +1,11 @@
 // ==UserScript==
 // @id             ingress-intel-total-conversion@jonatkins
 // @name           IITC: Ingress intel map total conversion
-// @version        0.25.2.20151127.151435
+// @version        0.25.2.20160716.173854
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/total-conversion-build.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/total-conversion-build.user.js
-// @description    [local-2015-11-27-151435] Total conversion for the ingress intel map.
+// @description    [local-2016-07-16-173854] Total conversion for the ingress intel map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -21,7 +21,7 @@
 // REPLACE ORIG SITE ///////////////////////////////////////////////////
 if(document.getElementsByTagName('html')[0].getAttribute('itemscope') != null)
   throw('Ingress Intel 網站關閉了, 不是 IITC userscript 的問題.');
-window.iitcBuildDate = '2015-11-27-151435';
+window.iitcBuildDate = '2016-07-16-173854';
 
 // disable vanilla JS
 window.onload = function() {};
@@ -1277,7 +1277,7 @@ function boot() {
   if(!isSmartphone()) // TODO remove completely?
     window.debug.console.overwriteNativeIfRequired();
 
-  console.log('loading done, booting. Built: 2015-11-27-151435');
+  console.log('loading done, booting. Built: 2016-07-16-173854');
   if(window.deviceID) console.log('Your device ID: ' + window.deviceID);
   window.runOnSmartphonesBeforeBoot();
 
@@ -1346,7 +1346,7 @@ function boot() {
       $.each(badPlugins,function(name,desc) {
         warning += '<li><b>'+name+'</b>: '+desc+'</li>';
       });
-      warning += '</ul><p>Please uninstall the problem plugins and reload the page. See this <a href="http://iitc.jonatkins.com/?page=faq#uninstall">FAQ entry</a> for help.</p><p><i>Note: It is tricky for IITC to safely disable just problem plugins</i></p>';
+      warning += '</ul><p>Please uninstall the problem plugins and reload the page. See this <a href="http://iitc.me/faq/#uninstall">FAQ entry</a> for help.</p><p><i>Note: It is tricky for IITC to safely disable just problem plugins</i></p>';
 
       dialog({
         title: 'Plugin Warning',
@@ -16147,8 +16147,9 @@ window.getMarkerStyleOptions = function(details) {
   var scale = window.portalMarkerScale();
 
   //   portal level      0  1  2  3  4  5  6  7  8
-  var LEVEL_TO_WEIGHT = [2, 2, 2, 2, 2, 3, 3, 3, 4];
-  var LEVEL_TO_RADIUS = [7, 7, 7, 7, 8, 8, 9,10,11];
+  var LEVEL_TO_WEIGHT = [1, 2, 2, 2, 2, 3, 3, 3, 4];
+  var LEVEL_TO_RADIUS = [5, 5, 5, 5, 5, 6, 6, 7, 8];
+
 
   var level = Math.floor(details.level||0);
 
@@ -17507,7 +17508,7 @@ window.aboutIITC = function() {
   + '  <div>Ingress Intel Total Conversion</div> '
   + '  <hr>'
   + '  <div>'
-  + '    <a href="http://iitc.jonatkins.com/" target="_blank">IITC Homepage</a><br />'
+  + '    <a href="http://iitc.me/" target="_blank">IITC Homepage</a><br />'
   + '     On the script’s homepage you can:'
   + '     <ul>'
   + '       <li>Find Updates</li>'
@@ -17963,7 +17964,7 @@ L.Draggable.prototype._onDown = function(e) {
 
 // inject code into site context
 var script = document.createElement('script');
-var info = { buildName: 'local', dateTimeVersion: '20151127.151435' };
+var info = { buildName: 'local', dateTimeVersion: '20160716.173854' };
 if (this.GM_info && this.GM_info.script) info.script = { version: GM_info.script.version, name: GM_info.script.name, description: GM_info.script.description };
 script.appendChild(document.createTextNode('('+ wrapper +')('+JSON.stringify(info)+');'));
 (document.body || document.head || document.documentElement).appendChild(script);
