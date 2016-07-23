@@ -60,7 +60,7 @@ window.plugin.portalLevelNumbers.addLabel = function(guid,latLng) {
   window.plugin.portalLevelNumbers.removeLabel(guid);
 
   //iF:Fix level number location for desktop version.
-  if (!L.Browser.mobile) window.plugin.portalLevelNumbers.ICON_SIZE = 18;
+  if (!L.Browser.mobile) window.plugin.portalLevelNumbers.ICON_SIZE = 15;
   
   // add portal level to layers
   var p = window.portals[guid];
