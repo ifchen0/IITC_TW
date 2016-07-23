@@ -2,11 +2,11 @@
 // @id             iitc-plugin-portal-names@zaso
 // @name           IITC plugin: Portal Names
 // @category       Layer
-// @version        0.1.6.20160716.174701
+// @version        0.1.6.20160723.22927
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/portal-names.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/portal-names.user.js
-// @description    [local-2016-07-16-174701] 在地圖上顯示Portal名稱.
+// @description    [local-2016-07-23-022927] 在地圖上顯示Portal名稱.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*

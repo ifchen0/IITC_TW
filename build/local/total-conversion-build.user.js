@@ -1,11 +1,11 @@
 // ==UserScript==
 // @id             ingress-intel-total-conversion@jonatkins
 // @name           IITC: Ingress intel map total conversion
-// @version        0.25.2.20160716.174701
+// @version        0.25.2.20160723.22927
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/total-conversion-build.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/total-conversion-build.user.js
-// @description    [local-2016-07-16-174701] Total conversion for the ingress intel map.
+// @description    [local-2016-07-23-022927] Total conversion for the ingress intel map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -21,7 +21,7 @@
 // REPLACE ORIG SITE ///////////////////////////////////////////////////
 if(document.getElementsByTagName('html')[0].getAttribute('itemscope') != null)
   throw('Ingress Intel 網站關閉了, 不是 IITC userscript 的問題.');
-window.iitcBuildDate = '2016-07-16-174701';
+window.iitcBuildDate = '2016-07-23-022927';
 
 // disable vanilla JS
 window.onload = function() {};
@@ -648,12 +648,12 @@ function createDefaultBaseMapLayers() {
   //OpenStreetMap attribution - required by several of the layers
   osmAttribution = 'Map data © OpenStreetMap contributors';
 
-  //MapQuest offer tiles - http://developer.mapquest.com/web/products/open/map
-  //their usage policy has no limits (except required notification above 4000 tiles/sec - we're perhaps at 50 tiles/sec based on CloudMade stats)
-  var mqSubdomains = [ 'otile1','otile2', 'otile3', 'otile4' ];
-  var mqTileUrlPrefix = window.location.protocol !== 'https:' ? 'http://{s}.mqcdn.com' : 'https://{s}-s.mqcdn.com';
-  var mqMapOpt = {attribution: osmAttribution+', Tiles Courtesy of MapQuest', maxNativeZoom: 18, maxZoom: 21, subdomains: mqSubdomains};
-  baseLayers['MapQuest OSM'] = new L.TileLayer(mqTileUrlPrefix+'/tiles/1.0.0/map/{z}/{x}/{y}.jpg',mqMapOpt);
+  // MapQuest - http://developer.mapquest.com/web/products/open/map
+  // now requires an API key
+  //var mqSubdomains = [ 'otile1','otile2', 'otile3', 'otile4' ];
+  //var mqTileUrlPrefix = window.location.protocol !== 'https:' ? 'http://{s}.mqcdn.com' : 'https://{s}-s.mqcdn.com';
+  //var mqMapOpt = {attribution: osmAttribution+', Tiles Courtesy of MapQuest', maxNativeZoom: 18, maxZoom: 21, subdomains: mqSubdomains};
+  //baseLayers['MapQuest OSM'] = new L.TileLayer(mqTileUrlPrefix+'/tiles/1.0.0/map/{z}/{x}/{y}.jpg',mqMapOpt);
 
   // cartodb has some nice tiles too - both dark and light subtle maps - http://cartodb.com/basemaps/
   // (not available over https though - not on the right domain name anyway)
@@ -1277,7 +1277,7 @@ function boot() {
   if(!isSmartphone()) // TODO remove completely?
     window.debug.console.overwriteNativeIfRequired();
 
-  console.log('loading done, booting. Built: 2016-07-16-174701');
+  console.log('loading done, booting. Built: 2016-07-23-022927');
   if(window.deviceID) console.log('Your device ID: ' + window.deviceID);
   window.runOnSmartphonesBeforeBoot();
 
@@ -6241,19 +6241,11 @@ L.Map.include({
 		    root = this._pathRoot,
 		    pane = this._panes.overlayPane;
 
-		// Hack to make flicker on drag end on mobile webkit less irritating
-		if (L.Browser.mobileWebkit) {
-			pane.removeChild(root);
-		}
-
 		L.DomUtil.setPosition(root, min);
 		root.setAttribute('width', width);
 		root.setAttribute('height', height);
 		root.setAttribute('viewBox', [min.x, min.y, width, height].join(' '));
 
-		if (L.Browser.mobileWebkit) {
-			pane.appendChild(root);
-		}
 	}
 });
 
@@ -17964,7 +17956,7 @@ L.Draggable.prototype._onDown = function(e) {
 
 // inject code into site context
 var script = document.createElement('script');
-var info = { buildName: 'local', dateTimeVersion: '20160716.174701' };
+var info = { buildName: 'local', dateTimeVersion: '20160723.22927' };
 if (this.GM_info && this.GM_info.script) info.script = { version: GM_info.script.version, name: GM_info.script.name, description: GM_info.script.description };
 script.appendChild(document.createTextNode('('+ wrapper +')('+JSON.stringify(info)+');'));
 (document.body || document.head || document.documentElement).appendChild(script);

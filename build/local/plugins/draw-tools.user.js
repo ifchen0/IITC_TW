@@ -2,11 +2,11 @@
 // @id             iitc-plugin-draw-tools@breunigs
 // @name           IITC plugin: draw tools
 // @category       Layer
-// @version        0.7.0.20160716.174701
+// @version        0.7.0.20160723.22927
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/draw-tools.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/draw-tools.user.js
-// @description    [local-2016-07-16-174701] 允許在地圖上繪製圖案, 你可以用這個工具計劃你的下一步行動.
+// @description    [local-2016-07-23-022927] 允許在地圖上繪製圖案, 你可以用這個工具計劃你的下一步行動.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'local';
-plugin_info.dateTimeVersion = '20160716.174701';
+plugin_info.dateTimeVersion = '20160723.22927';
 plugin_info.pluginId = 'draw-tools';
 //END PLUGIN AUTHORS NOTE
 

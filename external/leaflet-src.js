@@ -4818,19 +4818,11 @@ L.Map.include({
 		    root = this._pathRoot,
 		    pane = this._panes.overlayPane;
 
-		// Hack to make flicker on drag end on mobile webkit less irritating
-		if (L.Browser.mobileWebkit) {
-			pane.removeChild(root);
-		}
-
 		L.DomUtil.setPosition(root, min);
 		root.setAttribute('width', width);
 		root.setAttribute('height', height);
 		root.setAttribute('viewBox', [min.x, min.y, width, height].join(' '));
 
-		if (L.Browser.mobileWebkit) {
-			pane.appendChild(root);
-		}
 	}
 });
 
