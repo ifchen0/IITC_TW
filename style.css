@@ -1,4 +1,4 @@
-/* general rules ******************************************************/
+﻿/* general rules ******************************************************/
 
 /* for printing directly from the browser, hide all UI components
  * NOTE: @media needs to be first?
@@ -39,8 +39,8 @@ body {
 }
 
 #sidebar {
-  background-color: rgba(8, 48, 78, 0.9);
-  border-left: 1px solid #20A8B1;
+  background-color: rgba(48, 48, 48, 0.9);
+  border-left: 1px solid #AAAAAA;
   color: #888;
   position: relative;
   left: 0;
@@ -60,9 +60,9 @@ body {
   position: absolute;
   top: 108px;
   z-index: 3001;
-  background-color: rgba(8, 48, 78, 0.9);
-  color: #FFCE00;
-  border: 1px solid #20A8B1;
+  background-color: rgba(48, 48, 48, 0.9);
+  color: #CCCCCC;
+  border: 1px solid #AAAAAA;
   border-right: none;
   border-radius: 5px 0 0 5px;
   text-decoration: none;
@@ -70,15 +70,15 @@ body {
 }
 
 .enl {
-  color: #03fe03 !important;
+  color: #02F78E !important;
 }
 
 .res {
-  color: #00c5ff !important;
+  color: #AAAAFF !important;
 }
 
 .none {
-  color: #fff;
+  color: #EEE;
 }
 
 .nickname {
@@ -86,7 +86,7 @@ body {
 }
 
 a {
-  color: #ffce00;
+  color: #CCCCCC;
   cursor: pointer;
   text-decoration: none;
 }
@@ -152,7 +152,7 @@ a:hover {
 
 /* field mu count */
 .fieldmu {
-  color: #FFCE00;
+  color: #CCCCCC;
   font-size: 13px;
   font-family: Roboto, "Helvetica Neue", Helvetica, sans-serif; /*override leaflet-container */
   text-align: center;
@@ -164,8 +164,8 @@ a:hover {
 /* chat ***************************************************************/
 
 #chatcontrols {
-  color: #FFCE00;
-  background: rgba(8, 48, 78, 0.9);
+  color: #CCCCCC;
+  background: rgba(48, 48, 48, 0.9);
   position: absolute;
   left: 0;
   z-index: 3000;
@@ -185,7 +185,7 @@ a:hover {
   text-align: center;
   height: 24px;
   line-height: 24px;
-  border: 1px solid #20A8B1;
+  border: 1px solid #AAAAAA;
   vertical-align: top;
 }
 
@@ -195,14 +195,14 @@ a:hover {
 }
 
 #chatcontrols a.active {
-  border-color: #FFCE00;
+  border-color: #CCCCCC;
   border-bottom-width:0px;
   font-weight:bold;
-  background: rgb(8, 48, 78);
+  background: rgb(48, 48, 48);
 }
 
 #chatcontrols a.active + a {
-  border-left-color: #FFCE00
+  border-left-color: #CCCCCC
 }
 
 
@@ -213,11 +213,11 @@ a:hover {
 }
 
 #chatcontrols .expand {
-  border-bottom: 10px solid #FFCE00;
+  border-bottom: 10px solid #CCCCCC;
 }
 
 #chatcontrols .shrink {
-  border-top: 10px solid #FFCE00;
+  border-top: 10px solid #CCCCCC;
 }
 
 #chatcontrols .loading {
@@ -253,10 +253,10 @@ a:hover {
   bottom: 23px;
   left: 0;
   z-index: 3000;
-  background: rgba(8, 48, 78, 0.9);
+  background: rgba(48, 48, 48, 0.9);
   line-height: 15px;
   color: #eee;
-  border: 1px solid #20A8B1;
+  border: 1px solid #AAAAAA;
   border-bottom: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -355,10 +355,10 @@ summary {
   bottom: 0;
   left: 0;
   padding: 0 2px;
-  background: rgba(8, 48, 78, 0.9);
+  background: rgba(48, 48, 48, 0.9);
   width: 708px;
   height: 23px;
-  border: 1px solid #20A8B1;
+  border: 1px solid #AAAAAA;
   z-index: 3001;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -384,7 +384,7 @@ summary {
 /* sidebar ************************************************************/
 
 #sidebar > * {
-  border-bottom: 1px solid #20A8B1;
+  border-bottom: 1px solid #AAAAAA;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -398,11 +398,11 @@ summary {
 }
 
 #sidebartoggle .open {
-  border-right: 10px solid #FFCE00;
+  border-right: 10px solid #CCCCCC;
 }
 
 #sidebartoggle .close {
-  border-left: 10px solid #FFCE00;
+  border-left: 10px solid #CCCCCC;
 }
 
 /* player stats */
@@ -411,7 +411,7 @@ summary {
 }
 
 h2 {
-  color: #ffce00;
+  color: #CCCCCC;
   font-size: 21px;
   padding: 0 4px;
   margin: 0;
@@ -447,7 +447,7 @@ h2 #stats {
   position: absolute;
   top: 0;
   right: 0;
-  background-color: rgba(8, 48, 78, 0.5);
+  background-color: rgba(48, 48, 48, 0.5);
   display: none; /* starts hidden */
 }
 #name:hover #signout {
@@ -476,12 +476,12 @@ h2 sup, h2 sub {
 }
 
 #gamestat .res {
-  background: #005684;
+  background: #5151A2;
   text-align: right;
 }
 
 #gamestat .enl {
-  background: #017f01;
+  background: #009100;
 }
 
 
@@ -491,7 +491,7 @@ input[type="text"], input[type="password"],
 input[type="number"], input[type="email"],
 input[type="search"], input[type="url"] {
   background-color: rgba(0, 0, 0, 0.3);
-  color: #ffce00;
+  color: #CCCCCC;
   height: 24px;
   padding:0px 4px 0px 4px;
   font-size: 12px;
@@ -648,10 +648,10 @@ h3 {
 }
 
 .res .mods span, .res .meter {
-  border: 1px solid #0076b6;
+  border: 1px solid #7373B9;
 }
 .enl .mods span, .enl .meter {
-  border: 1px solid #017f01;
+  border: 1px solid #4F9D9D;
 }
 
 /* random details, resonator details */
@@ -810,18 +810,18 @@ h3 {
   top: -2px;
   right: 2px;
   cursor: pointer;
-  color: #FFCE00;
+  color: #CCCCCC;
   font-size: 16px;
 }
 
 /* update status */
 #updatestatus {
-  background-color: rgba(8, 48, 78, 0.9);
+  background-color: rgba(48, 48, 48, 0.9);
   border-bottom: 0;
-  border-top: 1px solid #20A8B1;
-  border-left: 1px solid #20A8B1;
+  border-top: 1px solid #AAAAAA;
+  border-left: 1px solid #AAAAAA;
   bottom: 0;
-  color: #ffce00;
+  color: #CCCCCC;
   font-size:13px;
   padding: 4px;
   position: fixed;
@@ -841,7 +841,7 @@ h3 {
   color: #000000;
   display: inline-block;
   min-width: 1.8em;
-  border: 1px solid #20A8B1;
+  border: 1px solid #AAAAAA;
   border-width: 0 1px;
   margin: -4px 0;
   padding: 4px 0.2em;
@@ -852,8 +852,8 @@ h3 {
 .ui-tooltip, .ui-dialog {
   position: absolute;
   z-index: 9999;
-  background-color: rgba(8, 48, 78, 0.9);
-  border: 1px solid #20A8B1;
+  background-color: rgba(48, 48, 48, 0.9);
+  border: 1px solid #AAAAAA;
   color: #eee;
   font-size: 13px;
   line-height: 15px;
@@ -884,7 +884,7 @@ h3 {
 }
 
 .ui-tooltip, .ui-dialog a {
-  color: #FFCE00;
+  color: #CCCCCC;
 }
 
 .ui-dialog {
@@ -901,7 +901,7 @@ h3 {
   line-height: 15px;
   text-align: center;
   padding: 4px;
-  background-color: rgba(8, 60, 78, 0.9);
+  background-color: rgba(32, 32, 32, 1);
   min-width: 250px;
 }
 
@@ -911,7 +911,7 @@ h3 {
 }
 
 .ui-dialog-title-active {
-  color: #ffce00;
+  color: #CCCCCC;
 }
 
 .ui-dialog-title-inactive {
@@ -927,13 +927,13 @@ h3 {
   height: 17px;
   top: 3px;
   cursor: pointer;
-  border: 1px solid rgb(32, 168, 177);
+  border: 1px solid rgb(168, 168, 168);
   background-color: rgba(0, 0, 0, 0);
   padding: 0;
 }
 
 .ui-dialog-titlebar-button:active {
-  background-color: rgb(32, 168, 177);
+  background-color: rgb(168, 168, 168);
 }
 
 .ui-dialog-titlebar-button-close {
@@ -949,7 +949,7 @@ h3 {
 }
 
 .ui-dialog-titlebar-button-collapse-collapsed {
-  background-color: rgb(32, 168, 177);
+  background-color: rgb(168, 168, 168);
 }
 
 .ui-dialog-titlebar-button-collapse::after,
@@ -962,7 +962,7 @@ h3 {
   width: 11px;
   margin-left: -6px;
   height: 0;
-  border-top: 2px solid rgb(32, 168, 177);
+  border-top: 2px solid rgb(168, 168, 168);
 }
 .ui-dialog-titlebar-button-close::after {
   transform: translateY(3.5px) rotate(45deg);
@@ -978,7 +978,7 @@ h3 {
 .ui-dialog-titlebar-button.ui-dialog-titlebar-button-collapse-collapsed::before,
 .ui-dialog-titlebar-button:active::after,
 .ui-dialog-titlebar-button:active::before {
-  border-top-color: rgba(8, 60, 78, 0.9);
+  border-top-color: rgba(64, 64, 64, 0.9);
 }
 
 .ui-dialog-content {
@@ -996,7 +996,7 @@ h3 {
 
 .ui-dialog-buttonpane {
   padding: 6px;
-  border-top: 1px solid #20A8B1;
+  border-top: 1px solid #AAAAAA;
 }
 
 .ui-dialog-buttonset {
@@ -1007,9 +1007,9 @@ h3 {
 .ui-dialog-content button {
   padding: 2px;
   min-width: 40px;
-  color: #FFCE00;
-  border: 1px solid #FFCE00;
-  background-color: rgba(8, 48, 78, 0.9);
+  color: #CCCCCC;
+  border: 1px solid #CCCCCC;
+  background-color: rgba(48, 48, 48, 0.9);
 }
 
 .ui-dialog-buttonset button:hover {
@@ -1063,11 +1063,11 @@ td + td {
 */
 
 .pl_nudge_date {
-  background-color: #724510;
-  border-left: 1px solid #ffd652;
-  border-bottom: 1px solid #ffd652;
-  border-top: 1px solid #ffd652;
-  color: #ffd652;
+  background-color: #454545;
+  border-left: 1px solid #CCCCCC;
+  border-bottom: 1px solid #CCCCCC;
+  border-top: 1px solid #CCCCCC;
+  color: #CCCCCC;
   display: inline-block;
   float: left;
   height: 18px;
@@ -1088,15 +1088,15 @@ td + td {
 }
 
 .pl_nudge_me {
-  color: #ffd652;
+  color: #CCCCCC;
 }
 
 .RESISTANCE {
-  color: #00c2ff;
+  color: #8080C0;
 }
 
 .ALIENS, .ENLIGHTENED {
-  color: #28f428;
+  color: #5CADAD;
 }
 
 #portal_highlight_select {
@@ -1105,8 +1105,8 @@ td + td {
   left:10px;
   z-index: 2500;
   font-size:11px;
-  background-color:#0E3C46;
-  color:#ffce00;
+  background-color:#3C3C3C;
+  color:#CCCCCC;
   
 }
 
@@ -1133,7 +1133,7 @@ td + td {
 
 /** artifact dialog *****************/
 table.artifact tr > * {
-  background: rgba(8, 48, 78, 0.9);
+  background: rgba(48, 48, 48, 0.9);
 }
 
 table.artifact td.info {
@@ -1153,13 +1153,13 @@ table.artifact .portal {
 #map .leaflet-popup-content-wrapper {
   border-radius: 0px;
   -webkit-border-radius: 0px;
-  border: 1px solid #20A8B1;
-  background: rgba(8, 48, 78, 0.9);
+  border: 1px solid #AAAAAA;
+  background: rgba(48, 48, 48, 0.9);
   pointer-events: auto;
 }
 
 #map .leaflet-popup-content {
-  color: #ffce00;
+  color: #CCCCCC;
   margin: 5px 8px;
 }
 
@@ -1175,7 +1175,7 @@ table.artifact .portal {
 
 #map .leaflet-popup-tip {
   /* change the tip from an arrow to a simple line */
-  background: #20A8B1;
+  background: #AAAAAA;
   width: 1px;
   height: 20px;
   padding: 0;
@@ -1196,19 +1196,19 @@ table.artifact .portal {
 
 
 .layer_off_warning {
-  color: #FFCE00;
+  color: #CCCCCC;
   margin: 8px;
   text-align: center;
 }
 
 /* region scores */
 .cellscore .ui-accordion-header, .cellscore .ui-accordion-content {
-	border: 1px solid #20a8b1;
+	border: 1px solid #AAAAAA;
 	margin-top: -1px;
 	display: block;
 }
 .cellscore .ui-accordion-header {
-	color: #ffce00;
+	color: #CCCCCC;
 	outline: none
 }
 .cellscore .ui-accordion-header:before {
@@ -1243,7 +1243,7 @@ g.checkpoint:hover circle {
 /* tabs */
 .ui-tabs-nav {
 	display: block;
-	border-bottom: 1px solid #20a8b1;
+	border-bottom: 1px solid #AAAAAA;
 	border-top: 1px solid transparent;
 	margin: 3px 0 0;
 	padding: 0;
@@ -1260,11 +1260,11 @@ g.checkpoint:hover circle {
 	display: block;
 	float:left;
 	margin: 0 0 -1px;
-	border: 1px solid #20a8b1;
+	border: 1px solid #AAAAAA;
 }
 .ui-tabs-nav li.ui-tabs-active {
-	border-bottom-color: #0F2C3F;
-	background: #0F2C3F;
+	border-bottom-color: #333333;
+	background: #333333;
 	border-width: 2px 2px 1px;
 	font-weight: bold;
 	margin: -1px 1px;

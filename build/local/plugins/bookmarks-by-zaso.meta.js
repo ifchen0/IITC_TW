@@ -2,11 +2,11 @@
 // @id             iitc-plugin-bookmarks@ZasoGD
 // @name           IITC plugin: Bookmarks for maps and portals
 // @category       Controls
-// @version        0.2.12.20160723.22927
+// @version        0.2.12.20160808.71106
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/bookmarks-by-zaso.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/plugins/bookmarks-by-zaso.user.js
-// @description    [local-2016-07-23-022927] 您最喜歡的地圖和Portalh保存為書籤, 可和Sync一起使用.
+// @description    [local-2016-08-08-071106] 您最喜歡的地圖和Portalh保存為書籤, 可和Sync一起使用.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*

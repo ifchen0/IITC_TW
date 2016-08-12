@@ -21,7 +21,7 @@ window.renderUpdateStatus = function() {
       t += '<b>能量塔</b>: ';
     if(tileParams.level === 0)
       //iF:Adjust color to background color.
-      t += '<span id="loadlevel" style="background: rgba(0, 0, 0, 0); color: #FFCE00;">全部</span>';
+      t += '<span id="loadlevel" style="background: rgba(0, 0, 0, 0); color: #CECECE;">全部</span>';
     else
       t += '<span id="loadlevel" style="background:'+COLORS_LVL[tileParams.level]+'">L'+tileParams.level+(tileParams.level<8?'+':'') + '</span>';
   } else {
@@ -30,10 +30,10 @@ window.renderUpdateStatus = function() {
 
     if (tileParams.minLinkLength > 0)
       //iF:Adjust color to background color.
-      t += '<span id="loadlevel" style="background: rgba(0, 0, 0, 0); color: #FFCE00;">&gt;'+(tileParams.minLinkLength>1000?tileParams.minLinkLength/1000+'公里':tileParams.minLinkLength+'公尺')+'</span>';
+      t += '<span id="loadlevel" style="background: rgba(0, 0, 0, 0); color: #CECECE;">&gt;'+(tileParams.minLinkLength>1000?tileParams.minLinkLength/1000+'公里':tileParams.minLinkLength+'公尺')+'</span>';
     else
       //iF:Adjust color to background color.
-      t += '<span id="loadlevel" style="background: rgba(0, 0, 0, 0); color: #FFCE00;">所有連線</span>';
+      t += '<span id="loadlevel" style="background: rgba(0, 0, 0, 0); color: #CECECE;">所有連線</span>';
   }
 
   t +='</span>';
