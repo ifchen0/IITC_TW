@@ -6,7 +6,7 @@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@
 // @downloadURL    @@DOWNLOADURL@@
-// @description    [@@BUILDNAME@@-@@BUILDDATE@@] 實驗性質: 犧牲畫質來大幅增加密集能量塔的顯示速度
+// @description    [@@BUILDNAME@@-@@BUILDDATE@@] 實驗性質: 捨棄SVG並使用CANVAS繪圖來大幅增加密集能量塔的顯示速度
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
