@@ -4705,11 +4705,6 @@ L.Path = L.Path.extend({
 		} else {
 			this._path.setAttribute('fill', 'none');
 		}
-		// iF: Add canvas dash line
-        if (this.options.dashArray) {
-            var da = typeof(this.options.dashArray) === "string" ? this.options.dashArray.split(",").map(function(el,ix,ar) { return parseInt(el); }) : this.options.dashArray;
-            this._ctx.setLineDash(da);
-        }
 	},
 
 	_updatePath: function () {
@@ -4719,7 +4714,6 @@ L.Path = L.Path.extend({
 			str = 'M0 0';
 		}
 		this._path.setAttribute('d', str);
-        // iF: Add canvas dash line
 	},
 
 	// TODO remove duplication with L.Map
@@ -4824,11 +4818,19 @@ L.Map.include({
 		    root = this._pathRoot,
 		    pane = this._panes.overlayPane;
 
+		// Hack to make flicker on drag end on mobile webkit less irritating
+		if (L.Browser.mobileWebkit) {
+			pane.removeChild(root);
+		}
+
 		L.DomUtil.setPosition(root, min);
 		root.setAttribute('width', width);
 		root.setAttribute('height', height);
 		root.setAttribute('viewBox', [min.x, min.y, width, height].join(' '));
 
+		if (L.Browser.mobileWebkit) {
+			pane.appendChild(root);
+		}
 	}
 });
 
@@ -5012,11 +5014,6 @@ L.Path = L.Browser.svg || !L.Browser.vml ? L.Path : L.Path.extend({
 			container.removeChild(fill);
 			this._fill = null;
 		}
-		// iF: Add canvas dash line
-        if (this.options.dashArray) {
-            var da = typeof(this.options.dashArray) === "string" ? this.options.dashArray.split(",").map(function(el,ix,ar) { return parseInt(el); }) : this.options.dashArray;
-            this._ctx.setLineDash(da);
-        }
 	},
 
 	_updatePath: function () {
@@ -5025,11 +5022,6 @@ L.Path = L.Browser.svg || !L.Browser.vml ? L.Path : L.Path.extend({
 		style.display = 'none';
 		this._path.v = this.getPathString() + ' '; // the space fixes IE empty path string bug
 		style.display = '';
-		// iF: Add canvas dash line
-        if (this.options.dashArray) {
-            var da = typeof(this.options.dashArray) === "string" ? this.options.dashArray.split(",").map(function(el,ix,ar) { return parseInt(el); }) : this.options.dashArray;
-            this._ctx.setLineDash(da);
-        }
 	}
 });
 
@@ -5140,6 +5132,12 @@ L.Path = (L.Path.SVG && !window.L_PREFER_CANVAS) || !L.Browser.canvas ? L.Path :
 	_updateStyle: function () {
 		var options = this.options;
 
+        	if (options.dashArray) {
+            		var da = typeof(options.dashArray) === "string" ? options.dashArray.split(",").map(function(el,ix,ar) { return parseInt(el); }) : options.dashArray;
+            		this._ctx.setLineDash(da);
+        	} else {
+	        	this._ctx.setLineDash([]);
+        	}
 		if (options.stroke) {
 			this._ctx.lineWidth = options.weight;
 			this._ctx.strokeStyle = options.color;
@@ -5147,16 +5145,18 @@ L.Path = (L.Path.SVG && !window.L_PREFER_CANVAS) || !L.Browser.canvas ? L.Path :
 		if (options.fill) {
 			this._ctx.fillStyle = options.fillColor || options.color;
 		}
-		// iF: Add canvas dash line
-        if (options.dashArray) {
-            var da = typeof(options.dashArray) === "string" ? options.dashArray.split(",").map(function(el,ix,ar) { return parseInt(el); }) : options.dashArray;
-            this._ctx.setLineDash(da);
-        }
 	},
 
 	_drawPath: function () {
 		var i, j, len, len2, point, drawMethod;
-
+		
+        	if (this.options.dashArray) {
+            		var da = typeof(this.options.dashArray) === "string" ? this.options.dashArray.split(",").map(function(el,ix,ar) { return parseInt(el); }) : this.options.dashArray;
+            		this._ctx.setLineDash(da);
+        	} else {
+			this._ctx.setLineDash([]);
+        	}
+        	
 		this._ctx.beginPath();
 
 		for (i = 0, len = this._parts.length; i < len; i++) {
@@ -5171,11 +5171,6 @@ L.Path = (L.Path.SVG && !window.L_PREFER_CANVAS) || !L.Browser.canvas ? L.Path :
 				this._ctx.closePath();
 			}
 		}
-		// iF: Add canvas dash line
-        if (this.options.dashArray) {
-            var da = typeof(this.options.dashArray) === "string" ? this.options.dashArray.split(",").map(function(el,ix,ar) { return parseInt(el); }) : this.options.dashArray;
-            this._ctx.setLineDash(da);
-        }
 	},
 
 	_checkIfEmpty: function () {
@@ -5188,6 +5183,12 @@ L.Path = (L.Path.SVG && !window.L_PREFER_CANVAS) || !L.Browser.canvas ? L.Path :
 		var ctx = this._ctx,
 		    options = this.options;
 
+        	if (options.dashArray) {
+            		var da = typeof(options.dashArray) === "string" ? options.dashArray.split(",").map(function(el,ix,ar) { return parseInt(el); }) : options.dashArray;
+            		ctx.setLineDash(da);
+        	} else {
+	        	ctx.setLineDash([]);
+        	}
 		this._drawPath();
 		ctx.save();
 		this._updateStyle();
@@ -5202,12 +5203,6 @@ L.Path = (L.Path.SVG && !window.L_PREFER_CANVAS) || !L.Browser.canvas ? L.Path :
 			ctx.stroke();
 		}
 
-        // iF: Add canvas dash line
-        if (options.dashArray) {
-            var da = typeof(options.dashArray) === "string" ? options.dashArray.split(",").map(function(el,ix,ar) { return parseInt(el); }) : options.dashArray;
-            ctx.setLineDash(da);
-        }
-        
 		ctx.restore();
 
 		// TODO optimization: 1 fill/stroke for all features with equal style instead of 1 for each feature
@@ -5651,8 +5646,6 @@ L.Polyline = L.Path.extend({
 		this._simplifyPoints();
 
 		L.Path.prototype._updatePath.call(this);
-
-        // iF: Add canvas dash line        
 	}
 });
 
@@ -6022,7 +6015,6 @@ L.CircleMarker = L.Circle.extend({
 	_updateStyle : function () {
 		L.Circle.prototype._updateStyle.call(this);
 		this.setRadius(this.options.radius);
-		// iF: Add canvas dash line
 	},
 
 	setLatLng: function (latlng) {
@@ -6125,10 +6117,15 @@ L.Polygon.include(!L.Path.CANVAS ? {} : {
 
 L.Circle.include(!L.Path.CANVAS ? {} : {
 	_drawPath: function () {
+		if (this.options.dashArray) {
+            		var da = typeof(this.options.dashArray) === "string" ? this.options.dashArray.split(",").map(function(el,ix,ar) { return parseInt(el); }) : this.options.dashArray;
+            		this._ctx.setLineDash(da);
+        	} else {
+			this._ctx.setLineDash([]);
+        	}
 		var p = this._point;
 		this._ctx.beginPath();
 		this._ctx.arc(p.x, p.y, this._radius, 0, Math.PI * 2, false);
-		// iF: Add canvas dash line
 	},
 
 	_containsPoint: function (p) {
@@ -6147,7 +6144,6 @@ L.Circle.include(!L.Path.CANVAS ? {} : {
 L.CircleMarker.include(!L.Path.CANVAS ? {} : {
 	_updateStyle: function () {
 		L.Path.prototype._updateStyle.call(this);
-		// iF: Add canvas dash line
 	}
 });
 
