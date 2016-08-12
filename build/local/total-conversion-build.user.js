@@ -1,11 +1,11 @@
 // ==UserScript==
 // @id             ingress-intel-total-conversion@jonatkins
 // @name           IITC: Ingress intel map total conversion
-// @version        0.25.2.20160808.71106
+// @version        0.25.2.20160812.60759
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
-// @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/total-conversion-build.meta.js
-// @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/local/total-conversion-build.user.js
-// @description    [local-2016-08-08-071106] Total conversion for the ingress intel map.
+// @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/total-conversion-build.meta.js
+// @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/total-conversion-build.user.js
+// @description    [local-2016-08-12-060759] Total conversion for the ingress intel map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -21,7 +21,7 @@
 // REPLACE ORIG SITE ///////////////////////////////////////////////////
 if(document.getElementsByTagName('html')[0].getAttribute('itemscope') != null)
   throw('Ingress Intel 網站關閉了, 不是 IITC userscript 的問題.');
-window.iitcBuildDate = '2016-08-08-071106';
+window.iitcBuildDate = '2016-08-12-060759';
 
 // disable vanilla JS
 window.onload = function() {};
@@ -1277,7 +1277,7 @@ function boot() {
   if(!isSmartphone()) // TODO remove completely?
     window.debug.console.overwriteNativeIfRequired();
 
-  console.log('loading done, booting. Built: 2016-08-08-071106');
+  console.log('loading done, booting. Built: 2016-08-12-060759');
   if(window.deviceID) console.log('Your device ID: ' + window.deviceID);
   window.runOnSmartphonesBeforeBoot();
 
@@ -6128,6 +6128,11 @@ L.Path = L.Path.extend({
 		} else {
 			this._path.setAttribute('fill', 'none');
 		}
+		// iF: Add canvas dash line
+        if (this.options.dashArray) {
+            var da = typeof(this.options.dashArray) === "string" ? this.options.dashArray.split(",").map(function(el,ix,ar) { return parseInt(el); }) : this.options.dashArray;
+            this._ctx.setLineDash(da);
+        }
 	},
 
 	_updatePath: function () {
@@ -6137,6 +6142,7 @@ L.Path = L.Path.extend({
 			str = 'M0 0';
 		}
 		this._path.setAttribute('d', str);
+        // iF: Add canvas dash line
 	},
 
 	// TODO remove duplication with L.Map
@@ -6429,6 +6435,11 @@ L.Path = L.Browser.svg || !L.Browser.vml ? L.Path : L.Path.extend({
 			container.removeChild(fill);
 			this._fill = null;
 		}
+		// iF: Add canvas dash line
+        if (this.options.dashArray) {
+            var da = typeof(this.options.dashArray) === "string" ? this.options.dashArray.split(",").map(function(el,ix,ar) { return parseInt(el); }) : this.options.dashArray;
+            this._ctx.setLineDash(da);
+        }
 	},
 
 	_updatePath: function () {
@@ -6437,6 +6448,11 @@ L.Path = L.Browser.svg || !L.Browser.vml ? L.Path : L.Path.extend({
 		style.display = 'none';
 		this._path.v = this.getPathString() + ' '; // the space fixes IE empty path string bug
 		style.display = '';
+		// iF: Add canvas dash line
+        if (this.options.dashArray) {
+            var da = typeof(this.options.dashArray) === "string" ? this.options.dashArray.split(",").map(function(el,ix,ar) { return parseInt(el); }) : this.options.dashArray;
+            this._ctx.setLineDash(da);
+        }
 	}
 });
 
@@ -6554,6 +6570,11 @@ L.Path = (L.Path.SVG && !window.L_PREFER_CANVAS) || !L.Browser.canvas ? L.Path :
 		if (options.fill) {
 			this._ctx.fillStyle = options.fillColor || options.color;
 		}
+		// iF: Add canvas dash line
+        if (options.dashArray) {
+            var da = typeof(options.dashArray) === "string" ? options.dashArray.split(",").map(function(el,ix,ar) { return parseInt(el); }) : options.dashArray;
+            this._ctx.setLineDash(da);
+        }
 	},
 
 	_drawPath: function () {
@@ -6573,6 +6594,11 @@ L.Path = (L.Path.SVG && !window.L_PREFER_CANVAS) || !L.Browser.canvas ? L.Path :
 				this._ctx.closePath();
 			}
 		}
+		// iF: Add canvas dash line
+        if (this.options.dashArray) {
+            var da = typeof(this.options.dashArray) === "string" ? this.options.dashArray.split(",").map(function(el,ix,ar) { return parseInt(el); }) : this.options.dashArray;
+            this._ctx.setLineDash(da);
+        }
 	},
 
 	_checkIfEmpty: function () {
@@ -6599,6 +6625,12 @@ L.Path = (L.Path.SVG && !window.L_PREFER_CANVAS) || !L.Browser.canvas ? L.Path :
 			ctx.stroke();
 		}
 
+        // iF: Add canvas dash line
+        if (options.dashArray) {
+            var da = typeof(options.dashArray) === "string" ? options.dashArray.split(",").map(function(el,ix,ar) { return parseInt(el); }) : options.dashArray;
+            ctx.setLineDash(da);
+        }
+        
 		ctx.restore();
 
 		// TODO optimization: 1 fill/stroke for all features with equal style instead of 1 for each feature
@@ -7042,6 +7074,8 @@ L.Polyline = L.Path.extend({
 		this._simplifyPoints();
 
 		L.Path.prototype._updatePath.call(this);
+
+        // iF: Add canvas dash line        
 	}
 });
 
@@ -7411,6 +7445,7 @@ L.CircleMarker = L.Circle.extend({
 	_updateStyle : function () {
 		L.Circle.prototype._updateStyle.call(this);
 		this.setRadius(this.options.radius);
+		// iF: Add canvas dash line
 	},
 
 	setLatLng: function (latlng) {
@@ -7516,6 +7551,7 @@ L.Circle.include(!L.Path.CANVAS ? {} : {
 		var p = this._point;
 		this._ctx.beginPath();
 		this._ctx.arc(p.x, p.y, this._radius, 0, Math.PI * 2, false);
+		// iF: Add canvas dash line
 	},
 
 	_containsPoint: function (p) {
@@ -7534,6 +7570,7 @@ L.Circle.include(!L.Path.CANVAS ? {} : {
 L.CircleMarker.include(!L.Path.CANVAS ? {} : {
 	_updateStyle: function () {
 		L.Path.prototype._updateStyle.call(this);
+		// iF: Add canvas dash line
 	}
 });
 
@@ -17956,7 +17993,7 @@ L.Draggable.prototype._onDown = function(e) {
 
 // inject code into site context
 var script = document.createElement('script');
-var info = { buildName: 'local', dateTimeVersion: '20160808.71106' };
+var info = { buildName: 'local', dateTimeVersion: '20160812.60759' };
 if (this.GM_info && this.GM_info.script) info.script = { version: GM_info.script.version, name: GM_info.script.name, description: GM_info.script.description };
 script.appendChild(document.createTextNode('('+ wrapper +')('+JSON.stringify(info)+');'));
 (document.body || document.head || document.documentElement).appendChild(script);

@@ -4705,6 +4705,11 @@ L.Path = L.Path.extend({
 		} else {
 			this._path.setAttribute('fill', 'none');
 		}
+		// iF: Add canvas dash line
+        if (this.options.dashArray) {
+            var da = typeof(this.options.dashArray) === "string" ? this.options.dashArray.split(",").map(function(el,ix,ar) { return parseInt(el); }) : this.options.dashArray;
+            this._ctx.setLineDash(da);
+        }
 	},
 
 	_updatePath: function () {
@@ -4714,6 +4719,7 @@ L.Path = L.Path.extend({
 			str = 'M0 0';
 		}
 		this._path.setAttribute('d', str);
+        // iF: Add canvas dash line
 	},
 
 	// TODO remove duplication with L.Map
@@ -5006,6 +5012,11 @@ L.Path = L.Browser.svg || !L.Browser.vml ? L.Path : L.Path.extend({
 			container.removeChild(fill);
 			this._fill = null;
 		}
+		// iF: Add canvas dash line
+        if (this.options.dashArray) {
+            var da = typeof(this.options.dashArray) === "string" ? this.options.dashArray.split(",").map(function(el,ix,ar) { return parseInt(el); }) : this.options.dashArray;
+            this._ctx.setLineDash(da);
+        }
 	},
 
 	_updatePath: function () {
@@ -5014,6 +5025,11 @@ L.Path = L.Browser.svg || !L.Browser.vml ? L.Path : L.Path.extend({
 		style.display = 'none';
 		this._path.v = this.getPathString() + ' '; // the space fixes IE empty path string bug
 		style.display = '';
+		// iF: Add canvas dash line
+        if (this.options.dashArray) {
+            var da = typeof(this.options.dashArray) === "string" ? this.options.dashArray.split(",").map(function(el,ix,ar) { return parseInt(el); }) : this.options.dashArray;
+            this._ctx.setLineDash(da);
+        }
 	}
 });
 
@@ -5131,6 +5147,11 @@ L.Path = (L.Path.SVG && !window.L_PREFER_CANVAS) || !L.Browser.canvas ? L.Path :
 		if (options.fill) {
 			this._ctx.fillStyle = options.fillColor || options.color;
 		}
+		// iF: Add canvas dash line
+        if (options.dashArray) {
+            var da = typeof(options.dashArray) === "string" ? options.dashArray.split(",").map(function(el,ix,ar) { return parseInt(el); }) : options.dashArray;
+            this._ctx.setLineDash(da);
+        }
 	},
 
 	_drawPath: function () {
@@ -5150,6 +5171,11 @@ L.Path = (L.Path.SVG && !window.L_PREFER_CANVAS) || !L.Browser.canvas ? L.Path :
 				this._ctx.closePath();
 			}
 		}
+		// iF: Add canvas dash line
+        if (this.options.dashArray) {
+            var da = typeof(this.options.dashArray) === "string" ? this.options.dashArray.split(",").map(function(el,ix,ar) { return parseInt(el); }) : this.options.dashArray;
+            this._ctx.setLineDash(da);
+        }
 	},
 
 	_checkIfEmpty: function () {
@@ -5176,6 +5202,12 @@ L.Path = (L.Path.SVG && !window.L_PREFER_CANVAS) || !L.Browser.canvas ? L.Path :
 			ctx.stroke();
 		}
 
+        // iF: Add canvas dash line
+        if (options.dashArray) {
+            var da = typeof(options.dashArray) === "string" ? options.dashArray.split(",").map(function(el,ix,ar) { return parseInt(el); }) : options.dashArray;
+            ctx.setLineDash(da);
+        }
+        
 		ctx.restore();
 
 		// TODO optimization: 1 fill/stroke for all features with equal style instead of 1 for each feature
@@ -5619,6 +5651,8 @@ L.Polyline = L.Path.extend({
 		this._simplifyPoints();
 
 		L.Path.prototype._updatePath.call(this);
+
+        // iF: Add canvas dash line        
 	}
 });
 
@@ -5988,6 +6022,7 @@ L.CircleMarker = L.Circle.extend({
 	_updateStyle : function () {
 		L.Circle.prototype._updateStyle.call(this);
 		this.setRadius(this.options.radius);
+		// iF: Add canvas dash line
 	},
 
 	setLatLng: function (latlng) {
@@ -6093,6 +6128,7 @@ L.Circle.include(!L.Path.CANVAS ? {} : {
 		var p = this._point;
 		this._ctx.beginPath();
 		this._ctx.arc(p.x, p.y, this._radius, 0, Math.PI * 2, false);
+		// iF: Add canvas dash line
 	},
 
 	_containsPoint: function (p) {
@@ -6111,6 +6147,7 @@ L.Circle.include(!L.Path.CANVAS ? {} : {
 L.CircleMarker.include(!L.Path.CANVAS ? {} : {
 	_updateStyle: function () {
 		L.Path.prototype._updateStyle.call(this);
+		// iF: Add canvas dash line
 	}
 });
 
