@@ -1,11 +1,11 @@
 // ==UserScript==
 // @id             ingress-intel-total-conversion@jonatkins
 // @name           IITC: Ingress intel map total conversion
-// @version        0.25.2.20160826.64659
+// @version        0.25.2.20160826.71600
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/total-conversion-build.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/total-conversion-build.user.js
-// @description    [Release-2016-08-26-064659] Total conversion for the ingress intel map.
+// @description    [Release-2016-08-26-071600] Total conversion for the ingress intel map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -21,7 +21,7 @@
 // REPLACE ORIG SITE ///////////////////////////////////////////////////
 if(document.getElementsByTagName('html')[0].getAttribute('itemscope') != null)
   throw('Ingress Intel 網站關閉了, 不是 IITC userscript 的問題.');
-window.iitcBuildDate = '2016-08-26-064659';
+window.iitcBuildDate = '2016-08-26-071600';
 
 // disable vanilla JS
 window.onload = function() {};
@@ -1277,7 +1277,7 @@ function boot() {
   if(!isSmartphone()) // TODO remove completely?
     window.debug.console.overwriteNativeIfRequired();
 
-  console.log('loading done, booting. Built: 2016-08-26-064659');
+  console.log('loading done, booting. Built: 2016-08-26-071600');
   if(window.deviceID) console.log('Your device ID: ' + window.deviceID);
   window.runOnSmartphonesBeforeBoot();
 
@@ -12821,6 +12821,9 @@ window.updateGameScore = function(data) {
 //              the Leaflet CircleMarker for the portal in "portal" var.
 // linkAdded:   called when a link is about to be added to the map
 // fieldAdded:  called when a field is about to be added to the map
+// portalRemoved: called when a portal has been removed
+// linkRemoved: called when a link has been removed
+// fieldRemoved: called when a field has been removed
 // portalDetailsUpdated: fired after the details in the sidebar have
 //              been (re-)rendered Provides data about the portal that
 //              has been selected.
@@ -12852,6 +12855,7 @@ window.VALID_HOOKS = [
   'portalSelected', 'portalDetailsUpdated', 'artifactsUpdated',
   'mapDataRefreshStart', 'mapDataEntityInject', 'mapDataRefreshEnd',
   'portalAdded', 'linkAdded', 'fieldAdded',
+  'portalRemoved', 'linkRemoved', 'fieldRemoved',
   'publicChatDataAvailable', 'factionChatDataAvailable',
   'requestFinished', 'nicknameClicked',
   'geoSearch', 'search', 'iitcLoaded',
@@ -13031,6 +13035,14 @@ window.getPosition = function() {
     console.log("mappos: reading stock Intel URL params");
     var lat = parseFloat(getURLParam('ll').split(",")[0]) || 0.0;
     var lng = parseFloat(getURLParam('ll').split(",")[1]) || 0.0;
+    var z = parseInt(getURLParam('z')) || 17;
+    return {center: new L.LatLng(lat, lng), zoom: z};
+  }
+
+  if(getURLParam('pll')) {
+    console.log("mappos: reading stock Intel URL portal params");
+    var lat = parseFloat(getURLParam('pll').split(",")[0]) || 0.0;
+    var lng = parseFloat(getURLParam('pll').split(",")[1]) || 0.0;
     var z = parseInt(getURLParam('z')) || 17;
     return {center: new L.LatLng(lat, lng), zoom: z};
   }
@@ -13593,6 +13605,7 @@ window.Render.prototype.deletePortalEntity = function(guid) {
     window.ornaments.removePortal(p);
     this.removePortalFromMapLayer(p);
     delete window.portals[guid];
+    window.runHooks('portalRemoved', {portal: p, data: p.options.data });
   }
 }
 
@@ -13601,6 +13614,7 @@ window.Render.prototype.deleteLinkEntity = function(guid) {
     var l = window.links[guid];
     linksFactionLayers[l.options.team].removeLayer(l);
     delete window.links[guid];
+    window.runHooks('linkRemoved', {link: l, data: l.options.data });
   }
 }
 
@@ -13612,6 +13626,7 @@ window.Render.prototype.deleteFieldEntity = function(guid) {
 
     fieldsFactionLayers[f.options.team].removeLayer(f);
     delete window.fields[guid];
+    window.runHooks('fieldRemoved', {field: f, data: f.options.data });
   }
 }
 
@@ -16377,6 +16392,7 @@ window.setupRedeem = function() {
     if((e.keyCode ? e.keyCode : e.which) !== 13) return;
 
     var passcode = $(this).val();
+    passcode = passcode.replace(/[^\x20-\x7E]+/g, ''); //removes non-printable characters
     if(!passcode) return;
 
     var jqXHR = window.postAjax('redeemReward', {passcode:passcode}, window.handleRedeemResponse, function(response) {
@@ -17989,7 +18005,7 @@ L.Draggable.prototype._onDown = function(e) {
 
 // inject code into site context
 var script = document.createElement('script');
-var info = { buildName: 'Release', dateTimeVersion: '20160826.64659' };
+var info = { buildName: 'Release', dateTimeVersion: '20160826.71600' };
 if (this.GM_info && this.GM_info.script) info.script = { version: GM_info.script.version, name: GM_info.script.name, description: GM_info.script.description };
 script.appendChild(document.createTextNode('('+ wrapper +')('+JSON.stringify(info)+');'));
 (document.body || document.head || document.documentElement).appendChild(script);

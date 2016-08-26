@@ -2,11 +2,11 @@
 // @id             iitc-plugin-basemap-kartverket@sollie
 // @name           IITC plugin: Kartverket.no map tiles
 // @category       Map Tiles
-// @version        0.1.0.20160826.64659
+// @version        0.1.0.20160826.71600
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/basemap-kartverket.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/basemap-kartverket.user.js
-// @description    [Release-2016-08-26-064659] Add the color and grayscale map tiles from Kartverket.no as an optional layer.
+// @description    [Release-2016-08-26-071600] Add the color and grayscale map tiles from Kartverket.no as an optional layer.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'Release';
-plugin_info.dateTimeVersion = '20160826.64659';
+plugin_info.dateTimeVersion = '20160826.71600';
 plugin_info.pluginId = 'basemap-kartverket';
 //END PLUGIN AUTHORS NOTE
 
