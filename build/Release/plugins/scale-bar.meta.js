@@ -2,11 +2,11 @@
 // @id             iitc-plugin-scale-bar@breunigs
 // @name           IITC plugin: scale bar
 // @category       Controls
-// @version        0.1.0.20160826.121212
+// @version        0.1.0.20160826.130825
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/scale-bar.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/scale-bar.user.js
-// @description    [Release-2016-08-26-121212] Show scale bar on the map.
+// @description    [Release-2016-08-26-130825] Show scale bar on the map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*

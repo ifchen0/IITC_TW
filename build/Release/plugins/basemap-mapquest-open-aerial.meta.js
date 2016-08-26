@@ -2,11 +2,11 @@
 // @id             iitc-plugin-basemap-mapquest-open-aerial@jonatkins
 // @name           IITC plugin: MapQuest Open Satellite view (US Only)
 // @category       Map Tiles
-// @version        0.1.1.20160826.121212
+// @version        0.1.1.20160826.130825
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/basemap-mapquest-open-aerial.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/basemap-mapquest-open-aerial.user.js
-// @description    [Release-2016-08-26-121212] Add the MapQuest Open Aerial satellite view tiles as a map layer. High detail in the US (lower 48) only.
+// @description    [Release-2016-08-26-130825] Add the MapQuest Open Aerial satellite view tiles as a map layer. High detail in the US (lower 48) only.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
