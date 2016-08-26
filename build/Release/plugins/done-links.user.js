@@ -2,11 +2,11 @@
 // @id             iitc-plugin-done-links@jonatkins
 // @name           IITC plugin: done links
 // @category       Layer
-// @version        0.0.1.20160826.71600
+// @version        0.0.1.20160826.121212
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/done-links.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/done-links.user.js
-// @description    [Release-2016-08-26-071600] A companion to the Cross Links plugin. Highlights any links that match existing draw-tools line/polygon edges
+// @description    [Release-2016-08-26-121212] A companion to the Cross Links plugin. Highlights any links that match existing draw-tools line/polygon edges
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'Release';
-plugin_info.dateTimeVersion = '20160826.71600';
+plugin_info.dateTimeVersion = '20160826.121212';
 plugin_info.pluginId = 'done-links';
 //END PLUGIN AUTHORS NOTE
 
