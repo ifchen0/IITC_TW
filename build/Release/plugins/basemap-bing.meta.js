@@ -2,11 +2,11 @@
 // @id             iitc-plugin-bing-maps
 // @name           IITC plugin: Bing maps
 // @category       Map Tiles
-// @version        0.1.3.20160826.60012
+// @version        0.1.3.20160826.64659
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/basemap-bing.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/basemap-bing.user.js
-// @description    [Release-2016-08-26-060012] Add the maps.bing.com map layers.
+// @description    [Release-2016-08-26-064659] Add the maps.bing.com map layers.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
