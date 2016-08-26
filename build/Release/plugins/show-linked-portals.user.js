@@ -2,11 +2,11 @@
 // @id             iitc-plugin-show-linked-portals@fstopienski
 // @name           IITC plugin: Show linked portals
 // @category       Portal Info
-// @version        0.3.1.20160812.61032
+// @version        0.3.1.20160826.55540
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/show-linked-portals.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/show-linked-portals.user.js
-// @description    [Release-2016-08-12-061032] 在Portal詳細資訊欄內顯示鏈接的Portal (圖片, 名稱和連接方向), 點擊圖片可移動到鏈接的Portal上.  如果連接的Portal不在畫面中, 一些細節可能無法顯示.
+// @description    [Release-2016-08-26-055540] 在Portal詳細資訊欄內顯示鏈接的Portal (圖片, 名稱和連接方向), 點擊圖片可移動到鏈接的Portal上.  如果連接的Portal不在畫面中, 一些細節可能無法顯示.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'Release';
-plugin_info.dateTimeVersion = '20160812.61032';
+plugin_info.dateTimeVersion = '20160826.55540';
 plugin_info.pluginId = 'show-linked-portals';
 //END PLUGIN AUTHORS NOTE
 

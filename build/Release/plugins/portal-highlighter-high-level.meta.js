@@ -2,11 +2,11 @@
 // @id             iitc-plugin-highlight-portals-high-level
 // @name           IITC plugin: highlight high level portals
 // @category       Highlighter
-// @version        0.1.0.20160812.61032
+// @version        0.1.0.20160826.55540
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/portal-highlighter-high-level.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/portal-highlighter-high-level.user.js
-// @description    [Release-2016-08-12-061032] 使用Portal填充顏色來表示高級別的Portal: L8紫色, L7紅色, L6橘色
+// @description    [Release-2016-08-26-055540] 使用Portal填充顏色來表示高級別的Portal: L8紫色, L7紅色, L6橘色
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
