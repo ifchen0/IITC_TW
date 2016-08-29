@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             fly-links@fly
 // @name           IITC plugin: Fly Links
-// @category       Layer
+// @category      圖層
 // @version        0.2.1.@@DATETIMEVERSION@@
 // @updateURL      @@UPDATEURL@@
 // @downloadURL    @@DOWNLOADURL@@

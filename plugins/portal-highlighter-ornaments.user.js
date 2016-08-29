@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-highlight-ornaments@jonatkins
 // @name           IITC plugin: hightlight portals with ornaments
-// @category       Highlighter
+// @category       螢光筆
 // @version        0.0.1.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

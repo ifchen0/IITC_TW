@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-highlight-portal-infrastructure@vita10gy
 // @name           IITC plugin: highlight portals with infrastructure problems
-// @category       Highlighter
+// @category       螢光筆
 // @version        0.2.1.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-bookmarks@ZasoGD
 // @name           IITC plugin: Bookmarks for maps and portals
-// @category       Controls
+// @category       控制
 // @version        0.2.12.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-show-portal-weakness@vita10gy
 // @name           IITC plugin: show portal weakness
-// @category       Highlighter
+// @category       螢光筆
 // @version        0.7.2.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-zaprange@zaso
 // @name           IITC plugin: Zaprange
-// @category       Layer
+// @category      圖層
 // @version        0.1.4.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

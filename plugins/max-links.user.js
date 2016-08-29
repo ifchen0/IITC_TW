@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             max-links@boombuler
 // @name           IITC plugin: Max Links
-// @category       Layer
+// @category      圖層
 // @version        0.4.3.@@DATETIMEVERSION@@
 // @updateURL      @@UPDATEURL@@
 // @downloadURL    @@DOWNLOADURL@@

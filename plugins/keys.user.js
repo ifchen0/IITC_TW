@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-keys@xelio
 // @name           IITC plugin: Keys
-// @category       Keys
+// @category       鑰匙
 // @version        0.3.0.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

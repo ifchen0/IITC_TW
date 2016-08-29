@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-highlight-portals-high-level
 // @name           IITC plugin: highlight high level portals
-// @category       Highlighter
+// @category       螢光筆
 // @version        0.1.0.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

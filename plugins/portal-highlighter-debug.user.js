@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-highlight-portals-debug
 // @name           IITC plugin: Debug: Highlighers
-// @category       Debug
+// @category       除錯
 // @version        0.1.0.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

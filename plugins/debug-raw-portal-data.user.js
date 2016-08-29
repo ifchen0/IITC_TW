@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-raw-portal-data
 // @name           IITC plugin: Debug: Raw portal JSON data
-// @category       Debug
+// @category       除錯
 // @version        0.2.4.@@DATETIMEVERSION@@
 // @namespace      rawdata
 // @updateURL      @@UPDATEURL@@

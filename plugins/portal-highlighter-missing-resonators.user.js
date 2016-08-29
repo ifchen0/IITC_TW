@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-highlight-portals-missing-resonators@vita10gy
 // @name           IITC plugin: highlight portals missing resonators
-// @category       Highlighter
+// @category       螢光筆
 // @version        0.1.2.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

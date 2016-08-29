@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-canvas-render@jonatkins
 // @name           IITC plugin: Use Canvas rendering
-// @category       Tweaks
+// @category       調整
 // @version        0.1.0.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

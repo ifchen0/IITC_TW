@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-sync@xelio
 // @name           IITC plugin: Sync
-// @category       Misc
+// @category       雜項
 // @version        0.2.3.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

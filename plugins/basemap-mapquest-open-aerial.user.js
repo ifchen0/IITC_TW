@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-basemap-mapquest-open-aerial@jonatkins
 // @name           IITC plugin: MapQuest Open Satellite view (US Only)
-// @category       Map Tiles
+// @category       地圖
 // @version        0.1.1.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

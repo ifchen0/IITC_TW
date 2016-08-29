@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-show-linked-portals@fstopienski
 // @name           IITC plugin: Show linked portals
-// @category       Portal Info
+// @category       能量塔資訊
 // @version        0.3.1.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

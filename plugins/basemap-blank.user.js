@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-basemap-blank@jonatkins
 // @name           IITC plugin: Blank map
-// @category       Map Tiles
+// @category       地圖
 // @version        0.1.2.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

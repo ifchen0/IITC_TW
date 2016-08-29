@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-basemap-gmaps-gray@jacob1123
 // @name           IITC plugin: Gray Google Roads
-// @category       Map Tiles
+// @category       地圖
 // @version        0.1.2.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

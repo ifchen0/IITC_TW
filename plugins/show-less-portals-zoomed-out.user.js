@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-show-less-portals@jonatkins
 // @name           IITC plugin: Show less portals when zoomed out
-// @category       Tweaks
+// @category       調整
 // @version        0.3.0.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

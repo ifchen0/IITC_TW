@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-fix-googlemap-china-offset@breezewish
 // @name           IITC plugin: Fix Google Map offsets in China
-// @category       Tweaks
+// @category       調整
 // @version        0.0.1.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

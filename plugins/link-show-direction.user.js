@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-link-show-direction
 // @name           IITC plugin: Show the direction of links on the map
-// @category       Tweaks
+// @category       調整
 // @version        0.2.1.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

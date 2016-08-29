@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-default-intel-detail@jonatkins
 // @name           IITC plugin: Default intel detail level
-// @category       Tweaks
+// @category       調整
 // @version        0.2.0.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-highlight-hide-team@vita10gy
 // @name           IITC plugin: Hide portal ownership
-// @category       Highlighter
+// @category       螢光筆
 // @version        0.1.1.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

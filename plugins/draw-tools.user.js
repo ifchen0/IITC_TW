@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-draw-tools@breunigs
 // @name           IITC plugin: draw tools
-// @category       Layer
+// @category      圖層
 // @version        0.7.0.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

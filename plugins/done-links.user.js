@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-done-links@jonatkins
 // @name           IITC plugin: done links
-// @category       Layer
+// @category      圖層
 // @version        0.0.1.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

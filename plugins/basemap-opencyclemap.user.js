@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-basemap-opencyclepam@jonatkins
 // @name           IITC plugin: OpenCycleMap.org map tiles
-// @category       Map Tiles
+// @category       地圖
 // @version        0.2.0.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

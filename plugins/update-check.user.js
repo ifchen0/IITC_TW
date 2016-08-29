@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-update-check@jonatkins
 // @name           IITC plugin: Check for updates
-// @category       Misc
+// @category       雜項
 // @version        0.1.1.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

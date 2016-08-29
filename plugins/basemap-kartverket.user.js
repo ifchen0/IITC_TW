@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-basemap-kartverket@sollie
 // @name           IITC plugin: Kartverket.no map tiles
-// @category       Map Tiles
+// @category       地圖
 // @version        0.1.0.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

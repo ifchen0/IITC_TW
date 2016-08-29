@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-cross-links@mcben
 // @name           IITC plugin: cross links
-// @category       Layer
+// @category      圖層
 // @version        1.1.2.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

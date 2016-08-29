@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-basemap-openstreetpam@jonatkins
 // @name           IITC plugin: OpenStreetMap.org map tiles
-// @category       Map Tiles
+// @category       地圖
 // @version        0.1.1.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

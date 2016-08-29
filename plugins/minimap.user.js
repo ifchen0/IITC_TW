@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-minimap@breunigs
 // @name           IITC plugin: Mini map
-// @category       Controls
+// @category       控制
 // @version        0.2.0.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-missions@jonatkins
 // @name           IITC plugin: Missions
-// @category       Info
+// @category       資訊
 // @version        0.1.2.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

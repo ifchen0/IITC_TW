@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-basemap-stamen@jonatkins
 // @name           IITC plugin: Map layers from stamen.com
-// @category       Map Tiles
+// @category       地圖
 // @version        0.2.0.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

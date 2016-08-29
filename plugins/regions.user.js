@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-regions@jonatkins
 // @name           IITC plugin: Show the local score regions
-// @category       Layer
+// @category      圖層
 // @version        0.1.2.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

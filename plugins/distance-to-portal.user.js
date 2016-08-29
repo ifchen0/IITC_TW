@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-distance-to-portal@jonatkins
 // @name           IITC plugin: Distance to portal
-// @category       Portal Info
+// @category       能量塔資訊
 // @version        0.1.1.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-score-cycle-times@jonatkins
 // @name           IITC plugin: Show scoreboard cycle/checkpoint times
-// @category       Info
+// @category       資訊
 // @version        0.1.0.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

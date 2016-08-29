@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-bing-maps
 // @name           IITC plugin: Bing maps
-// @category       Map Tiles
+// @category       地圖
 // @version        0.1.3.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@

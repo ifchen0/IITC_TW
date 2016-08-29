@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id             iitc-plugin-portal-names@zaso
 // @name           IITC plugin: Portal Names
-// @category       Layer
+// @category      圖層
 // @version        0.1.6.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@
