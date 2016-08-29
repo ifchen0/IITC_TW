@@ -6,7 +6,7 @@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@
 // @downloadURL    @@DOWNLOADURL@@
-// @description    [@@BUILDNAME@@-@@BUILDDATE@@] Show all portals as neutral, as if uncaptured. Great for creating plans.
+// @description    [@@BUILDNAME@@-@@BUILDDATE@@] 將所有能量塔顯示為中立狀態.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -33,7 +33,7 @@ window.plugin.portalHighlighterHideOwnership.highlight = function(data) {
 }
 
 var setup =  function() {
-  window.addPortalHighlighter('Hide portal ownership', window.plugin.portalHighlighterHideOwnership.highlight);
+  window.addPortalHighlighter('能量塔顯示為中立', window.plugin.portalHighlighterHideOwnership.highlight);
 }
 
 // PLUGIN END //////////////////////////////////////////////////////////

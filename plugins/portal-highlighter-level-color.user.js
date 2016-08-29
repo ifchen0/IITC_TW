@@ -6,7 +6,7 @@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@
 // @downloadURL    @@DOWNLOADURL@@
-// @description    [@@BUILDNAME@@-@@BUILDDATE@@] Use the portal fill color to denote the portal level by using the game level colors.
+// @description    [@@BUILDNAME@@-@@BUILDDATE@@] 使用不同等級的顏色顯示能量塔.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -34,7 +34,7 @@ window.plugin.portalHighlighterPortalsLevelColor.colorLevel = function(data) {
 }
 
 var setup =  function() {
-  window.addPortalHighlighter('Level Color', window.plugin.portalHighlighterPortalsLevelColor.colorLevel);
+  window.addPortalHighlighter('等級顏色', window.plugin.portalHighlighterPortalsLevelColor.colorLevel);
 }
 
 // PLUGIN END //////////////////////////////////////////////////////////
