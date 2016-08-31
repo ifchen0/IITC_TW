@@ -2,11 +2,11 @@
 // @id             iitc-plugin-sync@xelio
 // @name           IITC plugin: Sync
 // @category       雜項
-// @version        0.2.3.20160831.52722
+// @version        0.2.3.20160831.55331
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/sync.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/sync.user.js
-// @description    [Release-2016-08-31-052722] 通過Google realtime API 在客戶端之間同步數據. 只有從同步特定的外掛資料 (目前有: Keys, Bookmarks). 用"同步"鏈接來登錄帳號.
+// @description    [Release-2016-08-31-055331] 通過Google realtime API 在客戶端之間同步數據. 只有從同步特定的外掛資料 (目前有: Keys, Bookmarks). 用"同步"鏈接來登錄帳號.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'Release';
-plugin_info.dateTimeVersion = '20160831.52722';
+plugin_info.dateTimeVersion = '20160831.55331';
 plugin_info.pluginId = 'sync';
 //END PLUGIN AUTHORS NOTE
 
@@ -177,7 +177,7 @@ window.plugin.sync.RegisteredMap.prototype.initFile = function(callback) {
   failedCallback = function(resp) {
     _this.initializing = false;
     _this.failed = true;
-    plugin.sync.logger.log('Could not create file: ' + _this.getFileName() + '. If this problem persist, delete this file in IITC-SYNC-DATA-V2 and empty trash in your Google drive and try again.');
+    plugin.sync.logger.log('無法建立檔案: ' + _this.getFileName() + '. 如果這個問題持續存在, 請刪除 IITC-SYNC-DATA-V2 內的檔案並清空 Google drive 上的垃圾桶並重試.');
   }
 
   this.fileSearcher = new plugin.sync.FileSearcher({'fileName': this.getFileName(),
@@ -226,7 +226,7 @@ window.plugin.sync.RegisteredMap.prototype.loadRealtimeDocument = function(callb
 
     model.getRoot().set('map', map);
     model.getRoot().set('last-udpate-uuid', lastUpdateUUID);
-    plugin.sync.logger.log('Model initialized: ' + _this.pluginName + '[' + _this.fieldName + ']');
+    plugin.sync.logger.log('模組初始化: ' + _this.pluginName + '[' + _this.fieldName + ']');
   };
 
   // this function called when the document is loaded
@@ -241,7 +241,7 @@ window.plugin.sync.RegisteredMap.prototype.loadRealtimeDocument = function(callb
 
     // Replace local value if data is changed by others
     if(_this.isUpdatedByOthers()) {
-    plugin.sync.logger.log('Updated by others, replacing content: ' + _this.pluginName + '[' + _this.fieldName + ']');
+    plugin.sync.logger.log('已從其他裝置更新, 替換內容: ' + _this.pluginName + '[' + _this.fieldName + ']');
       window.plugin[_this.pluginName][_this.fieldName] = {};
       $.each(_this.map.keys(), function(ind, key) {
         window.plugin[_this.pluginName][_this.fieldName][key] = _this.map.get(key);
@@ -716,6 +716,7 @@ window.plugin.sync.toggleDialogLink = function() {
   var authed, anyFail;
   authed = plugin.sync.authorizer.isAuthed();
   anyFail = plugin.sync.registeredPluginsFields.anyFail;
+
   $('#sync-show-dialog').toggleClass('sync-show-dialog-error', !authed || anyFail);
 }
 
@@ -743,7 +744,7 @@ window.plugin.sync.setupCSS = function() {
             opacity: 0.5;\
           }\
           .sync-show-dialog-error {\
-            color: #FF8888;\
+            color: #FF2222;\
           }\
           #sync-log {\
             height: 300px;\
