@@ -6,7 +6,7 @@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@
 // @downloadURL    @@DOWNLOADURL@@
-// @description    [@@BUILDNAME@@-@@BUILDDATE@@] 嘗試從目前畫面中的數據猜測玩家的等級.
+// @description    [@@BUILDNAME@@-@@BUILDDATE@@] 嘗試從目前畫面中的數據推測玩家的等級.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -30,7 +30,7 @@ window.plugin.guessPlayerLevels.BURSTER_RANGES = [0, 42, 48, 58, 72, 90, 112, 13
 // (like constructor, __defineGetter__, etc.
 
 window.plugin.guessPlayerLevels.setupCallback = function() {
-  $('#toolbox').append(' <a onclick="window.plugin.guessPlayerLevels.guess()" title="基於能量塔的振盪器猜測玩家等級">猜測玩家等級</a>');
+  $('#toolbox').append(' <a onclick="window.plugin.guessPlayerLevels.guess()" title="基於能量塔的振盪器推測玩家等級">推測玩家等級</a>');
   addHook('portalDetailLoaded', window.plugin.guessPlayerLevels.extractPortalData);
   addHook('publicChatDataAvailable', window.plugin.guessPlayerLevels.extractChatData);
 }
@@ -97,9 +97,9 @@ window.plugin.guessPlayerLevels.setLevelTitle = function(dom) {
   }
 
   var text = '<span style="color: ' + el.css("color") + '">' + nick + '</span>\n';
-  text += 'Min player level: ' + getLevel(details.min);
+  text += '玩家最小等級: ' + getLevel(details.min);
   if(details.min != details.guessed)
-    text += '\nGuessed player level: ' + getLevel(details.guessed);
+    text += '\n推測玩家等級: ' + getLevel(details.guessed);
 
   window.setupTooltips(el);
 
@@ -509,7 +509,7 @@ window.plugin.guessPlayerLevels.guess = function() {
     id: 'guess-player-levels',
     width: 350,
     buttons: {
-      '重置猜測': function() {
+      '重置推測': function() {
         // clear all guessed levels from local storage
         localStorage.removeItem('plugin-guess-player-levels')
         window.plugin.guessPlayerLevels._nameToLevelCache = {}

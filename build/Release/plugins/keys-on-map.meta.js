@@ -1,12 +1,12 @@
 // ==UserScript==
 // @id             iitc-plugin-keys-on-map@xelio
 // @name           IITC plugin: Keys on map
-// @category       Keys
-// @version        0.2.1.20160826.130825
+// @category       鑰匙
+// @version        0.2.1.20160831.52722
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/keys-on-map.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/keys-on-map.user.js
-// @description    [Release-2016-08-26-130825] Show the manually entered key counts from the 'keys' plugin on the map.
+// @description    [Release-2016-08-31-052722] Show the manually entered key counts from the 'keys' plugin on the map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*

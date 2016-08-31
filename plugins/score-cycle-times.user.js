@@ -67,10 +67,10 @@ window.plugin.scoreCycleTimes.update = function() {
   };
 
   var html = '<table>'
-           + formatRow('Cycle start', cycleStart)
-           + formatRow('Previous checkpoint', checkpointStart)
-           + formatRow('Next checkpoint', checkpointEnd)
-           + formatRow('Cycle end', cycleEnd)
+           + formatRow('開始時間', cycleStart)
+           + formatRow('上個檢查點', checkpointStart)
+           + formatRow('下個檢查點', checkpointEnd)
+           + formatRow('結束時間', cycleEnd)
            + '</table>';
 
   $('#score_cycle_times_display').html(html);

@@ -239,14 +239,14 @@ window.plugin.sync.RegisteredMap.prototype.loadRealtimeDocument = function(callb
 
     _this.initialized = true;
     _this.initializing = false;
-    plugin.sync.logger.log('Data loaded: ' + _this.pluginName + '[' + _this.fieldName + ']');
+    plugin.sync.logger.log('數據讀取: ' + _this.pluginName + '[' + _this.fieldName + ']');
     if(callback) callback();
     if(_this.initializedCallback) _this.initializedCallback(_this.pluginName, _this.fieldName);
   };
 
   // Stop the sync if any error occur and try to re-authorize
   handleError = function(e) {
-    plugin.sync.logger.log('Realtime API Error: ' + e.type);
+    plugin.sync.logger.log('Realtime API 錯誤: ' + e.type);
     _this.stopSync();
     if(e.type === gapi.drive.realtime.ErrorType.TOKEN_REFRESH_REQUIRED) {
       _this.authorizer.authorize();
@@ -257,7 +257,10 @@ window.plugin.sync.RegisteredMap.prototype.loadRealtimeDocument = function(callb
       // it will rasie 'CLIENT_ERROR' instead of 'NOT_FOUND'. So we do a force file search here.
       _this.forceFileSearch = true;
     } else {
-      alert('Plugin Sync error: ' + e.type + ', ' + e.message);
+      //iF:The alert window will keep coming, so show it in log window.
+      plugin.sync.logger.log('同步外掛錯誤: ' + e.type + ', ' + e.message + ' 請試著按<a href="javascript:window.location.reload()">重新整理</a>頁面.');
+      $('#sync-show-dialog').toggleClass('sync-show-dialog-error', true);
+      //alert('同步外掛錯誤: ' + e.type + ', ' + e.message);
     }
   };
 
@@ -320,7 +323,7 @@ window.plugin.sync.RegisteredPluginsFields.prototype.addToWaitingInitialize = fu
 
   clearTimeout(this.timer);
   this.timer = setTimeout(function() {_this.initializeWorker()}, 10000);
-  plugin.sync.logger.log('Retry in 10 sec.: ' +  pluginName + '[' + fieldName + ']');
+  plugin.sync.logger.log('將在 10 秒內重試.: ' +  pluginName + '[' + fieldName + ']');
 }
 
 window.plugin.sync.RegisteredPluginsFields.prototype.get = function(pluginName, fieldName) {
@@ -404,7 +407,7 @@ window.plugin.sync.FileSearcher.prototype.initialize = function(force, assignIdC
   this.force = force;
   // throw error if too many retry
   if(this.retryCount >= this.RETRY_LIMIT) {
-    plugin.sync.logger.log('Too many file operation: ' + this.fileName);
+    plugin.sync.logger.log('過多文件操作: ' + this.fileName);
     failedCallback();
     return;
   }
@@ -436,7 +439,7 @@ window.plugin.sync.FileSearcher.prototype.initFile = function(assignIdCallback, 
   handleFailed = function(resp) {
     _this.fileId = null;
     _this.saveFileId();
-    plugin.sync.logger.log('File operation failed: ' + (resp.error || 'unknown error'));
+    plugin.sync.logger.log('文件操作失敗: ' + (resp.error || '未知錯誤'));
     failedCallback(resp);
   }
 
@@ -472,7 +475,7 @@ window.plugin.sync.FileSearcher.prototype.initParent = function(assignIdCallback
   parentFailedCallback = function(resp) {
     _this.fileId = null;
     _this.saveFileId();
-    plugin.sync.logger.log('File operation failed: ' + (resp.error || 'unknown error'));
+    plugin.sync.logger.log('文件操作失敗: ' + (resp.error || '未知錯誤'));
     failedCallback(resp);
   }
 
@@ -583,11 +586,11 @@ window.plugin.sync.Authorizer.prototype.authorize = function(popup) {
   handleAuthResult = function(authResult) {
     if(authResult && !authResult.error) {
       _this.authorized = true;
-      plugin.sync.logger.log('Authorized');
+      plugin.sync.logger.log('已授權');
     } else {
       _this.authorized = false;
-      var error = (authResult && authResult.error) ? authResult.error : 'not authorized';
-      plugin.sync.logger.log('Authorization error: ' + error);
+      var error = (authResult && authResult.error) ? authResult.error : '尚未授權';
+      plugin.sync.logger.log('授權錯誤: ' + error);
     }
     _this.authComplete();
   };
@@ -691,7 +694,7 @@ window.plugin.sync.toggleAuthButton = function() {
   authed = plugin.sync.authorizer.isAuthed();
   authorizing = plugin.sync.authorizer.isAuthorizing();
 
-  $('#sync-authButton').html(authed ? 'Authorized' : 'Authorize');
+  $('#sync-authButton').html(authed ? '已授權' : '授權');
 
   $('#sync-authButton').attr('disabled', (authed || authorizing));
   $('#sync-authButton').toggleClass('sync-authButton-dimmed', authed || authorizing);

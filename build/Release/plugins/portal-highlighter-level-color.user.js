@@ -1,12 +1,12 @@
 // ==UserScript==
 // @id             iitc-plugin-highlight-portals-level-color@vita10gy
 // @name           IITC plugin: highlight portals by level color
-// @category       Highlighter
-// @version        0.1.2.20160826.130825
+// @category       螢光筆
+// @version        0.1.2.20160831.52722
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/portal-highlighter-level-color.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/portal-highlighter-level-color.user.js
-// @description    [Release-2016-08-26-130825] Use the portal fill color to denote the portal level by using the game level colors.
+// @description    [Release-2016-08-31-052722] 使用不同等級的顏色顯示能量塔.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'Release';
-plugin_info.dateTimeVersion = '20160826.130825';
+plugin_info.dateTimeVersion = '20160831.52722';
 plugin_info.pluginId = 'portal-highlighter-level-color';
 //END PLUGIN AUTHORS NOTE
 
@@ -46,7 +46,7 @@ window.plugin.portalHighlighterPortalsLevelColor.colorLevel = function(data) {
 }
 
 var setup =  function() {
-  window.addPortalHighlighter('Level Color', window.plugin.portalHighlighterPortalsLevelColor.colorLevel);
+  window.addPortalHighlighter('等級顏色', window.plugin.portalHighlighterPortalsLevelColor.colorLevel);
 }
 
 // PLUGIN END //////////////////////////////////////////////////////////

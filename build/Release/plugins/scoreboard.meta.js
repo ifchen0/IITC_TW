@@ -1,12 +1,12 @@
 // ==UserScript==
 // @id             iitc-plugin-scoreboard@vita10gy
 // @name           IITC plugin: show a localized scoreboard.
-// @version        0.2.0.20160826.130825
-// @category       Info
+// @version        0.2.0.20160831.52722
+// @category       資訊
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/scoreboard.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/scoreboard.user.js
-// @description    [Release-2016-08-26-130825] Display a scoreboard about all visible portals with statistics about both teams,like average portal level,link & field counts etc.
+// @description    [Release-2016-08-31-052722] Display a scoreboard about all visible portals with statistics about both teams,like average portal level,link & field counts etc.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*

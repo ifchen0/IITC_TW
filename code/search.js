@@ -50,7 +50,7 @@ window.search.Query.prototype.init = function() {
 
   this.list = $('<ul>')
     .appendTo(this.container)
-    .append($('<li>').text(this.confirmed ? 'No local results, searching online...' : 'No local results.'));
+    .append($('<li>').text(this.confirmed ? '無本地結果, 線上搜尋中...' : '無本地結果.'));
 
   this.container.accordion({
     collapsible: true,
