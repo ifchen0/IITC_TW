@@ -894,7 +894,7 @@
   }
 
   window.plugin.bookmarks.dialogLoadList = function() {
-    var r = 'The "<a href="http://iitc.me/desktop/#plugin-draw-tools" target="_BLANK"><strong>Draw Tools</strong></a>" plugin is required.</span>';
+    var r = '需安裝 "<a href="http://iitc.me/desktop/#plugin-draw-tools" target="_BLANK"><strong>Draw Tools</strong></a>" 外掛.</span>';
 
     if(!window.plugin.bookmarks || !window.plugin.drawTools) {
       $('.ui-dialog-autodrawer .ui-dialog-buttonset .ui-button:not(:first)').hide();

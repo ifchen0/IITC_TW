@@ -1,11 +1,11 @@
 // ==UserScript==
 // @id             ingress-intel-total-conversion@jonatkins
 // @name           IITC: Ingress intel map total conversion
-// @version        0.25.2.20160831.55337
+// @version        0.25.2.20160901.52506
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/total-conversion-build.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/mobile/total-conversion-build.user.js
-// @description    [mobile-2016-08-31-055336] Total conversion for the ingress intel map.
+// @description    [mobile-2016-09-01-052506] Total conversion for the ingress intel map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -21,7 +21,7 @@
 // REPLACE ORIG SITE ///////////////////////////////////////////////////
 if(document.getElementsByTagName('html')[0].getAttribute('itemscope') != null)
   throw('Ingress Intel 網站關閉了, 不是 IITC userscript 的問題.');
-window.iitcBuildDate = '2016-08-31-055337';
+window.iitcBuildDate = '2016-09-01-052506';
 
 // disable vanilla JS
 window.onload = function() {};
@@ -1277,7 +1277,7 @@ function boot() {
   if(!isSmartphone()) // TODO remove completely?
     window.debug.console.overwriteNativeIfRequired();
 
-  console.log('loading done, booting. Built: 2016-08-31-055337');
+  console.log('loading done, booting. Built: 2016-09-01-052506');
   if(window.deviceID) console.log('Your device ID: ' + window.deviceID);
   window.runOnSmartphonesBeforeBoot();
 
@@ -6559,6 +6559,10 @@ L.Path = (L.Path.SVG && !window.L_PREFER_CANVAS) || !L.Browser.canvas ? L.Path :
         	}
         	
 		this._ctx.beginPath();
+        //iF:Add round for canvas - START
+        this._ctx.lineCap  = 'round';
+        this._ctx.lineJoin = 'round';
+        //iF:Add round for canvas - END
 
 		for (i = 0, len = this._parts.length; i < len; i++) {
 			for (j = 0, len2 = this._parts[i].length; j < len2; j++) {
@@ -18002,7 +18006,7 @@ L.Draggable.prototype._onDown = function(e) {
 
 // inject code into site context
 var script = document.createElement('script');
-var info = { buildName: 'mobile', dateTimeVersion: '20160831.55336' };
+var info = { buildName: 'mobile', dateTimeVersion: '20160901.52506' };
 if (this.GM_info && this.GM_info.script) info.script = { version: GM_info.script.version, name: GM_info.script.name, description: GM_info.script.description };
 script.appendChild(document.createTextNode('('+ wrapper +')('+JSON.stringify(info)+');'));
 (document.body || document.head || document.documentElement).appendChild(script);

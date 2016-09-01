@@ -2,7 +2,7 @@
 // @id             iitc-plugin-highlight-portals-by-ap@vita10gy
 // @name           IITC plugin: highlight portals by ap
 // @category  Deleted
-// @version        0.1.1.20160831.52722
+// @version        0.1.1.20160901.52323
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/portal-highlighter-portal-ap.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/portal-highlighter-portal-ap.user.js

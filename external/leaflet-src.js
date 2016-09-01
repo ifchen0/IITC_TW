@@ -5136,6 +5136,10 @@ L.Path = (L.Path.SVG && !window.L_PREFER_CANVAS) || !L.Browser.canvas ? L.Path :
         	}
         	
 		this._ctx.beginPath();
+        //iF:Add round for canvas - START
+        this._ctx.lineCap  = 'round';
+        this._ctx.lineJoin = 'round';
+        //iF:Add round for canvas - END
 
 		for (i = 0, len = this._parts.length; i < len; i++) {
 			for (j = 0, len2 = this._parts[i].length; j < len2; j++) {

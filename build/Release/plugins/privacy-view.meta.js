@@ -2,9 +2,9 @@
 // @id             iitc-plugin-privacy-view@Scrool
 // @name           IITC plugin: Privacy view on Intel
 // @category       雜項
-// @version        1.0.1.20160831.52722
+// @version        1.0.1.20160901.52323
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
-// @description    [Release-2016-08-31-052722] 在IITC畫面上隱藏玩家資訊.
+// @description    [Release-2016-09-01-052323] 在IITC畫面上隱藏玩家資訊.
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/privacy-view.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/privacy-view.user.js
 // @include        https://www.ingress.com/intel*

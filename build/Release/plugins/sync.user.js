@@ -2,11 +2,11 @@
 // @id             iitc-plugin-sync@xelio
 // @name           IITC plugin: Sync
 // @category       雜項
-// @version        0.2.3.20160831.55331
+// @version        0.2.3.20160901.52323
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/sync.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/sync.user.js
-// @description    [Release-2016-08-31-055331] 通過Google realtime API 在客戶端之間同步數據. 只有從同步特定的外掛資料 (目前有: Keys, Bookmarks). 用"同步"鏈接來登錄帳號.
+// @description    [Release-2016-09-01-052323] 通過Google realtime API 在客戶端之間同步數據. 只有從同步特定的外掛資料 (目前有: Keys, Bookmarks). 用"同步"鏈接來登錄帳號.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'Release';
-plugin_info.dateTimeVersion = '20160831.55331';
+plugin_info.dateTimeVersion = '20160901.52323';
 plugin_info.pluginId = 'sync';
 //END PLUGIN AUTHORS NOTE
 
