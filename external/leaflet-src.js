@@ -7002,7 +7002,8 @@ L.Map.addInitHook('addHandler', 'dragging', L.Map.Drag);
 /*
  * L.Handler.DoubleClickZoom is used to handle double-click zoom on the map, enabled by default.
  */
-
+//iF:Disable for I hate it keep zoom in cannot zoom out.
+/*
 L.Map.mergeOptions({
 	doubleClickZoom: true
 });
@@ -7029,7 +7030,7 @@ L.Map.DoubleClickZoom = L.Handler.extend({
 });
 
 L.Map.addInitHook('addHandler', 'doubleClickZoom', L.Map.DoubleClickZoom);
-
+*/
 
 /*
  * L.Handler.ScrollWheelZoom is used by L.Map to enable mouse scroll wheel zoom on the map.
