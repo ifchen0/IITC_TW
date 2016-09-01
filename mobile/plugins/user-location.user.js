@@ -34,8 +34,8 @@ window.plugin.userLocation.setup = function() {
   var cssClass = PLAYER.team === 'RESISTANCE' ? 'res' : 'enl';
 
   var icon = L.divIcon({
-    iconSize: L.point(32, 32),
-    iconAnchor: L.point(16, 16),
+    iconSize: L.point(16, 16),
+    iconAnchor: L.point(8, 8),
     className: 'user-location',
     html: '<div class="container ' + cssClass + ' circle"><div class="outer"></div><div class="inner"></div></div>'
   });

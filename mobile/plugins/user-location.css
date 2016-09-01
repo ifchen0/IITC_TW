@@ -3,8 +3,8 @@
 }
 
 .user-location .container {
-  height: 32px;
-  width: 32px;
+  height: 16px;
+  width: 16px;
           transform-origin: center;
   -webkit-transform-origin: center;
 }
@@ -36,9 +36,9 @@
 
 .user-location .circle .inner,
 .user-location .circle .outer {
-  width: 0px;
-  height: 0px;
-  border-radius: 0px;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
 }
 
 .user-location .circle .inner {
@@ -48,11 +48,11 @@
 
 .user-location .arrow .inner,
 .user-location .arrow .outer {
-  left: 4px;
+  left: 2px;
   width: 0px;
   height: 0px;
   border-style: solid;
-  border-width: 0px 12px 32px;
+  border-width: 0px 6px 16px;
   border-left-color: transparent;
   border-right-color: transparent;
   background: transparent;
