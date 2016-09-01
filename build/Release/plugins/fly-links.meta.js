@@ -2,10 +2,10 @@
 // @id             fly-links@fly
 // @name           IITC plugin: Fly Links
 // @category      圖層
-// @version        0.2.1.20160901.52323
+// @version        0.2.1.20160901.123113
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/fly-links.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/fly-links.user.js
-// @description    [Release-2016-09-01-052323] Calculate how to link the portals to create the largest tidy set of nested fields. Enable from the layer chooser.
+// @description    [Release-2016-09-01-123113] Calculate how to link the portals to create the largest tidy set of nested fields. Enable from the layer chooser.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*

@@ -2,11 +2,11 @@
 // @id             iitc-plugin-guess-player-levels@breunigs
 // @name           IITC plugin: guess player level
 // @category       資訊
-// @version        0.5.7.20160901.52323
+// @version        0.5.7.20160901.123113
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/guess-player-levels.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/guess-player-levels.user.js
-// @description    [Release-2016-09-01-052323] 嘗試從目前畫面中的數據推測玩家的等級.
+// @description    [Release-2016-09-01-123113] 嘗試從目前畫面中的數據推測玩家的等級.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'Release';
-plugin_info.dateTimeVersion = '20160901.52323';
+plugin_info.dateTimeVersion = '20160901.123113';
 plugin_info.pluginId = 'guess-player-levels';
 //END PLUGIN AUTHORS NOTE
 
