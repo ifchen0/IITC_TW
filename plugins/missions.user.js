@@ -107,7 +107,7 @@ window.plugin.missions = {
 		// After select.
 		setTimeout(function() {
 			// #resodetails
-			$('.linkdetails').append('<aside><a tabindex="0" onclick="plugin.missions.openPortalMissions();" >Missions</a></aside>');
+			$('.linkdetails').append('<aside><a tabindex="0" onclick="plugin.missions.openPortalMissions();" >任務</a></aside>');
 		}, 0);
 	},
 
