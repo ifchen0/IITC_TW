@@ -23,24 +23,24 @@
     <string name="pref_about_text">
         <![CDATA[
         <h1>Ingress Intel Total Conversion Mobile</h1>
-        <b>Build Version: %1$s</b><br>
-        <b>IITC Version: %2$s</b><br>
+        <b>Build 版本: %1$s</b><br>
+        <b>IITC 版本: %2$s</b><br>
         <br>
-        <b>by <a href="https://github.com/leCradle">cradle</a>, <a href="https://github.com/fkloft">fkloft</a> and
-        contributors</b><br><br>
-        <b>Icon by <a href="http://be.net/giuseppelucido">Giuseppe Lucido</a></b><br><br>
-        IITC Mobile is an optimized mobile browser for the
-        Ingress Intel Total Conversion (IITC) userscript by <a href="https://github.com/breunigs"><b>breunigs</b></a>.
-        After Niantic asked the main developer to shut down his github project, development
-        is continued on a fork of <a href="https://github.com/jonatkins"><b>jonatkins</b></a>.
-        <h3>Community:</h3>
-        • Visit the <a href="http://iitc.me/">IITC website</a> for new releases and the desktop version.<br>
-        • Follow the <a href="https://plus.google.com/105383756361375410867">IITC Google+ page</a>
-        for release announcements.<br>
-        • Join the <a href="https://plus.google.com/communities/105647403088015055797">IITC Google+ community</a>
-        - a place to ask for help and discuss with other users.
-        <h3>Developers:</h3>
-        <a href="https://github.com/iitc-project/ingress-intel-total-conversion">IITC on Github</a>
+        <b>由 <a href="https://github.com/leCradle">cradle</a>, <a href="https://github.com/fkloft">fkloft</a> 與
+        其他貢獻者共同製作</b><br><br>
+        <b>圖示由 <a href="http://be.net/giuseppelucido">Giuseppe Lucido</a> 製作</b><br><br>
+        IITC Mobile 是一個專為 Ingress Intel Total Conversion (IITC) userscript 優化的瀏覽器
+        , 由 <a href="https://github.com/breunigs"><b>breunigs</b></a> 製作.
+        在 Niantic 要求主要開發者關閉他在 github 的專案後, 就改由 <a href="https://github.com/jonatkins"><b>jonatkins</b></a> 的分支繼續開發.
+        <h3>社群:</h3>
+        • 前往 <a href="http://iitc.me/">IITC website</a> 下載最新的釋出版和桌面板.<br>
+        • 訂閱 <a href="https://plus.google.com/105383756361375410867">IITC Google+ 網頁</a>
+        取得公告資訊.<br>
+        • 加入 <a href="https://plus.google.com/communities/105647403088015055797">IITC Google+ 社群</a>
+        與其他使用者互相討論或取得協助.
+        <h3>開發者:</h3>
+        <a href="https://github.com/iitc-project/ingress-intel-total-conversion">IITC on Github</a><br>
+        中文化 <a href="https://github.com/ifchen0/IITC_TW">IITC_TW on Github</a> 由 <a href="http://ifchen0.blogspot.tw/2015/08/iitc-chrome.html">iF</a> 製作.
         <h3>IITC Licence:</h3>
         Copyright © 2013 Stefan Breunig, Jon Atkins, Philipp Schäfer and others<br><br>
 
