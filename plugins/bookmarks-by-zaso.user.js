@@ -234,6 +234,11 @@
       // Create a folder
       elementTemp = '<li class="bookmarkFolder'+active+'" id="'+idFolders+'">'+folderLabel+'<ul>';
 
+//iF:Google Maps route #851 - START
+	  //Open array of portal locations
+	  var alllats = [];
+//iF:Google Maps route #851 - END
+
       // For each bookmark
       var fold = folders['bkmrk'];
       for(var idBkmrk in fold) {
@@ -259,10 +264,27 @@
           var guid = bkmrk['guid'];
           var btn_link = '<a class="bookmarksLink" onclick="$(\'a.bookmarksLink.selected\').removeClass(\'selected\');'+returnToMap+'window.zoomToAndShowPortal(\''+guid+'\', ['+latlng+']);return false;">'+label+'</a>';
         }
+
+//iF:Google Maps route #851 - START
+		// Add each portal to array
+		alllats.push(latlng);
+//iF:Google Maps route #851 - END
+		
         // Create the bookmark
         elementTemp += '<li class="bkmrk" id="'+idBkmrk+'">'+btn_remove+btn_move+btn_link+'</li>';
       }
-      elementTemp += '</li></ul>';
+//iF:Google Maps route #851 - START
+      //elementTemp += '</li></ul>';
+
+      // Print link with portal locations 
+      text = "https://www.google.com/maps/dir/Current+Location/";
+      var i;
+      for (i = 0; i < alllats.length; i++) {
+          text += alllats[i] + "/";
+      }
+      
+      elementTemp += '</li><a target="_blank" href="'+text+'">規劃路線</a></ul>';
+//iF:Google Maps route #851 - END
 
       // Add folder 'Others' in last position
       if(idFolders != window.plugin.bookmarks.KEY_OTHER_BKMRK) { element += elementTemp; }

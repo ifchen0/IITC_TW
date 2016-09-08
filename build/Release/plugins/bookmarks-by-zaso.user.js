@@ -2,11 +2,11 @@
 // @id             iitc-plugin-bookmarks@ZasoGD
 // @name           IITC plugin: Bookmarks for maps and portals
 // @category       控制
-// @version        0.2.12.20160908.62036
+// @version        0.2.12.20160908.110911
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/bookmarks-by-zaso.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/bookmarks-by-zaso.user.js
-// @description    [Release-2016-09-08-062036] 您最喜歡的地圖和Portalh保存為書籤, 可和Sync一起使用.
+// @description    [Release-2016-09-08-110911] 您最喜歡的地圖和Portalh保存為書籤, 可和Sync一起使用.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'Release';
-plugin_info.dateTimeVersion = '20160908.62036';
+plugin_info.dateTimeVersion = '20160908.110911';
 plugin_info.pluginId = 'bookmarks-by-zaso';
 //END PLUGIN AUTHORS NOTE
 
@@ -246,6 +246,11 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
       // Create a folder
       elementTemp = '<li class="bookmarkFolder'+active+'" id="'+idFolders+'">'+folderLabel+'<ul>';
 
+//iF:Google Maps route #851 - START
+	  //Open array of portal locations
+	  var alllats = [];
+//iF:Google Maps route #851 - END
+
       // For each bookmark
       var fold = folders['bkmrk'];
       for(var idBkmrk in fold) {
@@ -271,10 +276,27 @@ plugin_info.pluginId = 'bookmarks-by-zaso';
           var guid = bkmrk['guid'];
           var btn_link = '<a class="bookmarksLink" onclick="$(\'a.bookmarksLink.selected\').removeClass(\'selected\');'+returnToMap+'window.zoomToAndShowPortal(\''+guid+'\', ['+latlng+']);return false;">'+label+'</a>';
         }
+
+//iF:Google Maps route #851 - START
+		// Add each portal to array
+		alllats.push(latlng);
+//iF:Google Maps route #851 - END
+		
         // Create the bookmark
         elementTemp += '<li class="bkmrk" id="'+idBkmrk+'">'+btn_remove+btn_move+btn_link+'</li>';
       }
-      elementTemp += '</li></ul>';
+//iF:Google Maps route #851 - START
+      //elementTemp += '</li></ul>';
+
+      // Print link with portal locations 
+      text = "https://www.google.com/maps/dir/Current+Location/";
+      var i;
+      for (i = 0; i < alllats.length; i++) {
+          text += alllats[i] + "/";
+      }
+      
+      elementTemp += '</li><a target="_blank" href="'+text+'">規劃路線</a></ul>';
+//iF:Google Maps route #851 - END
 
       // Add folder 'Others' in last position
       if(idFolders != window.plugin.bookmarks.KEY_OTHER_BKMRK) { element += elementTemp; }
