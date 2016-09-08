@@ -1111,7 +1111,7 @@
     var star = L.marker(latlng, {
       title: lbl,
       icon: L.icon({
-        iconUrl: '@@INCLUDEIMAGE:images/pin-yellow.png@@',
+        iconUrl: '@@INCLUDEIMAGE:images/marker-Tick.png@@',
         iconAnchor: [16,28],
         iconSize: [32,32]
       })
