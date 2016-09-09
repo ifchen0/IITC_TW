@@ -55,15 +55,18 @@ window.getMarkerStyleOptions = function(details) {
   var lvlRadius = LEVEL_TO_RADIUS[level] * scale;
 
   var dashArray = null;
+//iF:Remove circle stroke for Ownerless portal, maybe it help performance up? - START
+  var stroke = true;
   // thinner and dashed outline for placeholder portals
   if (details.team != TEAM_NONE && level==0) {
-    lvlWeight = 1;
-    dashArray = [1,2];
+//    lvlWeight = 1;
+//    dashArray = [1,2];
+    stroke = null;
   }
 
   var options = {
     radius: lvlRadius,
-    stroke: true,
+    stroke: stroke,
     color: COLORS[details.team],
     weight: lvlWeight,
     opacity: 1,
@@ -72,7 +75,7 @@ window.getMarkerStyleOptions = function(details) {
     fillOpacity: 0.5,
     dashArray: dashArray
   };
-
+//iF:Remove circle for Ownerless portal, maybe it help performance up? - END
   return options;
 }
 
