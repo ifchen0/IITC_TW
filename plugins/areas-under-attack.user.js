@@ -101,6 +101,7 @@ window.plugin.areasUnderAttack.setupCSS = function() {
     + '100% {fill: #0088FF}'
     + '}'
     + '.plugin-areas-under-attack-green{'
+    + 'transform: translateZ(0);'   //iF: Reduce CPU usage
     + '-webkit-animation-name: plugin-areas-under-attack-blink-green;'
     + '-webkit-animation-iteration-count: infinite;'
     + '-webkit-animation-timing-function: ease;'
@@ -115,6 +116,7 @@ window.plugin.areasUnderAttack.setupCSS = function() {
     + 'animation-duration: 1s;'
     + '}'
     + '.plugin-areas-under-attack-blue{'
+    + 'transform: translateZ(0);'   //iF: Reduce CPU usage
     + '-webkit-animation-name: plugin-areas-under-attack-blink-blue;'
     + '-webkit-animation-iteration-count: infinite;'
     + '-webkit-animation-timing-function: ease;'
@@ -129,6 +131,7 @@ window.plugin.areasUnderAttack.setupCSS = function() {
     + 'animation-duration: 1s;'
     + '}'
     + '.plugin-areas-under-attack-field-green{'
+    + 'transform: translateZ(0);'   //iF: Reduce CPU usage
     + '-webkit-animation-name: plugin-areas-under-attack-blink-field-green;'
     + '-webkit-animation-iteration-count: infinite;'
     + '-webkit-animation-timing-function: ease;'
@@ -143,6 +146,7 @@ window.plugin.areasUnderAttack.setupCSS = function() {
     + 'animation-duration: 1s;'
     + '}'
     + '.plugin-areas-under-attack-field-blue{'
+    + 'transform: translateZ(0);'   //iF: Reduce CPU usage
     + '-webkit-animation-name: plugin-areas-under-attack-blink-field-blue;'
     + '-webkit-animation-iteration-count: infinite;'
     + '-webkit-animation-timing-function: ease;'
