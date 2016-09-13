@@ -102,7 +102,7 @@ window.plugin.showLinkedPortal.portalDetail = function (data) {
   if(length > 16) {
     $('<div>')
       .addClass('showLinkedPortalLink showLinkedPortalOverflow')
-      .text(length-16 + ' more')
+      .text('還有' + (length-16) + '個')
       .appendTo('#showLinkedPortalContainer');
   }
 
