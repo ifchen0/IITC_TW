@@ -2,7 +2,7 @@
 // @id             iitc-plugin-highlight-imminent-decay@cathesaurus
 // @name           IITC plugin: highlight portals with resonators about to decay
 // @category  Deleted
-// @version        0.1.0.20160901.123113
+// @version        0.1.0.20160923.55547
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/portal-highlighter-imminent-decay.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/portal-highlighter-imminent-decay.user.js

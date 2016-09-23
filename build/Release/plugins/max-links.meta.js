@@ -2,10 +2,10 @@
 // @id             max-links@boombuler
 // @name           IITC plugin: Max Links
 // @category      圖層
-// @version        0.4.3.20160901.123113
+// @version        0.4.3.20160923.55547
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/max-links.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/max-links.user.js
-// @description    [Release-2016-09-01-123113] Calculate how to link the portals to create a reasonably tidy set of links/fields. Enable from the layer chooser. (Max Links is a poor name, but remains for historical reasons.)
+// @description    [Release-2016-09-23-055547] Calculate how to link the portals to create a reasonably tidy set of links/fields. Enable from the layer chooser. (Max Links is a poor name, but remains for historical reasons.)
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*

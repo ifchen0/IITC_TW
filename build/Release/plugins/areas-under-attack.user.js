@@ -2,11 +2,11 @@
 // @id             iitc-plugin-areas-under-attack@bryndavies
 // @name           IITC plugin: highlight areas recently under attack
 // @category       調整
-// @version        0.1.1.20160907.12856
+// @version        0.1.1.20160923.55547
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/areas-under-attack.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/areas-under-attack.user.js
-// @description    [Release-2016-09-07-012856] Highlight areas under attack in last 15 mins by flashing portals, links and fields red. Uses chat data to determine attacked portals.
+// @description    [Release-2016-09-23-055547] Highlight areas under attack in last 15 mins by flashing portals, links and fields red. Uses chat data to determine attacked portals.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'Release';
-plugin_info.dateTimeVersion = '20160907.12856';
+plugin_info.dateTimeVersion = '20160923.55547';
 plugin_info.pluginId = 'areas-under-attack';
 //END PLUGIN AUTHORS NOTE
 
@@ -53,120 +53,102 @@ window.plugin.areasUnderAttack.style = 'css3';
 window.plugin.areasUnderAttack.setupCSS = function() {
   $("<style>").prop("type", "text/css").html(''
     + '@-webkit-keyframes plugin-areas-under-attack-blink-green {'
-    + '0% {stroke: #03DC03}'
-    + '50% {stroke: #FF0000}'
+    + '0%   {stroke: #03DC03}'
+    + '50%  {stroke: #FF0000}'
     + '100% {stroke: #03DC03}'
     + '}'
     + '@-webkit-keyframes plugin-areas-under-attack-blink-blue {'
-    + '0% {stroke: #0088FF}'
-    + '50% {stroke: #FF0000}'
+    + '0%   {stroke: #0088FF}'
+    + '50%  {stroke: #FF0000}'
     + '100% {stroke: #0088FF}'
     + '}'
+	
     + '@-moz-keyframes plugin-areas-under-attack-blink-green {'
-    + '0% {stroke: #03DC03}'
-    + '50% {stroke: #FF0000}'
+    + '0%   {stroke: #03DC03}'
+    + '50%  {stroke: #FF0000}'
     + '100% {stroke: #03DC03}'
     + '}'
     + '@-moz-keyframes plugin-areas-under-attack-blink-blue {'
-    + '0% {stroke: #0088FF}'
-    + '50% {stroke: #FF0000}'
+    + '0%   {stroke: #0088FF}'
+    + '50%  {stroke: #FF0000}'
     + '100% {stroke: #0088FF}'
     + '}'
+	
     + '@keyframes plugin-areas-under-attack-blink-green {'
-    + '0% {stroke: #03DC03}'
-    + '50% {stroke: #FF0000}'
+    + '0%   {stroke: #03DC03}'
+    + '50%  {stroke: #FF0000}'
     + '100% {stroke: #03DC03}'
     + '}'
     + '@keyframes plugin-areas-under-attack-blink-blue {'
-    + '0% {stroke: #0088FF}'
-    + '50% {stroke: #FF0000}'
+    + '0%   {stroke: #0088FF}'
+    + '50%  {stroke: #FF0000}'
     + '100% {stroke: #0088FF}'
     + '}'
+	
     + '@-webkit-keyframes plugin-areas-under-attack-blink-field-green {'
-    + '0% {fill: #03DC03}'
-    + '50% {fill: #FF0000}'
+    + '0%   {fill: #03DC03}'
+    + '50%  {fill: #FF0000}'
     + '100% {fill: #03DC03}'
     + '}'
     + '@-webkit-keyframes plugin-areas-under-attack-blink-field-blue {'
-    + '0% {fill: #0088FF}'
-    + '50% {fill: #FF0000}'
+    + '0%   {fill: #0088FF}'
+    + '50%  {fill: #FF0000}'
     + '100% {fill: #0088FF}'
     + '}'
+	
     + '@-moz-keyframes plugin-areas-under-attack-blink-field-green {'
-    + '0% {fill: #03DC03}'
-    + '50% {fill: #FF0000}'
+    + '0%   {fill: #03DC03}'
+    + '50%  {fill: #FF0000}'
     + '100% {fill: #03DC03}'
     + '}'
     + '@-moz-keyframes plugin-areas-under-attack-blink-field-blue {'
-    + '0% {fill: #0088FF}'
-    + '50% {fill: #FF0000}'
+    + '0%   {fill: #0088FF}'
+    + '50%  {fill: #FF0000}'
     + '100% {fill: #0088FF}'
     + '}'
+	
     + '@keyframes plugin-areas-under-attack-blink-field-green {'
-    + '0% {fill: #03DC03}'
-    + '50% {fill: #FF0000}'
+    + '0%   {fill: #03DC03}'
+    + '50%  {fill: #FF0000}'
     + '100% {fill: #03DC03}'
     + '}'
     + '@keyframes plugin-areas-under-attack-blink-field-blue {'
-    + '0% {fill: #0088FF}'
-    + '50% {fill: #FF0000}'
+    + '0%   {fill: #0088FF}'
+    + '50%  {fill: #FF0000}'
     + '100% {fill: #0088FF}'
     + '}'
+	
     + '.plugin-areas-under-attack-green{'
-    + '-webkit-animation-name: plugin-areas-under-attack-blink-green;'
-    + '-webkit-animation-iteration-count: infinite;'
-    + '-webkit-animation-timing-function: ease;'
-    + '-webkit-animation-duration: 1s;'
-    + '-moz-animation-name: plugin-areas-under-attack-blink-green;'
-    + '-moz-animation-iteration-count: infinite;'
-    + '-moz-animation-timing-function: ease;'
-    + '-moz-animation-duration: 1s;'
-    + 'animation-name: plugin-areas-under-attack-blink-green;'
-    + 'animation-iteration-count: infinite;'
-    + 'animation-timing-function: ease;'
-    + 'animation-duration: 1s;'
+    + '-webkit-transform: translateZ(0);'   //iF: Reduce CPU usage
+    + '-webkit-animation: plugin-areas-under-attack-blink-green 1s infinite;'
+    + '   -moz-transform: translateZ(0);'   //iF: Reduce CPU usage
+    + '   -moz-animation: plugin-areas-under-attack-blink-green 1s infinite;'
+    + '        transform: translateZ(0);'   //iF: Reduce CPU usage
+    + '        animation: plugin-areas-under-attack-blink-green 1s infinite;'
     + '}'
     + '.plugin-areas-under-attack-blue{'
-    + '-webkit-animation-name: plugin-areas-under-attack-blink-blue;'
-    + '-webkit-animation-iteration-count: infinite;'
-    + '-webkit-animation-timing-function: ease;'
-    + '-webkit-animation-duration: 1s;'
-    + '-moz-animation-name: plugin-areas-under-attack-blink-blue;'
-    + '-moz-animation-iteration-count: infinite;'
-    + '-moz-animation-timing-function: ease;'
-    + '-moz-animation-duration: 1s;'
-    + 'animation-name: plugin-areas-under-attack-blink-blue;'
-    + 'animation-iteration-count: infinite;'
-    + 'animation-timing-function: ease;'
-    + 'animation-duration: 1s;'
+    + '-webkit-transform: translateZ(0);'   //iF: Reduce CPU usage
+    + '-webkit-animation: plugin-areas-under-attack-blink-blue 1s infinite;'
+    + '   -moz-transform: translateZ(0);'   //iF: Reduce CPU usage
+    + '   -moz-animation: plugin-areas-under-attack-blink-blue 1s infinite;'
+    + '        transform: translateZ(0);'   //iF: Reduce CPU usage
+    + '        animation: plugin-areas-under-attack-blink-blue 1s infinite;'
     + '}'
     + '.plugin-areas-under-attack-field-green{'
-    + '-webkit-animation-name: plugin-areas-under-attack-blink-field-green;'
-    + '-webkit-animation-iteration-count: infinite;'
-    + '-webkit-animation-timing-function: ease;'
-    + '-webkit-animation-duration: 1s;'
-    + '-moz-animation-name: plugin-areas-under-attack-blink-field-green;'
-    + '-moz-animation-iteration-count: infinite;'
-    + '-moz-animation-timing-function: ease;'
-    + '-moz-animation-duration: 1s;'
-    + 'animation-name: plugin-areas-under-attack-blink-field-green;'
-    + 'animation-iteration-count: infinite;'
-    + 'animation-timing-function: ease;'
-    + 'animation-duration: 1s;'
+    + '-webkit-transform: translateZ(0);'   //iF: Reduce CPU usage
+    + '-webkit-animation: plugin-areas-under-attack-blink-field-green 1s infinite;'
+    + '   -moz-transform: translateZ(0);'   //iF: Reduce CPU usage
+    + '   -moz-animation: plugin-areas-under-attack-blink-field-green 1s infinite;'
+    + '        transform: translateZ(0);'   //iF: Reduce CPU usage
+    + '        animation: plugin-areas-under-attack-blink-field-green 1s infinite;'
     + '}'
     + '.plugin-areas-under-attack-field-blue{'
-    + '-webkit-animation-name: plugin-areas-under-attack-blink-field-blue;'
-    + '-webkit-animation-iteration-count: infinite;'
-    + '-webkit-animation-timing-function: ease;'
-    + '-webkit-animation-duration: 1s;'
-    + '-moz-animation-name: plugin-areas-under-attack-blink-field-blue;'
-    + '-moz-animation-iteration-count: infinite;'
-    + '-moz-animation-timing-function: ease;'
-    + '-moz-animation-duration: 1s;'
-    + 'animation-name: plugin-areas-under-attack-blink-field-blue;'
-    + 'animation-iteration-count: infinite;'
-    + 'animation-timing-function: ease;'
-    + 'animation-duration: 1s;'
+    + '-webkit-transform: translateZ(0);'   //iF: Reduce CPU usage
+    + '-webkit-animation: plugin-areas-under-attack-blink-field-blue 1s infinite;'
+    + '   -moz-transform: translateZ(0);'   //iF: Reduce CPU usage
+    + '  -moz-animation: plugin-areas-under-attack-blink-field-blue 1s infinite;'
+    + '        transform: translateZ(0);'   //iF: Reduce CPU usage
+    + '        animation: plugin-areas-under-attack-blink-field-blue 1s infinite;'
     + '}'
     + '.plugin-areas-under-attack-field-light{'
     + 'fill: #FF0000;'
@@ -193,7 +175,7 @@ window.plugin.areasUnderAttack.showConfigDialog = function() {
   if(window.plugin.areasUnderAttack.style === 'static') {
     html += 'checked="checked" ';
   }
-  html += '/><label>靜態 (套用紅色，但不閃耀)</label><br/>'
+  html += '/><label>靜態 (套用紅色，但不閃耀)</label><br/>';
   html += '<input type="radio" name="plugin-areasunderattack-style" value="css3" onclick="window.plugin.areasUnderAttack.setStyle(\'css3\')" ';
   if(window.plugin.areasUnderAttack.style === 'css3') {
     html += 'checked="checked" ';
