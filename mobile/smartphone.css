@@ -1,5 +1,6 @@
 body {
-  color: #fff;
+  color: #000;          /*iF:Set default color as black*/
+  background: #000000;  /*iF:Set black for IITCm portal detial background*/
 }
 
 #updatestatus {

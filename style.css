@@ -16,7 +16,7 @@ html, body, #map {
   height: 100%;
   width: 100%;
   overflow: hidden; /* workaround for #373 */
-  background: #000000;
+  background: #dddddd;
 }
 
 
@@ -39,7 +39,7 @@ body {
 }
 
 #sidebar {
-  background-color: rgba(8, 48, 78, 0.9);
+  background-color: rgba(8, 48, 78, 0.7);
   border-left: 1px solid #00FFFF;
   color: #888;
   position: relative;
@@ -60,7 +60,7 @@ body {
   position: absolute;
   top: 108px;
   z-index: 3001;
-  background-color: rgba(8, 48, 78, 0.9);
+  background-color: rgba(8, 48, 78, 0.7);
   color: #00FFFF;
   border: 1px solid #00FFFF;
   border-right: none;
@@ -165,7 +165,7 @@ a:hover {
 
 #chatcontrols {
   color: #00FFFF;
-  background: rgba(8, 48, 78, 0.9);
+  background: rgba(8, 48, 78, 0.7);
   position: absolute;
   left: 0;
   z-index: 3000;
@@ -253,7 +253,7 @@ a:hover {
   bottom: 23px;
   left: 0;
   z-index: 3000;
-  background: rgba(8, 48, 78, 0.9);
+  background: rgba(8, 48, 78, 0.7);
   line-height: 15px;
   color: #eee;
   border: 1px solid #00FFFF;
@@ -355,7 +355,7 @@ summary {
   bottom: 0;
   left: 0;
   padding: 0 2px;
-  background: rgba(8, 48, 78, 0.9);
+  background: rgba(8, 48, 78, 0.7);
   width: 708px;
   height: 23px;
   border: 1px solid #00FFFF;
@@ -816,7 +816,7 @@ h3 {
 
 /* update status */
 #updatestatus {
-  background-color: rgba(8, 48, 78, 0.9);
+  background-color: rgba(8, 48, 78, 0.7);
   border-bottom: 0;
   border-top: 1px solid #00FFFF;
   border-left: 1px solid #00FFFF;
@@ -852,7 +852,7 @@ h3 {
 .ui-tooltip, .ui-dialog {
   position: absolute;
   z-index: 9999;
-  background-color: rgba(8, 48, 78, 0.9);
+  background-color: rgba(8, 48, 78, 0.7);
   border: 1px solid #00FFFF;
   color: #eee;
   font-size: 13px;
@@ -1009,7 +1009,7 @@ h3 {
   min-width: 40px;
   color: #00FFFF;
   border: 1px solid #00FFFF;
-  background-color: rgba(8, 48, 78, 0.9);
+  background-color: rgba(8, 48, 78, 0.7);
 }
 
 .ui-dialog-buttonset button:hover {
@@ -1133,7 +1133,7 @@ td + td {
 
 /** artifact dialog *****************/
 table.artifact tr > * {
-  background: rgba(8, 48, 78, 0.9);
+  background: rgba(8, 48, 78, 0.7);
 }
 
 table.artifact td.info {
@@ -1154,7 +1154,7 @@ table.artifact .portal {
   border-radius: 0px;
   -webkit-border-radius: 0px;
   border: 1px solid #00FFFF;
-  background: rgba(8, 48, 78, 0.9);
+  background: rgba(8, 48, 78, 0.7);
   pointer-events: auto;
 }
 
