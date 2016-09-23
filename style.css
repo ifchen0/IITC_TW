@@ -16,7 +16,7 @@ html, body, #map {
   height: 100%;
   width: 100%;
   overflow: hidden; /* workaround for #373 */
-  background: #888888;
+  background: #000000;
 }
 
 
