@@ -207,22 +207,23 @@ body {
 
 
 /* add extra padding, and a button effect, to sidebar link areas */
+/* iF: remove all 3D button... it ugly like win98 */
 .linkdetails aside  {
   padding: 5px;
   margin-top: 3px;
   margin-bottom: 3px;
-  border: 2px outset #20A8B1;
+  border: 2px solid #20A8B1;
 }
 
 #toolbox > a {
   padding: 5px;
   margin-top: 3px;
   margin-bottom: 3px;
-  border: 2px outset #20A8B1;
+  border: 2px solid #20A8B1;
 }
 
 #portaldetails .close {
   padding: 4px;
-  border: 1px outset #20A8B1;
+  border: 1px solid #20A8B1;
   margin-top: 2px;
 }
