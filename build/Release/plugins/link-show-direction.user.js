@@ -2,19 +2,19 @@
 // @id             iitc-plugin-link-show-direction
 // @name           IITC plugin: Show the direction of links on the map
 // @category       調整
-// @version        0.2.1.20160923.55547
+// @version        0.2.1.20161006.121049
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/link-show-direction.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/link-show-direction.user.js
-// @description    [Release-2016-09-23-055547] Show the direction of links on the map by adding short dashes to the line at the origin portal.
-// @include        https://www.ingress.com/intel*
-// @include        http://www.ingress.com/intel*
-// @match          https://www.ingress.com/intel*
-// @match          http://www.ingress.com/intel*
-// @include        https://www.ingress.com/mission/*
-// @include        http://www.ingress.com/mission/*
-// @match          https://www.ingress.com/mission/*
-// @match          http://www.ingress.com/mission/*
+// @description    [Release-2016-10-06-121049] Show the direction of links on the map by adding short dashes to the line at the origin portal.
+// @include        https://*.ingress.com/intel*
+// @include        http://*.ingress.com/intel*
+// @match          https://*.ingress.com/intel*
+// @match          http://*.ingress.com/intel*
+// @include        https://*.ingress.com/mission/*
+// @include        http://*.ingress.com/mission/*
+// @match          https://*.ingress.com/mission/*
+// @match          http://*.ingress.com/mission/*
 // @grant          none
 // ==/UserScript==
 
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'Release';
-plugin_info.dateTimeVersion = '20160923.55547';
+plugin_info.dateTimeVersion = '20161006.121049';
 plugin_info.pluginId = 'link-show-direction';
 //END PLUGIN AUTHORS NOTE
 

@@ -1,18 +1,18 @@
 // ==UserScript==
 // @id             ingress-intel-total-conversion@jonatkins
 // @name           IITC: Ingress intel map total conversion
-// @version        0.25.2.20160923.73813
+// @version        0.26.0.20161006.121049
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/total-conversion-build.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/total-conversion-build.user.js
-// @description    [Release-2016-09-23-073813] Total conversion for the ingress intel map.
-// @include        https://www.ingress.com/intel*
-// @include        http://www.ingress.com/intel*
-// @match          https://www.ingress.com/intel*
-// @match          http://www.ingress.com/intel*
-// @include        https://www.ingress.com/mission/*
-// @include        http://www.ingress.com/mission/*
-// @match          https://www.ingress.com/mission/*
-// @match          http://www.ingress.com/mission/*
+// @description    [Release-2016-10-06-121049] Total conversion for the ingress intel map.
+// @include        https://*.ingress.com/intel*
+// @include        http://*.ingress.com/intel*
+// @match          https://*.ingress.com/intel*
+// @match          http://*.ingress.com/intel*
+// @include        https://*.ingress.com/mission/*
+// @include        http://*.ingress.com/mission/*
+// @match          https://*.ingress.com/mission/*
+// @match          http://*.ingress.com/mission/*
 // @grant          none
 // ==/UserScript==
