@@ -54,7 +54,7 @@ body {
 
 #sidebartoggle {
   display: block;
-  padding: 20px 5px;
+  padding: 8px 5px;  /* iF: Make it smaller. */
   margin-top: -31px; /* -(toggle height / 2) */
   line-height: 10px;
   position: absolute;
@@ -64,7 +64,7 @@ body {
   color: #00FFFF;
   border: 1px solid #00FFFF;
   border-right: none;
-  border-radius: 5px 0 0 5px;
+  /*border-radius: 5px 0 0 5px;*/ /* iF: Square looks better. */
   text-decoration: none;
   right: -50px; /* overwritten later by the script with SIDEBAR_WIDTH */
 }
