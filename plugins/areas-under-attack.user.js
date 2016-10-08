@@ -26,7 +26,7 @@
 window.plugin.areasUnderAttack = function() {
 };
 
-window.plugin.areasUnderAttack.THRESHOLDMINS = 15;
+window.plugin.areasUnderAttack.THRESHOLDMINS = 5;
 
 window.plugin.areasUnderAttack.msgPortalList = {}; // list of attacked portals derived from chat messages
 window.plugin.areasUnderAttack.portalList = {}; // list of attacked portals derived from message portals compared to current portal state
