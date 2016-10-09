@@ -46,7 +46,7 @@ window.renderPortalDetails = function(guid) {
   var lat = data.latE6/1E6;
   var lng = data.lngE6/1E6;
 
-  var imgTitle = title+'\n\n點擊顯示全部圖像.';
+  var imgTitle = title+'\n\n點擊顯示原始圖片.';
 
 
   // portal level. start with basic data - then extend with fractional info in tooltip if available

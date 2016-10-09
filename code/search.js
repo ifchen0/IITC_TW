@@ -45,7 +45,7 @@ window.search.Query.prototype.init = function() {
       : ((this.term.length > 16
         ? this.term.substr(0,8) + '…' + this.term.substr(this.term.length-8,8)
         : this.term)
-        + ' (Return to load more)'))
+        + ' (確認以載入更多)'))
     .appendTo(this.container);
 
   this.list = $('<ul>')
