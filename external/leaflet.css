@@ -250,8 +250,13 @@
 	width: 30px;
 	height: 30px;
 	line-height: 30px;
+    border: 1px solid #00FFFF;
+    border-bottom: none;
+    text-align: center;
 	}
-
+.leaflet-touch .leaflet-bar a:last-child {
+    border-bottom: 1px solid #00FFFF;
+	}
 
 /* zoom control */
 
