@@ -1115,9 +1115,10 @@ td + td {
   left:10px;
   z-index: 2500;
   font-size:11px;
-  background-color:#0E3C46;
+  background-color: rgba(8, 48, 78, 0.7);
+  border: 1px solid #00FFFF;
   color:#00FFFF;
-  
+  height: 20px
 }
 
 
