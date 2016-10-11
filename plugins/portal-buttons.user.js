@@ -2,7 +2,7 @@
 // @id             iitc-plugin-portal-buttons
 // @name           IITC plugin: Portal Buttons
 // @category       圖層
-// @version        0.1.1
+// @version        0.1.1.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@
 // @downloadURL    @@DOWNLOADURL@@
@@ -370,31 +370,32 @@ function buildIcon(ambiguousIconString) {
 
   var tmpIcon;
 
-  // does this look like html? (i.e. not a class)
-  if( ambiguousIconString.match(/[&;=<>"']/) ){
+  
+  // // does this look like html? (i.e. not a class)
+  // if( ambiguousIconString.match(/[&;=<>"']/) ){
 
-    // if so, the user should have put in html
-    // so move forward as such
-    tmpIcon = ambiguousIconString;
+    // // if so, the user should have put in html
+    // // so move forward as such
+    // tmpIcon = ambiguousIconString;
 
-  // then it wasn't html, so
-  // it's a class list, figure out what kind
-  } else {
-      ambiguousIconString = ambiguousIconString.replace(/(^\s*|\s*$)/g,'');
-      tmpIcon = L.DomUtil.create('span', '');
+  // // then it wasn't html, so
+  // // it's a class list, figure out what kind
+  // } else {
+      // ambiguousIconString = ambiguousIconString.replace(/(^\s*|\s*$)/g,'');
+      // tmpIcon = L.DomUtil.create('span', '');
 
-      if( ambiguousIconString.indexOf('fa-') === 0 ){
-        L.DomUtil.addClass(tmpIcon, 'fa '  + ambiguousIconString)
-      } else if ( ambiguousIconString.indexOf('glyphicon-') === 0 ) {
-        L.DomUtil.addClass(tmpIcon, 'glyphicon ' + ambiguousIconString)
-      } else {
-        L.DomUtil.addClass(tmpIcon, /*rollwithit*/ ambiguousIconString)
-      }
+      // if( ambiguousIconString.indexOf('fa-') === 0 ){
+        // L.DomUtil.addClass(tmpIcon, 'fa '  + ambiguousIconString)
+      // } else if ( ambiguousIconString.indexOf('glyphicon-') === 0 ) {
+        // L.DomUtil.addClass(tmpIcon, 'glyphicon ' + ambiguousIconString)
+      // } else {
+        // L.DomUtil.addClass(tmpIcon, /*rollwithit*/ ambiguousIconString)
+      // }
 
-      // make this a string so that it's easy to set innerHTML below
-      tmpIcon = tmpIcon.outerHTML;
-  }
-
+      // // make this a string so that it's easy to set innerHTML below
+      // tmpIcon = tmpIcon.outerHTML;
+  // }
+  tmpIcon = ambiguousIconString;
   return tmpIcon;
 }
 
@@ -489,7 +490,7 @@ window.plugin.PortalButtons.boot = function() {
             stateName: 'default',
             onClick: showNone,
             title: '隱藏所有能量塔',
-            icon: '<img src="@@INCLUDEIMAGE:images/Button-X.png@@">'
+            icon: 'X'//'<img src="@@INCLUDEIMAGE:images/Button-X.png@@">'
         }]
     };
 
@@ -502,7 +503,7 @@ window.plugin.PortalButtons.boot = function() {
             stateName: 'default',
             onClick: showAll,
             title: '顯示所有能量塔',
-            icon: '<img src="@@INCLUDEIMAGE:images/Button-All.png@@">'
+            icon: 'All'//'<img src="@@INCLUDEIMAGE:images/Button-All.png@@">'
         }]
     };
 
@@ -515,7 +516,7 @@ window.plugin.PortalButtons.boot = function() {
             stateName: 'default',
             onClick: show78,
             title: '顯示L7和L8能量塔',
-            icon: '<img src="@@INCLUDEIMAGE:images/Button-7p.png@@">'
+            icon: '7+'//'<img src="@@INCLUDEIMAGE:images/Button-7p.png@@">'
         }]
     };
 
@@ -528,7 +529,7 @@ window.plugin.PortalButtons.boot = function() {
             stateName: 'default',
             onClick: show8,
             title: '顯示L8能量塔',
-            icon: '<img src="@@INCLUDEIMAGE:images/Button-8.png@@">'
+            icon: '8'//'<img src="@@INCLUDEIMAGE:images/Button-8.png@@">'
         }]
     };
 
