@@ -212,7 +212,10 @@
 .leaflet-bar a,
 .leaflet-bar a:hover {
 	background-color: rgba(8, 48, 78, 0.7);
-	border: 1px solid #00FFFF;
+	border-bottom: none;
+	border-top: 1px solid #00FFFF;
+	border-left: 1px solid #00FFFF;
+	border-right: 1px solid #00FFFF;
 	width: 26px;
 	height: 26px;
 	line-height: 26px;
@@ -220,7 +223,6 @@
 	text-align: center;
 	text-decoration: none;
 	color: white;
-    border-bottom: none;
 	}
 .leaflet-bar a,
 .leaflet-control-layers-toggle {

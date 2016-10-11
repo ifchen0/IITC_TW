@@ -45,12 +45,15 @@
 .leaflet-draw-actions {
 	display: none;
 	list-style: none;
-	margin: 0;
+	margin-top: 1px;
 	padding: 0;
 	position: absolute;
-	left: 26px; /* leaflet-draw-toolbar.left + leaflet-draw-toolbar.width */
+	left: 28px; /* leaflet-draw-toolbar.left + leaflet-draw-toolbar.width */
 	top: 0;
 	white-space: nowrap;
+	border-top: 1px solid #008888;
+	border-right: 1px solid #008888;
+	border-bottom: 1px solid #008888;
 }
 
 .leaflet-right .leaflet-draw-actions {
@@ -83,28 +86,25 @@
 
 .leaflet-draw-actions a {
 	background-color: rgba(8, 48, 78, 0.7);
-	border-left: 1px solid #00FFFF;
 	color: #FFF;
 	font: 11px/19px "Helvetica Neue", Arial, Helvetica, sans-serif;
-	line-height: 28px;
+	line-height: 26px;
 	text-decoration: none;
 	padding-left: 10px;
 	padding-right: 10px;
-	height: 28px;
+	height: 26px;
 }
 
 .leaflet-draw-actions-bottom {
-	margin-top: 0;
+
 }
 
 .leaflet-draw-actions-top {
-	margin-top: 1px;
+
 }
 
 .leaflet-draw-actions-top a,
 .leaflet-draw-actions-bottom a {
-	height: 27px;
-	line-height: 27px;
 }
 
 .leaflet-draw-actions a:hover {
