@@ -235,17 +235,17 @@
 	}
 .leaflet-bar a:first-child {
 	border: 1px solid #00FFFF;
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
+	/*border-top-left-radius: 0px;*/
+	/*border-top-right-radius: 0px;*/
 	}
 .leaflet-bar a:last-child {
-	border-bottom-left-radius: 0px;
-	border-bottom-right-radius: 0px;
+	/*border-bottom-left-radius: 0px;*/
+	/*border-bottom-right-radius: 0px;*/
 	}
 .leaflet-bar a.leaflet-disabled {
 	cursor: default;
 	background-color: rgba(8, 48, 78, 0.7);
-	color: rgba(4, 24, 39, 0.7);
+	color: #888;
 	}
 
 .leaflet-touch .leaflet-bar a {

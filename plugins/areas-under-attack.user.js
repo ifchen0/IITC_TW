@@ -18,6 +18,8 @@
 // @grant          none
 // ==/UserScript==
 
+// Mady by bryndavies
+
 @@PLUGINSTART@@
 
 // PLUGIN START ////////////////////////////////////////////////////////

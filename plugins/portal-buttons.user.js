@@ -18,7 +18,7 @@
 // @grant          none
 // ==/UserScript==
 
-//Made from Jnmllr.
+//Made by jnmllr
 
 @@PLUGINSTART@@
 
