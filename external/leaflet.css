@@ -212,10 +212,10 @@
 .leaflet-bar a,
 .leaflet-bar a:hover {
 	background-color: rgba(8, 48, 78, 0.7);
-	border-bottom: none;
-	border-top: 1px solid #00FFFF;
+	border-top: none;
 	border-left: 1px solid #00FFFF;
 	border-right: 1px solid #00FFFF;
+	border-bottom: 1px solid #00FFFF;
 	width: 26px;
 	height: 26px;
 	line-height: 26px;
@@ -234,13 +234,13 @@
 	/*background-color: #f4f4f4;*/
 	}
 .leaflet-bar a:first-child {
+	border: 1px solid #00FFFF;
 	border-top-left-radius: 0px;
 	border-top-right-radius: 0px;
 	}
 .leaflet-bar a:last-child {
 	border-bottom-left-radius: 0px;
 	border-bottom-right-radius: 0px;
-	border: 1px solid #00FFFF;
 	}
 .leaflet-bar a.leaflet-disabled {
 	cursor: default;
