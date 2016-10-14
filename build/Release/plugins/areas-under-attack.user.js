@@ -2,11 +2,11 @@
 // @id             iitc-plugin-areas-under-attack@bryndavies
 // @name           IITC plugin: highlight areas recently under attack
 // @category       調整
-// @version        0.1.1.20161006.121049
+// @version        0.1.1.20161014.111523
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/areas-under-attack.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/areas-under-attack.user.js
-// @description    [Release-2016-10-06-121049] Highlight areas under attack in last 15 mins by flashing portals, links and fields red. Uses chat data to determine attacked portals.
+// @description    [Release-2016-10-14-111523] Highlight areas under attack in last 15 mins by flashing portals, links and fields red. Uses chat data to determine attacked portals.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -18,6 +18,8 @@
 // @grant          none
 // ==/UserScript==
 
+// Mady by bryndavies
+
 
 function wrapper(plugin_info) {
 // ensure plugin framework is there, even if iitc is not yet loaded
@@ -26,7 +28,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'Release';
-plugin_info.dateTimeVersion = '20161006.121049';
+plugin_info.dateTimeVersion = '20161014.111523';
 plugin_info.pluginId = 'areas-under-attack';
 //END PLUGIN AUTHORS NOTE
 
@@ -38,7 +40,7 @@ plugin_info.pluginId = 'areas-under-attack';
 window.plugin.areasUnderAttack = function() {
 };
 
-window.plugin.areasUnderAttack.THRESHOLDMINS = 15;
+window.plugin.areasUnderAttack.THRESHOLDMINS = 5;
 
 window.plugin.areasUnderAttack.msgPortalList = {}; // list of attacked portals derived from chat messages
 window.plugin.areasUnderAttack.portalList = {}; // list of attacked portals derived from message portals compared to current portal state

@@ -2,7 +2,7 @@
 // @id             iitc-plugin-favorite-portals@soulBit
 // @name           IITC plugin: Favorite Portals
 // @category  Deleted
-// @version        0.2.0.20161006.121049
+// @version        0.2.0.20161014.111523
 // @description    Plugin replaced by the "Bookmarks for maps and portals" plugin
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/favorite-portals.meta.js
