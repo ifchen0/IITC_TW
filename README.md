@@ -1,7 +1,7 @@
 # IITC_TW
-This is a customize IITC with language translate to Traditional Chinese and little bit color/icon change.
+This is a customize IITC with language translate to Traditional Chinese and a bit theme change.
 
-All files is branch from official [IITC project](https://github.com/iitc-project/ingress-intel-total-conversion/).
+All files is branch from official [IITC project](https://github.com/iitc-project/ingress-intel-total-conversion/) and Github.
 For more introduction  about IITC_TW, please visit [this website](http://ifchen0.blogspot.tw/2015/08/iitc-chrome.html).
 Or you can just simply download all release files from [here](https://github.com/ifchen0/IITC_TW/tree/master/build). 
 
@@ -20,13 +20,3 @@ Or you can just simply download all release files from [here](https://github.com
 ---------------------------------------
 
 ![Screen shot](https://github.com/ifchen0/IITC_TW/raw/master/screenshots/screen.png)
-
----------------------------------------
-
-Why not add on official project?
-
-1. My English is bad.
-
-2. I am a noob of GitHub (I even use tortoise svn to commit all source code)
-
-3. I never see java script before this, and make APP support multi language is not easy at all for me.
