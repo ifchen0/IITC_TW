@@ -271,8 +271,8 @@ window.getMitigationText = function(d,linkCount) {
             + '- 有效:\t'+mitigationDetails.total+'\n'
             + '- 額外:\t'+mitigationDetails.excess+'\n'
             + '來源\n'
-            + '- 盾牌:\t'+mitigationDetails.shields+'\n'
-            + '- 鏈接:\t'+mitigationDetails.links;
+            + '- 護盾:\t'+mitigationDetails.shields+'\n'
+            + '- 連線:\t'+mitigationDetails.links;
 
   return ['防護', mitigationShort, title];
 }
