@@ -1,11 +1,11 @@
 // ==UserScript==
 // @id             ingress-intel-total-conversion@jonatkins
 // @name           IITC: Ingress intel map total conversion
-// @version        0.26.0.20161014.111523
+// @version        0.26.0.20161101.92028
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/total-conversion-build.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/total-conversion-build.user.js
-// @description    [Release-2016-10-14-111523] Total conversion for the ingress intel map.
+// @description    [Release-2016-11-01-092028] Total conversion for the ingress intel map.
 // @include        https://*.ingress.com/intel*
 // @include        http://*.ingress.com/intel*
 // @match          https://*.ingress.com/intel*
@@ -21,7 +21,7 @@
 // REPLACE ORIG SITE ///////////////////////////////////////////////////
 if(document.getElementsByTagName('html')[0].getAttribute('itemscope') != null)
   throw('Ingress Intel 網站關閉了, 不是 IITC userscript 的問題.');
-window.iitcBuildDate = '2016-10-14-111523';
+window.iitcBuildDate = '2016-11-01-092028';
 
 // disable vanilla JS
 window.onload = function() {};
@@ -1285,7 +1285,7 @@ function boot() {
   if(!isSmartphone()) // TODO remove completely?
     window.debug.console.overwriteNativeIfRequired();
 
-  console.log('loading done, booting. Built: 2016-10-14-111523');
+  console.log('loading done, booting. Built: 2016-11-01-092028');
   if(window.deviceID) console.log('Your device ID: ' + window.deviceID);
   window.runOnSmartphonesBeforeBoot();
 
@@ -15667,8 +15667,8 @@ window.getMitigationText = function(d,linkCount) {
             + '- 有效:\t'+mitigationDetails.total+'\n'
             + '- 額外:\t'+mitigationDetails.excess+'\n'
             + '來源\n'
-            + '- 盾牌:\t'+mitigationDetails.shields+'\n'
-            + '- 鏈接:\t'+mitigationDetails.links;
+            + '- 護盾:\t'+mitigationDetails.shields+'\n'
+            + '- 連線:\t'+mitigationDetails.links;
 
   return ['防護', mitigationShort, title];
 }
@@ -18041,7 +18041,7 @@ L.Draggable.prototype._onDown = function(e) {
 
 // inject code into site context
 var script = document.createElement('script');
-var info = { buildName: 'Release', dateTimeVersion: '20161014.111523' };
+var info = { buildName: 'Release', dateTimeVersion: '20161101.92028' };
 if (this.GM_info && this.GM_info.script) info.script = { version: GM_info.script.version, name: GM_info.script.name, description: GM_info.script.description };
 script.appendChild(document.createTextNode('('+ wrapper +')('+JSON.stringify(info)+');'));
 (document.body || document.head || document.documentElement).appendChild(script);
