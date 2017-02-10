@@ -1,4 +1,4 @@
-Ôªø/*
+/*
  Leaflet, a JavaScript library for mobile-friendly interactive maps. http://leafletjs.com
  (c) 2010-2013, Vladimir Agafonkin
  (c) 2010-2011, CloudMade
@@ -5192,25 +5192,15 @@ L.Path = (L.Path.SVG && !window.L_PREFER_CANVAS) || !L.Browser.canvas ? L.Path :
 
 	_initEvents: function () {
 		if (this.options.clickable) {
-			// TODO dblclick
 			this._map.on('mousemove', this._onMouseMove, this);
-// iF: keep 0.7.3 to prevent click no function - Start
-//            this._map.on('click dblclick contextmenu', this._fireMouseEvent, this);
 			this._map.on('click', this._onClick, this);
 		}
 	},
 
-
-//	_fireMouseEvent: function (e) {
-//		if (this._containsPoint(e.layerPoint)) {
-//			this.fire(e.type, e);
-//		}
-
 	_onClick: function (e) {
 		if (this._containsPoint(e.layerPoint)) {
-			this.fire('click', e);
+			this.fire(e.type, e);
 		}
-// iF: keep 0.7.3 to prevent click no function - END
 	},
 
 	_onMouseMove: function (e) {
@@ -8062,9 +8052,9 @@ L.Control.Zoom = L.Control.extend({
 	options: {
 		position: 'topleft',
 		zoomInText: '+',
-		zoomInTitle: 'ÊîæÂ§ß',
+		zoomInTitle: '©Ò§j',
 		zoomOutText: '-',
-		zoomOutTitle: 'Á∏ÆÂ∞è'
+		zoomOutTitle: '¡Y§p'
 	},
 
 	onAdd: function (map) {
