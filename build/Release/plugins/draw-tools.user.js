@@ -2,11 +2,11 @@
 // @id             iitc-plugin-draw-tools@breunigs
 // @name           IITC plugin: draw tools
 // @category      圖層
-// @version        0.7.0.20161014.111523
+// @version        0.7.0.20170210.164403
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/draw-tools.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/draw-tools.user.js
-// @description    [Release-2016-10-14-111523] 允許在地圖上繪製圖案, 你可以用這個工具計劃你的下一步行動.
+// @description    [Release-2017-02-10-164403] 允許在地圖上繪製圖案, 你可以用這個工具計劃你的下一步行動.
 // @include        https://*.ingress.com/intel*
 // @include        http://*.ingress.com/intel*
 // @match          https://*.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'Release';
-plugin_info.dateTimeVersion = '20161014.111523';
+plugin_info.dateTimeVersion = '20170210.164403';
 plugin_info.pluginId = 'draw-tools';
 //END PLUGIN AUTHORS NOTE
 
@@ -4823,11 +4823,11 @@ window.plugin.drawTools.setOptions = function() {
 window.plugin.drawTools.setDrawColor = function(color) {
   window.plugin.drawTools.currentColor = color;
   window.plugin.drawTools.currentMarker = window.plugin.drawTools.getMarkerIcon(color);
-  
+
   window.plugin.drawTools.lineOptions.color = color;
   window.plugin.drawTools.polygonOptions.color = color;
   window.plugin.drawTools.markerOptions.icon = window.plugin.drawTools.currentMarker;
-  
+
   plugin.drawTools.drawControl.setDrawingOptions({
     polygon:  { shapeOptions: plugin.drawTools.polygonOptions },
     polyline: { shapeOptions: plugin.drawTools.lineOptions },
@@ -5084,6 +5084,7 @@ window.plugin.drawTools.manualOpt = function() {
     showInput: false,
     showButtons: false,
     showPalette: true,
+    showPaletteOnly: false,
     showSelectionPalette: false,
     palette: [ ['#a24ac3','#514ac3','#4aa8c3','#51c34a'],
                ['#c1c34a','#c38a4a','#c34a4a','#c34a6f'],
@@ -5170,7 +5171,7 @@ window.plugin.drawTools.optPaste = function() {
     try {
       // first see if it looks like a URL-format stock intel link, and if so, try and parse out any stock drawn items
       // from the pls parameter
-      if (promptAction.match(new RegExp("^(https?://)?(www\\.)ingress\\.com/intel.*[?&]pls="))) {
+      if (promptAction.match(new RegExp("^(https?://)?(www\\.)?ingress\\.com/intel.*[?&]pls="))) {
         //looks like a ingress URL that has drawn items...
         var items = promptAction.split(/[?&]/);
         var foundAt = -1;

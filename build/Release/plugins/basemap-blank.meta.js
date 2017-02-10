@@ -2,11 +2,11 @@
 // @id             iitc-plugin-basemap-blank@jonatkins
 // @name           IITC plugin: Blank map
 // @category       地圖
-// @version        0.1.2.20161014.111523
+// @version        0.1.2.20170210.164403
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/basemap-blank.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/basemap-blank.user.js
-// @description    [Release-2016-10-14-111523] Add a blank map layer - no roads or other features.
+// @description    [Release-2017-02-10-164403] Add a blank map layer - no roads or other features.
 // @include        https://*.ingress.com/intel*
 // @include        http://*.ingress.com/intel*
 // @match          https://*.ingress.com/intel*

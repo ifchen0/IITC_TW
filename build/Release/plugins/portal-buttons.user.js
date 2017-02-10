@@ -2,7 +2,7 @@
 // @id             iitc-plugin-portal-buttons
 // @name           IITC plugin: Portal Buttons
 // @category       圖層
-// @version        0.1.1.20161014.111523
+// @version        0.1.1.20170210.164403
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/portal-buttons.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/portal-buttons.user.js
@@ -28,7 +28,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'Release';
-plugin_info.dateTimeVersion = '20161014.111523';
+plugin_info.dateTimeVersion = '20170210.164403';
 plugin_info.pluginId = 'portal-buttons';
 //END PLUGIN AUTHORS NOTE
 

@@ -2,7 +2,7 @@
 // @id             iitc-plugin-portal-buttons
 // @name           IITC plugin: Portal Buttons
 // @category       圖層
-// @version        0.1.1.20161014.111523
+// @version        0.1.1.20170210.164403
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/portal-buttons.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/portal-buttons.user.js

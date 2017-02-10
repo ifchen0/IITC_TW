@@ -1,11 +1,11 @@
-// ==UserScript==
+﻿// ==UserScript==
 // @id             ingress-intel-total-conversion@jonatkins
 // @name           IITC: Ingress intel map total conversion
-// @version        0.26.0.20161101.92028
+// @version        0.26.0.20170210.164403
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/total-conversion-build.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/total-conversion-build.user.js
-// @description    [Release-2016-11-01-092028] Total conversion for the ingress intel map.
+// @description    [Release-2017-02-10-164403] Total conversion for the ingress intel map.
 // @include        https://*.ingress.com/intel*
 // @include        http://*.ingress.com/intel*
 // @match          https://*.ingress.com/intel*
@@ -21,7 +21,7 @@
 // REPLACE ORIG SITE ///////////////////////////////////////////////////
 if(document.getElementsByTagName('html')[0].getAttribute('itemscope') != null)
   throw('Ingress Intel 網站關閉了, 不是 IITC userscript 的問題.');
-window.iitcBuildDate = '2016-11-01-092028';
+window.iitcBuildDate = '2017-02-10-164403';
 
 // disable vanilla JS
 window.onload = function() {};
@@ -59,8 +59,9 @@ document.getElementsByTagName('head')[0].innerHTML = ''
 //note: smartphone.css injection moved into code/smartphone.js
   + '<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,400italic,500,500italic,700,700italic&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic"/>';
 
-
-document.getElementsByTagName('body')[0].innerHTML = ''
+// remove body element entirely to remove event listeners
+document.body = document.createElement('body');
+document.body.innerHTML = ''
   + '<div id="map">讀取中, 請稍後</div>'
   + '<div id="chatcontrols" style="display:none">'
   + '<a accesskey="0" title="[0]"><span class="toggle expand"></span></a>'
@@ -1285,7 +1286,7 @@ function boot() {
   if(!isSmartphone()) // TODO remove completely?
     window.debug.console.overwriteNativeIfRequired();
 
-  console.log('loading done, booting. Built: 2016-11-01-092028');
+  console.log('loading done, booting. Built: 2017-02-10-164403');
   if(window.deviceID) console.log('Your device ID: ' + window.deviceID);
   window.runOnSmartphonesBeforeBoot();
 
@@ -6623,25 +6624,15 @@ L.Path = (L.Path.SVG && !window.L_PREFER_CANVAS) || !L.Browser.canvas ? L.Path :
 
 	_initEvents: function () {
 		if (this.options.clickable) {
-			// TODO dblclick
 			this._map.on('mousemove', this._onMouseMove, this);
-// iF: keep 0.7.3 to prevent click no function - Start
-//            this._map.on('click dblclick contextmenu', this._fireMouseEvent, this);
 			this._map.on('click', this._onClick, this);
 		}
 	},
 
-
-//	_fireMouseEvent: function (e) {
-//		if (this._containsPoint(e.layerPoint)) {
-//			this.fire(e.type, e);
-//		}
-
 	_onClick: function (e) {
 		if (this._containsPoint(e.layerPoint)) {
-			this.fire('click', e);
+			this.fire(e.type, e);
 		}
-// iF: keep 0.7.3 to prevent click no function - END
 	},
 
 	_onMouseMove: function (e) {
@@ -14706,30 +14697,39 @@ window.registerMarkerForOMS = function(marker) {
 
 ﻿// ORNAMENTS ///////////////////////////////////////////////////////
 
-// added as part of the ingress #helios in 2014, ornaments
-// are additional image overlays for portals
-// currently there are 28 known ornaments: ap$x$suffix
+// Added as part of the Ingress #Helios in 2014, ornaments
+// are additional image overlays for portals.
+// currently there are 6 known types of ornaments: ap$x$suffix
 // - cluster portals (without suffix)
 // - volatile portals (_v)
 // - meeting points (_start)
 // - finish points (_end)
+//
+// Beacons and Frackers were introduced at the launch of the Ingress
+// ingame store on November 1st, 2015
+// - Beacons (pe$TAG - $NAME) ie: 'peNIA - NIANTIC'
+// - Frackers ('peFRACK')
 // (there are 7 different colors for each of them)
 
 
-window.ornaments = {}
+window.ornaments = {};
 window.ornaments.OVERLAY_SIZE = 60;
 window.ornaments.OVERLAY_OPACITY = 0.6;
 
 window.ornaments.setup = function() {
   window.ornaments._portals = {};
   window.ornaments._layer = L.layerGroup();
+  window.ornaments._beacons = L.layerGroup();
+  window.ornaments._frackers = L.layerGroup();
   window.addLayerGroup('特殊標記', window.ornaments._layer, true);
-}
+  window.addLayerGroup('Beacons', window.ornaments._beacons, true);
+  window.addLayerGroup('Frackers', window.ornaments._frackers, true);
+};
 
 // quick test for portal having ornaments
 window.ornaments.isInterestingPortal = function(portal) {
-  return portal.options.data.ornaments.length != 0;
-}
+  return portal.options.data.ornaments.length !== 0;
+};
 
 window.ornaments.addPortal = function(portal) {
   var guid = portal.options.guid;
@@ -14741,27 +14741,37 @@ window.ornaments.addPortal = function(portal) {
 
   if (portal.options.data.ornaments) {
     window.ornaments._portals[guid] = portal.options.data.ornaments.map(function(ornament) {
+      var layer = window.ornaments._layer;
+      if (ornament.startsWith("pe")) {
+        if (ornament === "peFRACK") {
+          layer = window.ornaments._frackers;
+        } else {
+          layer = window.ornaments._beacons;
+        }
+      }
       var icon = L.icon({
-        iconUrl: "//commondatastorage.googleapis.com/ingress.com/img/map_icons/marker_images/"+ornament+".png",
+        iconUrl: "//commondatastorage.googleapis.com/ingress.com/img/map_icons/marker_images/" + ornament + ".png",
         iconSize: [size, size],
-        iconAnchor: [size/2,size/2],
+        iconAnchor: [size/2, size/2],
         className: 'no-pointer-events'  // the clickable: false below still blocks events going through to the svg underneath
       });
 
-      return L.marker(latlng, {icon: icon, clickable: false, keyboard: false, opacity: window.ornaments.OVERLAY_OPACITY }).addTo(window.ornaments._layer);
+      return L.marker(latlng, {icon: icon, clickable: false, keyboard: false, opacity: window.ornaments.OVERLAY_OPACITY }).addTo(layer);
     });
   }
-}
+};
 
 window.ornaments.removePortal = function(portal) {
   var guid = portal.options.guid;
   if(window.ornaments._portals[guid]) {
     window.ornaments._portals[guid].forEach(function(marker) {
       window.ornaments._layer.removeLayer(marker);
+      window.ornaments._beacons.removeLayer(marker);
+      window.ornaments._frackers.removeLayer(marker);
     });
     delete window.ornaments._portals[guid];
   }
-}
+};
 
 
 ;
@@ -18041,7 +18051,7 @@ L.Draggable.prototype._onDown = function(e) {
 
 // inject code into site context
 var script = document.createElement('script');
-var info = { buildName: 'Release', dateTimeVersion: '20161101.92028' };
+var info = { buildName: 'Release', dateTimeVersion: '20170210.164403' };
 if (this.GM_info && this.GM_info.script) info.script = { version: GM_info.script.version, name: GM_info.script.name, description: GM_info.script.description };
 script.appendChild(document.createTextNode('('+ wrapper +')('+JSON.stringify(info)+');'));
 (document.body || document.head || document.documentElement).appendChild(script);

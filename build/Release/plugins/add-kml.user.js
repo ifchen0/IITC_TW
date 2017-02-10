@@ -2,11 +2,11 @@
 // @id             overlay-kml@danielatkins
 // @name           IITC plugin: overlay KML
 // @category      圖層
-// @version        0.2.0.20161014.111523
+// @version        0.2.0.20170210.164403
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/add-kml.meta.js
 // @downloadURL    https://raw.githubusercontent.com/ifchen0/IITC_TW/master/build/Release/plugins/add-kml.user.js
-// @description    [Release-2016-10-14-111523] Allow users to overlay their own KML / GPX files on top of IITC.
+// @description    [Release-2017-02-10-164403] Allow users to overlay their own KML / GPX files on top of IITC.
 // @include        https://*.ingress.com/intel*
 // @include        http://*.ingress.com/intel*
 // @match          https://*.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'Release';
-plugin_info.dateTimeVersion = '20161014.111523';
+plugin_info.dateTimeVersion = '20170210.164403';
 plugin_info.pluginId = 'add-kml';
 //END PLUGIN AUTHORS NOTE
 
@@ -705,6 +705,8 @@ L.KMLMarker = L.Marker.extend({
                         for (j = 0; j < geomNodes.length; j++) {
                             geomNode = geomNodes[j];
                             if (geotypes[i] == 'Point') {
+                                if(nodeVal(get1(geomNode, 'coordinates')) === null)
+                                    continue;
                                 geoms.push({
                                     type: 'Point',
                                     coordinates: coord1(nodeVal(get1(geomNode, 'coordinates')))
