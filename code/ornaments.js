@@ -1,4 +1,4 @@
-// ORNAMENTS ///////////////////////////////////////////////////////
+ï»¿// ORNAMENTS ///////////////////////////////////////////////////////
 
 // Added as part of the Ingress #Helios in 2014, ornaments
 // are additional image overlays for portals.
@@ -24,7 +24,7 @@ window.ornaments.setup = function() {
   window.ornaments._layer = L.layerGroup();
   window.ornaments._beacons = L.layerGroup();
   window.ornaments._frackers = L.layerGroup();
-  window.addLayerGroup('¯S®í¼Ð°O', window.ornaments._layer, true);
+  window.addLayerGroup('ç‰¹æ®Šæ¨™è¨˜', window.ornaments._layer, true);
   window.addLayerGroup('Beacons', window.ornaments._beacons, true);
   window.addLayerGroup('Frackers', window.ornaments._frackers, true);
 };

@@ -1,4 +1,4 @@
-// ==UserScript==
+﻿// ==UserScript==
 // @id             ingress-intel-total-conversion@jonatkins
 // @name           IITC: Ingress intel map total conversion
 // @version        0.26.0.@@DATETIMEVERSION@@
